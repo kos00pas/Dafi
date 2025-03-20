@@ -8,4 +8,5 @@
 
     <toc-element topic="0.DafI-0-Network-Topology.md"/>
     <toc-element topic="1.Use_case.md"/>
+    <toc-element topic="Implementation_plan.md"/>
 </instance-profile>

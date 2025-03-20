@@ -12,8 +12,6 @@
 ## Tested /Devices
 
 * Nordic nRF52840
-* Texas Instruments CC2652
-* Silicon Labs EFR32MG21
 
 | Type | Architecture        | Role                 |
 |------|---------------------|----------------------|
@@ -22,14 +20,7 @@
 | FTD  | Nordic (nRF52840)   | FED                  |
 |      |                     | REED                 |
 |      |                     | Router               |
-|      |                     |                      |
-| FTD  | Texas (CC2652)      | FED                  |
-|      |                     | REED                 |
-|      |                     | Router               |
-|      |                     |                      |
-| FTD  | Silicon (EFR32MG21) | FED                  |
-|      |                     | REED                 |
-|      |                     | Router               |
+
 
 * promotions
 - FED → REED: ( cannot promote  unless it was initially a REED).
