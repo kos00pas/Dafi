@@ -1,0 +1,9 @@
+version: "3.8"
+services:
+  renode:
+    image: setup-zephyr/ub:0.0
+    build: .
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: renode -P -e 'i @mandatory-files/nrf52840.resc'
