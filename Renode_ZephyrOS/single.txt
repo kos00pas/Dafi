@@ -1,0 +1,115 @@
+The following methods are available:
+ - Void AddLineHook (String contains, String pythonScript)
+ - Void CloseFileBackend (String path)
+ - Void CreateFileBackend (String path, Boolean immediateFlush = False)
+ - Void DebugLog (String message)
+ - String DumpHistoryBuffer (Int32 limit = 0)
+ - Void ErrorLog (String message)
+ - Endianess GetEndianness (Endianess? defaultEndianness = null)
+ - IEnumerable<Tuple<String,IGPIO>> GetGPIOs ()
+ - IMachine GetMachine ()
+ - String GetName ()
+ - IEnumerable<NullRegistrationPoint> GetRegistrationPoints (IUART peripheral)
+ - Boolean HasGPIO ()
+ - Void InfoLog (String message)
+ - Boolean IsHostEndian ()
+ - Void Log (LogLevel type, String message)
+ - Void LogUnhandledRead (Int64 offset)
+ - Void LogUnhandledWrite (Int64 offset, UInt64 value)
+ - Void NoisyLog (String message)
+ - Byte ReadByteNotTranslated (Int64 address)
+ - Byte ReadByteUsingDoubleWord (Int64 address)
+ - Byte ReadByteUsingDoubleWordBigEndian (Int64 address)
+ - UInt32 ReadDoubleWord (Int64 offset)
+ - UInt32 ReadDoubleWordBigEndian (Int64 address)
+ - UInt32 ReadDoubleWordNotTranslated (Int64 address)
+ - UInt64 ReadQuadWordNotTranslated (Int64 address)
+ - UInt64 ReadQuadWordUsingDoubleWord (Int64 address)
+ - UInt64 ReadQuadWordUsingDoubleWordBigEndian (Int64 address)
+ - UInt16 ReadWordNotTranslated (Int64 address)
+ - UInt16 ReadWordUsingDoubleWord (Int64 address)
+ - UInt16 ReadWordUsingDoubleWordBigEndian (Int64 address)
+ - Void RecordToAsciinema (String filePath, Boolean useVirtualTimeStamps = False, Int32 width = 80, Int32 height = 24)
+ - Void Reset ()
+ - Void Unregister (IUART uart)
+ - Void WarningLog (String message)
+ - Void WriteByteNotTranslated (Int64 address, Byte value)
+ - Void WriteByteUsingDoubleWord (Int64 address, Byte value)
+ - Void WriteByteUsingDoubleWordBigEndian (Int64 address, Byte value)
+ - Void WriteChar (Byte value)
+ - Void WriteDoubleWord (Int64 offset, UInt32 value)
+ - Void WriteDoubleWordBigEndian (Int64 address, UInt32 value)
+ - Void WriteDoubleWordNotTranslated (Int64 address, UInt32 value)
+ - Void WriteLine (String text, Boolean appendCarriageReturn = True)
+ - Void WriteLine (String text, LineEnding lineEnding = CR)
+ - Void WriteQuadWordNotTranslated (Int64 address, UInt64 value)
+ - Void WriteQuadWordUsingDoubleWord (Int64 address, UInt64 value)
+ - Void WriteQuadWordUsingDoubleWordBigEndian (Int64 address, UInt64 value)
+ - Void WriteWordNotTranslated (Int64 address, UInt16 value)
+ - Void WriteWordUsingDoubleWord (Int64 address, UInt16 value)
+ - Void WriteWordUsingDoubleWordBigEndian (Int64 address, UInt16 value)
+
+Usage:
+ sysbus.uart0 MethodName param1 param2 ...
+
+
+The following properties are available:
+ - UInt32 BaudRate
+     available for 'get'
+ - GPIO IRQ
+     available for 'get'
+ - Parity ParityBit
+     available for 'get'
+ - Int64 Size
+     available for 'get'
+ - Bits StopBits
+     available for 'get'
+
+Usage:
+ - get: sysbus.uart0 PropertyName
+ - set: sysbus.uart0 PropertyName Value
+
+(machine-0) hrlp
+No such command or device: hrlp
+(machine-0) help
+Available commands:
+Name              | Description
+================================================================================
+alias             : sets ALIAS.
+allowPrivates     : allow private fields and properties manipulation.
+analyzers         : shows available analyzers for peripheral.
+commandFromHistory: executes command from history.
+createPlatform    : creates a platform.
+currentTime       : prints out and logs the current emulation virtual and real time
+displayImage      : Displays image in Monitor
+execute           : executes a command or the content of a VARIABLE.
+help              : prints this help message or info about specified command.
+history           : prints command history.
+include           : loads a Monitor script, Python code, platform file or a plugin class.
+lastLog           : Logs last n logs.
+log               : logs messages.
+logFile           : sets the output file for logger.
+logLevel          : sets logging level for backends.
+logNetwork        : sets the output port for logger.
+mach              : list and manipulate machines available in the environment.
+macro             : sets MACRO.
+numbersMode       : sets the way numbers are displayed.
+path              : allows modification of internal 'PATH' variable.
+pause             : pauses the emulation.
+peripherals       : prints list of registered and named peripherals.
+python            : executes the provided python command.
+quit              : quits the emulator.
+require           : verifies the existence of a variable.
+resd              : introspection for RESD files
+runMacro          : executes a command or the content of a MACRO.
+set               : sets VARIABLE.
+showAnalyzer      : opens a peripheral backend analyzer.
+start             : starts the emulation.
+string            : treat given arguments as a single string.
+using             : expose a prefix to avoid typing full object names.
+verboseMode       : controls the verbosity of the Monitor.
+version           : shows version information.
+watch             : executes a command periodically, showing output in monitor
+
+You can also provide a device name to access its methods.
+Use <TAB> for auto-completion.
