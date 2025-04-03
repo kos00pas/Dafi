@@ -1,0 +1,106 @@
+PS C:\Users\kos00> docker ps -a
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+PS C:\Users\kos00> docker network create `
+>>   --driver bridge `
+>>   --subnet "172.20.0.0/16" `
+>>   --ipv6 --subnet "fd00:dead:beef::/48" `
+>>   ot-net
+Error response from daemon: network with name ot-net already exists
+PS C:\Users\kos00> docker network rm ot-net
+ot-net
+PS C:\Users\kos00> docker network create `
+>>   --driver bridge `
+>>   --subnet "172.20.0.0/16" `
+>>   --ipv6 --subnet "fd00:dead:beef::/48" `
+>>   ot-net
+4e9ba0b251ff4091540555fff91d06dfc233eed412051d7234398f2b431f548b
+PS C:\Users\kos00> docker ps -a
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+PS C:\Users\kos00> docker network inspect ot-net
+[
+    {
+        "Name": "ot-net",
+        "Id": "4e9ba0b251ff4091540555fff91d06dfc233eed412051d7234398f2b431f548b",
+        "Created": "2025-04-01T16:36:24.530579792Z",
+        "Scope": "local",
+        "Driver": "bridge",
+        "EnableIPv4": true,
+        "EnableIPv6": true,
+        "IPAM": {
+            "Driver": "default",
+            "Options": {},
+            "Config": [
+                {
+                    "Subnet": "172.20.0.0/16"
+                },
+                {
+                    "Subnet": "fd00:dead:beef::/48"
+                }
+            ]
+        },
+        "Internal": false,
+        "Attachable": false,
+        "Ingress": false,
+        "ConfigFrom": {
+            "Network": ""
+        },
+        "ConfigOnly": false,
+        "Containers": {},
+        "Options": {},
+        "Labels": {}
+    }
+]
+PS C:\Users\kos00> docker ps
+CONTAINER ID   IMAGE                    COMMAND   CREATED         STATUS         PORTS     NAMES
+6db054bb70fc   openthread/environment   "bash"    2 minutes ago   Up 2 minutes             node2
+5d89cd841286   openthread/environment   "bash"    2 minutes ago   Up 2 minutes             node1
+PS C:\Users\kos00> docker network inspect ot-net
+[
+    {
+        "Name": "ot-net",
+        "Id": "4e9ba0b251ff4091540555fff91d06dfc233eed412051d7234398f2b431f548b",
+        "Created": "2025-04-01T16:36:24.530579792Z",
+        "Scope": "local",
+        "Driver": "bridge",
+        "EnableIPv4": true,
+        "EnableIPv6": true,
+        "IPAM": {
+            "Driver": "default",
+            "Options": {},
+            "Config": [
+                {
+                    "Subnet": "172.20.0.0/16"
+                },
+                {
+                    "Subnet": "fd00:dead:beef::/48"
+                }
+            ]
+        },
+        "Internal": false,
+        "Attachable": false,
+        "Ingress": false,
+        "ConfigFrom": {
+            "Network": ""
+        },
+        "ConfigOnly": false,
+        "Containers": {
+            "5d89cd84128624853428be38a83c3db0c731a0148586dd3f68d5bfe8b5da3fe3": {
+                "Name": "node1",
+                "EndpointID": "c12c0eccda77979cfd11325cbc600f037317b0c06536cf28e81fec8172fa799c",
+                "MacAddress": "7e:07:0c:b9:66:1f",
+                "IPv4Address": "172.20.0.2/16",
+                "IPv6Address": "fd00:dead:beef::2/48"
+            },
+            "6db054bb70fc208897d02f6a4995b7e465d1219fd815f80ff3c4ea196dc0d7e3": {
+                "Name": "node2",
+                "EndpointID": "7b3a1c3876b421720923ae2a8ca1fc5c240ff55c57ad1cce28d33accd620ae9c",
+                "MacAddress": "52:56:26:09:b6:9c",
+                "IPv4Address": "172.20.0.3/16",
+                "IPv6Address": "fd00:dead:beef::3/48"
+            }
+        },
+        "Options": {},
+        "Labels": {}
+    }
+]
+PS C:\Users\kos00>

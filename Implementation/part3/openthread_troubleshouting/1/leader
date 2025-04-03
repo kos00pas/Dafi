@@ -1,0 +1,56 @@
+PS C:\Users\kos00> docker run -it --rm    --sysctl net.ipv6.conf.all.disable_ipv6=0    --cap-add=net_admin openthread/environment bash
+root@6029c2b00e53:/# /openthread/build/examples/apps/cli/ot-cli-ftd 1
+> ipaddr
+Done
+> dataset init new
+Done
+> dataset networkname BASELINE
+Done
+> dataset panid 0x0001
+Done
+> dataset networkkey 00000000000000000000000000000001
+Done
+> dataset commit active
+Done
+> dataset
+Active Timestamp: 1
+Channel: 12
+Wake-up Channel: 26
+Channel Mask: 0x07fff800
+Ext PAN ID: fc6196617eaf5e24
+Mesh Local Prefix: fd28:6b7d:2d3:4a3::/64
+Network Key: 00000000000000000000000000000001
+Network Name: BASELINE
+PAN ID: 0x0001
+PSKc: 5b7d289b5b76a48c8d38d939a22067c1
+Security Policy: 672 onrc 0
+Done
+> ifconfig up
+Done
+> thread start
+Done
+> state
+detached
+Done
+> state
+detached
+Done
+> state
+leader
+Done
+> router table
+| ID | RLOC16 | Next Hop | Path Cost | LQ In | LQ Out | Age | Extended MAC     | Link |
++----+--------+----------+-----------+-------+--------+-----+------------------+------+
+| 37 | 0x9400 |       63 |         0 |     0 |      0 |   0 | 522c825f1e019519 |    0 |
+
+Done
+> ipaddr
+fd28:6b7d:2d3:4a3:0:ff:fe00:fc00
+fd28:6b7d:2d3:4a3:0:ff:fe00:9400
+fd28:6b7d:2d3:4a3:8bfb:8652:6b9:f4c
+fe80:0:0:0:502c:825f:1e01:9519
+Done
+> state
+leader
+Done
+>

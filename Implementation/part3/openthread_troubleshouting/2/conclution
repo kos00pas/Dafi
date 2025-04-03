@@ -1,0 +1,52 @@
+Root Cause:
+UDP packets (IEEE 802.15.4 over port 900X) are not reaching between containers.
+✅ Conclusion from docker network inspect:
+
+
+Be able to simulate 802.15.4 radio communication (via UDP port range)
+
+
+
+
+❌ They still won't reach each other unless the simulated 802.15.4 radio packets can be exchanged.
+
+Your Docker network (ot-net) must:
+
+Allow UDP (default bridge usually does)
+
+Be shared by both containers
+
+Not block multicast/UDP 5684 (commissioning) or 9000+ (radio)
+
+
+openthread :
+This binary implements an OpenThread device. The IEEE 802.15.4 radio driver is implemented on top of UDP (IEEE 802.15.4 frames are passed within UDP payloads).
+
+The argument of 1 is a file descriptor that represents the least-significant bits of the "factory-assigned" IEEE EUI-64 for the emulated device. This value is also used when binding to a UDP port for IEEE 802.15.4 radio emulation (port = 9000 + file descriptor). Each instance of an emulated Thread device in this Codelab will use a different file descriptor.
+
+
+
+core solution :
+🔧 3. Make sure UDP ports (9001, 9002...) are reachable
+Docker should allow this by default, but if you’re on Windows:
+
+Open Windows Firewall
+
+Allow Docker to communicate on private networks
+
+(Optional) Temporarily turn off Defender Firewall to test
+
+You can test UDP reachability from node1 → node2:
+
+apt update && apt install -y netcat
+nc -uz fd00:dead:beef::3 9002   # from node1
+
+
+
+-----
+
+Inside the container:
+* apt update && apt install -y netcat
+Then run the test:
+* nc -uz fd00:dead:beef::3 9002
+https://chatgpt.com/c/67ec1177-1238-800f-be8d-74b9567614d4

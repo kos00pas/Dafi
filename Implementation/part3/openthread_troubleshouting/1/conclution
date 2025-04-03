@@ -1,0 +1,10 @@
+
+lets see something . i try to establish openthread communication and i upload the files from the different terminals in my windows host machine using docker windows engine .
+
+we can understand from that that the leader & same_cont (file) can reach and communicate each other because there are in the same docker in contrast iwth different_cont(file) ?  that conclusion can be reached with the terminal_window(file) ?
+
+
+
+
+
+the question is : is it feasible to represent a different opentrhead node to a different docker and each node to be in the same docker network ?

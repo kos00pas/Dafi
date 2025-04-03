@@ -1,0 +1,63 @@
+Troubleshooting OpenThread Joiner Failure in Docker
+Issue: An OpenThread Joiner running in a Docker container fails to join the network, reporting "Join failed [NotFound]". This typically indicates the joiner could not find or complete commissioning with a Commissioner. Below are potential causes and fixes:
+1. Joiner Interface State and Network Parameters
+Ensure the joiner node is in a factory-fresh state before commissioning:
+	• Factory Reset: Confirm you performed a factoryreset on the joiner. This clears any previous network credentials. After reset, the joiner should have no assigned PAN ID or network (its router list and ipaddr should be empty).
+	• Bring Interface Up Only: On a fresh joiner, do not start Thread networking (i.e. do not use thread start). Instead, only bring the 802.15.4 interface up with ifconfig up before commissioning. Starting the Thread protocol early can cause the device to form its own network and prevent it from acting as a joiner. The joiner should remain detached until it successfully commissions.
+	• PAN ID Filter: By default, a joiner may retain a PAN ID from prior use, which can filter the networks it discovers. OpenThread will only discover networks matching the joiner’s current PAN ID setting, unless it is set to the wildcard 0xFFFF​
+github.com
+. Solution: Set the joiner’s PAN ID to 0xFFFF (e.g. via the CLI command panid 0xffff) before joiner start. This ensures the joiner will scan for any Thread network. (Factory reset usually sets this to 0xFFFF, but it’s worth verifying if you previously formed a network on that node.)
+2. Commissioner Setup and Timing
+Double-check the Commissioner node’s state and the timing of the join process:
+	• Active Commissioner: After forming the network dataset and starting the commissioner (commissioner start), confirm that it successfully petitioned. The CLI should show the Commissioner state progressing to “active”. Also ensure the node is the Thread Leader (use state to check it’s leader), so it can fulfill commissioner duties.
+	• Add Joiner Credentials: Make sure you added the joiner with the correct credential after the commissioner became active. Using the wildcard * is acceptable (it sets the Steering Data to allow any joiner). Verify this command (commissioner joiner add * J01NME) returned Done and did not error. (Optionally, you can check the active dataset on the Commissioner with dataset active to see if a Steering Data TLV is present, indicating the joiner is allowed.)
+	• Commissioning Window: Time sensitivity can cause a NotFound error. The joiner must initiate commissioning before the Commissioner’s join window expires​
+hackmd.io
+. By default, the joiner timeout is short (around 120 seconds). If you wait too long after adding the joiner, the Commissioner may stop listening. In practice, start the joiner within a minute or two of the commissioner joiner add. If a join attempt fails due to timeout, redo the commissioner joiner add and immediately retry joiner start on the joiner. You can also extend the join window by specifying a timeout in the add command (for example: commissioner joiner add * J01NME 300 to allow 5 minutes).
+	• Retry if Needed: It’s known that sometimes the first attempt might fail if the Commissioner hadn’t fully signaled its presence. The OpenThread codelab notes that if you see “Join failed”, you should restart the commissioner joiner process and try again​
+hackmd.io
+. Ensure the Commissioner is still active each time you attempt a join.
+3. Network Ports and Connectivity (UDP 5684)
+Commissioning uses a DTLS handshake over a specific UDP port, so network configuration matters:
+	• DTLS Port Open: Thread commissioning (MeshCoP) uses UDP port 5684 (CoAP Secure) for the joiner <-> commissioner handshake​
+openthread.io
+. All Docker containers in the ot-net bridge should be able to reach each other on this port. By default, Docker’s user-defined bridge allows free inter-container UDP traffic, but verify no additional firewall (on the host or container) is blocking UDP 5684. If you have a firewall, open or allow UDP 5684 between the containers.
+	• IPv6 Multicast/Link-Local: The joiner discovery process relies on IPv6 (for commissioner discovery beacons and link-local address communication). In a Docker environment, enable IPv6 support so that these messages propagate. For example, run the containers with --sysctl net.ipv6.conf.all.disable_ipv6=0 to enable IPv6 inside the container​
+hackmd.io
+. Without IPv6, the joiner’s discovery requests or responses might not be delivered.
+	• Container Networking Mode: If using a custom network and the above steps don’t work, consider using --network host for your containers during testing. This places containers on the host network, eliminating any bridging issues for multicast. (Be cautious: in host mode, if you start multiple ot-cli-ftd instances, each must use a unique simulation port to avoid conflicts.)
+4. OpenThread CLI in Docker – Known Limitations
+Running OpenThread CLI instances in separate containers can introduce simulation quirks:
+	• Simulated Radio Connectivity: The OpenThread CLI FTD examples simulate the 802.15.4 radio using UDP multicast. All simulated nodes must share the same “radio” channel. In the official Docker codelab, this is achieved by running multiple CLI nodes in one container (or one network namespace) so they can exchange packets via localhost​
+hackmd.io
+. In your setup with separate containers, the default simulation may not automatically bridge between containers. To fix this, you have a couple of options:
+		○ Single Container Multi-Node: Run all three CLI instances in one container (e.g. open multiple shells or run a supervisor script). This guarantees they see each other’s traffic.
+		○ Configure Simulation Ports: If combining isn’t feasible, ensure each CLI instance is started with a specific simulation port or ID and that the containers can reach those ports. For example, OpenThread’s CLI supports passing an instance argument (like ot-cli-ftd 1, ot-cli-ftd 2, etc.) which maps to distinct UDP port ranges for the simulated radio. All containers should be on the same subnet (which you have via 172.20.0.x), and you may need to allow UDP traffic on the simulation port range (typically starting at 9000). In short, configure the OT simulation to use the Docker network for 802.15.4 frames instead of the loopback.
+		○ OpenThread Network Simulator (OTNS): For more complex setups, consider using OTNS to coordinate multiple nodes’ simulation. OTNS can run a virtual radio driver that all nodes attach to. This might be overkill, but it ensures connectivity.
+	• Privilege Requirements: OpenThread CLI will often create a TUN interface (e.g. ot0) to represent the Thread network on the host. In Docker, creating network interfaces may require elevated privileges. If you see errors around interface creation, run the container with --cap-add=NET_ADMIN. Since you got ifconfig up Done, the interface likely created successfully, but NET_ADMIN is a recommended setting for OT CLI in Docker​
+hackmd.io
+.
+	• Unique IDs: Each joiner should have a unique EUI-64 (extended address). Usually, OpenThread CLI generates one. If you suspect an issue, you can manually check each joiner’s EUI (CLI command eui64). If by some chance they were identical or not what the Commissioner expects, add the joiners by that specific EUI instead of wildcard to test the commissioning (commissioner joiner add <eui64> J01NME). (Generally, using * is fine and covers all IDs, but this is a debugging step.)
+5. Additional Considerations and Fixes
+	• Commissioner Advertisements: There may be a short delay after starting the Commissioner before it begins advertising itself for joiners. To avoid a race condition, wait a couple of seconds after commissioner start (and the joiner addition) before issuing joiner start. Conversely, don’t wait so long that the commissioner times out. Finding this balance or re-running the commands if needed is often necessary in practice​
+hackmd.io
+.
+	• Monitoring Discovery: Use the joiner CLI scan command to see if it detects the Thread network as joinable. In the scan results, look at the “J” column. A value of 1 indicates a joinable network (active commissioner present)​
+devzone.nordicsemi.com
+. If your Commissioner’s network doesn’t show up with a J:1 flag (or doesn’t appear at all), then the joiner isn’t hearing the commissioning beacon. This points to a connectivity issue (simulation bridging or timing) rather than just a credential mismatch.
+	• Logs and Verbose Output: Running the OpenThread CLI with logging enabled can provide clues. For example, enabling MeshCop logs might show if a Joiner Discover request was sent and if any response was received. If no response, it reinforces a connectivity problem (joiner and commissioner not actually on the same virtual 802.15.4 network). If a response is seen but still NotFound, it could be a credential issue.
+	• Reattempt and Reset: After making adjustments (like fixing PAN ID or network settings), reset the joiner node and try again. The join process can be finicky; sometimes simply resetting and ensuring all settings are correct before a clean attempt yields success. The fact that both joiners failed suggests a systemic issue (network config or commissioner state) rather than a one-off device fault.
+By addressing these points, you can typically resolve the Join failed [NotFound] error. For example, one common fix is setting the joiner’s PAN ID to 0xFFFF (so it scans all networks) and confirming the Commissioner’s steering data is open to all joiners​
+github.com
+. Another is to repeat the commissioning with proper timing if the first attempt timed out​
+hackmd.io
+. In a Docker-based simulation, ensuring the containers can exchange UDP packets for the Thread simulation (including DTLS on port 5684) is critical. Once the configuration is correct, the joiners should see the Commissioner and you’ll get a “Join success” message instead of NotFound. Good luck!
+Sources:
+	• OpenThread Codelab (Docker Simulation) – note on joiner timing​
+hackmd.io
+	• OpenThread GitHub Issue – PAN ID filter causing joiner NotFound​
+github.com
+	• TI Thread Forum – Importance of not starting Thread before join completes
+	• OpenThread CoAP Secure default port (5684)​
+openthread.io
+	• Nordic DevZone – example of joiner failing until hardware was reset (for general insight)​

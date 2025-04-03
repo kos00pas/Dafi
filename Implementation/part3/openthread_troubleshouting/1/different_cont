@@ -1,0 +1,43 @@
+
+PS C:\Users\kos00> docker run -it --rm    --sysctl net.ipv6.conf.all.disable_ipv6=0    --cap-add=net_admin openthread/environment bash
+root@605baa2b5317:/#  /openthread/build/examples/apps/cli/ot-cli-ftd 3
+>  dataset networkkey 00000000000000000000000000000001
+Done
+> dataset panid 0x0001
+Done
+>  dataset commit active
+Done
+>  ifconfig up
+Done
+>  thread start
+Done
+> state
+detached
+Done
+> state
+detached
+Done
+> state
+detached
+Done
+> router table
+| ID | RLOC16 | Next Hop | Path Cost | LQ In | LQ Out | Age | Extended MAC     | Link |
++----+--------+----------+-----------+-------+--------+-----+------------------+------+
+
+Done
+> ipaddr
+fdde:ad00:beef:0:1e56:c1fb:c682:7cbd
+fe80:0:0:0:1c29:927a:7580:5607
+Done
+> rlock16
+Error 35: InvalidCommand
+> state
+detached
+Done
+> rloc16
+fffe
+Done
+> state
+detached
+Done
+>

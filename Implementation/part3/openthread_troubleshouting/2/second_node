@@ -1,0 +1,45 @@
+PS C:\Users\kos00> docker run -it --rm `
+>>   --name node2 `
+>>   --network ot-net `
+>>   --cap-add=NET_ADMIN `
+>>   --sysctl net.ipv6.conf.all.disable_ipv6=0 `
+>>   openthread/environment bash
+root@6db054bb70fc:/# /openthread/build/examples/apps/cli/ot-cli-ftd 2
+> dataset networkkey 00000000000000000000000000000001
+Done
+> dataset panid 0x0001
+Done
+> dataset commit active
+Done
+> ifconfig up
+Done
+> thread start
+Done
+> state
+detached
+Done
+> state
+detached
+Done
+> state
+detached
+Done
+> ipaddr
+fdde:ad00:beef:0:133b:d318:88c8:4604
+fe80:0:0:0:ace1:54bc:a5b8:4b9
+Done
+> state
+detached
+Done
+> state
+detached
+Done
+> state
+detached
+Done
+> ping fd00:dead:beef::2
+1 packets transmitted, 0 packets received. Packet loss = 100.0%.
+Done
+>
+
+

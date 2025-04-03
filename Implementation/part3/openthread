@@ -1,0 +1,19 @@
+# 1
+
+dataset init new
+dataset networkname BASELINE
+dataset panid 0x0001
+dataset networkkey 00000000000000000000000000000001
+dataset commit active
+dataset
+ifconfig up
+thread start
+
+# 2
+dataset networkkey 00000000000000000000000000000001
+dataset panid 0x0001
+dataset commit active
+ifconfig up
+thread start
+state
+ipaddr

@@ -1,0 +1,53 @@
+# Start each container with explicit UDP port binding:
+
+docker run -it --rm `
+  --name node1 `
+  --network ot-net `
+  -p 9001:9001/udp `
+  --cap-add=NET_ADMIN `
+  --sysctl net.ipv6.conf.all.disable_ipv6=0 `
+  openthread/environment bash
+
+## Do the same for node2:
+docker run -it --rm `
+  --name node2 `
+  --network ot-net `
+  -p 9002:9002/udp `
+  --cap-add=NET_ADMIN `
+  --sysctl net.ipv6.conf.all.disable_ipv6=0 `
+  openthread/environment bash
+
+
+----------------------------
+apt update && apt install -y net-tools
+apt update && apt install -y netcat
+apt update && apt install -y iproute2
+
+## node2
+nc -6 -ul -p 9002
+
+## node 1
+echo "hello from node1" | nc -6 -u fd00:dead:beef::3 9002
+
+# also node 1
+ ip -6 route show
+    fd00:dead:beef::/48 dev eth0 proto kernel metric 256 pref medium
+    fe80::/64 dev eth0 proto kernel metric 256 pref medium
+    default via fd00:dead:beef::1 dev eth0 metric 1024 pref medium
+
+ping6 fd00:dead:beef::3
+    PING fd00:dead:beef::3 (fd00:dead:beef::3): 56 data bytes
+    64 bytes from node2.ot-net: icmp_seq=0 ttl=64 time=0.169 ms
+
+ [                "Name": "node2",
+                "EndpointID": "5b4bcdde00f3776c3be900f62375be85f756d844547d5200617681c8625d2e99",
+                "MacAddress": "b2:9a:fa:e7:aa:ad",
+                "IPv4Address": "172.20.0.3/16",
+                "IPv6Address": "fd00:dead:beef::3/48"
+            },
+            "8b3fda0c37024d93f2e49fc1565f969a48368e512e79b947ca96f38b095491ae": {
+                "Name": "node1",
+                "EndpointID": "2aab2e640033daacd8577a519c14b4bca5447d461c24d6c44cccaaf26026dcd5",
+                "MacAddress": "be:2a:17:78:11:03",
+                "IPv4Address": "172.20.0.2/16",
+                "IPv6Address": "fd00:dead:beef::2/48"]

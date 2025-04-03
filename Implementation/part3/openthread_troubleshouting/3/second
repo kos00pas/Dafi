@@ -1,0 +1,33 @@
+PS C:\Users\kos00> docker run -it --rm `
+>>   --name node2 `
+>>   --network ot-net `
+>>   -p 9002:9002/udp `
+>>   --cap-add=NET_ADMIN `
+>>   --sysctl net.ipv6.conf.all.disable_ipv6=0 `
+>>   openthread/environment bash
+root@680cdae7cb18:/# /openthread/build/examples/apps/cli/ot-cli-ftd 2
+> ipaddr
+Done
+> dataset networkkey 00000000000000000000000000000001
+Done
+>  dataset panid 0x0001
+Done
+>  dataset commit active
+Done
+>  ifconfig up
+Done
+> thread start
+Done
+> state
+detached
+Done
+> state
+detached
+Done
+> state
+detached
+Done
+> ipaddr
+fdde:ad00:beef:0:f0f2:7ed7:806e:9a6d
+fe80:0:0:0:1407:c2d9:2894:d551
+Done

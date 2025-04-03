@@ -1,0 +1,54 @@
+PS C:\Users\kos00> docker run -it --rm `
+>>   --name node1 `
+>>   --network ot-net `
+>>   --cap-add=NET_ADMIN `
+>>   --sysctl net.ipv6.conf.all.disable_ipv6=0 `
+>>   openthread/environment bash
+root@5d89cd841286:/# /openthread/build/examples/apps/cli/ot-cli-ftd 1
+> dataset init new
+Done
+> dataset networkname BASELINE
+Done
+> dataset panid 0x0001
+Done
+> dataset networkkey 00000000000000000000000000000001
+Done
+> dataset commit active
+Done
+> dataset
+Active Timestamp: 1
+Channel: 11
+Wake-up Channel: 16
+Channel Mask: 0x07fff800
+Ext PAN ID: 21ed779623ad8c74
+Mesh Local Prefix: fdaa:c24e:b112:b646::/64
+Network Key: 00000000000000000000000000000001
+Network Name: BASELINE
+PAN ID: 0x0001
+PSKc: 412d47fe967c780fff3afd33c7eb4b31
+Security Policy: 672 onrc 0
+Done
+> ifconfig up
+Done
+> thread start
+Done
+> ipaddr
+fdaa:c24e:b112:b646:4ae9:cb79:9b9e:1cfc
+fe80:0:0:0:1c8d:3e32:3c2a:cea2
+Done
+> state
+detached
+Done
+> state
+leader
+Done
+> ipaddr
+fdaa:c24e:b112:b646:0:ff:fe00:fc00
+fdaa:c24e:b112:b646:0:ff:fe00:9000
+fdaa:c24e:b112:b646:4ae9:cb79:9b9e:1cfc
+fe80:0:0:0:1c8d:3e32:3c2a:cea2
+Done
+> ping fd00:dead:beef::3
+1 packets transmitted, 0 packets received. Packet loss = 100.0%.
+Done
+>

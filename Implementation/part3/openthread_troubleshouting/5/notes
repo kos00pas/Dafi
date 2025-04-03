@@ -1,0 +1,18 @@
+add :
+
+ --device /dev/net/tun \
+
+in the container check :
+ip tuntap
+    expect :tun0: tun
+
+
+
+# If you're doing low-level stuff (like emulating interfaces, radio drivers, or need full host interaction), you might need: But avoid this unless required, as it's heavy-handed and less secure.
+--privileged
+
+# docker network
+docker network create ot-net \
+  --driver bridge \
+  --subnet=fd00:abcd::/64 \
+  --ipv6

@@ -1,0 +1,51 @@
+PS C:\Users\kos00> docker network inspect ot-net
+[
+    {
+        "Name": "ot-net",
+        "Id": "4e9ba0b251ff4091540555fff91d06dfc233eed412051d7234398f2b431f548b",
+        "Created": "2025-04-01T16:36:24.530579792Z",
+        "Scope": "local",
+        "Driver": "bridge",
+        "EnableIPv4": true,
+        "EnableIPv6": true,
+        "IPAM": {
+            "Driver": "default",
+            "Options": {},
+            "Config": [
+                {
+                    "Subnet": "172.20.0.0/16",
+                    "Gateway": "172.20.0.1"
+                },
+                {
+                    "Subnet": "fd00:dead:beef::/48",
+                    "Gateway": "fd00:dead:beef::1"
+                }
+            ]
+        },
+        "Internal": false,
+        "Attachable": false,
+        "Ingress": false,
+        "ConfigFrom": {
+            "Network": ""
+        },
+        "ConfigOnly": false,
+        "Containers": {
+            "680cdae7cb185870043743e5bc84410a3c98dcffc390a36557c85a47927560d9": {
+                "Name": "node2",
+                "EndpointID": "37bc68ff829badec29df95514726313b75bfca4ff673ae8ca912415f8d0a50bd",
+                "MacAddress": "4e:5d:22:02:cc:ff",
+                "IPv4Address": "172.20.0.3/16",
+                "IPv6Address": "fd00:dead:beef::3/48"
+            },
+            "db4a8511ecf7997065c39470b1a63591fb0e087cc4915b830c6fa1cf83c53537": {
+                "Name": "node1",
+                "EndpointID": "f03f4c85367e54e4d5c774c4ef37d820e0a044fc10643da0b17d984fd4f444ab",
+                "MacAddress": "06:9d:4b:73:b4:fa",
+                "IPv4Address": "172.20.0.2/16",
+                "IPv6Address": "fd00:dead:beef::2/48"
+            }
+        },
+        "Options": {},
+        "Labels": {}
+    }
+]
