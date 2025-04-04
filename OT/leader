@@ -1,0 +1,12 @@
+dataset init new
+dataset networkname BASELINE
+dataset panid 0x0001
+dataset networkkey 00000000000000000000000000000001
+dataset commit active
+ifconfig up
+thread start
+state
+commissioner start
+#####
+commissioner joiner add <NODE2_EUI64> J01NME 300
+*********

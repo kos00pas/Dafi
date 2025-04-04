@@ -1,0 +1,37 @@
+version: '3.8'
+services:
+  node1:
+    image: ot-posix-ftd
+    container_name: node1
+    environment:
+      NODE_NAME: node1
+    networks:
+      - thread-net
+    tty: true
+    stdin_open: true
+
+  node2:
+    image: ot-posix-ftd
+    container_name: node2
+    environment:
+      NODE_NAME: node2
+    networks:
+      - thread-net
+    tty: true
+    stdin_open: true
+
+  node3:
+    image: ot-posix-ftd
+    container_name: node3
+    environment:
+      NODE_NAME: node3
+    networks:
+      - thread-net
+    tty: true
+    stdin_open: true
+
+networks:
+  thread-net:
+    external: true
+    name: ot-net
+

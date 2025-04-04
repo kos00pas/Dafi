@@ -1,0 +1,29 @@
+version: '3.8'
+
+volumes:
+  ot-pipes:
+
+services:
+  ot_node1:
+    image: custom_ot
+    container_name: ot_node1
+    entrypoint: ""
+    command:  tail -f /dev/null
+    cap_add:
+      - NET_ADMIN
+    sysctls:
+      net.ipv6.conf.all.disable_ipv6: "0"
+    volumes:
+      - ot-pipes:/pipes
+
+  ot_node2:
+    image: custom_ot
+    container_name: ot_node2
+    entrypoint: ""
+    command: tail -f /dev/null
+    cap_add:
+      - NET_ADMIN
+    sysctls:
+      net.ipv6.conf.all.disable_ipv6: "0"
+    volumes:
+      - ot-pipes:/pipes

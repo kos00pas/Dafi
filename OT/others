@@ -1,0 +1,6 @@
+#####
+eui64
+********
+ifconfig up
+joiner start J01NME
+state
