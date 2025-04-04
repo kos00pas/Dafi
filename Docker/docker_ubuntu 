@@ -1,0 +1,63 @@
+pash@pash-5080-kios7lq0wb3:~$ docker ps -a
+CONTAINER ID   IMAGE             COMMAND                  CREATED       STATUS                   PORTS     NAMES
+5e5c163d5c17   antmicro/renode   "/bin/sh -c renode"      9 days ago    Exited (0) 9 days ago              boring_boyd
+ff95db505d58   antmicro/renode   "/bin/sh -c renode"      9 days ago    Exited (0) 9 days ago              clever_taussig
+dfc41e523dcb   antmicro/renode   "/bin/sh -c renode"      9 days ago    Exited (0) 9 days ago              quirky_sanderson
+95c3710e757e   antmicro/renode   "/bin/sh -c renode"      9 days ago    Exited (0) 9 days ago              admiring_ritchie
+f21628853e11   antmicro/renode   "/bin/sh -c renode"      9 days ago    Exited (0) 9 days ago              amazing_williamson
+d4411d33b100   antmicro/renode   "/bin/sh -c renode"      9 days ago    Exited (0) 9 days ago              wizardly_ramanujan
+f029eeaa3013   antmicro/renode   "/bin/sh -c renode"      9 days ago    Exited (0) 9 days ago              distracted_cerf
+a6fb80ec430a   antmicro/renode   "/bin/sh -c renode"      9 days ago    Exited (0) 9 days ago              wonderful_panini
+8a195262d1e6   antmicro/renode   "/bin/sh -c renode"      9 days ago    Exited (0) 9 days ago              elastic_brahmagupta
+00da45d1f04a   antmicro/renode   "/bin/sh -c renode"      9 days ago    Exited (0) 9 days ago              admiring_jennings
+65a158294b3c   antmicro/renode   "/bin/sh -c renode"      9 days ago    Exited (0) 9 days ago              awesome_payne
+4752ecdaa2b4   c55a6dc14b08      "/bin/bash -c '. /ap…"   9 days ago    Exited (1) 9 days ago              vibrant_stonebraker
+4ab4a398c4c6   hello-world       "/hello"                 9 days ago    Exited (0) 9 days ago              agitated_northcutt
+34e25b8b2f9e   hello-world       "/hello"                 12 days ago   Exited (0) 12 days ago             sad_keller
+pash@pash-5080-kios7lq0wb3:~$ docker ps -aq | xargs -r docker rm
+5e5c163d5c17
+ff95db505d58
+dfc41e523dcb
+95c3710e757e
+f21628853e11
+d4411d33b100
+f029eeaa3013
+a6fb80ec430a
+8a195262d1e6
+00da45d1f04a
+65a158294b3c
+4752ecdaa2b4
+4ab4a398c4c6
+34e25b8b2f9e
+
+pash@pash-5080-kios7lq0wb3:~$ docker ps -a
+CONTAINER ID   IMAGE             COMMAND                  CREATED       STATUS                   PORTS     NAMES
+5e5c163d5c17   antmicro/renode   "/bin/sh -c renode"      9 days ago    Exited (0) 9 days ago              boring_boyd
+ff95db505d58   antmicro/renode   "/bin/sh -c renode"      9 days ago    Exited (0) 9 days ago              clever_taussig
+dfc41e523dcb   antmicro/renode   "/bin/sh -c renode"      9 days ago    Exited (0) 9 days ago              quirky_sanderson
+95c3710e757e   antmicro/renode   "/bin/sh -c renode"      9 days ago    Exited (0) 9 days ago              admiring_ritchie
+f21628853e11   antmicro/renode   "/bin/sh -c renode"      9 days ago    Exited (0) 9 days ago              amazing_williamson
+d4411d33b100   antmicro/renode   "/bin/sh -c renode"      9 days ago    Exited (0) 9 days ago              wizardly_ramanujan
+f029eeaa3013   antmicro/renode   "/bin/sh -c renode"      9 days ago    Exited (0) 9 days ago              distracted_cerf
+a6fb80ec430a   antmicro/renode   "/bin/sh -c renode"      9 days ago    Exited (0) 9 days ago              wonderful_panini
+8a195262d1e6   antmicro/renode   "/bin/sh -c renode"      9 days ago    Exited (0) 9 days ago              elastic_brahmagupta
+00da45d1f04a   antmicro/renode   "/bin/sh -c renode"      9 days ago    Exited (0) 9 days ago              admiring_jennings
+65a158294b3c   antmicro/renode   "/bin/sh -c renode"      9 days ago    Exited (0) 9 days ago              awesome_payne
+4752ecdaa2b4   c55a6dc14b08      "/bin/bash -c '. /ap…"   9 days ago    Exited (1) 9 days ago              vibrant_stonebraker
+4ab4a398c4c6   hello-world       "/hello"                 9 days ago    Exited (0) 9 days ago              agitated_northcutt
+34e25b8b2f9e   hello-world       "/hello"                 12 days ago   Exited (0) 12 days ago             sad_keller
+pash@pash-5080-kios7lq0wb3:~$ docker ps -aq | xargs -r docker rm
+5e5c163d5c17
+ff95db505d58
+dfc41e523dcb
+95c3710e757e
+f21628853e11
+d4411d33b100
+f029eeaa3013
+a6fb80ec430a
+8a195262d1e6
+00da45d1f04a
+65a158294b3c
+4752ecdaa2b4
+4ab4a398c4c6
+34e25b8b2f9e
