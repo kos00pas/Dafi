@@ -98,13 +98,13 @@ def wait_for_network_convergence(ns, max_wait=120, interval=2):
 def main():
     ns = OTNS(
         otns_path=OTNS_PATH,
-        otns_args=["-log", "debug"]
+        # otns_args=["-log", "debug"]
     )
     ns.set_title("DAfI - Role Configured Topology")
     ns.set_network_info(version="Latest", commit="main", real=False)
     ns.web()
     ns.speed = 20
-    TOTAL_DEVICES = 50# 510 max
+    TOTAL_DEVICES = 5# 510 max
     configuration(ns,TOTAL_DEVICES)
     if wait_for_network_convergence(ns):
         print("Ready to initiate communication.")
