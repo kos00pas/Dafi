@@ -30,7 +30,30 @@ def initiate_coap_announcement(ns):
 
         except Exception as e:
             print(f"❌ Node {node_id} failed to send message: {e}")
+    # 🔽 Fetch and print received payloads
+    print_received_payloads(ns, receiver_id)
 
+import binascii
+
+import binascii
+
+import binascii
+
+def print_received_payloads(ns, receiver_id):
+    print("\n📥 Receiver Log (CoAP Payloads):")
+    try:
+        log_lines = ns.node_logs(receiver_id)
+        for line in log_lines:
+            line = line.strip()
+            if "coap request payload" in line:
+                hex_payload = line.split(":")[-1].strip()
+                try:
+                    decoded = binascii.unhexlify(hex_payload).decode("utf-8", errors="replace")
+                    print(f"  Payload: {decoded}")
+                except Exception as e:
+                    print(f"  Payload (raw): {hex_payload} (decode error: {e})")
+    except Exception as e:
+        print(f"❌ Failed to fetch logs from receiver: {e}")
 
 
 
