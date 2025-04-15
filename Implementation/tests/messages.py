@@ -12,8 +12,7 @@ from my_functions import (
     place_feds_ring
 )
 from communication import (
-initiate_coap_announcement,
-print_received_payloads
+initiate_coap_announcement
 )
 
 # Set paths to executables
@@ -105,7 +104,7 @@ def main():
     ns.set_network_info(version="Latest", commit="main", real=False)
     ns.web()
     ns.speed = 10
-    TOTAL_DEVICES = 5# 510 max
+    TOTAL_DEVICES = 200# 510 max
     configuration(ns,TOTAL_DEVICES)
     if wait_for_network_convergence(ns):
         print("Ready to initiate communication.")
