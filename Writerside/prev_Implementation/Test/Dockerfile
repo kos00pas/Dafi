@@ -42,7 +42,7 @@ RUN . .venv/bin/activate && \
     west zephyr-export && \
     west packages pip --install
 
-COPY mandatory-files/ /opt/zephyrproject/mandatory-files/
+COPY mandatory-files /opt/zephyrproject/mandatory-files/
 
 ENTRYPOINT ["/bin/bash", "-c", \
   ". /opt/zephyrproject/.venv/bin/activate && \
