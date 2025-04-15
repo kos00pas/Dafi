@@ -27,8 +27,9 @@
    25  ./script/cmake-build simulation -DOT_OTNS=ON -DOT_SIMULATION_VIRTUAL_TIME=ON -DOT_SIMULATION_VIRTUAL_TIME_UART=ON -DOT_SIMULATION_MAX_NETWORK_SIZE=999
    26  sudo apt install ninja-build build-essential
    27  cd ~/src/openthread
-   28  ./script/cmake-build simulation   -DOT_OTNS=ON   -DOT_SIMULATION_VIRTUAL_TIME=ON   -DOT_SIMULATION_VIRTUAL_TIME_UART=ON   -DOT_SIMULATION_MAX_NETWORK_SIZE=999
+   28  ./script/cmake-build simulation -DOT_OTNS=ON -DOT_SIMULATION_VIRTUAL_TIME=ON   -DOT_SIMULATION_VIRTUAL_TIME_UART=ON   -DOT_SIMULATION_MAX_NETWORK_SIZE=999
    29  otns
    pip install grpcio grpcio-tools
    pip install pyshark
+    pip install pyroscope-io
 ```

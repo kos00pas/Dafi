@@ -1,0 +1,12 @@
+timestamp:20762  event:{set_speed:{speed:1}}
+timestamp:20768  event:{set_network_info:{commit:"main"}}
+timestamp:21656  event:{set_speed:{speed:1e+06}}
+timestamp:25356  event:{add_node:{node_id:1  radio_range:160}}
+timestamp:28592  event:{on_ext_addr_change:{node_id:1  ext_addr:9127495590342106448}}
+timestamp:28619  event:{set_node_rloc16:{node_id:1  rloc16:65534}}
+timestamp:89745  event:{set_node_rloc16:{node_id:1  rloc16:65534}}
+timestamp:90710  event:{set_node_role:{node_id:1  role:OT_DEVICE_ROLE_DETACHED}}
+timestamp:243124  event:{set_node_rloc16:{node_id:1  rloc16:65534}}
+timestamp:13027252  event:{set_node_pos:{node_id:1  x:37  y:52}}
+timestamp:13213551  event:{set_node_pos:{node_id:1  x:211  y:225}}
+timestamp:13343413  event:{set_node_pos:{node_id:1  x:223  y:242}}

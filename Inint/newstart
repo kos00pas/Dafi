@@ -1,0 +1,38 @@
+    1  sudo apt install
+    2  ls
+    4  go version
+    5  sudo tar -C /usr/local -xzf go1.22.1.linux-amd64.tar.gz
+    6  echo "export PATH=\$PATH:/usr/local/go/bin" >> ~/.bashrc
+    7  source ~/.bashrc
+    8  go version
+    9  sudo apt install unzip
+   10  sudo apt install python3-pip
+   11  python3 --version
+   12  sudo apt update
+   13  sudo apt install curl -y
+   14  pip3 --version
+   15  sudo apt install python3-pip
+   16  pip install pyroscope-io
+   17  sudo apt update
+   18  sudo apt install -y xdg-utils
+   19  sudo apt install -y wget unzip
+   21  pip install influxdb-client
+   ----
+echo 'export PATH=$(go env GOPATH)/bin:$PATH' >> ~/.bashrc
+source ~/.bashrc
+-----
+git clone https://github.com/openthread/openthread openthread
+git submodule update --init --recursive
+cd openthread
+./script/bootstrap
+./bootstrap
+./script/cmake-build simulation \
+  -DOT_OTNS=ON \
+  -DOT_SIMULATION_VIRTUAL_TIME=ON \
+  -DOT_SIMULATION_VIRTUAL_TIME_UART=ON \
+  -DOT_SIMULATION_MAX_NETWORK_SIZE=999
+
+cd ~/otns/openthread/build/simulation/examples/apps/cli
+otns
+
+
