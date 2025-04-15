@@ -104,8 +104,8 @@ def main():
     ns.set_title("DAfI - Role Configured Topology")
     ns.set_network_info(version="Latest", commit="main", real=False)
     ns.web()
-    ns.speed = 1000
-    TOTAL_DEVICES = 50# 510 max
+    ns.speed = 10
+    TOTAL_DEVICES = 5# 510 max
     configuration(ns,TOTAL_DEVICES)
     if wait_for_network_convergence(ns):
         print("Ready to initiate communication.")
