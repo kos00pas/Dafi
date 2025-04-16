@@ -7,13 +7,13 @@ from random import choices
 from string import ascii_letters, digits
 
 def initiate_coap_announcement(ns):
-    print("\n📡 Initiating CoAP message exchange...")
+    # print("\n📡 Initiating CoAP message exchange...")
 
     receiver_id = list(ns.nodes().keys())[0]
     ns.node_cmd(receiver_id, "coap start")
     ns.node_cmd(receiver_id, "coap resource logs")
     receiver_ip = get_rloc_address(ns, receiver_id)
-    print(f"🧭 Receiver Node {receiver_id} IP: {receiver_ip}")
+    # print(f"🧭 Receiver Node {receiver_id} IP: {receiver_ip}")
 
     for node_id in ns.nodes():
         try:
@@ -26,10 +26,11 @@ def initiate_coap_announcement(ns):
             cmd = f"coap post {receiver_ip} logs con {payload}"
             ns.node_cmd(node_id, cmd)
 
-            print(f"📨 Node {node_id} sent payload: {payload}")
+            # print(f"📨 Node {node_id} sent payload: {payload}")
 
         except Exception as e:
-            print(f"❌ Node {node_id} failed to send message: {e}")
+            pass
+            # print(f"❌ Node {node_id} failed to send message: {e}")
 
 
 

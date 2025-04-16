@@ -1,5 +1,5 @@
-from otns.cli import OTNS
-from otns.cli.errors import OTNSExitedError
+from otns import OTNS
+from otns import OTNSExitedError
 
 OT_CLI_ftd = "/home/otns/otns/openthread/build/simulation/examples/apps/cli/ot-cli-ftd"
 OT_CLI_mtd = "/home/otns/otns/openthread/build/simulation/examples/apps/cli/ot-cli-ftd"

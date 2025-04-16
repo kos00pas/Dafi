@@ -1,9 +1,8 @@
-from otns.cli import OTNS
-from otns.cli.errors import OTNSExitedError
+from otns import OTNS
+from otns import OTNSExitedError
 from my_functions import (
     kill_otns_port,
     calculate_device_roles,
-    place_in_circle,
     place_leader,
     place_routers_cross,
     place_reeds_diagonal_and_ring,

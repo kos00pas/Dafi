@@ -24,6 +24,12 @@
 # CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
 # ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 # POSSIBILITY OF SUCH DAMAGE.
+from datetime import datetime
+
+
+def now():
+    return datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f")
+
 
 import ipaddress
 import logging
@@ -35,7 +41,7 @@ from typing import List, Union, Optional, Tuple, Dict, Any, Collection
 
 import yaml
 
-from .errors import OTNSCliError, OTNSExitedError
+from otns.cli.errors import OTNSCliError, OTNSExitedError
 
 
 class OTNS(object):
@@ -58,7 +64,9 @@ class OTNS(object):
         self._otns = subprocess.Popen([self._otns_path] + self._otns_args,
                                       bufsize=16384,
                                       stdin=subprocess.PIPE,
-                                      stdout=subprocess.PIPE)
+                                      stdout=subprocess.PIPE,
+                                      stderr=subprocess.STDOUT
+                                      )
         logging.info("otns process launched: %s", self._otns)
 
     def close(self) -> None:
@@ -145,26 +153,91 @@ class OTNS(object):
 
     def _do_command(self, cmd: str) -> List[str]:
         logging.info("OTNS <<< %s", cmd)
+        print(f"[{now()}] [_do_command] Sending command: {cmd}", flush=True)
+
         try:
             self._otns.stdin.write(cmd.encode('ascii') + b'\n')
             self._otns.stdin.flush()
         except BrokenPipeError:
+            print(f"[{now()}] [_do_command] BrokenPipeError on write.", flush=True)
             self._on_otns_eof()
 
         output = []
         while True:
             line = self._otns.stdout.readline()
             if line == b'':
+                print(f"[{now()}] [_do_command] EOF reached.", flush=True)
                 self._on_otns_eof()
 
             line = line.rstrip(b'\r\n').decode('utf-8')
-            logging.info(f"OTNS >>> {line}")
+
+            # 🪪 Print all received lines, tagging OTNS logs separately
+            if line.startswith(("info\t", "debug\t", "warn\t", "error\t")):
+                print(f"[{now()}] [OTNS LOG] {line}", flush=True)
+                continue
+
+            print(f"[{now()}] [_do_command] Received: {line}", flush=True)
+
             if line == 'Done':
                 return output
             elif line.startswith('Error: '):
                 raise OTNSCliError(line[7:])
 
             output.append(line)
+    # def _do_command(self, cmd: str) -> List[str]:
+    #     logging.info("OTNS <<< %s", cmd)
+    #     print(f"[{now()}] [_do_command] Sending command: {cmd}", flush=True)
+    #
+    #     try:
+    #         self._otns.stdin.write(cmd.encode('ascii') + b'\n')
+    #         self._otns.stdin.flush()
+    #     except BrokenPipeError:
+    #         print(f"[{now()}] [_do_command] BrokenPipeError on write.", flush=True)
+    #         self._on_otns_eof()
+    #
+    #     output = []
+    #     while True:
+    #         line = self._otns.stdout.readline()
+    #         if line == b'':
+    #             print(f"[{now()}] [_do_command] EOF reached.", flush=True)
+    #             self._on_otns_eof()
+    #
+    #         line = line.rstrip(b'\r\n').decode('utf-8')
+    #         print(f"[{now()}] [_do_command] Received: {line}", flush=True)
+    #
+    #         # 🔍 Skip OTNS-internal log lines from final output
+    #         if line.startswith(("info\t", "debug\t", "warn\t", "error\t")):
+    #             continue
+    #
+    #         if line == 'Done':
+    #             return output
+    #         elif line.startswith('Error: '):
+    #             raise OTNSCliError(line[7:])
+    #
+    #         output.append(line)
+
+    # def _do_command(self, cmd: str) -> List[str]:
+    #     logging.info("OTNS <<< %s", cmd)
+    #     try:
+    #         self._otns.stdin.write(cmd.encode('ascii') + b'\n')
+    #         self._otns.stdin.flush()
+    #     except BrokenPipeError:
+    #         self._on_otns_eof()
+    #
+    #     output = []
+    #     while True:
+    #         line = self._otns.stdout.readline()
+    #         if line == b'':
+    #             self._on_otns_eof()
+    #
+    #         line = line.rstrip(b'\r\n').decode('utf-8')
+    #         logging.info(f"OTNS >>> {line}")
+    #         if line == 'Done':
+    #             return output
+    #         elif line.startswith('Error: '):
+    #             raise OTNSCliError(line[7:])
+    #
+    #         output.append(line)
 
     def add(self, type: str, x: float = None, y: float = None, id=None, radio_range=None, executable=None,
             restore=False) -> int:
@@ -427,6 +500,7 @@ class OTNS(object):
         """
         cmd = f'node {nodeid} "{cmd}"'
         output = self._do_command(cmd)
+        # print(nodeid,cmd,output)
         return output
 
     def get_state(self, nodeid: int) -> str:
@@ -679,7 +753,7 @@ class OTNS(object):
         :param font_size: Font size of title
         """
         cmd = f'title "{title}"'
-
+        print("niaou")
         if x is not None:
             cmd += f' x {x}'
 

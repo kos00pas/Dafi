@@ -1,11 +1,8 @@
-import time
-
 from otns.cli import OTNS
 from otns.cli.errors import OTNSExitedError
 from my_functions import (
     kill_otns_port,
     calculate_device_roles,
-    place_in_circle,
     place_leader,
     place_routers_cross,
     place_reeds_diagonal_and_ring,
@@ -58,17 +55,16 @@ def configuration(ns,TOTAL_DEVICES):
     place_reeds_diagonal_and_ring(ns, center_x, center_y, reeds, spacing, OT_CLI_ftd, add_reed)
     fed_radius = spacing * 3
     place_feds_ring(ns, center_x, center_y, feds, fed_radius, OT_CLI_ftd, add_fed)
-    print("=============================================================")
+    # print("=============================================================")
     # === Run Simulation ===
 
-import time
 
 def wait_for_network_convergence(ns, max_wait=120, interval=2):
     """
     Blocks until all nodes have joined the mesh (i.e., are not 'detached').
     Times out after `max_wait` seconds.
     """
-    print("\n⏳ Waiting for all nodes to join the mesh...")
+    # print("\n⏳ Waiting for all nodes to join the mesh...")
     waited = 0
     while waited < max_wait:
         all_joined = True
@@ -77,19 +73,19 @@ def wait_for_network_convergence(ns, max_wait=120, interval=2):
                 state = ns.node_cmd(node_id, "state")[0].strip()  # FIXED: Use .node_cmd
                 if state == "detached":
                     all_joined = False
-                    print(f"🔸 Node {node_id} still detached.")
+                    # print(f"🔸 Node {node_id} still detached.")
                     break
             except Exception as e:
-                print(f"❌ Error checking node {node_id}: {e}")
+                # print(f"❌ Error checking node {node_id}: {e}")
                 all_joined = False
                 break
         if all_joined:
-            print(f"✅ All nodes joined the mesh.\n")
-            print("******************************************************")
+            # print(f"✅ All nodes joined the mesh.\n")
+            # print("******************************************************")
             return True
         ns.go(interval)
         waited += interval
-    print("⚠️ Timeout: Some nodes did not join the mesh.")
+    # print("⚠️ Timeout: Some nodes did not join the mesh.")
     return False
 
 
@@ -107,12 +103,13 @@ def main():
     TOTAL_DEVICES = 5# 510 max
     configuration(ns,TOTAL_DEVICES)
     if wait_for_network_convergence(ns):
-        print("Ready to initiate communication.")
+        # print("Ready to initiate communication.")
         # print("Current nodes:", ns.nodes())  # Check if nodes exist here
         initiate_coap_announcement(ns)
 
     else:
-        print("Network not fully converged. Continuing anyway...")
+        pass
+        # print("Network not fully converged. Continuing anyway...")
     # ns.go()
 
 

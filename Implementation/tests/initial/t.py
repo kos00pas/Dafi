@@ -1,4 +1,4 @@
-from otns.cli import OTNS
+from otns import OTNS
 import logging
 
 logging.basicConfig(level=logging.INFO)
