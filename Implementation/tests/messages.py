@@ -99,8 +99,8 @@ def main():
     ns.set_title("DAfI - Role Configured Topology")
     ns.set_network_info(version="Latest", commit="main", real=False)
     ns.web()
-    ns.speed = 100
-    TOTAL_DEVICES = 5# 510 max
+    ns.speed = 1
+    TOTAL_DEVICES = 10# 510 max
     configuration(ns,TOTAL_DEVICES)
     if wait_for_network_convergence(ns):
         # print("Ready to initiate communication.")
@@ -113,10 +113,34 @@ def main():
     ns.go()
 
 
+import sys
+class TeeOutput:
+    def __init__(self, *outputs):
+        self.outputs = outputs
+
+    def write(self, message):
+        for output in self.outputs:
+            output.write(message)
+            output.flush()  # optional but good for real-time logging
+
+    def flush(self):
+        for output in self.outputs:
+            output.flush()
+
+def start_log():
+    terminal = sys.stdout
+
+    # Open log file
+    logfile = open("mylogs.log", "w")
+
+    # Set tee output
+    sys.stdout = TeeOutput(terminal, logfile)
+
 
 if __name__ == '__main__':
     try:
         kill_otns_port(9000)
+        start_log()
         main()
     except OTNSExitedError as ex:
         if ex.exit_code != 0:

@@ -1,0 +1,132 @@
+timestamp:111979  event:{set_speed:{speed:1}}
+timestamp:112027  event:{set_network_info:{commit:"main"}}
+timestamp:115013  event:{set_title:{title:"DAfI - Role Configured Topology"  y:20  font_size:20}}
+timestamp:115437  event:{set_network_info:{version:"Latest"  commit:"main"}}
+timestamp:118254  event:{set_speed:{speed:100}}
+timestamp:120957  event:{add_node:{node_id:1  x:400  y:400  radio_range:160}}
+timestamp:223903  event:{on_ext_addr_change:{node_id:1  ext_addr:439237843094761320}}
+timestamp:223986  event:{set_node_rloc16:{node_id:1  rloc16:65534}}
+timestamp:307673  event:{set_node_rloc16:{node_id:1  rloc16:65534}}
+timestamp:308835  event:{set_node_role:{node_id:1  role:OT_DEVICE_ROLE_DETACHED}}
+timestamp:322871  event:{add_node:{node_id:2  x:325  y:325  radio_range:160}}
+timestamp:337702  event:{on_ext_addr_change:{node_id:2  ext_addr:14309971191162837089}}
+timestamp:337776  event:{set_node_rloc16:{node_id:2  rloc16:65534}}
+timestamp:406604  event:{set_node_rloc16:{node_id:2  rloc16:65534}}
+timestamp:407666  event:{set_node_role:{node_id:2  role:OT_DEVICE_ROLE_DETACHED}}
+timestamp:414905  event:{add_node:{node_id:3  x:550  y:400  radio_range:160}}
+timestamp:424093  event:{on_ext_addr_change:{node_id:3  ext_addr:12285338998677472176}}
+timestamp:424221  event:{set_node_rloc16:{node_id:3  rloc16:65534}}
+timestamp:486741  event:{set_node_rloc16:{node_id:3  rloc16:65534}}
+timestamp:487729  event:{set_node_role:{node_id:3  role:OT_DEVICE_ROLE_DETACHED}}
+timestamp:492673  event:{set_node_mode:{node_id:3  node_mode:{rx_on_when_idle:true  full_network_data:true}}}
+timestamp:495359  event:{add_node:{node_id:4  x:325  y:529  radio_range:160}}
+timestamp:505583  event:{on_ext_addr_change:{node_id:4  ext_addr:1328674078022864047}}
+timestamp:505625  event:{set_node_rloc16:{node_id:4  rloc16:65534}}
+timestamp:599970  event:{set_node_rloc16:{node_id:4  rloc16:65534}}
+timestamp:601179  event:{set_node_role:{node_id:4  role:OT_DEVICE_ROLE_DETACHED}}
+timestamp:607123  event:{set_node_mode:{node_id:4  node_mode:{rx_on_when_idle:true  full_network_data:true}}}
+timestamp:609147  event:{add_node:{node_id:5  x:324  y:270  radio_range:160}}
+timestamp:619334  event:{on_ext_addr_change:{node_id:5  ext_addr:11159561388109936061}}
+timestamp:619377  event:{set_node_rloc16:{node_id:5  rloc16:65534}}
+timestamp:697816  event:{set_node_rloc16:{node_id:5  rloc16:65534}}
+timestamp:698859  event:{set_node_role:{node_id:5  role:OT_DEVICE_ROLE_DETACHED}}
+timestamp:704078  event:{set_node_mode:{node_id:5  node_mode:{rx_on_when_idle:true  full_network_data:true}}}
+timestamp:710175  event:{send:{src_id:3  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:75  dst_addr_short:65535}}}
+timestamp:712600  event:{send:{src_id:2  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:32  dst_addr_short:65535}}}
+timestamp:714059  event:{send:{src_id:1  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:215  dst_addr_short:65535}}}
+timestamp:715419  event:{send:{src_id:4  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:113  dst_addr_short:65535}}}
+timestamp:716504  event:{send:{src_id:5  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:175  dst_addr_short:65535}}}
+timestamp:717813  event:{send:{src_id:3  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:76  dst_addr_short:65535}}}
+timestamp:719442  event:{send:{src_id:2  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:33  dst_addr_short:65535}}}
+timestamp:719661  event:{advance_time:{ts:1125164  speed:84.26932294787298}}
+timestamp:720685  event:{send:{src_id:1  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:216  dst_addr_short:65535}}}
+timestamp:721882  event:{send:{src_id:4  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:114  dst_addr_short:65535}}}
+timestamp:723649  event:{send:{src_id:5  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:176  dst_addr_short:65535}}}
+timestamp:725005  event:{send:{src_id:3  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:77  dst_addr_short:65535}}}
+timestamp:726359  event:{send:{src_id:2  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:34  dst_addr_short:65535}}}
+timestamp:727833  event:{send:{src_id:1  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:217  dst_addr_short:65535}}}
+timestamp:727965  event:{advance_time:{ts:2000000  speed:92.34889412199288}}
+timestamp:734454  event:{send:{src_id:4  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:115  dst_addr_short:65535}}}
+timestamp:735525  event:{send:{src_id:5  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:177  dst_addr_short:65535}}}
+timestamp:742232  event:{send:{src_id:3  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:78  dst_addr_short:65535}}}
+timestamp:743698  event:{send:{src_id:2  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:35  dst_addr_short:65535}}}
+timestamp:743886  event:{advance_time:{ts:3125162  speed:89.62577664489406}}
+timestamp:745521  event:{send:{src_id:1  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:218  dst_addr_short:65535}}}
+timestamp:747164  event:{send:{src_id:4  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:116  dst_addr_short:65535}}}
+timestamp:748612  event:{send:{src_id:5  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:178  dst_addr_short:65535}}}
+timestamp:752057  event:{advance_time:{ts:4000000  speed:96.50646593321753}}
+timestamp:759132  event:{send:{src_id:3  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:79  dst_addr_short:65535}}}
+timestamp:760560  event:{send:{src_id:2  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:36  dst_addr_short:65535}}}
+timestamp:761960  event:{send:{src_id:1  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:219  dst_addr_short:65535}}}
+timestamp:764496  event:{send:{src_id:4  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:117  dst_addr_short:65535}}}
+timestamp:765698  event:{send:{src_id:5  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:179  dst_addr_short:65535}}}
+timestamp:770169  event:{advance_time:{ts:5390562  speed:97.7067172568859}}
+timestamp:771145  event:{send:{src_id:3  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:80  dst_addr_short:65535}}}
+timestamp:772518  event:{send:{src_id:2  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:37  dst_addr_short:65535}}}
+timestamp:773935  event:{send:{src_id:1  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:220  dst_addr_short:65535}}}
+timestamp:777103  event:{send:{src_id:4  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:118  dst_addr_short:65535}}}
+timestamp:778199  event:{send:{src_id:5  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:180  dst_addr_short:65535}}}
+timestamp:778283  event:{advance_time:{ts:6000000  speed:89.49747169642458}}
+timestamp:789746  event:{set_node_rloc16:{node_id:3  rloc16:65534}}
+timestamp:791344  event:{set_node_rloc16:{node_id:2  rloc16:45056}}
+timestamp:826196  event:{set_node_role:{node_id:2  role:OT_DEVICE_ROLE_LEADER}}
+timestamp:826234  event:{set_node_partition_id:{node_id:2  partition_id:321935523}}
+timestamp:829774  event:{send:{src_id:2  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:38  dst_addr_short:65535}}}
+timestamp:832368  event:{set_node_rloc16:{node_id:1  rloc16:24576}}
+timestamp:870563  event:{set_node_role:{node_id:1  role:OT_DEVICE_ROLE_LEADER}}
+timestamp:870629  event:{set_node_partition_id:{node_id:1  partition_id:1200945079}}
+timestamp:873044  event:{send:{src_id:1  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:221  dst_addr_short:65535}}}
+timestamp:874673  event:{send:{src_id:3  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:81  dst_addr_short:65535}}}
+timestamp:874931  event:{advance_time:{ts:7115883  speed:11.94658801361797}}
+timestamp:875804  event:{send:{src_id:1  dst_id:3  mv_info:{channel:11  frame_control:56417  seq:222  dst_addr_extended:12285338998677472176}}}
+timestamp:877582  event:{set_node_rloc16:{node_id:4  rloc16:65534}}
+timestamp:878725  event:{set_node_rloc16:{node_id:5  rloc16:65534}}
+timestamp:880550  event:{send:{src_id:4  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:119  dst_addr_short:65535}}}
+timestamp:882809  event:{send:{src_id:5  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:181  dst_addr_short:65535}}}
+timestamp:884718  event:{send:{src_id:1  dst_id:4  mv_info:{channel:11  frame_control:56417  seq:223  dst_addr_extended:1328674078022864047}}}
+timestamp:887156  event:{send:{src_id:3  dst_id:1  mv_info:{channel:11  frame_control:56417  seq:82  dst_addr_extended:439237843094761320}}}
+timestamp:921440  event:{add_child_table:{node_id:1  ext_addr:12285338998677472176}}
+timestamp:922821  event:{send:{src_id:1  dst_id:3  mv_info:{channel:11  frame_control:56417  seq:224  dst_addr_extended:12285338998677472176}}}
+timestamp:923934  event:{set_node_rloc16:{node_id:3  rloc16:24577}}
+timestamp:981980  event:{set_node_role:{node_id:3  role:OT_DEVICE_ROLE_CHILD}}
+timestamp:982021  event:{set_node_partition_id:{node_id:3  partition_id:1200945079}}
+timestamp:985369  event:{send:{src_id:1  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:225  dst_addr_short:65535}}}
+timestamp:986308  event:{send:{src_id:2  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:39  dst_addr_short:65535}}}
+timestamp:987829  event:{send:{src_id:2  dst_id:5  mv_info:{channel:11  frame_control:56417  seq:40  dst_addr_extended:11159561388109936061}}}
+timestamp:989778  event:{send:{src_id:1  dst_id:5  mv_info:{channel:11  frame_control:56417  seq:226  dst_addr_extended:11159561388109936061}}}
+timestamp:990618  event:{advance_time:{ts:8000000  speed:9.565258979386867}}
+timestamp:999704  event:{send:{src_id:1  dst_id:2  mv_info:{channel:11  frame_control:56417  seq:227  dst_addr_extended:14309971191162837089}}}
+timestamp:1001271  event:{send:{src_id:4  dst_id:1  mv_info:{channel:11  frame_control:56417  seq:120  dst_addr_extended:439237843094761320}}}
+timestamp:1024881  event:{add_child_table:{node_id:1  ext_addr:1328674078022864047}}
+timestamp:1025724  event:{send:{src_id:1  dst_id:4  mv_info:{channel:11  frame_control:56417  seq:228  dst_addr_extended:1328674078022864047}}}
+timestamp:1026647  event:{set_node_rloc16:{node_id:4  rloc16:24578}}
+timestamp:1067909  event:{set_node_role:{node_id:4  role:OT_DEVICE_ROLE_CHILD}}
+timestamp:1067971  event:{set_node_partition_id:{node_id:4  partition_id:1200945079}}
+timestamp:1071007  event:{send:{src_id:5  dst_id:2  mv_info:{channel:11  frame_control:56417  seq:182  dst_addr_extended:14309971191162837089}}}
+timestamp:1094944  event:{add_child_table:{node_id:2  ext_addr:11159561388109936061}}
+timestamp:1095142  event:{send:{src_id:2  dst_id:5  mv_info:{channel:11  frame_control:56417  seq:41  dst_addr_extended:11159561388109936061}}}
+timestamp:1095831  event:{set_node_rloc16:{node_id:5  rloc16:45057}}
+timestamp:1142436  event:{set_node_role:{node_id:5  role:OT_DEVICE_ROLE_CHILD}}
+timestamp:1142480  event:{set_node_partition_id:{node_id:5  partition_id:321935523}}
+timestamp:1145449  event:{send:{src_id:2  dst_id:1  mv_info:{channel:11  frame_control:56417  seq:42  dst_addr_extended:439237843094761320}}}
+timestamp:1173914  event:{add_child_table:{node_id:1  ext_addr:14309971191162837089}}
+timestamp:1174919  event:{send:{src_id:1  dst_id:2  mv_info:{channel:11  frame_control:56417  seq:229  dst_addr_extended:14309971191162837089}}}
+timestamp:1176691  event:{set_node_rloc16:{node_id:2  rloc16:24579}}
+timestamp:1234086  event:{set_node_role:{node_id:2  role:OT_DEVICE_ROLE_CHILD}}
+timestamp:1234141  event:{set_node_partition_id:{node_id:2  partition_id:1200945079}}
+timestamp:1237893  event:{send:{src_id:2  dst_id:1  mv_info:{channel:11  frame_control:39017  seq:43  dst_addr_short:24576}}}
+timestamp:1239668  event:{send:{src_id:1  dst_id:2  mv_info:{channel:11  frame_control:39017  seq:230  dst_addr_short:24579}}}
+timestamp:1240032  event:{set_node_rloc16:{node_id:2  rloc16:45056}}
+timestamp:1286656  event:{set_node_role:{node_id:2  role:OT_DEVICE_ROLE_ROUTER}}
+timestamp:1287588  event:{send:{src_id:2  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:44  dst_addr_short:65535}}}
+timestamp:1287914  event:{add_router_table:{node_id:1  ext_addr:14309971191162837089}}
+timestamp:1287962  event:{set_node_partition_id:{node_id:5  partition_id:1200945079}}
+timestamp:1287975  event:{remove_child_table:{node_id:1  ext_addr:14309971191162837089}}
+timestamp:1305121  event:{advance_time:{ts:9118330  speed:3.638821734079972}}
+timestamp:1306241  event:{send:{src_id:1  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:231  dst_addr_short:65535}}}
+timestamp:1307824  event:{send:{src_id:2  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:45  dst_addr_short:65535}}}
+timestamp:1309247  event:{send:{src_id:5  dst_id:2  mv_info:{channel:11  frame_control:56417  seq:183  dst_addr_extended:14309971191162837089}}}
+timestamp:1312693  event:{send:{src_id:2  dst_id:5  mv_info:{channel:11  frame_control:56417  seq:46  dst_addr_extended:11159561388109936061}}}
+timestamp:1316273  event:{send:{src_id:5  dst_id:2  mv_info:{channel:11  frame_control:56417  seq:184  dst_addr_extended:14309971191162837089}}}
+timestamp:1317288  event:{send:{src_id:2  dst_id:5  mv_info:{channel:11  frame_control:56417  seq:47  dst_addr_extended:11159561388109936061}}}
+timestamp:1319559  event:{advance_time:{ts:10000000  speed:6.215561902334876}}

@@ -1,0 +1,77 @@
+[2025-04-16 18:37:28.970485] [_do_command] Sending command: add router x 324 y 270 exe "/home/otns/otns/openthread/build/simulation/examples/apps/cli/ot-cli-ftd"
+[2025-04-16 18:37:28.971477] [OTNS LOG] info	2025-04-16 18:37:28.971 - Add: cli.AddCmd{Cmd:struct {}{}, Type:cli.NodeType{Val:"router"}, X:(*int)(0xc0008bc010), Y:(*int)(0xc0008bc020), Id:(*cli.AddNodeId)(nil), RadioRange:(*cli.RadioRangeFlag)(nil), Restore:(*cli.RestoreFlag)(nil), Executable:(*cli.ExecutableFlag)(0xc00027e740)}
+[2025-04-16 18:37:28.972213] [OTNS LOG] debug	2025-04-16 18:37:28.972 - node exe path: /home/otns/otns/openthread/build/simulation/examples/apps/cli/ot-cli-ftd
+[2025-04-16 18:37:28.972689] [OTNS LOG] info	2025-04-16 18:37:28.972 - simulation:CtrlAddNode: &{ID:-1 X:324 Y:270 IsMtd:false IsRouter:true RxOffWhenIdle:false RadioRange:160 ExecutablePath:/home/otns/otns/openthread/build/simulation/examples/apps/cli/ot-cli-ftd Restore:false}, rawMode=false
+[2025-04-16 18:37:28.973036] [OTNS LOG] info	2025-04-16 18:37:28.972 - dispatcher add node 5
+[2025-04-16 18:37:28.976082] [OTNS LOG] debug	2025-04-16 18:37:28.975 - status push: 5: "extaddr=72f4703516ebcfce"
+[2025-04-16 18:37:28.976363] [OTNS LOG] debug	2025-04-16 18:37:28.976 - extaddr changed: node=5, extaddr=72f4703516ebcfce, old extaddr=ffffffffffffffff
+[2025-04-16 18:37:28.976885] [OTNS LOG] debug	2025-04-16 18:37:28.976 - status push: 5: "rloc16=65534"
+[2025-04-16 18:37:28.977343] [OTNS LOG] debug	2025-04-16 18:37:28.976 - set node rloc: fffe -> fffe
+[2025-04-16 18:37:28.988529] [OTNS LOG] debug	2025-04-16 18:37:28.988 - node 5's extaddr becomes valid in 15.576619ms
+[2025-04-16 18:37:28.989049] [OTNS LOG] debug	2025-04-16 18:37:28.988 - Node<5>'s UART type is 2
+[2025-04-16 18:37:28.989752] [OTNS LOG] debug	2025-04-16 18:37:28.988 - Node<5> -
+[2025-04-16 18:37:28.990228] [OTNS LOG] debug	2025-04-16 18:37:28.989 - Node<5> - mode rdn
+[2025-04-16 18:37:28.990738] [OTNS LOG] debug	2025-04-16 18:37:28.989 - Node<5> - Done
+[2025-04-16 18:37:28.991478] [OTNS LOG] debug	2025-04-16 18:37:28.989 - Node<5> - routerselectionjitter 1
+[2025-04-16 18:37:28.991879] [OTNS LOG] debug	2025-04-16 18:37:28.989 - Node<5> - Done
+[2025-04-16 18:37:28.992479] [OTNS LOG] debug	2025-04-16 18:37:28.989 - Node<5> - dataset init new
+[2025-04-16 18:37:28.992847] [OTNS LOG] debug	2025-04-16 18:37:28.989 - Node<5> - Done
+[2025-04-16 18:37:28.994006] [OTNS LOG] debug	2025-04-16 18:37:28.990 - Node<5> - dataset channel 11
+[2025-04-16 18:37:28.994580] [OTNS LOG] debug	2025-04-16 18:37:28.990 - Node<5> - Done
+[2025-04-16 18:37:28.995049] [OTNS LOG] debug	2025-04-16 18:37:28.990 - Node<5> - dataset extpanid dead00beef00cafe
+[2025-04-16 18:37:28.995640] [OTNS LOG] debug	2025-04-16 18:37:28.990 - Node<5> - Done
+[2025-04-16 18:37:28.996071] [OTNS LOG] debug	2025-04-16 18:37:28.990 - Node<5> - dataset meshlocalprefix fdde:ad00:beef:0::
+[2025-04-16 18:37:28.996592] [OTNS LOG] debug	2025-04-16 18:37:28.990 - Node<5> - Done
+[2025-04-16 18:37:28.997242] [OTNS LOG] debug	2025-04-16 18:37:28.991 - Node<5> - dataset networkkey 00112233445566778899aabbccddeeff
+[2025-04-16 18:37:28.997748] [OTNS LOG] debug	2025-04-16 18:37:28.991 - Node<5> - Done
+[2025-04-16 18:37:28.998456] [OTNS LOG] debug	2025-04-16 18:37:28.991 - Node<5> - dataset networkname otns
+[2025-04-16 18:37:28.998835] [OTNS LOG] debug	2025-04-16 18:37:28.991 - Node<5> - Done
+[2025-04-16 18:37:28.999308] [OTNS LOG] debug	2025-04-16 18:37:28.992 - Node<5> - dataset panid 0xface
+[2025-04-16 18:37:28.999719] [OTNS LOG] debug	2025-04-16 18:37:28.992 - Node<5> - Done
+[2025-04-16 18:37:29.000027] [OTNS LOG] debug	2025-04-16 18:37:28.993 - Node<5> - dataset pskc 3aa55f91ca47d1e4e71a08cb35e91591
+[2025-04-16 18:37:29.000501] [OTNS LOG] debug	2025-04-16 18:37:28.993 - Node<5> - Done
+[2025-04-16 18:37:29.086498] [OTNS LOG] debug	2025-04-16 18:37:29.086 - Node<5> - dataset commit active
+[2025-04-16 18:37:29.087048] [OTNS LOG] debug	2025-04-16 18:37:29.086 - Node<5> - Done
+[2025-04-16 18:37:29.087481] [OTNS LOG] debug	2025-04-16 18:37:29.086 - Node<5> - ifconfig up
+[2025-04-16 18:37:29.087882] [OTNS LOG] debug	2025-04-16 18:37:29.086 - Node<5> - Done
+[2025-04-16 18:37:29.088164] [OTNS LOG] debug	2025-04-16 18:37:29.087 - status push: 5: "rloc16=65534"
+[2025-04-16 18:37:29.088597] [OTNS LOG] debug	2025-04-16 18:37:29.087 - set node rloc: fffe -> fffe
+[2025-04-16 18:37:29.088969] [OTNS LOG] debug	2025-04-16 18:37:29.088 - status push: 5: "role=1"
+[2025-04-16 18:37:29.089693] [OTNS LOG] debug	2025-04-16 18:37:29.088 - Node<5> - thread start
+[2025-04-16 18:37:29.090210] [OTNS LOG] debug	2025-04-16 18:37:29.088 - Node<5> - Done
+[2025-04-16 18:37:29.090642] [OTNS LOG] debug	2025-04-16 18:37:29.088 - Node<5> - panid
+[2025-04-16 18:37:29.090914] [OTNS LOG] debug	2025-04-16 18:37:29.088 - Node<5> - 0xface
+[2025-04-16 18:37:29.091195] [OTNS LOG] debug	2025-04-16 18:37:29.088 - Node<5> - Done
+[2025-04-16 18:37:29.091592] [OTNS LOG] debug	2025-04-16 18:37:29.088 - Node<5> - channel
+[2025-04-16 18:37:29.092069] [OTNS LOG] debug	2025-04-16 18:37:29.088 - Node<5> - 11
+[2025-04-16 18:37:29.092439] [OTNS LOG] debug	2025-04-16 18:37:29.088 - Node<5> - Done
+[2025-04-16 18:37:29.092798] [OTNS LOG] debug	2025-04-16 18:37:29.089 - Node<5> - eui64
+[2025-04-16 18:37:29.093072] [OTNS LOG] debug	2025-04-16 18:37:29.089 - Node<5> - 18b4300000000005
+[2025-04-16 18:37:29.093702] [OTNS LOG] debug	2025-04-16 18:37:29.089 - Node<5> - Done
+[2025-04-16 18:37:29.094140] [OTNS LOG] debug	2025-04-16 18:37:29.089 - Node<5> - extaddr
+[2025-04-16 18:37:29.094510] [OTNS LOG] debug	2025-04-16 18:37:29.089 - Node<5> - 72f4703516ebcfce
+[2025-04-16 18:37:29.094922] [OTNS LOG] debug	2025-04-16 18:37:29.089 - Node<5> - Done
+[2025-04-16 18:37:29.095371] [OTNS LOG] debug	2025-04-16 18:37:29.089 - Node<5> - state
+[2025-04-16 18:37:29.095770] [OTNS LOG] debug	2025-04-16 18:37:29.089 - Node<5> - detached
+[2025-04-16 18:37:29.096095] [OTNS LOG] debug	2025-04-16 18:37:29.089 - Node<5> - Done
+[2025-04-16 18:37:29.096433] [OTNS LOG] debug	2025-04-16 18:37:29.090 - Node<5> - networkkey
+[2025-04-16 18:37:29.097026] [OTNS LOG] debug	2025-04-16 18:37:29.090 - Node<5> - 00112233445566778899aabbccddeeff
+[2025-04-16 18:37:29.097739] [OTNS LOG] debug	2025-04-16 18:37:29.090 - Node<5> - Done
+[2025-04-16 18:37:29.098235] [OTNS LOG] debug	2025-04-16 18:37:29.090 - Node<5> - mode
+[2025-04-16 18:37:29.098647] [OTNS LOG] debug	2025-04-16 18:37:29.090 - Node<5> - rdn
+[2025-04-16 18:37:29.099011] [OTNS LOG] debug	2025-04-16 18:37:29.090 - Node<5> - Done
+[2025-04-16 18:37:29.099466] [OTNS LOG] info	2025-04-16 18:37:29.090 - Node<5> - started, panid=0xface, channel=11, eui64="18b4300000000005", extaddr=0x72f4703516ebcfce, state=detached, networkkey="00112233445566778899aabbccddeeff", mode=rdn
+[2025-04-16 18:37:29.099737] [_do_command] Received: 5
+[2025-04-16 18:37:29.100146] [_do_command] Received: Done
+[2025-04-16 18:37:29.100496] [_do_command] Sending command: node 5 "routerupgradethreshold 99"
+[2025-04-16 18:37:29.101759] [OTNS LOG] debug	2025-04-16 18:37:29.101 - Node<5> - routerupgradethreshold 99
+[2025-04-16 18:37:29.102264] [OTNS LOG] debug	2025-04-16 18:37:29.101 - Node<5> - Done
+[2025-04-16 18:37:29.102801] [_do_command] Received: Done
+[2025-04-16 18:37:29.103084] [_do_command] Sending command: node 5 "routerdowngradethreshold 1"
+[2025-04-16 18:37:29.104330] [OTNS LOG] debug	2025-04-16 18:37:29.104 - Node<5> - routerdowngradethreshold 1
+[2025-04-16 18:37:29.104669] [OTNS LOG] debug	2025-04-16 18:37:29.104 - Node<5> - Done
+[2025-04-16 18:37:29.105314] [_do_command] Received: Done
+[2025-04-16 18:37:29.105812] [_do_command] Sending command: node 5 "mode rn"
+[2025-04-16 18:37:29.106761] [OTNS LOG] debug	2025-04-16 18:37:29.106 - status push: 5: "mode=rn"
+[2025-04-16 18:37:29.107299] [OTNS LOG] debug	2025-04-16 18:37:29.107 - Node<5> - mode rn
+[2025-04-16 18:37:29.107707] [OTNS LOG] debug	2025-04-16 18:37:29.107 - Node<5> - Done
