@@ -46,7 +46,7 @@ def add_router(ns, x, y, exe):
 def configuration(ns,TOTAL_DEVICES):
     # === Configuration ===
     center_x, center_y = 400, 400  # centering in my small monitor
-    spacing = 30  # < 45 to be okay in all architectures
+    spacing = 50  # < 45 to be okay in all architectures
 
     # === Role Calculation ===
     routers, reeds, feds = calculate_device_roles(TOTAL_DEVICES)
@@ -103,8 +103,8 @@ def main():
     ns.set_title("DAfI - Role Configured Topology")
     ns.set_network_info(version="Latest", commit="main", real=False)
     ns.web()
-    ns.speed = 10
-    TOTAL_DEVICES = 200# 510 max
+    ns.speed = 100
+    TOTAL_DEVICES = 5# 510 max
     configuration(ns,TOTAL_DEVICES)
     if wait_for_network_convergence(ns):
         print("Ready to initiate communication.")
@@ -113,7 +113,7 @@ def main():
 
     else:
         print("Network not fully converged. Continuing anyway...")
-    ns.go()
+    # ns.go()
 
 
 

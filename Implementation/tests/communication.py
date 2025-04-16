@@ -22,11 +22,11 @@ def initiate_coap_announcement(ns):
                 continue
 
             # 🔥 Generate a random 128-char payload
-            payload = ''.join(choices(ascii_letters + digits, k=225))
+            payload = ''.join(choices(ascii_letters + digits, k=250))
             cmd = f"coap post {receiver_ip} logs con {payload}"
             ns.node_cmd(node_id, cmd)
 
-            print(f"📨 Node {node_id} sent payload: {payload}...")
+            print(f"📨 Node {node_id} sent payload: {payload}")
 
         except Exception as e:
             print(f"❌ Node {node_id} failed to send message: {e}")

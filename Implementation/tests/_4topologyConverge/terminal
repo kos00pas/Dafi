@@ -1,0 +1,551 @@
+/usr/bin/python3 /mnt/c/Users/kos00/OneDrive - University of Cyprus/PhD/PhD_Lessons/IoT project/Implementation/tests/messages.py 
+info	2025-04-16 13:07:56.602 - Using env PORT_OFFSET=0
+info	2025-04-16 13:07:56.621 - dispatcher listening on 127.0.0.1:9000 ...
+info	2025-04-16 13:07:56.638 - dispatcher started: cfg={Speed:1 Real:false Host:localhost Port:9000 DumpPackets:false NoPcap:false}
+debug	2025-04-16 13:07:56.724 - ConfigWeb: {serverBindAddress:localhost serverHttpDebugPort:8998 grpcServicePort:8999 webSitePort:8997}
+debug	2025-04-16 13:07:56.724 - open web: false
+info	2025-04-16 13:07:56.727 - gRPC visualizer serving on 127.0.0.1:8999 ...
+info	2025-04-16 13:07:56.728 - grpcwebproxy started.
+info	2025-04-16 13:07:56.730 - Add: cli.AddCmd{Cmd:struct {}{}, Type:cli.NodeType{Val:"router"}, X:(*int)(0xc00080c3f0), Y:(*int)(0xc00080c400), Id:(*cli.AddNodeId)(nil), RadioRange:(*cli.RadioRangeFlag)(nil), Restore:(*cli.RestoreFlag)(nil), Executable:(*cli.ExecutableFlag)(0xc000112810)}
+debug	2025-04-16 13:07:56.731 - node exe path: /home/otns/otns/openthread/build/simulation/examples/apps/cli/ot-cli-ftd
+info	2025-04-16 13:07:56.732 - simulation:CtrlAddNode: &{ID:-1 X:400 Y:400 IsMtd:false IsRouter:true RxOffWhenIdle:false RadioRange:160 ExecutablePath:/home/otns/otns/openthread/build/simulation/examples/apps/cli/ot-cli-ftd Restore:false}, rawMode=false
+info	2025-04-16 13:07:56.733 - dispatcher add node 1
+debug	2025-04-16 13:07:56.835 - status push: 1: "extaddr=06187c7db9926f68"
+debug	2025-04-16 13:07:56.836 - extaddr changed: node=1, extaddr=06187c7db9926f68, old extaddr=ffffffffffffffff
+debug	2025-04-16 13:07:56.836 - status push: 1: "rloc16=65534"
+debug	2025-04-16 13:07:56.836 - set node rloc: fffe -> fffe
+warn	2025-04-16 13:07:56.845 - grpcwebproxy exit unexpectedly: exit status 1, try restarting ...
+debug	2025-04-16 13:07:56.854 - node 1's extaddr becomes valid in 121.748665ms
+debug	2025-04-16 13:07:56.855 - Node<1>'s UART type is 2
+debug	2025-04-16 13:07:56.855 - Node<1> - 
+debug	2025-04-16 13:07:56.856 - Node<1> - mode rdn
+debug	2025-04-16 13:07:56.856 - Node<1> - Done
+debug	2025-04-16 13:07:56.856 - Node<1> - routerselectionjitter 1
+debug	2025-04-16 13:07:56.856 - Node<1> - Done
+debug	2025-04-16 13:07:56.857 - Node<1> - dataset init new
+debug	2025-04-16 13:07:56.857 - Node<1> - Done
+debug	2025-04-16 13:07:56.857 - Node<1> - dataset channel 11
+debug	2025-04-16 13:07:56.858 - Node<1> - Done
+debug	2025-04-16 13:07:56.858 - Node<1> - dataset extpanid dead00beef00cafe
+debug	2025-04-16 13:07:56.858 - Node<1> - Done
+debug	2025-04-16 13:07:56.858 - Node<1> - dataset meshlocalprefix fdde:ad00:beef:0::
+debug	2025-04-16 13:07:56.858 - Node<1> - Done
+debug	2025-04-16 13:07:56.860 - Node<1> - dataset networkkey 00112233445566778899aabbccddeeff
+debug	2025-04-16 13:07:56.860 - Node<1> - Done
+debug	2025-04-16 13:07:56.860 - Node<1> - dataset networkname otns
+debug	2025-04-16 13:07:56.860 - Node<1> - Done
+debug	2025-04-16 13:07:56.860 - Node<1> - dataset panid 0xface
+debug	2025-04-16 13:07:56.861 - Node<1> - Done
+debug	2025-04-16 13:07:56.861 - Node<1> - dataset pskc 3aa55f91ca47d1e4e71a08cb35e91591
+debug	2025-04-16 13:07:56.861 - Node<1> - Done
+info	2025-04-16 13:07:56.872 - OTNS web serving on localhost:8997 ...
+info	2025-04-16 13:07:56.878 - grpcwebproxy restarted.
+debug	2025-04-16 13:07:56.918 - Node<1> - dataset commit active
+debug	2025-04-16 13:07:56.918 - Node<1> - Done
+debug	2025-04-16 13:07:56.918 - Node<1> - ifconfig up
+debug	2025-04-16 13:07:56.919 - Node<1> - Done
+debug	2025-04-16 13:07:56.919 - status push: 1: "rloc16=65534"
+debug	2025-04-16 13:07:56.919 - set node rloc: fffe -> fffe
+debug	2025-04-16 13:07:56.921 - status push: 1: "role=1"
+debug	2025-04-16 13:07:56.921 - Node<1> - thread start
+debug	2025-04-16 13:07:56.921 - Node<1> - Done
+debug	2025-04-16 13:07:56.928 - Node<1> - panid
+debug	2025-04-16 13:07:56.928 - Node<1> - 0xface
+debug	2025-04-16 13:07:56.928 - Node<1> - Done
+debug	2025-04-16 13:07:56.928 - Node<1> - channel
+debug	2025-04-16 13:07:56.929 - Node<1> - 11
+debug	2025-04-16 13:07:56.929 - Node<1> - Done
+debug	2025-04-16 13:07:56.929 - Node<1> - eui64
+debug	2025-04-16 13:07:56.929 - Node<1> - 18b4300000000001
+debug	2025-04-16 13:07:56.929 - Node<1> - Done
+debug	2025-04-16 13:07:56.930 - Node<1> - extaddr
+debug	2025-04-16 13:07:56.930 - Node<1> - 06187c7db9926f68
+debug	2025-04-16 13:07:56.930 - Node<1> - Done
+debug	2025-04-16 13:07:56.930 - Node<1> - state
+debug	2025-04-16 13:07:56.930 - Node<1> - detached
+debug	2025-04-16 13:07:56.930 - Node<1> - Done
+debug	2025-04-16 13:07:56.931 - Node<1> - networkkey
+debug	2025-04-16 13:07:56.931 - Node<1> - 00112233445566778899aabbccddeeff
+debug	2025-04-16 13:07:56.931 - Node<1> - Done
+debug	2025-04-16 13:07:56.932 - Node<1> - mode
+debug	2025-04-16 13:07:56.932 - Node<1> - rdn
+debug	2025-04-16 13:07:56.932 - Node<1> - Done
+info	2025-04-16 13:07:56.932 - Node<1> - started, panid=0xface, channel=11, eui64="18b4300000000001", extaddr=0x6187c7db9926f68, state=detached, networkkey="00112233445566778899aabbccddeeff", mode=rdn
+debug	2025-04-16 13:07:56.932 - Node<1> - mode rdn
+debug	2025-04-16 13:07:56.932 - Node<1> - Done
+debug	2025-04-16 13:07:56.933 - Node<1> - routerselectionjitter 1
+debug	2025-04-16 13:07:56.933 - Node<1> - Done
+info	2025-04-16 13:07:56.933 - Add: cli.AddCmd{Cmd:struct {}{}, Type:cli.NodeType{Val:"router"}, X:(*int)(0xc00080c210), Y:(*int)(0xc00080c220), Id:(*cli.AddNodeId)(nil), RadioRange:(*cli.RadioRangeFlag)(nil), Restore:(*cli.RestoreFlag)(nil), Executable:(*cli.ExecutableFlag)(0xc0000461a0)}
+debug	2025-04-16 13:07:56.934 - node exe path: /home/otns/otns/openthread/build/simulation/examples/apps/cli/ot-cli-ftd
+info	2025-04-16 13:07:56.935 - simulation:CtrlAddNode: &{ID:-1 X:325 Y:325 IsMtd:false IsRouter:true RxOffWhenIdle:false RadioRange:160 ExecutablePath:/home/otns/otns/openthread/build/simulation/examples/apps/cli/ot-cli-ftd Restore:false}, rawMode=false
+info	2025-04-16 13:07:56.935 - dispatcher add node 2
+debug	2025-04-16 13:07:56.949 - status push: 2: "extaddr=c6973afb1b559861"
+debug	2025-04-16 13:07:56.949 - extaddr changed: node=2, extaddr=c6973afb1b559861, old extaddr=ffffffffffffffff
+debug	2025-04-16 13:07:56.949 - status push: 2: "rloc16=65534"
+debug	2025-04-16 13:07:56.950 - set node rloc: fffe -> fffe
+debug	2025-04-16 13:07:56.958 - node 2's extaddr becomes valid in 23.785732ms
+debug	2025-04-16 13:07:56.959 - Node<2>'s UART type is 2
+debug	2025-04-16 13:07:56.959 - Node<2> - 
+debug	2025-04-16 13:07:56.959 - Node<2> - mode rdn
+debug	2025-04-16 13:07:56.959 - Node<2> - Done
+debug	2025-04-16 13:07:56.963 - Node<2> - routerselectionjitter 1
+debug	2025-04-16 13:07:56.963 - Node<2> - Done
+debug	2025-04-16 13:07:56.963 - Node<2> - dataset init new
+debug	2025-04-16 13:07:56.963 - Node<2> - Done
+debug	2025-04-16 13:07:56.964 - Node<2> - dataset channel 11
+debug	2025-04-16 13:07:56.964 - Node<2> - Done
+debug	2025-04-16 13:07:56.964 - Node<2> - dataset extpanid dead00beef00cafe
+debug	2025-04-16 13:07:56.964 - Node<2> - Done
+debug	2025-04-16 13:07:56.965 - Node<2> - dataset meshlocalprefix fdde:ad00:beef:0::
+debug	2025-04-16 13:07:56.965 - Node<2> - Done
+debug	2025-04-16 13:07:56.966 - Node<2> - dataset networkkey 00112233445566778899aabbccddeeff
+debug	2025-04-16 13:07:56.966 - Node<2> - Done
+debug	2025-04-16 13:07:56.966 - Node<2> - dataset networkname otns
+debug	2025-04-16 13:07:56.966 - Node<2> - Done
+debug	2025-04-16 13:07:56.967 - Node<2> - dataset panid 0xface
+debug	2025-04-16 13:07:56.967 - Node<2> - Done
+debug	2025-04-16 13:07:56.967 - Node<2> - dataset pskc 3aa55f91ca47d1e4e71a08cb35e91591
+debug	2025-04-16 13:07:56.967 - Node<2> - Done
+debug	2025-04-16 13:07:57.017 - Node<2> - dataset commit active
+debug	2025-04-16 13:07:57.017 - Node<2> - Done
+debug	2025-04-16 13:07:57.018 - Node<2> - ifconfig up
+debug	2025-04-16 13:07:57.018 - Node<2> - Done
+debug	2025-04-16 13:07:57.018 - status push: 2: "rloc16=65534"
+debug	2025-04-16 13:07:57.018 - set node rloc: fffe -> fffe
+debug	2025-04-16 13:07:57.019 - status push: 2: "role=1"
+debug	2025-04-16 13:07:57.019 - Node<2> - thread start
+debug	2025-04-16 13:07:57.019 - Node<2> - Done
+debug	2025-04-16 13:07:57.020 - Node<2> - panid
+debug	2025-04-16 13:07:57.020 - Node<2> - 0xface
+debug	2025-04-16 13:07:57.020 - Node<2> - Done
+debug	2025-04-16 13:07:57.020 - Node<2> - channel
+debug	2025-04-16 13:07:57.020 - Node<2> - 11
+debug	2025-04-16 13:07:57.020 - Node<2> - Done
+debug	2025-04-16 13:07:57.020 - Node<2> - eui64
+debug	2025-04-16 13:07:57.020 - Node<2> - 18b4300000000002
+debug	2025-04-16 13:07:57.020 - Node<2> - Done
+debug	2025-04-16 13:07:57.021 - Node<2> - extaddr
+debug	2025-04-16 13:07:57.021 - Node<2> - c6973afb1b559861
+debug	2025-04-16 13:07:57.021 - Node<2> - Done
+debug	2025-04-16 13:07:57.021 - Node<2> - state
+debug	2025-04-16 13:07:57.021 - Node<2> - detached
+debug	2025-04-16 13:07:57.021 - Node<2> - Done
+debug	2025-04-16 13:07:57.021 - Node<2> - networkkey
+debug	2025-04-16 13:07:57.021 - Node<2> - 00112233445566778899aabbccddeeff
+debug	2025-04-16 13:07:57.021 - Node<2> - Done
+debug	2025-04-16 13:07:57.021 - Node<2> - mode
+debug	2025-04-16 13:07:57.021 - Node<2> - rdn
+debug	2025-04-16 13:07:57.021 - Node<2> - Done
+info	2025-04-16 13:07:57.021 - Node<2> - started, panid=0xface, channel=11, eui64="18b4300000000002", extaddr=0xc6973afb1b559861, state=detached, networkkey="00112233445566778899aabbccddeeff", mode=rdn
+debug	2025-04-16 13:07:57.022 - Node<2> - mode rdn
+debug	2025-04-16 13:07:57.022 - Node<2> - Done
+info	2025-04-16 13:07:57.026 - Add: cli.AddCmd{Cmd:struct {}{}, Type:cli.NodeType{Val:"router"}, X:(*int)(0xc00080cfd0), Y:(*int)(0xc00080cfe0), Id:(*cli.AddNodeId)(nil), RadioRange:(*cli.RadioRangeFlag)(nil), Restore:(*cli.RestoreFlag)(nil), Executable:(*cli.ExecutableFlag)(0xc000046b10)}
+debug	2025-04-16 13:07:57.026 - node exe path: /home/otns/otns/openthread/build/simulation/examples/apps/cli/ot-cli-ftd
+info	2025-04-16 13:07:57.027 - simulation:CtrlAddNode: &{ID:-1 X:550 Y:400 IsMtd:false IsRouter:true RxOffWhenIdle:false RadioRange:160 ExecutablePath:/home/otns/otns/openthread/build/simulation/examples/apps/cli/ot-cli-ftd Restore:false}, rawMode=false
+info	2025-04-16 13:07:57.027 - dispatcher add node 3
+debug	2025-04-16 13:07:57.036 - status push: 3: "extaddr=aa7e4aba916c83b0"
+debug	2025-04-16 13:07:57.036 - extaddr changed: node=3, extaddr=aa7e4aba916c83b0, old extaddr=ffffffffffffffff
+debug	2025-04-16 13:07:57.036 - status push: 3: "rloc16=65534"
+debug	2025-04-16 13:07:57.036 - set node rloc: fffe -> fffe
+debug	2025-04-16 13:07:57.043 - node 3's extaddr becomes valid in 16.289228ms
+debug	2025-04-16 13:07:57.043 - Node<3>'s UART type is 2
+debug	2025-04-16 13:07:57.043 - Node<3> - 
+debug	2025-04-16 13:07:57.044 - Node<3> - mode rdn
+debug	2025-04-16 13:07:57.044 - Node<3> - Done
+debug	2025-04-16 13:07:57.044 - Node<3> - routerselectionjitter 1
+debug	2025-04-16 13:07:57.044 - Node<3> - Done
+debug	2025-04-16 13:07:57.045 - Node<3> - dataset init new
+debug	2025-04-16 13:07:57.045 - Node<3> - Done
+debug	2025-04-16 13:07:57.045 - Node<3> - dataset channel 11
+debug	2025-04-16 13:07:57.045 - Node<3> - Done
+debug	2025-04-16 13:07:57.045 - Node<3> - dataset extpanid dead00beef00cafe
+debug	2025-04-16 13:07:57.045 - Node<3> - Done
+debug	2025-04-16 13:07:57.046 - Node<3> - dataset meshlocalprefix fdde:ad00:beef:0::
+debug	2025-04-16 13:07:57.046 - Node<3> - Done
+debug	2025-04-16 13:07:57.046 - Node<3> - dataset networkkey 00112233445566778899aabbccddeeff
+debug	2025-04-16 13:07:57.046 - Node<3> - Done
+debug	2025-04-16 13:07:57.046 - Node<3> - dataset networkname otns
+debug	2025-04-16 13:07:57.046 - Node<3> - Done
+debug	2025-04-16 13:07:57.047 - Node<3> - dataset panid 0xface
+debug	2025-04-16 13:07:57.047 - Node<3> - Done
+debug	2025-04-16 13:07:57.047 - Node<3> - dataset pskc 3aa55f91ca47d1e4e71a08cb35e91591
+debug	2025-04-16 13:07:57.047 - Node<3> - Done
+debug	2025-04-16 13:07:57.097 - Node<3> - dataset commit active
+debug	2025-04-16 13:07:57.097 - Node<3> - Done
+debug	2025-04-16 13:07:57.098 - Node<3> - ifconfig up
+debug	2025-04-16 13:07:57.098 - Node<3> - Done
+debug	2025-04-16 13:07:57.098 - status push: 3: "rloc16=65534"
+debug	2025-04-16 13:07:57.098 - set node rloc: fffe -> fffe
+debug	2025-04-16 13:07:57.099 - status push: 3: "role=1"
+debug	2025-04-16 13:07:57.099 - Node<3> - thread start
+debug	2025-04-16 13:07:57.099 - Node<3> - Done
+debug	2025-04-16 13:07:57.100 - Node<3> - panid
+debug	2025-04-16 13:07:57.100 - Node<3> - 0xface
+debug	2025-04-16 13:07:57.100 - Node<3> - Done
+debug	2025-04-16 13:07:57.100 - Node<3> - channel
+debug	2025-04-16 13:07:57.100 - Node<3> - 11
+debug	2025-04-16 13:07:57.100 - Node<3> - Done
+debug	2025-04-16 13:07:57.100 - Node<3> - eui64
+debug	2025-04-16 13:07:57.100 - Node<3> - 18b4300000000003
+debug	2025-04-16 13:07:57.100 - Node<3> - Done
+debug	2025-04-16 13:07:57.102 - Node<3> - extaddr
+debug	2025-04-16 13:07:57.102 - Node<3> - aa7e4aba916c83b0
+debug	2025-04-16 13:07:57.102 - Node<3> - Done
+debug	2025-04-16 13:07:57.102 - Node<3> - state
+debug	2025-04-16 13:07:57.102 - Node<3> - detached
+debug	2025-04-16 13:07:57.102 - Node<3> - Done
+debug	2025-04-16 13:07:57.102 - Node<3> - networkkey
+debug	2025-04-16 13:07:57.102 - Node<3> - 00112233445566778899aabbccddeeff
+debug	2025-04-16 13:07:57.102 - Node<3> - Done
+debug	2025-04-16 13:07:57.102 - Node<3> - mode
+debug	2025-04-16 13:07:57.102 - Node<3> - rdn
+debug	2025-04-16 13:07:57.102 - Node<3> - Done
+info	2025-04-16 13:07:57.102 - Node<3> - started, panid=0xface, channel=11, eui64="18b4300000000003", extaddr=0xaa7e4aba916c83b0, state=detached, networkkey="00112233445566778899aabbccddeeff", mode=rdn
+debug	2025-04-16 13:07:57.103 - Node<3> - routerupgradethreshold 99
+debug	2025-04-16 13:07:57.103 - Node<3> - Done
+debug	2025-04-16 13:07:57.104 - Node<3> - routerdowngradethreshold 1
+debug	2025-04-16 13:07:57.104 - Node<3> - Done
+debug	2025-04-16 13:07:57.104 - status push: 3: "mode=rn"
+debug	2025-04-16 13:07:57.105 - Node<3> - mode rn
+debug	2025-04-16 13:07:57.105 - Node<3> - Done
+info	2025-04-16 13:07:57.105 - Add: cli.AddCmd{Cmd:struct {}{}, Type:cli.NodeType{Val:"router"}, X:(*int)(0xc000381c30), Y:(*int)(0xc000381c40), Id:(*cli.AddNodeId)(nil), RadioRange:(*cli.RadioRangeFlag)(nil), Restore:(*cli.RestoreFlag)(nil), Executable:(*cli.ExecutableFlag)(0xc0002fbef0)}
+debug	2025-04-16 13:07:57.106 - node exe path: /home/otns/otns/openthread/build/simulation/examples/apps/cli/ot-cli-ftd
+info	2025-04-16 13:07:57.107 - simulation:CtrlAddNode: &{ID:-1 X:325 Y:529 IsMtd:false IsRouter:true RxOffWhenIdle:false RadioRange:160 ExecutablePath:/home/otns/otns/openthread/build/simulation/examples/apps/cli/ot-cli-ftd Restore:false}, rawMode=false
+info	2025-04-16 13:07:57.107 - dispatcher add node 4
+debug	2025-04-16 13:07:57.117 - status push: 4: "extaddr=12706608cad28caf"
+debug	2025-04-16 13:07:57.117 - extaddr changed: node=4, extaddr=12706608cad28caf, old extaddr=ffffffffffffffff
+debug	2025-04-16 13:07:57.117 - status push: 4: "rloc16=65534"
+debug	2025-04-16 13:07:57.117 - set node rloc: fffe -> fffe
+debug	2025-04-16 13:07:57.127 - node 4's extaddr becomes valid in 20.297737ms
+debug	2025-04-16 13:07:57.128 - Node<4>'s UART type is 2
+debug	2025-04-16 13:07:57.128 - Node<4> - 
+debug	2025-04-16 13:07:57.128 - Node<4> - mode rdn
+debug	2025-04-16 13:07:57.128 - Node<4> - Done
+debug	2025-04-16 13:07:57.129 - Node<4> - routerselectionjitter 1
+debug	2025-04-16 13:07:57.129 - Node<4> - Done
+debug	2025-04-16 13:07:57.129 - Node<4> - dataset init new
+debug	2025-04-16 13:07:57.129 - Node<4> - Done
+debug	2025-04-16 13:07:57.130 - Node<4> - dataset channel 11
+debug	2025-04-16 13:07:57.130 - Node<4> - Done
+debug	2025-04-16 13:07:57.133 - Node<4> - dataset extpanid dead00beef00cafe
+debug	2025-04-16 13:07:57.133 - Node<4> - Done
+debug	2025-04-16 13:07:57.134 - Node<4> - dataset meshlocalprefix fdde:ad00:beef:0::
+debug	2025-04-16 13:07:57.134 - Node<4> - Done
+debug	2025-04-16 13:07:57.136 - Node<4> - dataset networkkey 00112233445566778899aabbccddeeff
+debug	2025-04-16 13:07:57.136 - Node<4> - Done
+debug	2025-04-16 13:07:57.136 - Node<4> - dataset networkname otns
+debug	2025-04-16 13:07:57.137 - Node<4> - Done
+debug	2025-04-16 13:07:57.137 - Node<4> - dataset panid 0xface
+debug	2025-04-16 13:07:57.137 - Node<4> - Done
+debug	2025-04-16 13:07:57.138 - Node<4> - dataset pskc 3aa55f91ca47d1e4e71a08cb35e91591
+debug	2025-04-16 13:07:57.138 - Node<4> - Done
+debug	2025-04-16 13:07:57.211 - Node<4> - dataset commit active
+debug	2025-04-16 13:07:57.211 - Node<4> - Done
+debug	2025-04-16 13:07:57.211 - Node<4> - ifconfig up
+debug	2025-04-16 13:07:57.211 - Node<4> - Done
+debug	2025-04-16 13:07:57.212 - status push: 4: "rloc16=65534"
+debug	2025-04-16 13:07:57.212 - set node rloc: fffe -> fffe
+debug	2025-04-16 13:07:57.213 - status push: 4: "role=1"
+debug	2025-04-16 13:07:57.213 - Node<4> - thread start
+debug	2025-04-16 13:07:57.213 - Node<4> - Done
+debug	2025-04-16 13:07:57.213 - Node<4> - panid
+debug	2025-04-16 13:07:57.213 - Node<4> - 0xface
+debug	2025-04-16 13:07:57.213 - Node<4> - Done
+debug	2025-04-16 13:07:57.214 - Node<4> - channel
+debug	2025-04-16 13:07:57.214 - Node<4> - 11
+debug	2025-04-16 13:07:57.214 - Node<4> - Done
+debug	2025-04-16 13:07:57.214 - Node<4> - eui64
+debug	2025-04-16 13:07:57.214 - Node<4> - 18b4300000000004
+debug	2025-04-16 13:07:57.214 - Node<4> - Done
+debug	2025-04-16 13:07:57.215 - Node<4> - extaddr
+debug	2025-04-16 13:07:57.215 - Node<4> - 12706608cad28caf
+debug	2025-04-16 13:07:57.215 - Node<4> - Done
+debug	2025-04-16 13:07:57.215 - Node<4> - state
+debug	2025-04-16 13:07:57.215 - Node<4> - detached
+debug	2025-04-16 13:07:57.215 - Node<4> - Done
+debug	2025-04-16 13:07:57.216 - Node<4> - networkkey
+debug	2025-04-16 13:07:57.216 - Node<4> - 00112233445566778899aabbccddeeff
+debug	2025-04-16 13:07:57.216 - Node<4> - Done
+debug	2025-04-16 13:07:57.216 - Node<4> - mode
+debug	2025-04-16 13:07:57.216 - Node<4> - rdn
+debug	2025-04-16 13:07:57.216 - Node<4> - Done
+info	2025-04-16 13:07:57.216 - Node<4> - started, panid=0xface, channel=11, eui64="18b4300000000004", extaddr=0x12706608cad28caf, state=detached, networkkey="00112233445566778899aabbccddeeff", mode=rdn
+debug	2025-04-16 13:07:57.217 - Node<4> - routerupgradethreshold 99
+debug	2025-04-16 13:07:57.217 - Node<4> - Done
+debug	2025-04-16 13:07:57.218 - Node<4> - routerdowngradethreshold 1
+debug	2025-04-16 13:07:57.218 - Node<4> - Done
+debug	2025-04-16 13:07:57.219 - status push: 4: "mode=rn"
+debug	2025-04-16 13:07:57.219 - Node<4> - mode rn
+debug	2025-04-16 13:07:57.219 - Node<4> - Done
+info	2025-04-16 13:07:57.220 - Add: cli.AddCmd{Cmd:struct {}{}, Type:cli.NodeType{Val:"router"}, X:(*int)(0xc00080cc70), Y:(*int)(0xc00080cc80), Id:(*cli.AddNodeId)(nil), RadioRange:(*cli.RadioRangeFlag)(nil), Restore:(*cli.RestoreFlag)(nil), Executable:(*cli.ExecutableFlag)(0xc0000fe7b0)}
+debug	2025-04-16 13:07:57.220 - node exe path: /home/otns/otns/openthread/build/simulation/examples/apps/cli/ot-cli-ftd
+info	2025-04-16 13:07:57.221 - simulation:CtrlAddNode: &{ID:-1 X:324 Y:270 IsMtd:false IsRouter:true RxOffWhenIdle:false RadioRange:160 ExecutablePath:/home/otns/otns/openthread/build/simulation/examples/apps/cli/ot-cli-ftd Restore:false}, rawMode=false
+info	2025-04-16 13:07:57.221 - dispatcher add node 5
+debug	2025-04-16 13:07:57.231 - status push: 5: "extaddr=9adeb9f4e37535bd"
+debug	2025-04-16 13:07:57.231 - extaddr changed: node=5, extaddr=9adeb9f4e37535bd, old extaddr=ffffffffffffffff
+debug	2025-04-16 13:07:57.231 - status push: 5: "rloc16=65534"
+debug	2025-04-16 13:07:57.231 - set node rloc: fffe -> fffe
+debug	2025-04-16 13:07:57.240 - node 5's extaddr becomes valid in 18.661828ms
+debug	2025-04-16 13:07:57.240 - Node<5>'s UART type is 2
+debug	2025-04-16 13:07:57.240 - Node<5> - 
+debug	2025-04-16 13:07:57.241 - Node<5> - mode rdn
+debug	2025-04-16 13:07:57.241 - Node<5> - Done
+debug	2025-04-16 13:07:57.241 - Node<5> - routerselectionjitter 1
+debug	2025-04-16 13:07:57.241 - Node<5> - Done
+debug	2025-04-16 13:07:57.241 - Node<5> - dataset init new
+debug	2025-04-16 13:07:57.242 - Node<5> - Done
+debug	2025-04-16 13:07:57.242 - Node<5> - dataset channel 11
+debug	2025-04-16 13:07:57.242 - Node<5> - Done
+debug	2025-04-16 13:07:57.242 - Node<5> - dataset extpanid dead00beef00cafe
+debug	2025-04-16 13:07:57.243 - Node<5> - Done
+debug	2025-04-16 13:07:57.243 - Node<5> - dataset meshlocalprefix fdde:ad00:beef:0::
+debug	2025-04-16 13:07:57.243 - Node<5> - Done
+debug	2025-04-16 13:07:57.244 - Node<5> - dataset networkkey 00112233445566778899aabbccddeeff
+debug	2025-04-16 13:07:57.244 - Node<5> - Done
+debug	2025-04-16 13:07:57.244 - Node<5> - dataset networkname otns
+debug	2025-04-16 13:07:57.244 - Node<5> - Done
+debug	2025-04-16 13:07:57.245 - Node<5> - dataset panid 0xface
+debug	2025-04-16 13:07:57.245 - Node<5> - Done
+debug	2025-04-16 13:07:57.245 - Node<5> - dataset pskc 3aa55f91ca47d1e4e71a08cb35e91591
+debug	2025-04-16 13:07:57.245 - Node<5> - Done
+debug	2025-04-16 13:07:57.309 - Node<5> - dataset commit active
+debug	2025-04-16 13:07:57.309 - Node<5> - Done
+debug	2025-04-16 13:07:57.309 - Node<5> - ifconfig up
+debug	2025-04-16 13:07:57.309 - Node<5> - Done
+debug	2025-04-16 13:07:57.309 - status push: 5: "rloc16=65534"
+debug	2025-04-16 13:07:57.310 - set node rloc: fffe -> fffe
+debug	2025-04-16 13:07:57.311 - status push: 5: "role=1"
+debug	2025-04-16 13:07:57.311 - Node<5> - thread start
+debug	2025-04-16 13:07:57.311 - Node<5> - Done
+debug	2025-04-16 13:07:57.311 - Node<5> - panid
+debug	2025-04-16 13:07:57.311 - Node<5> - 0xface
+debug	2025-04-16 13:07:57.311 - Node<5> - Done
+debug	2025-04-16 13:07:57.311 - Node<5> - channel
+debug	2025-04-16 13:07:57.311 - Node<5> - 11
+debug	2025-04-16 13:07:57.311 - Node<5> - Done
+debug	2025-04-16 13:07:57.312 - Node<5> - eui64
+debug	2025-04-16 13:07:57.312 - Node<5> - 18b4300000000005
+debug	2025-04-16 13:07:57.312 - Node<5> - Done
+debug	2025-04-16 13:07:57.312 - Node<5> - extaddr
+debug	2025-04-16 13:07:57.312 - Node<5> - 9adeb9f4e37535bd
+debug	2025-04-16 13:07:57.312 - Node<5> - Done
+debug	2025-04-16 13:07:57.312 - Node<5> - state
+debug	2025-04-16 13:07:57.312 - Node<5> - detached
+debug	2025-04-16 13:07:57.312 - Node<5> - Done
+debug	2025-04-16 13:07:57.313 - Node<5> - networkkey
+debug	2025-04-16 13:07:57.313 - Node<5> - 00112233445566778899aabbccddeeff
+debug	2025-04-16 13:07:57.313 - Node<5> - Done
+debug	2025-04-16 13:07:57.313 - Node<5> - mode
+debug	2025-04-16 13:07:57.313 - Node<5> - rdn
+debug	2025-04-16 13:07:57.313 - Node<5> - Done
+info	2025-04-16 13:07:57.313 - Node<5> - started, panid=0xface, channel=11, eui64="18b4300000000005", extaddr=0x9adeb9f4e37535bd, state=detached, networkkey="00112233445566778899aabbccddeeff", mode=rdn
+debug	2025-04-16 13:07:57.314 - Node<5> - routerupgradethreshold 99
+debug	2025-04-16 13:07:57.314 - Node<5> - Done
+debug	2025-04-16 13:07:57.315 - Node<5> - routerdowngradethreshold 1
+debug	2025-04-16 13:07:57.315 - Node<5> - Done
+debug	2025-04-16 13:07:57.316 - status push: 5: "mode=rn"
+debug	2025-04-16 13:07:57.316 - Node<5> - mode rn
+debug	2025-04-16 13:07:57.316 - Node<5> - Done
+debug	2025-04-16 13:07:57.318 - Node<5> - state
+debug	2025-04-16 13:07:57.318 - Node<5> - detached
+debug	2025-04-16 13:07:57.318 - Node<5> - Done
+debug	2025-04-16 13:07:57.322 - status push: 3: "transmit=11,d841,75,ffff"
+debug	2025-04-16 13:07:57.324 - status push: 2: "transmit=11,d841,32,ffff"
+=============================================================
+
+⏳ Waiting for all nodes to join the mesh...
+🔸 Node 5 still detached.
+debug	2025-04-16 13:07:57.325 - status push: 1: "transmit=11,d841,215,ffff"
+debug	2025-04-16 13:07:57.327 - status push: 4: "transmit=11,d841,113,ffff"
+debug	2025-04-16 13:07:57.328 - status push: 5: "transmit=11,d841,175,ffff"
+debug	2025-04-16 13:07:57.329 - status push: 3: "transmit=11,d841,76,ffff"
+debug	2025-04-16 13:07:57.331 - status push: 2: "transmit=11,d841,33,ffff"
+debug	2025-04-16 13:07:57.332 - status push: 1: "transmit=11,d841,216,ffff"
+debug	2025-04-16 13:07:57.333 - status push: 4: "transmit=11,d841,114,ffff"
+debug	2025-04-16 13:07:57.335 - status push: 5: "transmit=11,d841,176,ffff"
+debug	2025-04-16 13:07:57.337 - status push: 3: "transmit=11,d841,77,ffff"
+debug	2025-04-16 13:07:57.338 - status push: 2: "transmit=11,d841,34,ffff"
+debug	2025-04-16 13:07:57.339 - status push: 1: "transmit=11,d841,217,ffff"
+debug	2025-04-16 13:07:57.343 - Node<5> - state
+debug	2025-04-16 13:07:57.343 - Node<5> - detached
+debug	2025-04-16 13:07:57.343 - Node<5> - Done
+debug	2025-04-16 13:07:57.346 - status push: 4: "transmit=11,d841,115,ffff"
+debug	2025-04-16 13:07:57.347 - status push: 5: "transmit=11,d841,177,ffff"
+🔸 Node 5 still detached.
+debug	2025-04-16 13:07:57.354 - status push: 3: "transmit=11,d841,78,ffff"
+debug	2025-04-16 13:07:57.355 - status push: 2: "transmit=11,d841,35,ffff"
+debug	2025-04-16 13:07:57.357 - status push: 1: "transmit=11,d841,218,ffff"
+debug	2025-04-16 13:07:57.359 - status push: 4: "transmit=11,d841,116,ffff"
+debug	2025-04-16 13:07:57.360 - status push: 5: "transmit=11,d841,178,ffff"
+debug	2025-04-16 13:07:57.367 - Node<2> - state
+debug	2025-04-16 13:07:57.367 - Node<2> - detached
+debug	2025-04-16 13:07:57.367 - Node<2> - Done
+debug	2025-04-16 13:07:57.371 - status push: 3: "transmit=11,d841,79,ffff"
+debug	2025-04-16 13:07:57.372 - status push: 2: "transmit=11,d841,36,ffff"
+debug	2025-04-16 13:07:57.373 - status push: 1: "transmit=11,d841,219,ffff"
+debug	2025-04-16 13:07:57.376 - status push: 4: "transmit=11,d841,117,ffff"
+debug	2025-04-16 13:07:57.377 - status push: 5: "transmit=11,d841,179,ffff"
+🔸 Node 2 still detached.
+debug	2025-04-16 13:07:57.383 - status push: 3: "transmit=11,d841,80,ffff"
+debug	2025-04-16 13:07:57.384 - status push: 2: "transmit=11,d841,37,ffff"
+debug	2025-04-16 13:07:57.385 - status push: 1: "transmit=11,d841,220,ffff"
+debug	2025-04-16 13:07:57.389 - status push: 4: "transmit=11,d841,118,ffff"
+debug	2025-04-16 13:07:57.390 - status push: 5: "transmit=11,d841,180,ffff"
+debug	2025-04-16 13:07:57.393 - Node<1> - state
+debug	2025-04-16 13:07:57.393 - Node<1> - detached
+debug	2025-04-16 13:07:57.393 - Node<1> - Done
+🔸 Node 1 still detached.
+debug	2025-04-16 13:07:57.401 - status push: 3: "rloc16=65534"
+debug	2025-04-16 13:07:57.401 - set node rloc: fffe -> fffe
+debug	2025-04-16 13:07:57.403 - status push: 2: "rloc16=45056"
+debug	2025-04-16 13:07:57.403 - set node rloc: fffe -> b000
+debug	2025-04-16 13:07:57.438 - status push: 2: "role=4"
+debug	2025-04-16 13:07:57.438 - status push: 2: "parid=133058a3"
+debug	2025-04-16 13:07:57.441 - status push: 2: "transmit=11,d841,38,ffff"
+debug	2025-04-16 13:07:57.443 - visualizing addr=localhost:8998
+debug	2025-04-16 13:07:57.444 - status push: 1: "rloc16=24576"
+debug	2025-04-16 13:07:57.444 - set node rloc: fffe -> 6000
+debug	2025-04-16 13:07:57.482 - status push: 1: "role=4"
+debug	2025-04-16 13:07:57.482 - status push: 1: "parid=4794f7b7"
+debug	2025-04-16 13:07:57.484 - status push: 1: "transmit=11,d841,221,ffff"
+debug	2025-04-16 13:07:57.486 - status push: 3: "transmit=11,d841,81,ffff"
+debug	2025-04-16 13:07:57.487 - status push: 1: "transmit=11,dc61,222,aa7e4aba916c83b0"
+debug	2025-04-16 13:07:57.489 - status push: 4: "rloc16=65534"
+debug	2025-04-16 13:07:57.489 - set node rloc: fffe -> fffe
+debug	2025-04-16 13:07:57.490 - status push: 5: "rloc16=65534"
+debug	2025-04-16 13:07:57.490 - set node rloc: fffe -> fffe
+debug	2025-04-16 13:07:57.492 - status push: 4: "transmit=11,d841,119,ffff"
+debug	2025-04-16 13:07:57.494 - status push: 5: "transmit=11,d841,181,ffff"
+debug	2025-04-16 13:07:57.496 - status push: 1: "transmit=11,dc61,223,12706608cad28caf"
+debug	2025-04-16 13:07:57.498 - status push: 3: "transmit=11,dc61,82,06187c7db9926f68"
+debug	2025-04-16 13:07:57.533 - status push: 1: "child_added=aa7e4aba916c83b0"
+debug	2025-04-16 13:07:57.534 - status push: 1: "transmit=11,dc61,224,aa7e4aba916c83b0"
+debug	2025-04-16 13:07:57.536 - status push: 3: "rloc16=24577"
+debug	2025-04-16 13:07:57.536 - set node rloc: fffe -> 6001
+debug	2025-04-16 13:07:57.594 - status push: 3: "role=2"
+debug	2025-04-16 13:07:57.594 - status push: 3: "parid=4794f7b7"
+debug	2025-04-16 13:07:57.597 - status push: 1: "transmit=11,d841,225,ffff"
+debug	2025-04-16 13:07:57.598 - status push: 2: "transmit=11,d841,39,ffff"
+debug	2025-04-16 13:07:57.599 - status push: 2: "transmit=11,dc61,40,9adeb9f4e37535bd"
+debug	2025-04-16 13:07:57.601 - status push: 1: "transmit=11,dc61,226,9adeb9f4e37535bd"
+debug	2025-04-16 13:07:57.606 - Node<1> - state
+debug	2025-04-16 13:07:57.606 - Node<1> - leader
+debug	2025-04-16 13:07:57.606 - Node<1> - Done
+debug	2025-04-16 13:07:57.607 - Node<2> - state
+debug	2025-04-16 13:07:57.607 - Node<2> - leader
+debug	2025-04-16 13:07:57.607 - Node<2> - Done
+debug	2025-04-16 13:07:57.608 - Node<3> - state
+debug	2025-04-16 13:07:57.608 - Node<3> - child
+debug	2025-04-16 13:07:57.608 - Node<3> - Done
+debug	2025-04-16 13:07:57.609 - Node<4> - state
+debug	2025-04-16 13:07:57.609 - Node<4> - detached
+debug	2025-04-16 13:07:57.609 - Node<4> - Done
+debug	2025-04-16 13:07:57.611 - status push: 1: "transmit=11,dc61,227,c6973afb1b559861"
+debug	2025-04-16 13:07:57.613 - status push: 4: "transmit=11,dc61,120,06187c7db9926f68"
+🔸 Node 4 still detached.
+debug	2025-04-16 13:07:57.637 - status push: 1: "child_added=12706608cad28caf"
+debug	2025-04-16 13:07:57.637 - status push: 1: "transmit=11,dc61,228,12706608cad28caf"
+debug	2025-04-16 13:07:57.638 - status push: 4: "rloc16=24578"
+debug	2025-04-16 13:07:57.638 - set node rloc: fffe -> 6002
+debug	2025-04-16 13:07:57.680 - status push: 4: "role=2"
+debug	2025-04-16 13:07:57.680 - status push: 4: "parid=4794f7b7"
+debug	2025-04-16 13:07:57.682 - status push: 5: "transmit=11,dc61,182,c6973afb1b559861"
+debug	2025-04-16 13:07:57.707 - status push: 2: "child_added=9adeb9f4e37535bd"
+debug	2025-04-16 13:07:57.707 - status push: 2: "transmit=11,dc61,41,9adeb9f4e37535bd"
+debug	2025-04-16 13:07:57.708 - status push: 5: "rloc16=45057"
+debug	2025-04-16 13:07:57.708 - set node rloc: fffe -> b001
+debug	2025-04-16 13:07:57.754 - status push: 5: "role=2"
+debug	2025-04-16 13:07:57.754 - status push: 5: "parid=133058a3"
+debug	2025-04-16 13:07:57.757 - status push: 2: "transmit=11,dc61,42,06187c7db9926f68"
+debug	2025-04-16 13:07:57.786 - status push: 1: "child_added=c6973afb1b559861"
+debug	2025-04-16 13:07:57.787 - status push: 1: "transmit=11,dc61,229,c6973afb1b559861"
+debug	2025-04-16 13:07:57.788 - status push: 2: "rloc16=24579"
+debug	2025-04-16 13:07:57.788 - set node rloc: b000 -> 6003
+debug	2025-04-16 13:07:57.789 - status push: 2: "coap=send,12715,0,2,a/as,fdde:ad00:beef:0:0:ff:fe00:6000,61631"
+debug	2025-04-16 13:07:57.846 - status push: 2: "role=2"
+debug	2025-04-16 13:07:57.846 - status push: 2: "parid=4794f7b7"
+debug	2025-04-16 13:07:57.849 - status push: 2: "transmit=11,9869,43,6000"
+debug	2025-04-16 13:07:57.850 - status push: 1: "coap=send,12715,2,68,,fdde:ad00:beef:0:0:ff:fe00:6003,61631"
+debug	2025-04-16 13:07:57.850 - status push: 1: "coap=recv,12715,0,2,a/as,fdde:ad00:beef:0:0:ff:fe00:6003,61631"
+debug	2025-04-16 13:07:57.851 - status push: 1: "transmit=11,9869,230,6003"
+debug	2025-04-16 13:07:57.852 - status push: 2: "rloc16=45056"
+debug	2025-04-16 13:07:57.852 - set node rloc: 6003 -> b000
+debug	2025-04-16 13:07:57.852 - status push: 2: "coap=recv,12715,2,68,,fdde:ad00:beef:0:0:ff:fe00:6000,61631"
+debug	2025-04-16 13:07:57.898 - status push: 2: "role=3"
+debug	2025-04-16 13:07:57.899 - status push: 2: "transmit=11,d841,44,ffff"
+debug	2025-04-16 13:07:57.900 - status push: 1: "router_added=c6973afb1b559861"
+debug	2025-04-16 13:07:57.900 - status push: 5: "parid=4794f7b7"
+debug	2025-04-16 13:07:57.900 - status push: 1: "child_removed=c6973afb1b559861"
+debug	2025-04-16 13:07:57.918 - status push: 1: "transmit=11,d841,231,ffff"
+debug	2025-04-16 13:07:57.919 - status push: 2: "transmit=11,d841,45,ffff"
+debug	2025-04-16 13:07:57.921 - status push: 5: "transmit=11,dc61,183,c6973afb1b559861"
+debug	2025-04-16 13:07:57.924 - status push: 2: "transmit=11,dc61,46,9adeb9f4e37535bd"
+debug	2025-04-16 13:07:57.928 - status push: 5: "transmit=11,dc61,184,c6973afb1b559861"
+debug	2025-04-16 13:07:57.929 - status push: 2: "transmit=11,dc61,47,9adeb9f4e37535bd"
+debug	2025-04-16 13:07:57.935 - Node<3> - state
+debug	2025-04-16 13:07:57.935 - Node<3> - child
+debug	2025-04-16 13:07:57.935 - Node<3> - Done
+debug	2025-04-16 13:07:57.935 - Node<4> - state
+debug	2025-04-16 13:07:57.936 - Node<4> - child
+debug	2025-04-16 13:07:57.936 - Node<4> - Done
+debug	2025-04-16 13:07:57.936 - Node<5> - state
+debug	2025-04-16 13:07:57.936 - Node<5> - child
+debug	2025-04-16 13:07:57.936 - Node<5> - Done
+debug	2025-04-16 13:07:57.937 - Node<1> - state
+debug	2025-04-16 13:07:57.937 - Node<1> - leader
+debug	2025-04-16 13:07:57.937 - Node<1> - Done
+debug	2025-04-16 13:07:57.938 - Node<2> - state
+debug	2025-04-16 13:07:57.938 - Node<2> - router
+debug	2025-04-16 13:07:57.938 - Node<2> - Done
+debug	2025-04-16 13:07:57.939 - Node<1> - coap start
+debug	2025-04-16 13:07:57.939 - Node<1> - Done
+debug	2025-04-16 13:07:57.940 - Node<1> - coap resource logs
+debug	2025-04-16 13:07:57.940 - Node<1> - Done
+debug	2025-04-16 13:07:57.940 - Node<1> - ipaddr
+debug	2025-04-16 13:07:57.940 - Node<1> - fdde:ad00:beef:0:0:ff:fe00:fc00
+debug	2025-04-16 13:07:57.940 - Node<1> - fdde:ad00:beef:0:0:ff:fe00:6000
+debug	2025-04-16 13:07:57.940 - Node<1> - fdde:ad00:beef:0:6b5a:efbd:867b:855f
+debug	2025-04-16 13:07:57.940 - Node<1> - fe80:0:0:0:418:7c7d:b992:6f68
+debug	2025-04-16 13:07:57.940 - Node<1> - Done
+debug	2025-04-16 13:07:57.941 - Node<1> - coap start
+debug	2025-04-16 13:07:57.941 - Node<1> - Done
+debug	2025-04-16 13:07:57.942 - Node<2> - coap start
+debug	2025-04-16 13:07:57.942 - Node<2> - Done
+✅ All nodes joined the mesh.
+
+******************************************************
+Ready to initiate communication.
+
+📡 Initiating CoAP message exchange...
+🧭 Receiver Node 1 IP: fdde:ad00:beef:0:0:ff:fe00:fc00
+📨 Node 2 sent payload: FQoCG32KGm8NWlZoN5tv4EDdTb3XD4AR8NxMp4XzrBKOAKbctc1zVXT7ge9K85BgXUM5UAoUDC67WGkW1EeZTIL6jCpPNxymJy3hh62WxhpTkdEZqbB8l5ZZ7iQukM7M9EXNeLlynM2lT8nD8hOlVGdAUTuKU206lGzTAyOn16oZJ3FbGGk3pU3aW1DqgyCuyTvf9ZXfTxDIRQRpKcSGME304E8AeMNIJqyqUYaK61puxG68OSjTjqAb3D
+📨 Node 3 sent payload: bXQnyetBKKe2SNx5xNnVmQTZpJDMd7Zq2LMoZP0SMKhfV2Mch5yBCD6wz5NDNkc07pqrhHp4Q3uuaOh11IWnSelEJQgSaNMtkFUZvGHVbyiXFyFjQZCNYEkDZgianbBQLyyTNfNnnJSS8XGq1U3CHzm1njrw5kUYA1pF80nZM9XfbDKRpy66tokVYmsuDJ2LKa7Z798mqPleg4gyrXG7gzCe1eEb4wWiqKomsPXODBzCciV9BRt1tUhqYV
+📨 Node 4 sent payload: oXVBqbbyTG8VYmcSRunPQskWr5A2EkAh4UIV3OIzr4C53PiOeZ0mzw4V29RYOKctdkVMCztHQHIx3rGR1ZSBlcfDMW1YaWwi6y04NVxm9GerJfXORrEhvg5QKVxrbSkpFOKDbXWLIOwxaG82JqFmiJoEF9vCzhkdkRERVSiHnDvNWR2siWQbX0LhDMe2us9VrjSR2Lqa9ksu1r5jlKyDXOlhQnW0fI1lRoQD3ySRGLyRcdAWCjqRxEzHLQ
+📨 Node 5 sent payload: 2T6t6NKvzEyCZnYMYlizjyc9biL83z8sd8006rIL9jvJvDvIQpsspUrtPHWTpPDpyjR9xhNCACP9c9QHMmBLrgRCZsE4sY35M0zrnraNdTLQ81XA4IyEsC1OWNyPBQIiVzNhgYDvaKPCRyClLQ8UkqufytqnzHFi0pmZUuFzPZap8WraxwBO5sIigoA92x2ibUf1mQfywnz3n6F2n2EWzuRDOuF0QRCs6flkb2IeImZD7F55UVCrh95rEV
+debug	2025-04-16 13:07:57.946 - status push: 2: "coap=send,46768,0,2,logs,fdde:ad00:beef:0:0:ff:fe00:fc00,5683"
+debug	2025-04-16 13:07:57.946 - Node<2> - coap post fdde:ad00:beef:0:0:ff:fe00:fc00 logs con FQoCG32KGm8NWlZoN5tv4EDdTb3XD4AR8NxMp4XzrBKOAKbctc1zVXT7ge9K85BgXUM5UAoUDC67WGkW1EeZTIL6jCpPNxymJy3hh62WxhpTkdEZqbB8l5ZZ7iQukM7M9EXNeLlynM2lT8nD8hOlVGdAUTuKU206lGzTAyOn16oZJ3FbGGk3pU3aW1DqgyCuyTvf9ZXfTxDIRQRpKcSGME304E8AeMNIJqyqUYaK61puxG68OSjTjqAb3D
+debug	2025-04-16 13:07:57.946 - Node<2> - Done
+debug	2025-04-16 13:07:57.946 - Node<3> - coap start
+debug	2025-04-16 13:07:57.946 - Node<3> - Done
+debug	2025-04-16 13:07:57.950 - status push: 3: "coap=send,33623,0,2,logs,fdde:ad00:beef:0:0:ff:fe00:fc00,5683"
+debug	2025-04-16 13:07:57.950 - status push: 3: "transmit=11,9879,83,6000"
+debug	2025-04-16 13:07:57.950 - Node<3> - coap post fdde:ad00:beef:0:0:ff:fe00:fc00 logs con bXQnyetBKKe2SNx5xNnVmQTZpJDMd7Zq2LMoZP0SMKhfV2Mch5yBCD6wz5NDNkc07pqrhHp4Q3uuaOh11IWnSelEJQgSaNMtkFUZvGHVbyiXFyFjQZCNYEkDZgianbBQLyyTNfNnnJSS8XGq1U3CHzm1njrw5kUYA1pF80nZM9XfbDKRpy66tokVYmsuDJ2LKa7Z798mqPleg4gyrXG7gzCe1eEb4wWiqKomsPXODBzCciV9BRt1tUhqYV
+debug	2025-04-16 13:07:57.950 - Node<3> - Done
+debug	2025-04-16 13:07:57.952 - Node<4> - coap start
+debug	2025-04-16 13:07:57.952 - Node<4> - Done
+debug	2025-04-16 13:07:57.954 - status push: 4: "coap=send,37614,0,2,logs,fdde:ad00:beef:0:0:ff:fe00:fc00,5683"
+debug	2025-04-16 13:07:57.955 - Node<4> - coap post fdde:ad00:beef:0:0:ff:fe00:fc00 logs con oXVBqbbyTG8VYmcSRunPQskWr5A2EkAh4UIV3OIzr4C53PiOeZ0mzw4V29RYOKctdkVMCztHQHIx3rGR1ZSBlcfDMW1YaWwi6y04NVxm9GerJfXORrEhvg5QKVxrbSkpFOKDbXWLIOwxaG82JqFmiJoEF9vCzhkdkRERVSiHnDvNWR2siWQbX0LhDMe2us9VrjSR2Lqa9ksu1r5jlKyDXOlhQnW0fI1lRoQD3ySRGLyRcdAWCjqRxEzHLQ
+debug	2025-04-16 13:07:57.955 - Node<4> - Done
+debug	2025-04-16 13:07:57.956 - Node<5> - coap start
+debug	2025-04-16 13:07:57.956 - Node<5> - Done
+debug	2025-04-16 13:07:57.960 - status push: 5: "coap=send,18742,0,2,logs,fdde:ad00:beef:0:0:ff:fe00:fc00,5683"
+debug	2025-04-16 13:07:57.960 - Node<5> - coap post fdde:ad00:beef:0:0:ff:fe00:fc00 logs con 2T6t6NKvzEyCZnYMYlizjyc9biL83z8sd8006rIL9jvJvDvIQpsspUrtPHWTpPDpyjR9xhNCACP9c9QHMmBLrgRCZsE4sY35M0zrnraNdTLQ81XA4IyEsC1OWNyPBQIiVzNhgYDvaKPCRyClLQ8UkqufytqnzHFi0pmZUuFzPZap8WraxwBO5sIigoA92x2ibUf1mQfywnz3n6F2n2EWzuRDOuF0QRCs6flkb2IeImZD7F55UVCrh95rEV
+debug	2025-04-16 13:07:57.960 - Node<5> - Done
+debug	2025-04-16 13:07:57.968 - CLI exit
+info	2025-04-16 13:07:57.968 - program exit: <nil>
+debug	2025-04-16 13:07:57.968 - handleSignals exit.
+info	2025-04-16 13:07:57.969 - waiting for OTNS to stop gracefully ...
+info	2025-04-16 13:07:57.969 - program context waiting routines: map[dispatcher:1 grpcwebproxy:1 handleSignals:0 simulation:1]
+debug	2025-04-16 13:07:57.971 - dispatcher exit.
+info	2025-04-16 13:07:57.971 - stopping simulation ...
+debug	2025-04-16 13:07:58.126 - simulation exit.
