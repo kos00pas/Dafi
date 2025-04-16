@@ -110,7 +110,7 @@ def main():
     else:
         pass
         # print("Network not fully converged. Continuing anyway...")
-    # ns.go()
+    ns.go()
 
 
 
