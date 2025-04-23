@@ -43,9 +43,7 @@ def wait_for_network_convergence(ns, max_wait=120, interval=2):
     return False
 
 
-from MyJob.my_functions import place_in_circle
 
-from MyJob.my_functions import place_in_circle
 
 from MyJob.my_functions import place_in_circle
 
@@ -142,12 +140,13 @@ def run_baseline_simulation():
     ns.set_title("DAfI - Scalable Mesh Network")
     ns.set_network_info(version="Latest", commit="main", real=False)
     ns.web()
-    ns.speed = 101
+    # ns.speed = 101
 
     initial_num_Dev = 10
     spacing = 25
 
     print("⏱ Starting full simulation...")
+    # sim_time = float(ns._do_command("time")[0])
     sim_start = datetime.now()
 
     # Step 1: Baseline setup
@@ -185,7 +184,34 @@ def run_baseline_simulation():
     print("===============================================")
 
 
+import re
+from datetime import datetime
 
+def parse_leader_election_time(log_path):
+    # Define regex patterns
+    start_pattern = re.compile(r"\[(.*?)\].*dispatcher listening on")
+    leader_pattern = re.compile(r"\[(.*?)\].*status push: \d+: \"role=4\"")
+
+    # Load the log file
+    with open(log_path, "r") as file:
+        log_lines = file.readlines()
+
+    # Extract timestamps
+    start_time = None
+    leader_time = None
+
+    for line in log_lines:
+        if start_time is None and start_pattern.search(line):
+            start_time = datetime.strptime(start_pattern.search(line).group(1), "%Y-%m-%d %H:%M:%S.%f")
+        elif leader_time is None and leader_pattern.search(line):
+            leader_time = datetime.strptime(leader_pattern.search(line).group(1), "%Y-%m-%d %H:%M:%S.%f")
+            break  # Stop after finding the first leader election
+
+    if start_time and leader_time:
+        duration = (leader_time - start_time).total_seconds()
+        print(f"Leader Election Time: {duration:.2f} seconds")
+    else:
+        print("Could not determine leader election time.")
 
 # === Entrypoint ===
 if __name__ == '__main__':
@@ -193,9 +219,11 @@ if __name__ == '__main__':
         kill_otns_port(9000)
         start_log()
         run_baseline_simulation()
+        parse_leader_election_time("mylogs.log")
     except OTNSExitedError as ex:
         if ex.exit_code != 0:
             raise
 
 
 # http://localhost:8997/visualize?addr=localhost:8998
+# tshark -r  current.pcap -Y "udp.port == 19788" -V > results_pcap.txt
