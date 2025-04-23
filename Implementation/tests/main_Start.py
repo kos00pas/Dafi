@@ -1,6 +1,10 @@
+from datetime import datetime
+
+real_start = None
+
 from otns.cli import OTNS
 from otns.cli.errors import OTNSExitedError
-from my_functions import (
+from MyJob.my_functions import (
     kill_otns_port,
     calculate_device_roles,
     place_leader,
@@ -8,36 +12,22 @@ from my_functions import (
     place_reeds_diagonal_and_ring,
     place_feds_ring
 )
-from communication import (
+from MyJob.communication import (
 initiate_coap_announcement
 )
+
+from MyJob.nodes import (
+add_fed,
+add_reed,
+add_router
+)
+
+from  MyJob.logging import (start_log)
 
 # Set paths to executables
 OT_CLI_ftd = "/home/otns/otns/openthread/build/simulation/examples/apps/cli/ot-cli-ftd"
 OTNS_PATH = "/home/otns/go/bin/otns"  # Adjust if different
 
-
-# === Device Role Logic ===
-def add_fed(ns, x, y, exe):
-    node = ns.add("router", x=x, y=y, executable=exe)
-    ns.set_router_upgrade_threshold(node, 99)
-    ns.set_router_downgrade_threshold(node, 1)
-    ns.node_cmd(node, "mode rn")
-    
-    return node
-
-def add_reed(ns, x, y, exe):
-    node = ns.add("router", x=x, y=y, executable=exe)
-    ns.node_cmd(node, "mode rdn")
-    
-    return node
-
-def add_router(ns, x, y, exe):
-    node = ns.add("router", x=x, y=y, executable=exe)
-    ns.node_cmd(node, "mode rdn")
-    ns.node_cmd(node, "routerselectionjitter 1")
-    
-    return node
 
 
 def configuration(ns,TOTAL_DEVICES):
@@ -80,7 +70,9 @@ def wait_for_network_convergence(ns, max_wait=120, interval=2):
                 all_joined = False
                 break
         if all_joined:
-            # print(f"✅ All nodes joined the mesh.\n")
+            # print("ALL_JOINED_MY_MESHHH:", ns.sim_time())
+            # exit()
+            print(f"✅ All nodes joined the mesh.\n")
             # print("******************************************************")
             return True
         ns.go(interval)
@@ -91,15 +83,17 @@ def wait_for_network_convergence(ns, max_wait=120, interval=2):
 
 
 
-def main():
+def Baseline():
     ns = OTNS(
         otns_path=OTNS_PATH,
         otns_args=["-log", "debug"]
     )
     ns.set_title("DAfI - Role Configured Topology")
+    real_start = datetime.now()
+
     ns.set_network_info(version="Latest", commit="main", real=False)
     ns.web()
-    ns.speed = 1
+    ns.speed = 101
     TOTAL_DEVICES = 10# 510 max
     configuration(ns,TOTAL_DEVICES)
     if wait_for_network_convergence(ns):
@@ -112,36 +106,18 @@ def main():
         # print("Network not fully converged. Continuing anyway...")
     ns.go()
 
-
-import sys
-class TeeOutput:
-    def __init__(self, *outputs):
-        self.outputs = outputs
-
-    def write(self, message):
-        for output in self.outputs:
-            output.write(message)
-            output.flush()  # optional but good for real-time logging
-
-    def flush(self):
-        for output in self.outputs:
-            output.flush()
-
-def start_log():
-    terminal = sys.stdout
-
-    # Open log file
-    logfile = open("mylogs.log", "w")
-
-    # Set tee output
-    sys.stdout = TeeOutput(terminal, logfile)
+def ScaleUP():
+    pass
 
 
 if __name__ == '__main__':
     try:
         kill_otns_port(9000)
         start_log()
-        main()
+        Baseline()
+        ScaleUP()
     except OTNSExitedError as ex:
         if ex.exit_code != 0:
             raise
+
+# http://localhost:8997/visualize?addr=localhost:8998

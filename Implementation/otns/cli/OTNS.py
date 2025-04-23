@@ -52,6 +52,8 @@ class OTNS(object):
     MAX_SIMULATE_SPEED = 1000000  # Max simulating speed
     PAUSE_SIMULATE_SPEED = 0
 
+
+
     def __init__(self, otns_path: Optional[str] = None, otns_args: Optional[List[str]] = None):
         self._otns_path = otns_path or self._detect_otns_path()
         self._otns_args = list(otns_args or []) + ['-autogo=false', '-web=false']
@@ -152,6 +154,7 @@ class OTNS(object):
         return which_otns
 
     def _do_command(self, cmd: str) -> List[str]:
+        "PASHIOURT"
         logging.info("OTNS <<< %s", cmd)
         print(f"[{now()}] [_do_command] Sending command: {cmd}", flush=True)
 

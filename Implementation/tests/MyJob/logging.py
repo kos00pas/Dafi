@@ -1,5 +1,4 @@
 import sys
-
 class TeeOutput:
     def __init__(self, *outputs):
         self.outputs = outputs
@@ -13,16 +12,11 @@ class TeeOutput:
         for output in self.outputs:
             output.flush()
 
-# Save original stdout
-terminal = sys.stdout
+def start_log():
+    terminal = sys.stdout
 
-# Open log file
-logfile = open("mylogs.log", "w")
+    # Open log file
+    logfile = open("mylogs.log", "w")
 
-# Set tee output
-sys.stdout = TeeOutput(terminal, logfile)
-
-# Example prints
-print("This goes to terminal AND file.")
-
-import mymodule
+    # Set tee output
+    sys.stdout = TeeOutput(terminal, logfile)
