@@ -51,53 +51,90 @@ from MyJob.my_functions import place_in_circle
 
 scale_up_counter = 0  # Global variable to keep track of rounds
 
+scale_up_counter = 0
+scale_up_groups = []  # List of lists to track 10 node IDs per round
+
 def scale_up(ns, spacing):
-    global scale_up_counter
+    global scale_up_counter, scale_up_groups
 
     print(f"🆙 Scaling up deterministically (round {scale_up_counter + 1})")
-
-    # Calculate shifted center
     offset = 5 * scale_up_counter
     center_x = CENTER_X + offset
     center_y = CENTER_Y + offset
 
-    # Center router
-    add_router(ns, center_x, center_y, OT_CLI_ftd)
+    group_node_ids = []
 
-    # One REED in half-radius
+    # Add Router
+    router_id = add_router(ns, center_x, center_y, OT_CLI_ftd)
+    group_node_ids.append(router_id)
+
+    # Add REED
     reed_pos = place_in_circle(center_x, center_y, spacing / 2, 1)[0]
-    add_reed(ns, *reed_pos, OT_CLI_ftd)
+    reed_id = add_reed(ns, *reed_pos, OT_CLI_ftd)
+    group_node_ids.append(reed_id)
 
-    # 8 FEDs in full-radius
-    fed_positions = place_in_circle(center_x, center_y, spacing*3, 8)
+    # Add FEDs
+    fed_positions = place_in_circle(center_x, center_y, spacing * 3, 8)
     for x, y in fed_positions:
-        add_fed(ns, x, y, OT_CLI_ftd)
+        fed_id = add_fed(ns, x, y, OT_CLI_ftd)
+        group_node_ids.append(fed_id)
 
+    scale_up_groups.append(group_node_ids)
     scale_up_counter += 1
 
 
 
 
+
 def dynamic_scaling(ns, current_total, step, max_total, spacing):
-    """
-    Incrementally adds `step` devices per round until reaching `max_total`.
-    Each round places:
-      - 1 Router at the center
-      - 1 REED in a deterministic half-radius position
-      - 8 FEDs in deterministic full-radius circle
-    """
-    while current_total < max_total:
-        print(f"\n🔁 Scaling network to {current_total + step} nodes...")
+        """
+        Incrementally adds `step` devices per round until reaching `max_total`.
+        Each round places:
+         - 1 Router at the center
+         - 1 REED in a deterministic half-radius position
+         - 8 FEDs in deterministic full-radius circle
+        """
+        rounds = 0
+        while current_total < max_total:
+            print(f"\n🔁 Scaling network to {current_total + step} nodes...")
+            scale_up(ns, spacing=spacing)
 
-        scale_up(ns, spacing=spacing)  # adds 10 new nodes
+            if wait_for_network_convergence(ns):
+                print(f"✅ Converged at {current_total + step} nodes.")
+                initiate_coap_announcement(ns)
+            else:
+                print("⚠️ Some nodes failed to join after scale-up.")
 
+            current_total += step
+            rounds += 1
+        return rounds
+def scale_down(ns):
+    global scale_up_groups
+    if not scale_up_groups:
+        print("🚫 No more nodes to scale down.")
+        return
+
+    last_group = scale_up_groups.pop()
+    print(f"🔽 Scaling down: removing {len(last_group)} nodes...")
+    ns.delete(*last_group)
+
+def dynamic_scaling_down(ns, rounds, spacing):
+    """
+    Symmetrically remove the previously added nodes, one group at a time.
+    """
+    print(f"\n🔁 Starting dynamic scale-down over {rounds} rounds...")
+    for i in range(rounds):
+        print(f"🔽 Scale-down round {i + 1}/{rounds}")
+        scale_down(ns)
+
+        # Let network rebalance
         if wait_for_network_convergence(ns):
-            print(f"✅ Converged at {current_total + step} nodes.")
+            print("✅ Converged after scale-down.")
             initiate_coap_announcement(ns)
         else:
-            print("⚠️ Some nodes failed to join after scale-up.")
+            print("⚠️ Some nodes failed to re-converge after removal.")
 
-        current_total += step
+        ns.go(10)
 
 
 def run_baseline_simulation():
@@ -106,18 +143,28 @@ def run_baseline_simulation():
     ns.set_network_info(version="Latest", commit="main", real=False)
     ns.web()
     ns.speed = 101
+
     total_devices = 10
     spacing = 25
+
     configure_initial_topology(ns, total_devices=total_devices, spacing=spacing)
 
     if wait_for_network_convergence(ns):
         print("✅ Baseline converged.")
         initiate_coap_announcement(ns)
 
-    ns.go(10)  # simulate initial stability
-    dynamic_scaling(ns, current_total=total_devices, step=10, max_total=510, spacing=spacing)
+    ns.go(10)
 
-    ns.go()  # let it run
+    # Step 2: Scale up in rounds
+    scale_rounds = dynamic_scaling(ns, current_total=total_devices, step=10, max_total=510, spacing=spacing)
+
+    ns.go(30)  # Let steady-state run a bit
+
+    # Step 3: Scale down in reverse
+    dynamic_scaling_down(ns, rounds=scale_rounds, spacing=spacing)
+
+    ns.go()  # Let simulation continue
+
 
 
 # === Entrypoint ===
