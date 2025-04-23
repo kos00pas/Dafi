@@ -47,20 +47,34 @@ from MyJob.my_functions import place_in_circle
 
 from MyJob.my_functions import place_in_circle
 
+from MyJob.my_functions import place_in_circle
+
+scale_up_counter = 0  # Global variable to keep track of rounds
+
 def scale_up(ns, spacing):
-    print("🆙 Scaling up deterministically")
+    global scale_up_counter
+
+    print(f"🆙 Scaling up deterministically (round {scale_up_counter + 1})")
+
+    # Calculate shifted center
+    offset = 5 * scale_up_counter
+    center_x = CENTER_X + offset
+    center_y = CENTER_Y + offset
 
     # Center router
-    add_router(ns, CENTER_X, CENTER_Y, OT_CLI_ftd)
+    add_router(ns, center_x, center_y, OT_CLI_ftd)
 
     # One REED in half-radius
-    reed_pos = place_in_circle(CENTER_X, CENTER_Y, spacing / 2, 1)[0]
+    reed_pos = place_in_circle(center_x, center_y, spacing / 2, 1)[0]
     add_reed(ns, *reed_pos, OT_CLI_ftd)
 
     # 8 FEDs in full-radius
-    fed_positions = place_in_circle(CENTER_X-10, CENTER_Y-10, spacing* 3, 8)
+    fed_positions = place_in_circle(center_x, center_y, spacing*3, 8)
     for x, y in fed_positions:
         add_fed(ns, x, y, OT_CLI_ftd)
+
+    scale_up_counter += 1
+
 
 
 
