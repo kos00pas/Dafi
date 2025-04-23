@@ -147,23 +147,43 @@ def run_baseline_simulation():
     total_devices = 10
     spacing = 25
 
+    print("⏱ Starting full simulation...")
+    sim_start = datetime.now()
+
+    # Step 1: Baseline setup
     configure_initial_topology(ns, total_devices=total_devices, spacing=spacing)
 
+    start_baseline = datetime.now()
     if wait_for_network_convergence(ns):
         print("✅ Baseline converged.")
         initiate_coap_announcement(ns)
+    end_baseline = datetime.now()
 
-    ns.go(10)
+    ns.go(10)  # ⏱ Let baseline network run 10 seconds (steady state)
 
-    # Step 2: Scale up in rounds
+    # Step 2: Scale up
+    print("\n⏱ Starting scaling up...")
+    start_up = datetime.now()
     scale_rounds = dynamic_scaling(ns, current_total=total_devices, step=10, max_total=510, spacing=spacing)
+    ns.go(30)  # ⏱ Post-scale-up steady state
+    end_up = datetime.now()
 
-    ns.go(30)  # Let steady-state run a bit
-
-    # Step 3: Scale down in reverse
+    # Step 3: Scale down
+    print("\n⏱ Starting scaling down...")
+    start_down = datetime.now()
     dynamic_scaling_down(ns, rounds=scale_rounds, spacing=spacing)
+    end_down = datetime.now()
 
-    ns.go()  # Let simulation continue
+    sim_end = datetime.now()
+
+    # === Summary Report ===
+    print("\n========== 📊 SIMULATION TIME SUMMARY ==========")
+    print(f"🧱 Baseline convergence time      : {end_baseline - start_baseline}")
+    print(f"📈 Scale-up phase duration        : {end_up - start_up}")
+    print(f"📉 Scale-down phase duration      : {end_down - start_down}")
+    print(f"🕒 TOTAL simulation time (wall)   : {sim_end - sim_start}")
+    print("===============================================")
+
 
 
 
