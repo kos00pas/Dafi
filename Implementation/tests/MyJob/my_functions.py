@@ -19,6 +19,8 @@ def calculate_device_roles(total_devices):
     routers = min(math.ceil(total_devices * 0.1), 32)
     reeds = routers
     feds = total_devices - routers - reeds
+    print(routers, reeds, feds)
+    # exit()
     if feds < 0:
         raise ValueError("Not enough devices for proper role balance.")
     return routers, reeds, feds
@@ -79,6 +81,8 @@ def place_feds_ring(ns, center_x, center_y, count, radius, exe, add_fed):
     positions = place_in_circle(center_x, center_y, radius, count)
     for x, y in positions:
         add_fed(ns, x, y, exe)
+
+
 
 
 kill_otns_port()
