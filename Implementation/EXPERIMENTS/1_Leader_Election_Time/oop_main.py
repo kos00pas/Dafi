@@ -24,7 +24,7 @@ class LeaderElectionTest:
         self.initial_devices = initial_devices
         self.spacing = spacing
         self.log_file = log_file
-        self.ns = OTNS(otns_path=OTNS_PATH, otns_args=["-log", "debug"])
+        self.ns = OTNS(otns_path=OTNS_PATH) #, otns_args=["-log", "debug"]
 
     def setup_simulator(self):
         self.ns.set_title("DAfI - Scalable Mesh Network")
@@ -45,7 +45,7 @@ class LeaderElectionTest:
 
     import time
 
-    def wait_for_convergence(self, max_wait=1200, interval=2):
+    def wait_for_convergence(self, max_wait=1200, interval=1):
         waited = 0
         dump_interval = 10  # for debug printing
         start_time = time.time()
@@ -64,7 +64,6 @@ class LeaderElectionTest:
             states = {node_id: self.ns.node_cmd(node_id, "state")[0].strip()
                       for node_id in self.ns.nodes()}
 
-            print(f"[{waited}s] Node states: {states}")
 
             # === Theory Step 1: All nodes must be attached (no 'detached')
             if any(state == "detached" for state in states.values()):
@@ -77,6 +76,7 @@ class LeaderElectionTest:
                 continue
 
             # === Theory Step 2: One stable leader for N intervals
+            # check for leader election time
             leader_nodes = [nid for nid, role in states.items() if role == "leader"]
             if len(leader_nodes) == 1:
                 current_leader = leader_nodes[0]
@@ -116,6 +116,8 @@ class LeaderElectionTest:
                     last_states = states.copy()
 
                 if stable_topology_count == required_stable_intervals:
+                    print(f"[{waited}s] Node states: {states}")
+
                     topology_converged_at = time.time()
                     total_time = int(topology_converged_at - start_time)
                     leader_time = int(leader_elected_at - start_time)
@@ -159,7 +161,7 @@ class LeaderElectionTest:
         else:
             print("❌ Baseline failed to converge.")
 
-        self.ns.go(10)
+        self.ns.go(4)
         time.sleep(1)
         self.ns.close()  # ⬅️ Ensures OTNS is properly shut down
         print("\n========== 📊 SIMULATION TIME SUMMARY ==========")
