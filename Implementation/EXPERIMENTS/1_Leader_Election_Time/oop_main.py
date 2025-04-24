@@ -40,24 +40,102 @@ class LeaderElectionTest:
         place_reeds_diagonal_and_ring(self.ns, CENTER_X, CENTER_Y, reeds, self.spacing, OT_CLI_ftd, add_reed)
         place_feds_ring(self.ns, CENTER_X, CENTER_Y, feds, self.spacing * 3, OT_CLI_ftd, add_fed)
 
+        for node_id in self.ns.nodes().keys():
+            self.ns.node_cmd(node_id, "state")
+
+    import time
+
     def wait_for_convergence(self, max_wait=1200, interval=2):
         waited = 0
-        while waited < max_wait:
-            states = {node_id: self.ns.node_cmd(node_id, "state")[0].strip() for node_id in self.ns.nodes()}
+        dump_interval = 10  # for debug printing
+        start_time = time.time()
 
-            # Log all states to debug output
+        leader_elected_at = None
+        topology_converged_at = None
+
+        stable_leader = None
+        stable_leader_count = 0
+        required_stable_intervals = 3  # theory: stability requires N consistent checks
+
+        last_states = None
+        stable_topology_count = 0
+
+        while waited < max_wait:
+            states = {node_id: self.ns.node_cmd(node_id, "state")[0].strip()
+                      for node_id in self.ns.nodes()}
+
             print(f"[{waited}s] Node states: {states}")
 
-            if "leader" in states.values():
-                print(f"🟩 Leader found at {waited}s: " +
-                      ", ".join([f"{nid}={role}" for nid, role in states.items()]))
-                return waited
+            # === Theory Step 1: All nodes must be attached (no 'detached')
+            if any(state == "detached" for state in states.values()):
+                stable_leader = None
+                stable_leader_count = 0
+                stable_topology_count = 0
+                last_states = None
+                self.ns.go(interval)
+                waited += interval
+                continue
+
+            # === Theory Step 2: One stable leader for N intervals
+            leader_nodes = [nid for nid, role in states.items() if role == "leader"]
+            if len(leader_nodes) == 1:
+                current_leader = leader_nodes[0]
+                if current_leader == stable_leader:
+                    stable_leader_count += 1
+                else:
+                    stable_leader = current_leader
+                    stable_leader_count = 1
+
+                # Log leader election time when stability confirmed
+                if stable_leader_count == required_stable_intervals and leader_elected_at is None:
+                    leader_elected_at = time.time()
+                    print(f"🏁 Stable leader elected at {int(leader_elected_at - start_time)}s → Node {current_leader}")
+            else:
+                stable_leader = None
+                stable_leader_count = 0
+
+            # # === Optional Debug Dump
+            # if waited % dump_interval == 0:
+            #     for node_id in self.ns.nodes():
+            #         print(f"🔁 Node {node_id} [@{waited}s] Neighbor Table:")
+            #         neighbors = self.ns.node_cmd(node_id, "neighbor table")
+            #         for line in neighbors:
+            #             print(f"  {line.strip()}")
+            #
+            #         print(f"📡 Node {node_id} [@{waited}s] Route Table:")
+            #         routes = self.ns.node_cmd(node_id, "route")
+            #         for line in routes:
+            #             print(f"  {line.strip()}")
+
+            # === Theory Step 3: Convergence = Stable topology for N intervals
+            if leader_elected_at is not None:
+                if last_states == states:
+                    stable_topology_count += 1
+                else:
+                    stable_topology_count = 1
+                    last_states = states.copy()
+
+                if stable_topology_count == required_stable_intervals:
+                    topology_converged_at = time.time()
+                    total_time = int(topology_converged_at - start_time)
+                    leader_time = int(leader_elected_at - start_time)
+                    print(f"✅ Topology converged at {total_time}s")
+                    print(f"⏱️ Leader elected at {leader_time}s")
+                    return {
+                        "leader_election_time": leader_time,
+                        "topology_convergence_time": total_time,
+                        "leader_node": stable_leader
+                    }
 
             self.ns.go(interval)
             waited += interval
 
-        print("🟥 No leader elected within the timeout.")
-        return -1
+        print("🟥 Network did not fully converge in time.")
+        return {
+            "leader_election_time": -1,
+            "topology_convergence_time": -1,
+            "leader_node": None
+        }
 
     def run(self):
         print("⏱ Starting simulation")
@@ -67,12 +145,16 @@ class LeaderElectionTest:
 
         self.configure_baseline()
         start_baseline = datetime.now()
+
+        print("⏱ Starting Convergence Check")
         convergence_time = self.wait_for_convergence()
         end_baseline = datetime.now()
+        print("⏱ END Convergence Check")
 
-        if convergence_time >= 0:
+
+        if convergence_time["topology_convergence_time"] >= 0:
             print(f"✅ Baseline converged in {convergence_time} sim seconds.")
-            initiate_coap_announcement(self.ns)
+            # initiate_coap_announcement(self.ns)
         else:
             print("❌ Baseline failed to converge.")
 
@@ -220,8 +302,10 @@ def parse_and_summarize_results(log_files):
 if __name__ == '__main__':
     try:
         log_files = []
-        device_configs = [10, 25, 40, 80, 150, 250, 350, 450, 500]
-        runs_per_config = 5
+        device_configs = [10]
+        # device_configs = [10, 25, 40, 80, 150, 250, 350, 450, 500]
+        # runs_per_config = 5
+        runs_per_config = 1
 
         for dev_count in device_configs:
             for run_index in range(1, runs_per_config + 1):
