@@ -144,6 +144,7 @@ class LeaderElectionTest:
         sim_start = datetime.now()
 
         self.configure_baseline()
+
         start_baseline = datetime.now()
 
         print("⏱ Starting Convergence Check")
