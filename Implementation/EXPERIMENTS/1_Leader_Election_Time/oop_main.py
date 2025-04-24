@@ -11,7 +11,8 @@ from MyJob.my_functions import (
 from MyJob.communication import initiate_coap_announcement
 from MyJob.nodes import add_fed, add_reed, add_router
 from MyJob.logging import start_log
-import re
+
+import os, time, shutil, socket, sys
 
 OT_CLI_ftd = "/home/otns/otns/openthread/build/simulation/examples/apps/cli/ot-cli-ftd"
 OTNS_PATH = "/home/otns/go/bin/otns"
@@ -42,14 +43,20 @@ class LeaderElectionTest:
     def wait_for_convergence(self, max_wait=1200, interval=2):
         waited = 0
         while waited < max_wait:
-            all_joined = all(
-                self.ns.node_cmd(node_id, "state")[0].strip() != "detached"
-                for node_id in self.ns.nodes()
-            )
-            if all_joined:
+            states = {node_id: self.ns.node_cmd(node_id, "state")[0].strip() for node_id in self.ns.nodes()}
+
+            # Log all states to debug output
+            print(f"[{waited}s] Node states: {states}")
+
+            if "leader" in states.values():
+                print(f"🟩 Leader found at {waited}s: " +
+                      ", ".join([f"{nid}={role}" for nid, role in states.items()]))
                 return waited
+
             self.ns.go(interval)
             waited += interval
+
+        print("🟥 No leader elected within the timeout.")
         return -1
 
     def run(self):
@@ -70,105 +77,163 @@ class LeaderElectionTest:
             print("❌ Baseline failed to converge.")
 
         self.ns.go(10)
+        time.sleep(1)
+        self.ns.close()  # ⬅️ Ensures OTNS is properly shut down
         print("\n========== 📊 SIMULATION TIME SUMMARY ==========")
+        print(self.initial_devices,":",self.run_index)
         print(f"🧱 Baseline convergence time (wall): {end_baseline - start_baseline}")
         print("===============================================")
 
+import re
+from datetime import datetime
+
 def parse_leader_election_time(log_path):
-    start_pattern = re.compile(r"\[(.*?)\].*dispatcher listening on")
-    leader_pattern = re.compile(r"\[(.*?)\].*status push: \d+: \"role=4\"")
-
-    with open(log_path, "r") as file:
-        log_lines = file.readlines()
-
+    time_fmt = "%Y-%m-%d %H:%M:%S.%f"
     start_time = None
-    leader_time = None
+    role_changes = {}
 
-    for line in log_lines:
-        if start_time is None and start_pattern.search(line):
-            start_time = datetime.strptime(start_pattern.search(line).group(1), "%Y-%m-%d %H:%M:%S.%f")
-        elif leader_time is None and leader_pattern.search(line):
-            leader_time = datetime.strptime(leader_pattern.search(line).group(1), "%Y-%m-%d %H:%M:%S.%f")
-            break
+    with open(log_path, 'r') as f:
+        for line in f:
+            # Simulation start
+            if "dispatcher listening on" in line and start_time is None:
+                match = re.search(r"\[(.*?)\]", line)
+                if match:
+                    start_time = datetime.strptime(match.group(1), time_fmt)
 
-    if start_time and leader_time:
-        duration = (leader_time - start_time).total_seconds()
-        print(f"Leader Election Time (from {log_path}): {duration:.2f} seconds")
-        return duration
-    else:
-        print(f"Could not determine leader election time from {log_path}.")
-        return None
+            # Role change log
+            role_match = re.search(r'status push: (\d+): "role=(\d+)"', line)
+            if role_match and start_time:
+                node_id = int(role_match.group(1))
+                role = int(role_match.group(2))
+                log_time = datetime.strptime(line.split(']')[0][1:], time_fmt)
+
+                if role == 4:  # Leader
+                    return {
+                        "duration": (log_time - start_time).total_seconds(),
+                        "leader_node": node_id,
+                        "leader_time": log_time.strftime(time_fmt)
+                    }
+
+    return None  # If no leader elected
 
 
 
-import os
-import shutil
-import time
-from collections import defaultdict
+
+
+
+
+def run_single_experiment(dev_count, run_index, log_files):
+
+    folder_path = os.path.join(str(dev_count), str(run_index))
+    if os.path.isfile(folder_path):
+        os.remove(folder_path)
+    os.makedirs(folder_path, exist_ok=True)
+
+    log_file = os.path.join(folder_path, f"mylogs_{dev_count}_{run_index}.log")
+    log_files.append(log_file)
+
+    kill_otns_port(9000)
+    log_handle = start_log(filename=log_file)
+    test = LeaderElectionTest(initial_devices=dev_count, log_file=log_file, run_index=run_index)
+    test.run()
+
+    log_handle.close()
+    sys.stdout = sys.__stdout__
+
+    if hasattr(os, 'sync'):
+        os.sync()
+
+    time.sleep(3)
+    waited = 0
+    while waited < 10:
+        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+            if s.connect_ex(('localhost', 9000)) != 0:
+                break
+        print("⏳ Waiting for OTNS port to become available...")
+        time.sleep(1)
+        waited += 1
+
+    print(f"🟢 Finished experiment: {dev_count} devices, run {run_index}")
+
+    time.sleep(5)
+    pcap_dst = os.path.join(folder_path, "capture.pcap")
+    replay_dst = os.path.join(folder_path, "replay.otns")
+
+    if os.path.exists("current.pcap"):
+        shutil.move("current.pcap", pcap_dst)
+        print(f"📦 Saved: {pcap_dst}")
+
+    if os.path.exists("otns_0.replay"):
+        shutil.move("otns_0.replay", replay_dst)
+        print(f"📦 Saved: {replay_dst}")
+
+    for file in ["current.pcap", "otns_0.replay"]:
+        if os.path.exists(file):
+            try:
+                os.remove(file)
+                print(f"🧹 Removed leftover: {file}")
+            except Exception as e:
+                print(f"⚠️ Could not remove {file}: {e}")
+
+    if os.path.exists("tmp"):
+        try:
+            shutil.rmtree("tmp")
+            print("🧹 Cleaned up tmp/ directory.")
+        except Exception as e:
+            print(f"⚠️ Failed to remove tmp/: {e}")
+
+def parse_and_summarize_results(log_files):
+    import os
+    from collections import defaultdict
+
+    durations_by_device = defaultdict(list)
+
+    for log_file in log_files:
+        duration = parse_leader_election_time(log_file)
+        if duration is not None:
+            device_count = int(log_file.split("_")[1])
+            durations_by_device[device_count].append((log_file, duration))
+
+    output_lines = []
+    output_lines.append("\n========== 🧪 Leader Election Times ==========\n")
+
+    for device_count in sorted(durations_by_device):
+        logs = durations_by_device[device_count]
+        output_lines.append(f"\n🧩 Device Count: {device_count}")
+        for log, dur_data in logs:
+            duration = dur_data["duration"]
+            leader = dur_data["leader_node"]
+            line = f"  {log}: {duration:.2f} seconds (leader: node {leader})"
+            print(line)
+            output_lines.append(line)
+
+        avg = sum(d["duration"] for _, d in logs) / len(logs)
+        avg_line = f"  📊 AVERAGE for {device_count} devices: {avg:.2f} seconds"
+        print(avg_line)
+        output_lines.append(avg_line)
+
+    with open("results.txt", "w") as result_file:
+        for line in output_lines:
+            result_file.write(line + "\n")
+
 
 if __name__ == '__main__':
     try:
         log_files = []
-        device_configs = [10, 20]
-        runs_per_config = 2
+        device_configs = [10, 25, 40, 80, 150, 250, 350, 450, 500]
+        runs_per_config = 5
 
-        # === Phase 1: Run experiments ===
         for dev_count in device_configs:
             for run_index in range(1, runs_per_config + 1):
-                # Setup paths
-                folder_path = os.path.join(str(dev_count), str(run_index))
-                os.makedirs(folder_path, exist_ok=True)
-
-                log_file = os.path.join(folder_path, f"mylogs_{dev_count}_{run_index}.log")
-                log_files.append(log_file)
-
-                kill_otns_port(9000)
-                start_log(filename=log_file)
-                test = LeaderElectionTest(initial_devices=dev_count, log_file=log_file,run_index=run_index)
-                test.run()
-
-                # Move OTNS-generated files
-                time.sleep(5)  # Ensure logs are flushed
-                if os.path.exists("current.pcap"):
-                    shutil.move("current.pcap", os.path.join(folder_path, "capture.pcap"))
-                if os.path.exists("otns_0.replay"):
-                    shutil.move("otns_0.replay", os.path.join(folder_path, "replay.otns"))
+                run_single_experiment(dev_count, run_index, log_files)
 
         time.sleep(5)
-        # === Phase 2: Parse logs and collect results ===
-        durations_by_device = defaultdict(list)
-
-        for log_file in log_files:
-            duration = parse_leader_election_time(log_file)
-            if duration is not None:
-                device_count = int(log_file.split("_")[1])
-                durations_by_device[device_count].append((log_file, duration))
-
-        # === Output per-log and grouped stats ===
-        output_lines = []
-        output_lines.append("\n========== 🧪 Leader Election Times ==========\n")
-
-        for device_count in sorted(durations_by_device):
-            logs = durations_by_device[device_count]
-            output_lines.append(f"\n🧩 Device Count: {device_count}")
-            for log, dur in logs:
-                line = f"  {log}: {dur:.2f} seconds"
-                print(line)
-                output_lines.append(line)
-
-            avg = sum(d[1] for d in logs) / len(logs)
-            avg_line = f"  📊 AVERAGE for {device_count} devices: {avg:.2f} seconds"
-            print(avg_line)
-            output_lines.append(avg_line)
-
-        # Save results summary
-        with open("results.txt", "w") as result_file:
-            for line in output_lines:
-                result_file.write(line + "\n")
+        parse_and_summarize_results(log_files)
 
     except OTNSExitedError as ex:
         if ex.exit_code != 0:
             raise
+
 
 
 

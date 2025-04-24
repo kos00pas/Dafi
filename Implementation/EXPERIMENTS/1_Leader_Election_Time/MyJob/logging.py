@@ -13,10 +13,8 @@ class TeeOutput:
             output.flush()
 
 def start_log(filename):
-    terminal = sys.stdout
-
-    # Open log file
+    terminal = sys.__stdout__
     logfile = open(filename, "w")
-
-    # Set tee output
     sys.stdout = TeeOutput(terminal, logfile)
+    return logfile  # So we can close it later
+
