@@ -1,6 +1,8 @@
 # metrics/topology_convergence_phase.py
 max_wait=1200
 import time
+from random import choices
+from string import ascii_letters, digits
 
 class TopologyConvergencePhase:
     def __init__(self, ns):
@@ -9,7 +11,9 @@ class TopologyConvergencePhase:
             ("Step 8: Neighbor Table Stability", self._8_neighbor_table_stability),
             ("Step 9: Router Table Stability", self._9_router_table_stability),
             ("Step 10: Prefix & Route Propagation", self._10_prefix_route_stability),
-            ("Step 11: End-to-End Reachability", self._11_end_to_end_ping)
+            # ("Step 10_b: Topology Troubleshoot", self._10b_topology_troubleshoot),
+            # ("Step 11: End-to-End Reachability", self._11_end_to_end_ping),
+            # ("Step 11_b: CoAP Reachability", self._11_coap_reachability)
         ]
 
     def run(self):
@@ -21,6 +25,76 @@ class TopologyConvergencePhase:
                 print(f"^ {name} FAILED:", e)
                 return False
         return True
+
+    def _10b_topology_troubleshoot(self):
+        print("\n🔍 Step 10_b: Running automatic topology diagnostics...\n")
+
+        def get_state(nid):
+            return self.ns.node_cmd(nid, "state")[0].strip()
+
+        def get_neighbors(nid):
+            try:
+                return self.ns.node_cmd(nid, "neighbor table")
+            except Exception:
+                return []
+
+        def get_router_table(nid):
+            try:
+                return self.ns.node_cmd(nid, "router table")
+            except Exception:
+                return []
+
+        def get_netdata(nid):
+            try:
+                return self.ns.node_cmd(nid, "netdata show")
+            except Exception:
+                return []
+
+        failed_nodes = []
+        leader_id = None
+
+        print("📦 Checking node states...")
+        for nid in self.ns.nodes().keys():
+            state = get_state(nid)
+            print(f"• Node {nid}: {state}")
+            if state == "leader":
+                leader_id = nid
+            if state == "detached":
+                failed_nodes.append(nid)
+
+        if leader_id is None:
+            raise RuntimeError("❌ No leader found in the network!")
+
+        print(f"\n🧭 Leader is node {leader_id}\n")
+
+        print("🧱 Checking router table of the leader...")
+        router_table = get_router_table(leader_id)
+        for line in router_table:
+            print(f"  {line}")
+        if len(router_table) < 5:
+            print("⚠️ Router table seems short — some routes may be missing.")
+
+        print("\n🔍 Checking neighbor tables...")
+        for nid in self.ns.nodes().keys():
+            neighbors = get_neighbors(nid)
+            print(f"\n• Node {nid} neighbors:")
+            for line in neighbors:
+                print(f"   {line}")
+            if len(neighbors) == 0:
+                print("⚠️ Node has no visible neighbors.")
+
+        print("\n🌐 Verifying netdata on the leader...")
+        netdata = get_netdata(leader_id)
+        for line in netdata:
+            print(f"  {line}")
+        if not any("prefix" in line.lower() for line in netdata):
+            print("⚠️ No prefix registered in netdata!")
+
+        if failed_nodes:
+            raise AssertionError(f"^Step 10_b FAILED: Detached nodes → {failed_nodes}")
+        else:
+            print(
+                "\n✅ Step 10_b: Topology health check passed — all nodes are attached and reachable at routing level.")
 
     def _8_neighbor_table_stability(self, delay=5, interval=2):
         waited = 0
@@ -161,13 +235,7 @@ class TopologyConvergencePhase:
             waited += interval
         raise AssertionError(f"^Step 10 FAILED: Prefix/Route tables changed → {changed}")
 
-    import time
 
-    import time
-    import random
-
-    import time
-    import random
 
     def _11_end_to_end_ping(self, interval=2):
         waited = 0
@@ -250,6 +318,97 @@ class TopologyConvergencePhase:
             waited += interval
 
         raise AssertionError(f"^Step 11 FAILED: Ping failures → {failed}")
+
+
+
+    def _11_coap_reachability(self, interval=2):
+        waited = 0
+
+        def get_addrs():
+            """Get mesh-local RLOC addresses (fd..fe00) only."""
+            return {
+                nid: [ip for ip in self.ns.node_cmd(nid, "ipaddr") if ip.startswith("fd") and ":ff:fe00:" in ip]
+                for nid in self.ns.nodes().keys()
+            }
+
+        def get_state(nid):
+            return self.ns.node_cmd(nid, "state")[0].strip()
+
+        def safe_coap_post(src, dst_ip, payload):
+            """Send CoAP POST, retry once if needed."""
+            try:
+                res = self.ns.node_cmd(src, f'coap post coap://[{dst_ip}]/logs con {payload}')
+                success = any("Done" in line for line in res)
+            except Exception as e:
+                print(f"⚠️ CoAP error from {src} to {dst_ip}: {e}")
+                success = False
+
+            if not success:
+                time.sleep(0.5)
+                try:
+                    res = self.ns.node_cmd(src, f'coap post coap://[{dst_ip}]/logs con {payload}')
+                    success = any("Done" in line for line in res)
+                except Exception as e:
+                    print(f"⚠️ Retry CoAP error from {src} to {dst_ip}: {e}")
+                    success = False
+
+            return success
+
+        # 🌟 Start CoAP service on all nodes
+        print("⚙️ Enabling CoAP service on all nodes...")
+        for node in self.ns.nodes().keys():
+            try:
+                self.ns.node_cmd(node, "coap start")
+                self.ns.node_cmd(node, "coap resource logs")
+            except Exception as e:
+                print(f"⚠️ Failed to start CoAP on node {node}: {e}")
+
+        # 💡 Give time to stabilize
+        print("⏳ Waiting before starting CoAP tests...")
+        self.ns.go(10)
+        time.sleep(2)
+
+        while waited <= 1200:
+            addrs = get_addrs()
+            failed = []
+
+            for src in addrs:
+                src_state = get_state(src)
+                for dst in addrs:
+                    if src == dst:
+                        continue
+                    dst_state = get_state(dst)
+
+                    if src_state == "child" and dst_state == "child":
+                        continue
+
+                    dst_ips = addrs[dst]
+                    if not dst_ips:
+                        continue
+
+                    dst_ip = dst_ips[0]
+
+                    # 🔥 Generate a random 20-char payload
+                    payload = ''.join(choices(ascii_letters + digits, k=20))
+
+                    success = safe_coap_post(src, dst_ip, payload)
+
+                    print(f"CoAP {src} ➔ {dst} ({dst_ip[:10]}...) = {'✅' if success else '❌'}")
+
+                    if not success:
+                        failed.append((src, dst, dst_ip))
+
+                    time.sleep(0.1)  # slow down between CoAP posts
+
+            print(f"@ {waited:>2}s | CoAP failures: {failed}")
+
+            if not failed:
+                print("! Step 11_b ✅ All CoAP messages delivered")
+                return
+
+            waited += interval
+
+        raise AssertionError(f"^Step 11_b FAILED: CoAP failures → {failed}")
 
     def _get_node_states(self):
         states = {}

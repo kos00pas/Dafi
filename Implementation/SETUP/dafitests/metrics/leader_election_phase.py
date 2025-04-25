@@ -11,6 +11,7 @@ class LeaderElectionPhase:
             ("Step 5: IPv6 Stability", self._5_ipv6_address_stability),
             ("Step 6: State Stability", self._6_state_stability),
             ("Step 7: Routing Silence", self._7_routing_message_silence),
+
         ]
 
     def run(self):
