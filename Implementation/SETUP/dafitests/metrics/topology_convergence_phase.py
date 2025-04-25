@@ -13,8 +13,8 @@ class TopologyConvergencePhase:
             ("Step 9: Router Table Stability", self._9_router_table_stability),
             ("Step 10: Prefix & Route Propagation", self._10_prefix_route_stability),
             ("Step 10_b: Topology Troubleshoot", self._10b_topology_troubleshoot),
-            ("Step 11: End-to-End Reachability", self._11_end_to_end_ping),
-            # ("Step 11_b: CoAP Reachability", self._11_coap_reachability)
+            # ("Step 11: End-to-End Reachability", self._11_end_to_end_ping),
+            ("Step 11_b: CoAP Reachability", self._11_coap_reachability)
         ]
 
     def run(self):
