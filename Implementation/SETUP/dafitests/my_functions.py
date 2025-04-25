@@ -19,6 +19,7 @@ def calculate_device_roles(total_devices):
     routers = min(math.ceil(total_devices * 0.1), 32)
     reeds = routers
     feds = total_devices - routers - reeds
+    print("Initial routers |reeds|feds")
     print(routers, reeds, feds)
     # exit()
     if feds < 0:

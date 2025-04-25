@@ -164,9 +164,16 @@ class OTNS(object):
         except BrokenPipeError:
             print(f"[{now()}] [_do_command] BrokenPipeError on write.", flush=True)
             self._on_otns_eof()
+        timeout_seconds = 30  # ← you can tune this
 
         output = []
+        import time
+        start_time = time.time()
+
         while True:
+            if time.time() - start_time > timeout_seconds:
+                raise OTNSCliError(f"Command '{cmd}' timed out after {timeout_seconds} seconds.")
+
             line = self._otns.stdout.readline()
             if line == b'':
                 print(f"[{now()}] [_do_command] EOF reached.", flush=True)
@@ -408,6 +415,7 @@ class OTNS(object):
         """
         Set node radio fail time parameters.
 
+        :param nodeids: node IDs
         :param nodeids: node IDs
         :param fail_time: fail time (fail_duration, fail_interval) or None for always on.
         """

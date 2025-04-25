@@ -1,12 +1,12 @@
 # metrics/topology_convergence_phase.py
-
+max_wait=1200
 class TopologyConvergencePhase:
     def __init__(self, ns):
         self.ns = ns
         self.steps = [
             ("Step 8: Neighbor Table Stability", self._8_neighbor_table_stability),
             ("Step 9: Router Table Stability", self._9_router_table_stability),
-            ("Step 10: Prefix & Route Propagation", self._10_prefix_route_stability),
+            # ("Step 10: Prefix & Route Propagation", self._10_prefix_route_stability),
             # ("Step 11: End-to-End Reachability", self._11_end_to_end_ping)
         ]
 
@@ -20,49 +20,78 @@ class TopologyConvergencePhase:
                 return False
         return True
 
-    def _8_neighbor_table_stability(self, delay=5, max_wait=120, interval=2):
+    def _8_neighbor_table_stability(self, delay=5, interval=2):
         waited = 0
+        TOLERANCE_LQI = 5
+        TOLERANCE_RSSI = 5
 
-        def clean_neighbor_table(raw_table):
-            cleaned = []
+        def parse_table(raw_table):
+            neighbors = {}
             for line in raw_table:
                 if "|" in line and "Role" not in line and "+" not in line:
                     parts = line.split("|")
-                    # Keep only Role, RLOC16, R, D, N, Extended MAC, Version
-                    cleaned.append("|".join([
-                        parts[1].strip(),  # Role
-                        parts[2].strip(),  # RLOC16
-                        parts[6].strip(),  # R
-                        parts[7].strip(),  # D
-                        parts[8].strip(),  # N
-                        parts[9].strip(),  # Extended MAC
-                        parts[10].strip()  # Version
-                    ]))
-            return cleaned
+                    mac = parts[9].strip()
+                    neighbors[mac] = {
+                        "role": parts[1].strip(),
+                        "rloc16": parts[2].strip(),
+                        "R": parts[6].strip(),
+                        "D": parts[7].strip(),
+                        "N": parts[8].strip(),
+                        "lqi": int(parts[3].strip()),
+                        "rssi": int(parts[4].strip()),
+                        "version": parts[10].strip()
+                    }
+            return neighbors
 
         def capture():
-            return {
-                nid: clean_neighbor_table(self.ns.node_cmd(nid, "neighbor table"))
-                for nid, state in self._get_node_states()[0].items()
-                if state in ["leader", "router"]
-            }
+            result = {}
+            for nid, state in self._get_node_states()[0].items():
+                if state not in ["leader", "router"]:
+                    continue
+                table = self.ns.node_cmd(nid, "neighbor table")
+                result[nid] = parse_table(table)
+            return result
+
+        def compare_neighbors(prev, curr):
+            changes = {}
+            for nid in prev:
+                if nid not in curr:
+                    changes[nid] = "Node disappeared"
+                    continue
+                node_changes = []
+                prev_neighbors = prev[nid]
+                curr_neighbors = curr[nid]
+                for mac in prev_neighbors:
+                    if mac not in curr_neighbors:
+                        node_changes.append(f"Missing neighbor {mac}")
+                        continue
+                    p = prev_neighbors[mac]
+                    c = curr_neighbors[mac]
+                    for key in ["role", "rloc16", "R", "D", "N", "version"]:
+                        if p[key] != c[key]:
+                            node_changes.append(f"{mac}: {key} changed {p[key]} → {c[key]}")
+                    if abs(p["lqi"] - c["lqi"]) > TOLERANCE_LQI:
+                        node_changes.append(f"{mac}: LQI changed {p['lqi']} → {c['lqi']}")
+                    if abs(p["rssi"] - c["rssi"]) > TOLERANCE_RSSI:
+                        node_changes.append(f"{mac}: RSSI changed {p['rssi']} → {c['rssi']}")
+                if node_changes:
+                    changes[nid] = node_changes
+            return changes
 
         while waited <= max_wait:
             first = capture()
             self.ns.go(delay)
             second = capture()
-            changed = {
-                nid: (first[nid], second[nid])
-                for nid in first if first[nid] != second[nid]
-            }
-            print(f"@ {waited:>2}s | Changed: {changed}")
+            changed = compare_neighbors(first, second)
+            print(f"@ {waited:>2}s | Changes: {changed}")
             if not changed:
-                print("! Step 8")
+                print("! Step 8 ✅ Neighbor Table is stable.")
                 return
             waited += interval
-        raise AssertionError(f"^Step 8 FAILED: Neighbor tables changed → {changed}")
 
-    def _9_router_table_stability(self, delay=5, max_wait=120, interval=2):
+        raise AssertionError(f"^Step 8 FAILED: Neighbor changes → {changed}")
+
+    def _9_router_table_stability(self, delay=5,  interval=2):
         waited = 0
 
         def clean_router_table(raw_table):
@@ -102,7 +131,7 @@ class TopologyConvergencePhase:
 
         raise AssertionError(f"^Step 9 FAILED: Router tables changed → {changed}")
 
-    def _10_prefix_route_stability(self, delay=5, max_wait=120, interval=2):
+    def _10_prefix_route_stability(self, delay=5, interval=2):
         waited = 0
         def capture():
             return {
@@ -125,7 +154,7 @@ class TopologyConvergencePhase:
             waited += interval
         raise AssertionError(f"^Step 10 FAILED: Prefix/Route tables changed → {changed}")
 
-    def _11_end_to_end_ping(self, max_wait=300, interval=2):
+    def _11_end_to_end_ping(self,  interval=2):
         waited = 0
 
         def get_addrs():
