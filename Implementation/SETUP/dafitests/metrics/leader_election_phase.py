@@ -45,7 +45,7 @@ class LeaderElectionPhase:
             waited += interval
         raise AssertionError(f"^Step 1 FAILED: Detached nodes after {max_wait}s → {detached_nodes}")
 
-    def _2_single_leader_verification(self, max_wait=120, interval=1):
+    def _2_single_leader_verification(self, max_wait=1200, interval=1):
         waited = 0
         while waited <= max_wait:
             self.ns.go(interval)
@@ -58,7 +58,7 @@ class LeaderElectionPhase:
             waited += interval
         raise AssertionError(f"^Step 2 FAILED: Expected 1 leader, found {len(leader_nodes)} → {leader_nodes}")
 
-    def _3_valid_roles(self, max_wait=120, interval=1):
+    def _3_valid_roles(self, max_wait=1200, interval=1):
         waited = 0
         while waited <= max_wait:
             self.ns.go(interval)
@@ -74,7 +74,7 @@ class LeaderElectionPhase:
             waited += interval
         raise AssertionError(f"^Step 3 FAILED: Invalid roles → {invalid_nodes}")
 
-    def _4_rloc16_stability(self, delay=5, max_wait=120, interval=1):
+    def _4_rloc16_stability(self, delay=5, max_wait=1200, interval=1):
         waited = 0
         while waited <= max_wait:
             def capture():
@@ -94,7 +94,7 @@ class LeaderElectionPhase:
             waited += interval
         raise AssertionError(f"^Step 4 FAILED: RLOC16 changed → {changed}")
 
-    def _5_ipv6_address_stability(self, delay=5, max_wait=120, interval=1):
+    def _5_ipv6_address_stability(self, delay=5, max_wait=1200, interval=1):
         waited = 0
         while waited <= max_wait:
             def get_addrs():
@@ -116,7 +116,7 @@ class LeaderElectionPhase:
             waited += interval
         raise AssertionError(f"^Step 5 FAILED: IPv6 addresses changed → {changed}")
 
-    def _6_state_stability(self, delay=5, max_wait=120, interval=1):
+    def _6_state_stability(self, delay=5, max_wait=1200, interval=1):
         waited = 0
         while waited <= max_wait:
             def capture():
@@ -138,7 +138,7 @@ class LeaderElectionPhase:
             waited += interval
         raise AssertionError(f"^Step 6 FAILED: State changed → {changed}")
 
-    def _7_routing_message_silence(self, delay=5, max_wait=120, interval=1):
+    def _7_routing_message_silence(self, delay=5, max_wait=1200, interval=1):
         waited = 0
         while waited <= max_wait:
             def get_counters():

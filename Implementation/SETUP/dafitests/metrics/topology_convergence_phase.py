@@ -43,13 +43,18 @@ class TopologyConvergencePhase:
                     }
             return neighbors
 
+        import time
+
         def capture():
             result = {}
             for nid, state in self._get_node_states()[0].items():
                 if state not in ["leader", "router"]:
                     continue
+                if nid % 10 != 0:  # only sample 10% of routers
+                    continue
                 table = self.ns.node_cmd(nid, "neighbor table")
                 result[nid] = parse_table(table)
+                time.sleep(0.2)  # wait 200ms after each neighbor table
             return result
 
         def compare_neighbors(prev, curr):

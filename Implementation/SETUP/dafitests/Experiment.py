@@ -16,7 +16,7 @@ CENTER_X, CENTER_Y = 400, 400
 
 
 class Experiment:
-    def __init__(self, initial_devices=10, spacing=25, log_file="mylogs.log",run_index=0):
+    def __init__(self, initial_devices=10, spacing=20, log_file="mylogs.log",run_index=0):
         self.total_converge = None ;self.start_converge = None;self.end_baseline = None;self.start_baseline = None;self.end_converge = None
         self.run_index=run_index
         self.initial_devices = initial_devices
@@ -37,9 +37,7 @@ class Experiment:
         self.ns.set_title("DAfI - Scalable Mesh Network")
         self.ns.set_network_info(version="Latest", commit="main", real=False)
         self.ns.web()
-        self.ns.speed=1000000000000000000000000000000000
-
-
+        self.ns.speed = 1000000000000000000000000000000000000000000000000000000000
 
     def Baseline(self):
         self.start_baseline = datetime.now()
