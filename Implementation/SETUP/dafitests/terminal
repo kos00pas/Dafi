@@ -1,0 +1,1513 @@
+/usr/bin/python3 /mnt/c/Users/kos00/OneDrive - University of Cyprus/PhD/PhD_Lessons/IoT project/Implementation/SETUP/dafitests/main.py
+
+
+
+!===: 4 : 1
+
+
+
+niaou
+[2025-04-25 23:46:05.838493] [_do_command] Sending command: title "DAfI - Scalable Mesh Network"
+[2025-04-25 23:46:05.932711] [_do_command] Received: Done
+[2025-04-25 23:46:05.932837] [_do_command] Sending command: netinfo version "Latest" commit "main" real 0
+[2025-04-25 23:46:05.933209] [_do_command] Received: Done
+[2025-04-25 23:46:05.933459] [_do_command] Sending command: web
+[2025-04-25 23:46:05.935827] [_do_command] Received: Done
+[2025-04-25 23:46:05.935924] [_do_command] Sending command: speed 100
+[2025-04-25 23:46:05.938530] [_do_command] Received: Done
+Initial routers |reeds|feds
+1 1 2
+[2025-04-25 23:46:05.938644] [_do_command] Sending command: add router x 200 y 200 exe "/home/otns/otns/openthread/build/simulation/examples/apps/cli/ot-cli-ftd"
+[2025-04-25 23:46:06.038437] [_do_command] Received: 1
+[2025-04-25 23:46:06.038547] [_do_command] Received: Done
+[2025-04-25 23:46:06.038593] [_do_command] Sending command: node 1 "mode rdn"
+[2025-04-25 23:46:06.039137] [_do_command] Received: Done
+[2025-04-25 23:46:06.039226] [_do_command] Sending command: node 1 "routerselectionjitter 1"
+[2025-04-25 23:46:06.039949] [_do_command] Received: Done
+[2025-04-25 23:46:06.040092] [_do_command] Sending command: add router x 170 y 170 exe "/home/otns/otns/openthread/build/simulation/examples/apps/cli/ot-cli-ftd"
+[2025-04-25 23:46:06.113174] [_do_command] Received: 2
+[2025-04-25 23:46:06.113319] [_do_command] Received: Done
+[2025-04-25 23:46:06.113364] [_do_command] Sending command: node 2 "mode rdn"
+[2025-04-25 23:46:06.114000] [_do_command] Received: Done
+[2025-04-25 23:46:06.114178] [_do_command] Sending command: add router x 260 y 200 exe "/home/otns/otns/openthread/build/simulation/examples/apps/cli/ot-cli-ftd"
+[2025-04-25 23:46:06.181896] [_do_command] Received: 3
+[2025-04-25 23:46:06.182021] [_do_command] Received: Done
+[2025-04-25 23:46:06.182072] [_do_command] Sending command: node 3 "routerupgradethreshold 99"
+[2025-04-25 23:46:06.182649] [_do_command] Received: Done
+[2025-04-25 23:46:06.182742] [_do_command] Sending command: node 3 "routerdowngradethreshold 1"
+[2025-04-25 23:46:06.183564] [_do_command] Received: Done
+[2025-04-25 23:46:06.183654] [_do_command] Sending command: node 3 "mode rn"
+[2025-04-25 23:46:06.184746] [_do_command] Received: Done
+[2025-04-25 23:46:06.184844] [_do_command] Sending command: add router x 140 y 200 exe "/home/otns/otns/openthread/build/simulation/examples/apps/cli/ot-cli-ftd"
+[2025-04-25 23:46:06.256422] [_do_command] Received: 4
+[2025-04-25 23:46:06.256529] [_do_command] Received: Done
+[2025-04-25 23:46:06.256567] [_do_command] Sending command: node 4 "routerupgradethreshold 99"
+[2025-04-25 23:46:06.257262] [_do_command] Received: Done
+[2025-04-25 23:46:06.257352] [_do_command] Sending command: node 4 "routerdowngradethreshold 1"
+[2025-04-25 23:46:06.258080] [_do_command] Received: Done
+[2025-04-25 23:46:06.258201] [_do_command] Sending command: node 4 "mode rn"
+[2025-04-25 23:46:06.260220] [_do_command] Received: Done
+[2025-04-25 23:46:06.260307] [_do_command] Sending command: nodes
+[2025-04-25 23:46:06.260572] [_do_command] Received: id=1	extaddr=deb5b76fd67e6ced	rloc16=fffe	x=200	y=200	state=detached	failed=false
+[2025-04-25 23:46:06.260649] [_do_command] Received: id=2	extaddr=d6074cf75d16e632	rloc16=fffe	x=170	y=170	state=detached	failed=false
+[2025-04-25 23:46:06.260663] [_do_command] Received: id=3	extaddr=1256fea959c7dc93	rloc16=fffe	x=260	y=200	state=detached	failed=false
+[2025-04-25 23:46:06.260671] [_do_command] Received: id=4	extaddr=22e99de88229a206	rloc16=fffe	x=140	y=200	state=detached	failed=false
+[2025-04-25 23:46:06.260677] [_do_command] Received: Done
+[2025-04-25 23:46:06.260727] [_do_command] Sending command: node 1 "state"
+[2025-04-25 23:46:06.261453] [_do_command] Received: detached
+[2025-04-25 23:46:06.261521] [_do_command] Received: Done
+[2025-04-25 23:46:06.261545] [_do_command] Sending command: node 2 "state"
+[2025-04-25 23:46:06.262241] [_do_command] Received: detached
+[2025-04-25 23:46:06.262334] [_do_command] Received: Done
+[2025-04-25 23:46:06.262372] [_do_command] Sending command: node 3 "state"
+[2025-04-25 23:46:06.262870] [_do_command] Received: detached
+[2025-04-25 23:46:06.262970] [_do_command] Received: Done
+[2025-04-25 23:46:06.263009] [_do_command] Sending command: node 4 "state"
+[2025-04-25 23:46:06.263603] [_do_command] Received: detached
+[2025-04-25 23:46:06.263672] [_do_command] Received: Done
+end_baseline: 0:00:00.325091
+! Starting Convergence Check
+[2025-04-25 23:46:06.263769] [_do_command] Sending command: go 0.1
+[2025-04-25 23:46:06.266365] [_do_command] Received: Done
+# Step 1: Attach Status
+[2025-04-25 23:46:06.266511] [_do_command] Sending command: go 1
+[2025-04-25 23:46:06.280308] [_do_command] Received: Done
+[2025-04-25 23:46:06.280430] [_do_command] Sending command: nodes
+[2025-04-25 23:46:06.280669] [_do_command] Received: id=1	extaddr=deb5b76fd67e6ced	rloc16=fffe	x=200	y=200	state=detached	failed=false
+[2025-04-25 23:46:06.280779] [_do_command] Received: id=2	extaddr=d6074cf75d16e632	rloc16=fffe	x=170	y=170	state=detached	failed=false
+[2025-04-25 23:46:06.280806] [_do_command] Received: id=3	extaddr=1256fea959c7dc93	rloc16=fffe	x=260	y=200	state=detached	failed=false
+[2025-04-25 23:46:06.280822] [_do_command] Received: id=4	extaddr=22e99de88229a206	rloc16=fffe	x=140	y=200	state=detached	failed=false
+[2025-04-25 23:46:06.280834] [_do_command] Received: Done
+[2025-04-25 23:46:06.280907] [_do_command] Sending command: node 1 "state"
+[2025-04-25 23:46:06.281448] [_do_command] Received: detached
+[2025-04-25 23:46:06.281524] [_do_command] Received: Done
+[2025-04-25 23:46:06.281562] [_do_command] Sending command: node 2 "state"
+[2025-04-25 23:46:06.282033] [_do_command] Received: detached
+[2025-04-25 23:46:06.282093] [_do_command] Received: Done
+[2025-04-25 23:46:06.282121] [_do_command] Sending command: node 3 "state"
+[2025-04-25 23:46:06.282629] [_do_command] Received: detached
+[2025-04-25 23:46:06.282692] [_do_command] Received: Done
+[2025-04-25 23:46:06.282718] [_do_command] Sending command: node 4 "state"
+[2025-04-25 23:46:06.283298] [_do_command] Received: detached
+[2025-04-25 23:46:06.283356] [_do_command] Received: Done
+@  0s | 1:detached 2:detached 3:detached 4:detached
+[2025-04-25 23:46:06.283401] [_do_command] Sending command: go 1
+[2025-04-25 23:46:06.296130] [_do_command] Received: Done
+[2025-04-25 23:46:06.296266] [_do_command] Sending command: nodes
+[2025-04-25 23:46:06.296590] [_do_command] Received: id=1	extaddr=deb5b76fd67e6ced	rloc16=fffe	x=200	y=200	state=detached	failed=false
+[2025-04-25 23:46:06.296687] [_do_command] Received: id=2	extaddr=d6074cf75d16e632	rloc16=fffe	x=170	y=170	state=detached	failed=false
+[2025-04-25 23:46:06.296705] [_do_command] Received: id=3	extaddr=1256fea959c7dc93	rloc16=fffe	x=260	y=200	state=detached	failed=false
+[2025-04-25 23:46:06.296715] [_do_command] Received: id=4	extaddr=22e99de88229a206	rloc16=fffe	x=140	y=200	state=detached	failed=false
+[2025-04-25 23:46:06.296723] [_do_command] Received: Done
+[2025-04-25 23:46:06.296785] [_do_command] Sending command: node 1 "state"
+[2025-04-25 23:46:06.297393] [_do_command] Received: detached
+[2025-04-25 23:46:06.297458] [_do_command] Received: Done
+[2025-04-25 23:46:06.297485] [_do_command] Sending command: node 2 "state"
+[2025-04-25 23:46:06.297992] [_do_command] Received: detached
+[2025-04-25 23:46:06.298103] [_do_command] Received: Done
+[2025-04-25 23:46:06.298147] [_do_command] Sending command: node 3 "state"
+[2025-04-25 23:46:06.298593] [_do_command] Received: detached
+[2025-04-25 23:46:06.298652] [_do_command] Received: Done
+[2025-04-25 23:46:06.298676] [_do_command] Sending command: node 4 "state"
+[2025-04-25 23:46:06.299114] [_do_command] Received: detached
+[2025-04-25 23:46:06.299177] [_do_command] Received: Done
+@  1s | 1:detached 2:detached 3:detached 4:detached
+[2025-04-25 23:46:06.299224] [_do_command] Sending command: go 1
+[2025-04-25 23:46:06.313715] [_do_command] Received: Done
+[2025-04-25 23:46:06.313851] [_do_command] Sending command: nodes
+[2025-04-25 23:46:06.314255] [_do_command] Received: id=1	extaddr=deb5b76fd67e6ced	rloc16=fffe	x=200	y=200	state=detached	failed=false
+[2025-04-25 23:46:06.314341] [_do_command] Received: id=2	extaddr=d6074cf75d16e632	rloc16=fffe	x=170	y=170	state=detached	failed=false
+[2025-04-25 23:46:06.314354] [_do_command] Received: id=3	extaddr=1256fea959c7dc93	rloc16=fffe	x=260	y=200	state=detached	failed=false
+[2025-04-25 23:46:06.314361] [_do_command] Received: id=4	extaddr=22e99de88229a206	rloc16=fffe	x=140	y=200	state=detached	failed=false
+[2025-04-25 23:46:06.314368] [_do_command] Received: Done
+[2025-04-25 23:46:06.314417] [_do_command] Sending command: node 1 "state"
+[2025-04-25 23:46:06.315061] [_do_command] Received: detached
+[2025-04-25 23:46:06.315114] [_do_command] Received: Done
+[2025-04-25 23:46:06.315139] [_do_command] Sending command: node 2 "state"
+[2025-04-25 23:46:06.315687] [_do_command] Received: detached
+[2025-04-25 23:46:06.315744] [_do_command] Received: Done
+[2025-04-25 23:46:06.315768] [_do_command] Sending command: node 3 "state"
+[2025-04-25 23:46:06.316238] [_do_command] Received: detached
+[2025-04-25 23:46:06.316290] [_do_command] Received: Done
+[2025-04-25 23:46:06.316313] [_do_command] Sending command: node 4 "state"
+[2025-04-25 23:46:06.316730] [_do_command] Received: detached
+[2025-04-25 23:46:06.316786] [_do_command] Received: Done
+@  2s | 1:detached 2:detached 3:detached 4:detached
+[2025-04-25 23:46:06.316832] [_do_command] Sending command: go 1
+[2025-04-25 23:46:06.329693] [_do_command] Received: Done
+[2025-04-25 23:46:06.329804] [_do_command] Sending command: nodes
+[2025-04-25 23:46:06.329984] [_do_command] Received: id=1	extaddr=deb5b76fd67e6ced	rloc16=fffe	x=200	y=200	state=detached	failed=false
+[2025-04-25 23:46:06.330005] [_do_command] Received: id=2	extaddr=d6074cf75d16e632	rloc16=fffe	x=170	y=170	state=detached	failed=false
+[2025-04-25 23:46:06.330012] [_do_command] Received: id=3	extaddr=1256fea959c7dc93	rloc16=fffe	x=260	y=200	state=detached	failed=false
+[2025-04-25 23:46:06.330047] [_do_command] Received: id=4	extaddr=22e99de88229a206	rloc16=fffe	x=140	y=200	state=detached	failed=false
+[2025-04-25 23:46:06.330155] [_do_command] Received: Done
+[2025-04-25 23:46:06.330200] [_do_command] Sending command: node 1 "state"
+[2025-04-25 23:46:06.330692] [_do_command] Received: detached
+[2025-04-25 23:46:06.330799] [_do_command] Received: Done
+[2025-04-25 23:46:06.330842] [_do_command] Sending command: node 2 "state"
+[2025-04-25 23:46:06.331376] [_do_command] Received: detached
+[2025-04-25 23:46:06.331432] [_do_command] Received: Done
+[2025-04-25 23:46:06.331452] [_do_command] Sending command: node 3 "state"
+[2025-04-25 23:46:06.332014] [_do_command] Received: detached
+[2025-04-25 23:46:06.332073] [_do_command] Received: Done
+[2025-04-25 23:46:06.332095] [_do_command] Sending command: node 4 "state"
+[2025-04-25 23:46:06.332627] [_do_command] Received: detached
+[2025-04-25 23:46:06.332675] [_do_command] Received: Done
+@  3s | 1:detached 2:detached 3:detached 4:detached
+[2025-04-25 23:46:06.332716] [_do_command] Sending command: go 1
+[2025-04-25 23:46:06.345188] [_do_command] Received: Done
+[2025-04-25 23:46:06.345295] [_do_command] Sending command: nodes
+[2025-04-25 23:46:06.345513] [_do_command] Received: id=1	extaddr=deb5b76fd67e6ced	rloc16=fffe	x=200	y=200	state=detached	failed=false
+[2025-04-25 23:46:06.345600] [_do_command] Received: id=2	extaddr=d6074cf75d16e632	rloc16=fffe	x=170	y=170	state=detached	failed=false
+[2025-04-25 23:46:06.345617] [_do_command] Received: id=3	extaddr=1256fea959c7dc93	rloc16=fffe	x=260	y=200	state=detached	failed=false
+[2025-04-25 23:46:06.345626] [_do_command] Received: id=4	extaddr=22e99de88229a206	rloc16=fffe	x=140	y=200	state=detached	failed=false
+[2025-04-25 23:46:06.345638] [_do_command] Received: Done
+[2025-04-25 23:46:06.345698] [_do_command] Sending command: node 1 "state"
+[2025-04-25 23:46:06.346323] [_do_command] Received: detached
+[2025-04-25 23:46:06.346390] [_do_command] Received: Done
+[2025-04-25 23:46:06.346418] [_do_command] Sending command: node 2 "state"
+[2025-04-25 23:46:06.346833] [_do_command] Received: detached
+[2025-04-25 23:46:06.346887] [_do_command] Received: Done
+[2025-04-25 23:46:06.346908] [_do_command] Sending command: node 3 "state"
+[2025-04-25 23:46:06.347371] [_do_command] Received: detached
+[2025-04-25 23:46:06.347423] [_do_command] Received: Done
+[2025-04-25 23:46:06.347444] [_do_command] Sending command: node 4 "state"
+[2025-04-25 23:46:06.347891] [_do_command] Received: detached
+[2025-04-25 23:46:06.347956] [_do_command] Received: Done
+@  4s | 1:detached 2:detached 3:detached 4:detached
+[2025-04-25 23:46:06.348008] [_do_command] Sending command: go 1
+[2025-04-25 23:46:06.360877] [_do_command] Received: Done
+[2025-04-25 23:46:06.360999] [_do_command] Sending command: nodes
+[2025-04-25 23:46:06.361207] [_do_command] Received: id=1	extaddr=deb5b76fd67e6ced	rloc16=fffe	x=200	y=200	state=detached	failed=false
+[2025-04-25 23:46:06.361271] [_do_command] Received: id=2	extaddr=d6074cf75d16e632	rloc16=fffe	x=170	y=170	state=detached	failed=false
+[2025-04-25 23:46:06.361283] [_do_command] Received: id=3	extaddr=1256fea959c7dc93	rloc16=fffe	x=260	y=200	state=detached	failed=false
+[2025-04-25 23:46:06.361291] [_do_command] Received: id=4	extaddr=22e99de88229a206	rloc16=fffe	x=140	y=200	state=detached	failed=false
+[2025-04-25 23:46:06.361335] [_do_command] Received: Done
+[2025-04-25 23:46:06.361397] [_do_command] Sending command: node 1 "state"
+[2025-04-25 23:46:06.361904] [_do_command] Received: detached
+[2025-04-25 23:46:06.361968] [_do_command] Received: Done
+[2025-04-25 23:46:06.361994] [_do_command] Sending command: node 2 "state"
+[2025-04-25 23:46:06.362372] [_do_command] Received: detached
+[2025-04-25 23:46:06.362430] [_do_command] Received: Done
+[2025-04-25 23:46:06.362450] [_do_command] Sending command: node 3 "state"
+[2025-04-25 23:46:06.362834] [_do_command] Received: detached
+[2025-04-25 23:46:06.362885] [_do_command] Received: Done
+[2025-04-25 23:46:06.362908] [_do_command] Sending command: node 4 "state"
+[2025-04-25 23:46:06.363348] [_do_command] Received: detached
+[2025-04-25 23:46:06.363433] [_do_command] Received: Done
+@  5s | 1:detached 2:detached 3:detached 4:detached
+[2025-04-25 23:46:06.363483] [_do_command] Sending command: go 1
+[2025-04-25 23:46:06.429848] [_do_command] Received: Done
+[2025-04-25 23:46:06.429971] [_do_command] Sending command: nodes
+[2025-04-25 23:46:06.430338] [_do_command] Received: id=2	extaddr=d6074cf75d16e632	rloc16=6c00	x=170	y=170	state=leader	failed=false
+[2025-04-25 23:46:06.430423] [_do_command] Received: id=3	extaddr=1256fea959c7dc93	rloc16=fffe	x=260	y=200	state=detached	failed=false
+[2025-04-25 23:46:06.430441] [_do_command] Received: id=4	extaddr=22e99de88229a206	rloc16=fffe	x=140	y=200	state=detached	failed=false
+[2025-04-25 23:46:06.430448] [_do_command] Received: id=1	extaddr=deb5b76fd67e6ced	rloc16=d000	x=200	y=200	state=leader	failed=false
+[2025-04-25 23:46:06.430454] [_do_command] Received: Done
+[2025-04-25 23:46:06.430507] [_do_command] Sending command: node 2 "state"
+[2025-04-25 23:46:06.431127] [_do_command] Received: leader
+[2025-04-25 23:46:06.431189] [_do_command] Received: Done
+[2025-04-25 23:46:06.431215] [_do_command] Sending command: node 3 "state"
+[2025-04-25 23:46:06.431806] [_do_command] Received: detached
+[2025-04-25 23:46:06.431857] [_do_command] Received: Done
+[2025-04-25 23:46:06.431879] [_do_command] Sending command: node 4 "state"
+[2025-04-25 23:46:06.432422] [_do_command] Received: detached
+[2025-04-25 23:46:06.432483] [_do_command] Received: Done
+[2025-04-25 23:46:06.432509] [_do_command] Sending command: node 1 "state"
+[2025-04-25 23:46:06.432971] [_do_command] Received: leader
+[2025-04-25 23:46:06.433019] [_do_command] Received: Done
+@  6s | 2:leader 3:detached 4:detached 1:leader
+[2025-04-25 23:46:06.433064] [_do_command] Sending command: go 1
+[2025-04-25 23:46:06.508652] [_do_command] Received: Done
+[2025-04-25 23:46:06.508805] [_do_command] Sending command: nodes
+[2025-04-25 23:46:06.509030] [_do_command] Received: id=1	extaddr=deb5b76fd67e6ced	rloc16=d000	x=200	y=200	state=leader	failed=false
+[2025-04-25 23:46:06.509091] [_do_command] Received: id=2	extaddr=d6074cf75d16e632	rloc16=6c00	x=170	y=170	state=leader	failed=false
+[2025-04-25 23:46:06.509106] [_do_command] Received: id=3	extaddr=1256fea959c7dc93	rloc16=d001	x=260	y=200	state=child	failed=false
+[2025-04-25 23:46:06.509115] [_do_command] Received: id=4	extaddr=22e99de88229a206	rloc16=fffe	x=140	y=200	state=detached	failed=false
+[2025-04-25 23:46:06.509123] [_do_command] Received: Done
+[2025-04-25 23:46:06.509176] [_do_command] Sending command: node 1 "state"
+[2025-04-25 23:46:06.509763] [_do_command] Received: leader
+[2025-04-25 23:46:06.509833] [_do_command] Received: Done
+[2025-04-25 23:46:06.509856] [_do_command] Sending command: node 2 "state"
+[2025-04-25 23:46:06.510380] [_do_command] Received: leader
+[2025-04-25 23:46:06.510452] [_do_command] Received: Done
+[2025-04-25 23:46:06.510478] [_do_command] Sending command: node 3 "state"
+[2025-04-25 23:46:06.510995] [_do_command] Received: child
+[2025-04-25 23:46:06.511063] [_do_command] Received: Done
+[2025-04-25 23:46:06.511089] [_do_command] Sending command: node 4 "state"
+[2025-04-25 23:46:06.511874] [_do_command] Received: detached
+[2025-04-25 23:46:06.511957] [_do_command] Received: Done
+@  7s | 1:leader 2:leader 3:child 4:detached
+[2025-04-25 23:46:06.512020] [_do_command] Sending command: go 1
+[2025-04-25 23:46:06.783189] [_do_command] Received: Done
+[2025-04-25 23:46:06.783307] [_do_command] Sending command: nodes
+[2025-04-25 23:46:06.783546] [_do_command] Received: id=1	extaddr=deb5b76fd67e6ced	rloc16=d000	x=200	y=200	state=router	failed=false
+[2025-04-25 23:46:06.783634] [_do_command] Received: id=2	extaddr=d6074cf75d16e632	rloc16=6c00	x=170	y=170	state=leader	failed=false
+[2025-04-25 23:46:06.783649] [_do_command] Received: id=3	extaddr=1256fea959c7dc93	rloc16=d001	x=260	y=200	state=child	failed=false
+[2025-04-25 23:46:06.783657] [_do_command] Received: id=4	extaddr=22e99de88229a206	rloc16=d002	x=140	y=200	state=child	failed=false
+[2025-04-25 23:46:06.783664] [_do_command] Received: Done
+[2025-04-25 23:46:06.783716] [_do_command] Sending command: node 1 "state"
+[2025-04-25 23:46:06.784171] [_do_command] Received: router
+[2025-04-25 23:46:06.784230] [_do_command] Received: Done
+[2025-04-25 23:46:06.784257] [_do_command] Sending command: node 2 "state"
+[2025-04-25 23:46:06.784934] [_do_command] Received: leader
+[2025-04-25 23:46:06.785005] [_do_command] Received: Done
+[2025-04-25 23:46:06.785031] [_do_command] Sending command: node 3 "state"
+[2025-04-25 23:46:06.785429] [_do_command] Received: child
+[2025-04-25 23:46:06.785481] [_do_command] Received: Done
+[2025-04-25 23:46:06.785502] [_do_command] Sending command: node 4 "state"
+[2025-04-25 23:46:06.785974] [_do_command] Received: child
+[2025-04-25 23:46:06.786041] [_do_command] Received: Done
+@  8s | 1:router 2:leader 3:child 4:child
+! Step 1
+# Step 2: Single Leader
+[2025-04-25 23:46:06.786099] [_do_command] Sending command: go 1
+[2025-04-25 23:46:06.981637] [_do_command] Received: Done
+[2025-04-25 23:46:06.981747] [_do_command] Sending command: nodes
+[2025-04-25 23:46:06.981960] [_do_command] Received: id=2	extaddr=d6074cf75d16e632	rloc16=6c00	x=170	y=170	state=leader	failed=false
+[2025-04-25 23:46:06.982024] [_do_command] Received: id=3	extaddr=1256fea959c7dc93	rloc16=d001	x=260	y=200	state=child	failed=false
+[2025-04-25 23:46:06.982035] [_do_command] Received: id=4	extaddr=22e99de88229a206	rloc16=d002	x=140	y=200	state=child	failed=false
+[2025-04-25 23:46:06.982042] [_do_command] Received: id=1	extaddr=deb5b76fd67e6ced	rloc16=d000	x=200	y=200	state=router	failed=false
+[2025-04-25 23:46:06.982047] [_do_command] Received: Done
+[2025-04-25 23:46:06.982091] [_do_command] Sending command: node 2 "state"
+[2025-04-25 23:46:06.982458] [_do_command] Received: leader
+[2025-04-25 23:46:06.982503] [_do_command] Received: Done
+[2025-04-25 23:46:06.982522] [_do_command] Sending command: node 3 "state"
+[2025-04-25 23:46:06.983042] [_do_command] Received: child
+[2025-04-25 23:46:06.983090] [_do_command] Received: Done
+[2025-04-25 23:46:06.983110] [_do_command] Sending command: node 4 "state"
+[2025-04-25 23:46:06.983566] [_do_command] Received: child
+[2025-04-25 23:46:06.983610] [_do_command] Received: Done
+[2025-04-25 23:46:06.983629] [_do_command] Sending command: node 1 "state"
+[2025-04-25 23:46:06.984435] [_do_command] Received: router
+[2025-04-25 23:46:06.984478] [_do_command] Received: Done
+@  0s | Leaders found: [2]
+! Step 2  : Leader = 2
+# Step 3: Valid Roles
+[2025-04-25 23:46:06.984524] [_do_command] Sending command: go 1
+[2025-04-25 23:46:07.007427] [_do_command] Received: Done
+[2025-04-25 23:46:07.007582] [_do_command] Sending command: nodes
+[2025-04-25 23:46:07.008075] [_do_command] Received: id=1	extaddr=deb5b76fd67e6ced	rloc16=d000	x=200	y=200	state=router	failed=false
+[2025-04-25 23:46:07.008152] [_do_command] Received: id=2	extaddr=d6074cf75d16e632	rloc16=6c00	x=170	y=170	state=leader	failed=false
+[2025-04-25 23:46:07.008166] [_do_command] Received: id=3	extaddr=1256fea959c7dc93	rloc16=d001	x=260	y=200	state=child	failed=false
+[2025-04-25 23:46:07.008173] [_do_command] Received: id=4	extaddr=22e99de88229a206	rloc16=d002	x=140	y=200	state=child	failed=false
+[2025-04-25 23:46:07.008180] [_do_command] Received: Done
+[2025-04-25 23:46:07.008231] [_do_command] Sending command: node 1 "state"
+[2025-04-25 23:46:07.008857] [_do_command] Received: router
+[2025-04-25 23:46:07.008933] [_do_command] Received: Done
+[2025-04-25 23:46:07.008963] [_do_command] Sending command: node 2 "state"
+[2025-04-25 23:46:07.009819] [_do_command] Received: leader
+[2025-04-25 23:46:07.009899] [_do_command] Received: Done
+[2025-04-25 23:46:07.009930] [_do_command] Sending command: node 3 "state"
+[2025-04-25 23:46:07.010644] [_do_command] Received: child
+[2025-04-25 23:46:07.010731] [_do_command] Received: Done
+[2025-04-25 23:46:07.010758] [_do_command] Sending command: node 4 "state"
+[2025-04-25 23:46:07.011492] [_do_command] Received: child
+[2025-04-25 23:46:07.011549] [_do_command] Received: Done
+@  0s | Invalids: []
+! Step 3
+# Step 4: RLOC16 Stability
+[2025-04-25 23:46:07.011597] [_do_command] Sending command: nodes
+[2025-04-25 23:46:07.011759] [_do_command] Received: id=1	extaddr=deb5b76fd67e6ced	rloc16=d000	x=200	y=200	state=router	failed=false
+[2025-04-25 23:46:07.011828] [_do_command] Received: id=2	extaddr=d6074cf75d16e632	rloc16=6c00	x=170	y=170	state=leader	failed=false
+[2025-04-25 23:46:07.011839] [_do_command] Received: id=3	extaddr=1256fea959c7dc93	rloc16=d001	x=260	y=200	state=child	failed=false
+[2025-04-25 23:46:07.011845] [_do_command] Received: id=4	extaddr=22e99de88229a206	rloc16=d002	x=140	y=200	state=child	failed=false
+[2025-04-25 23:46:07.011850] [_do_command] Received: Done
+[2025-04-25 23:46:07.011888] [_do_command] Sending command: node 1 "state"
+[2025-04-25 23:46:07.012427] [_do_command] Received: router
+[2025-04-25 23:46:07.012485] [_do_command] Received: Done
+[2025-04-25 23:46:07.012507] [_do_command] Sending command: node 2 "state"
+[2025-04-25 23:46:07.012931] [_do_command] Received: leader
+[2025-04-25 23:46:07.012994] [_do_command] Received: Done
+[2025-04-25 23:46:07.013017] [_do_command] Sending command: node 3 "state"
+[2025-04-25 23:46:07.013631] [_do_command] Received: child
+[2025-04-25 23:46:07.013709] [_do_command] Received: Done
+[2025-04-25 23:46:07.013735] [_do_command] Sending command: node 4 "state"
+[2025-04-25 23:46:07.014424] [_do_command] Received: child
+[2025-04-25 23:46:07.014493] [_do_command] Received: Done
+[2025-04-25 23:46:07.014526] [_do_command] Sending command: node 1 "rloc16"
+[2025-04-25 23:46:07.015064] [_do_command] Received: d000
+[2025-04-25 23:46:07.015120] [_do_command] Received: Done
+[2025-04-25 23:46:07.015142] [_do_command] Sending command: node 2 "rloc16"
+[2025-04-25 23:46:07.015590] [_do_command] Received: 6c00
+[2025-04-25 23:46:07.015649] [_do_command] Received: Done
+[2025-04-25 23:46:07.015671] [_do_command] Sending command: go 5
+[2025-04-25 23:46:07.068126] [_do_command] Received: Done
+[2025-04-25 23:46:07.068256] [_do_command] Sending command: nodes
+[2025-04-25 23:46:07.068493] [_do_command] Received: id=1	extaddr=deb5b76fd67e6ced	rloc16=d000	x=200	y=200	state=router	failed=false
+[2025-04-25 23:46:07.068565] [_do_command] Received: id=2	extaddr=d6074cf75d16e632	rloc16=6c00	x=170	y=170	state=leader	failed=false
+[2025-04-25 23:46:07.068578] [_do_command] Received: id=3	extaddr=1256fea959c7dc93	rloc16=d001	x=260	y=200	state=child	failed=false
+[2025-04-25 23:46:07.068585] [_do_command] Received: id=4	extaddr=22e99de88229a206	rloc16=d002	x=140	y=200	state=child	failed=false
+[2025-04-25 23:46:07.068591] [_do_command] Received: Done
+[2025-04-25 23:46:07.068641] [_do_command] Sending command: node 1 "state"
+[2025-04-25 23:46:07.069297] [_do_command] Received: router
+[2025-04-25 23:46:07.069357] [_do_command] Received: Done
+[2025-04-25 23:46:07.069382] [_do_command] Sending command: node 2 "state"
+[2025-04-25 23:46:07.069810] [_do_command] Received: leader
+[2025-04-25 23:46:07.069860] [_do_command] Received: Done
+[2025-04-25 23:46:07.069878] [_do_command] Sending command: node 3 "state"
+[2025-04-25 23:46:07.070242] [_do_command] Received: child
+[2025-04-25 23:46:07.070294] [_do_command] Received: Done
+[2025-04-25 23:46:07.070316] [_do_command] Sending command: node 4 "state"
+[2025-04-25 23:46:07.070763] [_do_command] Received: child
+[2025-04-25 23:46:07.070817] [_do_command] Received: Done
+[2025-04-25 23:46:07.070842] [_do_command] Sending command: node 1 "rloc16"
+[2025-04-25 23:46:07.071349] [_do_command] Received: d000
+[2025-04-25 23:46:07.071404] [_do_command] Received: Done
+[2025-04-25 23:46:07.071425] [_do_command] Sending command: node 2 "rloc16"
+[2025-04-25 23:46:07.071769] [_do_command] Received: 6c00
+[2025-04-25 23:46:07.071858] [_do_command] Received: Done
+@  0s | Changed: []
+! Step 4
+# Step 5: IPv6 Stability
+[2025-04-25 23:46:07.071926] [_do_command] Sending command: nodes
+[2025-04-25 23:46:07.072184] [_do_command] Received: id=1	extaddr=deb5b76fd67e6ced	rloc16=d000	x=200	y=200	state=router	failed=false
+[2025-04-25 23:46:07.072241] [_do_command] Received: id=2	extaddr=d6074cf75d16e632	rloc16=6c00	x=170	y=170	state=leader	failed=false
+[2025-04-25 23:46:07.072254] [_do_command] Received: id=3	extaddr=1256fea959c7dc93	rloc16=d001	x=260	y=200	state=child	failed=false
+[2025-04-25 23:46:07.072262] [_do_command] Received: id=4	extaddr=22e99de88229a206	rloc16=d002	x=140	y=200	state=child	failed=false
+[2025-04-25 23:46:07.072269] [_do_command] Received: Done
+[2025-04-25 23:46:07.072318] [_do_command] Sending command: node 1 "ipaddr"
+[2025-04-25 23:46:07.073582] [_do_command] Received: fdde:ad00:beef:0:0:ff:fe00:d000
+[2025-04-25 23:46:07.073670] [_do_command] Received: fdde:ad00:beef:0:4c99:4274:ffaa:c307
+[2025-04-25 23:46:07.073682] [_do_command] Received: fe80:0:0:0:dcb5:b76f:d67e:6ced
+[2025-04-25 23:46:07.073688] [_do_command] Received: Done
+[2025-04-25 23:46:07.073719] [_do_command] Sending command: node 2 "ipaddr"
+[2025-04-25 23:46:07.075615] [_do_command] Received: fdde:ad00:beef:0:0:ff:fe00:fc00
+[2025-04-25 23:46:07.075695] [_do_command] Received: fdde:ad00:beef:0:0:ff:fe00:6c00
+[2025-04-25 23:46:07.075706] [_do_command] Received: fdde:ad00:beef:0:19ea:f9c5:c8fe:cefe
+[2025-04-25 23:46:07.075712] [_do_command] Received: fe80:0:0:0:d407:4cf7:5d16:e632
+[2025-04-25 23:46:07.075716] [_do_command] Received: Done
+[2025-04-25 23:46:07.075744] [_do_command] Sending command: node 3 "ipaddr"
+[2025-04-25 23:46:07.076185] [_do_command] Received: fdde:ad00:beef:0:0:ff:fe00:d001
+[2025-04-25 23:46:07.076237] [_do_command] Received: fdde:ad00:beef:0:7230:eeb1:e8b1:6b26
+[2025-04-25 23:46:07.076247] [_do_command] Received: fe80:0:0:0:1056:fea9:59c7:dc93
+[2025-04-25 23:46:07.076252] [_do_command] Received: Done
+[2025-04-25 23:46:07.076271] [_do_command] Sending command: node 4 "ipaddr"
+[2025-04-25 23:46:07.076694] [_do_command] Received: fdde:ad00:beef:0:0:ff:fe00:d002
+[2025-04-25 23:46:07.076749] [_do_command] Received: fdde:ad00:beef:0:727a:a3e2:b877:f29d
+[2025-04-25 23:46:07.076760] [_do_command] Received: fe80:0:0:0:20e9:9de8:8229:a206
+[2025-04-25 23:46:07.076766] [_do_command] Received: Done
+[2025-04-25 23:46:07.076789] [_do_command] Sending command: go 5
+[2025-04-25 23:46:07.128780] [_do_command] Received: Done
+[2025-04-25 23:46:07.128887] [_do_command] Sending command: nodes
+[2025-04-25 23:46:07.129048] [_do_command] Received: id=4	extaddr=22e99de88229a206	rloc16=d002	x=140	y=200	state=child	failed=false
+[2025-04-25 23:46:07.129066] [_do_command] Received: id=1	extaddr=deb5b76fd67e6ced	rloc16=d000	x=200	y=200	state=router	failed=false
+[2025-04-25 23:46:07.129072] [_do_command] Received: id=2	extaddr=d6074cf75d16e632	rloc16=6c00	x=170	y=170	state=leader	failed=false
+[2025-04-25 23:46:07.129076] [_do_command] Received: id=3	extaddr=1256fea959c7dc93	rloc16=d001	x=260	y=200	state=child	failed=false
+[2025-04-25 23:46:07.129083] [_do_command] Received: Done
+[2025-04-25 23:46:07.129116] [_do_command] Sending command: node 4 "ipaddr"
+[2025-04-25 23:46:07.129512] [_do_command] Received: fdde:ad00:beef:0:0:ff:fe00:d002
+[2025-04-25 23:46:07.129616] [_do_command] Received: fdde:ad00:beef:0:727a:a3e2:b877:f29d
+[2025-04-25 23:46:07.129631] [_do_command] Received: fe80:0:0:0:20e9:9de8:8229:a206
+[2025-04-25 23:46:07.129639] [_do_command] Received: Done
+[2025-04-25 23:46:07.129667] [_do_command] Sending command: node 1 "ipaddr"
+[2025-04-25 23:46:07.130251] [_do_command] Received: fdde:ad00:beef:0:0:ff:fe00:d000
+[2025-04-25 23:46:07.130301] [_do_command] Received: fdde:ad00:beef:0:4c99:4274:ffaa:c307
+[2025-04-25 23:46:07.130310] [_do_command] Received: fe80:0:0:0:dcb5:b76f:d67e:6ced
+[2025-04-25 23:46:07.130317] [_do_command] Received: Done
+[2025-04-25 23:46:07.130337] [_do_command] Sending command: node 2 "ipaddr"
+[2025-04-25 23:46:07.130819] [_do_command] Received: fdde:ad00:beef:0:0:ff:fe00:fc00
+[2025-04-25 23:46:07.130858] [_do_command] Received: fdde:ad00:beef:0:0:ff:fe00:6c00
+[2025-04-25 23:46:07.130868] [_do_command] Received: fdde:ad00:beef:0:19ea:f9c5:c8fe:cefe
+[2025-04-25 23:46:07.130874] [_do_command] Received: fe80:0:0:0:d407:4cf7:5d16:e632
+[2025-04-25 23:46:07.130879] [_do_command] Received: Done
+[2025-04-25 23:46:07.130893] [_do_command] Sending command: node 3 "ipaddr"
+[2025-04-25 23:46:07.131266] [_do_command] Received: fdde:ad00:beef:0:0:ff:fe00:d001
+[2025-04-25 23:46:07.131310] [_do_command] Received: fdde:ad00:beef:0:7230:eeb1:e8b1:6b26
+[2025-04-25 23:46:07.131320] [_do_command] Received: fe80:0:0:0:1056:fea9:59c7:dc93
+[2025-04-25 23:46:07.131326] [_do_command] Received: Done
+@  0s | Changed: []
+! Step 5
+# Step 6: State Stability
+[2025-04-25 23:46:07.131363] [_do_command] Sending command: nodes
+[2025-04-25 23:46:07.131532] [_do_command] Received: id=1	extaddr=deb5b76fd67e6ced	rloc16=d000	x=200	y=200	state=router	failed=false
+[2025-04-25 23:46:07.131585] [_do_command] Received: id=2	extaddr=d6074cf75d16e632	rloc16=6c00	x=170	y=170	state=leader	failed=false
+[2025-04-25 23:46:07.131597] [_do_command] Received: id=3	extaddr=1256fea959c7dc93	rloc16=d001	x=260	y=200	state=child	failed=false
+[2025-04-25 23:46:07.131604] [_do_command] Received: id=4	extaddr=22e99de88229a206	rloc16=d002	x=140	y=200	state=child	failed=false
+[2025-04-25 23:46:07.131610] [_do_command] Received: Done
+[2025-04-25 23:46:07.131647] [_do_command] Sending command: node 1 "state"
+[2025-04-25 23:46:07.131990] [_do_command] Received: router
+[2025-04-25 23:46:07.132033] [_do_command] Received: Done
+[2025-04-25 23:46:07.132050] [_do_command] Sending command: node 2 "state"
+[2025-04-25 23:46:07.132406] [_do_command] Received: leader
+[2025-04-25 23:46:07.132442] [_do_command] Received: Done
+[2025-04-25 23:46:07.132457] [_do_command] Sending command: node 3 "state"
+[2025-04-25 23:46:07.132794] [_do_command] Received: child
+[2025-04-25 23:46:07.132828] [_do_command] Received: Done
+[2025-04-25 23:46:07.132842] [_do_command] Sending command: node 4 "state"
+[2025-04-25 23:46:07.133218] [_do_command] Received: child
+[2025-04-25 23:46:07.133250] [_do_command] Received: Done
+[2025-04-25 23:46:07.133268] [_do_command] Sending command: go 5
+[2025-04-25 23:46:07.185733] [_do_command] Received: Done
+[2025-04-25 23:46:07.185867] [_do_command] Sending command: nodes
+[2025-04-25 23:46:07.186211] [_do_command] Received: id=1	extaddr=deb5b76fd67e6ced	rloc16=d000	x=200	y=200	state=router	failed=false
+[2025-04-25 23:46:07.186283] [_do_command] Received: id=2	extaddr=d6074cf75d16e632	rloc16=6c00	x=170	y=170	state=leader	failed=false
+[2025-04-25 23:46:07.186295] [_do_command] Received: id=3	extaddr=1256fea959c7dc93	rloc16=d001	x=260	y=200	state=child	failed=false
+[2025-04-25 23:46:07.186304] [_do_command] Received: id=4	extaddr=22e99de88229a206	rloc16=d002	x=140	y=200	state=child	failed=false
+[2025-04-25 23:46:07.186310] [_do_command] Received: Done
+[2025-04-25 23:46:07.186356] [_do_command] Sending command: node 1 "state"
+[2025-04-25 23:46:07.186880] [_do_command] Received: router
+[2025-04-25 23:46:07.186940] [_do_command] Received: Done
+[2025-04-25 23:46:07.186963] [_do_command] Sending command: node 2 "state"
+[2025-04-25 23:46:07.187364] [_do_command] Received: leader
+[2025-04-25 23:46:07.187422] [_do_command] Received: Done
+[2025-04-25 23:46:07.187445] [_do_command] Sending command: node 3 "state"
+[2025-04-25 23:46:07.188172] [_do_command] Received: child
+[2025-04-25 23:46:07.188225] [_do_command] Received: Done
+[2025-04-25 23:46:07.188245] [_do_command] Sending command: node 4 "state"
+[2025-04-25 23:46:07.188736] [_do_command] Received: child
+[2025-04-25 23:46:07.188800] [_do_command] Received: Done
+@  0s | Changed: []
+! Step 6
+# Step 7: Routing Silence
+[2025-04-25 23:46:07.188855] [_do_command] Sending command: nodes
+[2025-04-25 23:46:07.189100] [_do_command] Received: id=1	extaddr=deb5b76fd67e6ced	rloc16=d000	x=200	y=200	state=router	failed=false
+[2025-04-25 23:46:07.189152] [_do_command] Received: id=2	extaddr=d6074cf75d16e632	rloc16=6c00	x=170	y=170	state=leader	failed=false
+[2025-04-25 23:46:07.189163] [_do_command] Received: id=3	extaddr=1256fea959c7dc93	rloc16=d001	x=260	y=200	state=child	failed=false
+[2025-04-25 23:46:07.189169] [_do_command] Received: id=4	extaddr=22e99de88229a206	rloc16=d002	x=140	y=200	state=child	failed=false
+[2025-04-25 23:46:07.189177] [_do_command] Received: Done
+[2025-04-25 23:46:07.189213] [_do_command] Sending command: node 1 "state"
+[2025-04-25 23:46:07.189801] [_do_command] Received: router
+[2025-04-25 23:46:07.189856] [_do_command] Received: Done
+[2025-04-25 23:46:07.189877] [_do_command] Sending command: node 2 "state"
+[2025-04-25 23:46:07.190302] [_do_command] Received: leader
+[2025-04-25 23:46:07.190345] [_do_command] Received: Done
+[2025-04-25 23:46:07.190365] [_do_command] Sending command: node 3 "state"
+[2025-04-25 23:46:07.190839] [_do_command] Received: child
+[2025-04-25 23:46:07.190892] [_do_command] Received: Done
+[2025-04-25 23:46:07.190912] [_do_command] Sending command: node 4 "state"
+[2025-04-25 23:46:07.191330] [_do_command] Received: child
+[2025-04-25 23:46:07.191403] [_do_command] Received: Done
+[2025-04-25 23:46:07.191429] [_do_command] Sending command: node 1 "counters"
+[2025-04-25 23:46:07.191923] [_do_command] Received: ip
+[2025-04-25 23:46:07.191975] [_do_command] Received: mac
+[2025-04-25 23:46:07.191985] [_do_command] Received: mle
+[2025-04-25 23:46:07.191993] [_do_command] Received: Done
+[2025-04-25 23:46:07.192010] [_do_command] Sending command: node 2 "counters"
+[2025-04-25 23:46:07.192421] [_do_command] Received: ip
+[2025-04-25 23:46:07.192477] [_do_command] Received: mac
+[2025-04-25 23:46:07.192488] [_do_command] Received: mle
+[2025-04-25 23:46:07.192495] [_do_command] Received: Done
+[2025-04-25 23:46:07.192514] [_do_command] Sending command: go 5
+[2025-04-25 23:46:07.245054] [_do_command] Received: Done
+[2025-04-25 23:46:07.245202] [_do_command] Sending command: nodes
+[2025-04-25 23:46:07.245452] [_do_command] Received: id=1	extaddr=deb5b76fd67e6ced	rloc16=d000	x=200	y=200	state=router	failed=false
+[2025-04-25 23:46:07.245499] [_do_command] Received: id=2	extaddr=d6074cf75d16e632	rloc16=6c00	x=170	y=170	state=leader	failed=false
+[2025-04-25 23:46:07.245507] [_do_command] Received: id=3	extaddr=1256fea959c7dc93	rloc16=d001	x=260	y=200	state=child	failed=false
+[2025-04-25 23:46:07.245512] [_do_command] Received: id=4	extaddr=22e99de88229a206	rloc16=d002	x=140	y=200	state=child	failed=false
+[2025-04-25 23:46:07.245517] [_do_command] Received: Done
+[2025-04-25 23:46:07.245560] [_do_command] Sending command: node 1 "state"
+[2025-04-25 23:46:07.246013] [_do_command] Received: router
+[2025-04-25 23:46:07.246055] [_do_command] Received: Done
+[2025-04-25 23:46:07.246075] [_do_command] Sending command: node 2 "state"
+[2025-04-25 23:46:07.246738] [_do_command] Received: leader
+[2025-04-25 23:46:07.246791] [_do_command] Received: Done
+[2025-04-25 23:46:07.246812] [_do_command] Sending command: node 3 "state"
+[2025-04-25 23:46:07.247289] [_do_command] Received: child
+[2025-04-25 23:46:07.247349] [_do_command] Received: Done
+[2025-04-25 23:46:07.247373] [_do_command] Sending command: node 4 "state"
+[2025-04-25 23:46:07.247957] [_do_command] Received: child
+[2025-04-25 23:46:07.248009] [_do_command] Received: Done
+[2025-04-25 23:46:07.248034] [_do_command] Sending command: node 1 "counters"
+[2025-04-25 23:46:07.248575] [_do_command] Received: ip
+[2025-04-25 23:46:07.248662] [_do_command] Received: mac
+[2025-04-25 23:46:07.248687] [_do_command] Received: mle
+[2025-04-25 23:46:07.248706] [_do_command] Received: Done
+[2025-04-25 23:46:07.248733] [_do_command] Sending command: node 2 "counters"
+[2025-04-25 23:46:07.249438] [_do_command] Received: ip
+[2025-04-25 23:46:07.249528] [_do_command] Received: mac
+[2025-04-25 23:46:07.249550] [_do_command] Received: mle
+[2025-04-25 23:46:07.249576] [_do_command] Received: Done
+@  0s | DIO/DAO changed: []
+! Step 7
+
+🛡️ Entering Safe Communication Window...
+
+⏳ Waiting 10 simulated seconds...
+[2025-04-25 23:46:07.249647] [_do_command] Sending command: go 10
+[2025-04-25 23:46:07.352879] [_do_command] Received: Done
+[2025-04-25 23:46:09.355090] [_do_command] Sending command: nodes
+[2025-04-25 23:46:09.355487] [_do_command] Received: id=1	extaddr=deb5b76fd67e6ced	rloc16=d000	x=200	y=200	state=router	failed=false
+[2025-04-25 23:46:09.355576] [_do_command] Received: id=2	extaddr=d6074cf75d16e632	rloc16=6c00	x=170	y=170	state=leader	failed=false
+[2025-04-25 23:46:09.355596] [_do_command] Received: id=3	extaddr=1256fea959c7dc93	rloc16=d001	x=260	y=200	state=child	failed=false
+[2025-04-25 23:46:09.355605] [_do_command] Received: id=4	extaddr=22e99de88229a206	rloc16=d002	x=140	y=200	state=child	failed=false
+[2025-04-25 23:46:09.355613] [_do_command] Received: Done
+[2025-04-25 23:46:09.355672] [_do_command] Sending command: node 1 "coap start"
+[2025-04-25 23:46:09.356309] [_do_command] Received: Done
+[2025-04-25 23:46:09.356362] [_do_command] Sending command: node 1 "coap resource logs"
+[2025-04-25 23:46:09.356668] [_do_command] Received: Done
+• Node 1: CoAP service restarted
+[2025-04-25 23:46:09.356738] [_do_command] Sending command: node 2 "coap start"
+[2025-04-25 23:46:09.357117] [_do_command] Received: Done
+[2025-04-25 23:46:09.357159] [_do_command] Sending command: node 2 "coap resource logs"
+[2025-04-25 23:46:09.357472] [_do_command] Received: Done
+• Node 2: CoAP service restarted
+[2025-04-25 23:46:09.357535] [_do_command] Sending command: node 3 "coap start"
+[2025-04-25 23:46:09.357897] [_do_command] Received: Done
+[2025-04-25 23:46:09.357990] [_do_command] Sending command: node 3 "coap resource logs"
+[2025-04-25 23:46:09.358466] [_do_command] Received: Done
+• Node 3: CoAP service restarted
+[2025-04-25 23:46:09.358537] [_do_command] Sending command: node 4 "coap start"
+[2025-04-25 23:46:09.358971] [_do_command] Received: Done
+[2025-04-25 23:46:09.359012] [_do_command] Sending command: node 4 "coap resource logs"
+[2025-04-25 23:46:09.359314] [_do_command] Received: Done
+• Node 4: CoAP service restarted
+
+✅ Safe Communication Window ready — you can start ping/CoAP tests now!
+
+
+🔄 Starting KeepAlive Traffic Injection...
+
+[2025-04-25 23:46:09.359376] [_do_command] Sending command: nodes
+[2025-04-25 23:46:09.359476] [_do_command] Received: id=2	extaddr=d6074cf75d16e632	rloc16=6c00	x=170	y=170	state=leader	failed=false
+[2025-04-25 23:46:09.359516] [_do_command] Received: id=3	extaddr=1256fea959c7dc93	rloc16=d001	x=260	y=200	state=child	failed=false
+[2025-04-25 23:46:09.359525] [_do_command] Received: id=4	extaddr=22e99de88229a206	rloc16=d002	x=140	y=200	state=child	failed=false
+[2025-04-25 23:46:09.359529] [_do_command] Received: id=1	extaddr=deb5b76fd67e6ced	rloc16=d000	x=200	y=200	state=router	failed=false
+[2025-04-25 23:46:09.359532] [_do_command] Received: Done
+[2025-04-25 23:46:09.359571] [_do_command] Sending command: node 2 "coap start"
+[2025-04-25 23:46:09.359906] [_do_command] Received: Done
+[2025-04-25 23:46:09.359953] [_do_command] Sending command: node 2 "coap resource logs"
+[2025-04-25 23:46:09.360303] [_do_command] Received: Done
+[2025-04-25 23:46:09.360344] [_do_command] Sending command: node 3 "coap start"
+[2025-04-25 23:46:09.360663] [_do_command] Received: Done
+[2025-04-25 23:46:09.360707] [_do_command] Sending command: node 3 "coap resource logs"
+[2025-04-25 23:46:09.361023] [_do_command] Received: Done
+[2025-04-25 23:46:09.361066] [_do_command] Sending command: node 4 "coap start"
+[2025-04-25 23:46:09.361366] [_do_command] Received: Done
+[2025-04-25 23:46:09.361412] [_do_command] Sending command: node 4 "coap resource logs"
+[2025-04-25 23:46:09.361728] [_do_command] Received: Done
+[2025-04-25 23:46:09.361768] [_do_command] Sending command: node 1 "coap start"
+[2025-04-25 23:46:09.362068] [_do_command] Received: Done
+[2025-04-25 23:46:09.362107] [_do_command] Sending command: node 1 "coap resource logs"
+[2025-04-25 23:46:09.362393] [_do_command] Received: Done
+[2025-04-25 23:46:09.362448] [_do_command] Sending command: node 4 "ipaddr"
+[2025-04-25 23:46:09.362769] [_do_command] Received: fdde:ad00:beef:0:0:ff:fe00:d002
+[2025-04-25 23:46:09.362807] [_do_command] Received: fdde:ad00:beef:0:727a:a3e2:b877:f29d
+[2025-04-25 23:46:09.362815] [_do_command] Received: fe80:0:0:0:20e9:9de8:8229:a206
+[2025-04-25 23:46:09.362820] [_do_command] Received: Done
+[2025-04-25 23:46:09.362851] [_do_command] Sending command: node 3 "coap post fdde:ad00:beef:0:0:ff:fe00:d002 logs con \"R4kh3jCH\""
+[2025-04-25 23:46:09.363362] [_do_command] Received: Done
+KeepAlive: Node 3 ➔ Node 4 (fdde:ad00:...) ✅
+[2025-04-25 23:46:09.363408] [_do_command] Sending command: go 5
+[2025-04-25 23:46:09.418688] [_do_command] Received: Done
+[2025-04-25 23:46:09.519065] [_do_command] Sending command: node 1 "ipaddr"
+[2025-04-25 23:46:09.519951] [_do_command] Received: fdde:ad00:beef:0:0:ff:fe00:d000
+[2025-04-25 23:46:09.520042] [_do_command] Received: fdde:ad00:beef:0:4c99:4274:ffaa:c307
+[2025-04-25 23:46:09.520056] [_do_command] Received: fe80:0:0:0:dcb5:b76f:d67e:6ced
+[2025-04-25 23:46:09.520064] [_do_command] Received: Done
+[2025-04-25 23:46:09.520112] [_do_command] Sending command: node 3 "coap post fdde:ad00:beef:0:0:ff:fe00:d000 logs con \"fCCjzlMG\""
+[2025-04-25 23:46:09.521023] [_do_command] Received: Done
+KeepAlive: Node 3 ➔ Node 1 (fdde:ad00:...) ✅
+[2025-04-25 23:46:09.521078] [_do_command] Sending command: go 5
+[2025-04-25 23:46:09.574195] [_do_command] Received: Done
+[2025-04-25 23:46:09.674546] [_do_command] Sending command: node 3 "ipaddr"
+[2025-04-25 23:46:09.675162] [_do_command] Received: fdde:ad00:beef:0:0:ff:fe00:d001
+[2025-04-25 23:46:09.675246] [_do_command] Received: fdde:ad00:beef:0:7230:eeb1:e8b1:6b26
+[2025-04-25 23:46:09.675264] [_do_command] Received: fe80:0:0:0:1056:fea9:59c7:dc93
+[2025-04-25 23:46:09.675275] [_do_command] Received: Done
+[2025-04-25 23:46:09.675329] [_do_command] Sending command: node 4 "coap post fdde:ad00:beef:0:0:ff:fe00:d001 logs con \"rgsV2MyD\""
+[2025-04-25 23:46:09.676029] [_do_command] Received: Done
+KeepAlive: Node 4 ➔ Node 3 (fdde:ad00:...) ✅
+[2025-04-25 23:46:09.676104] [_do_command] Sending command: go 5
+[2025-04-25 23:46:09.731585] [_do_command] Received: Done
+[2025-04-25 23:46:09.831950] [_do_command] Sending command: node 2 "ipaddr"
+[2025-04-25 23:46:09.832590] [_do_command] Received: fdde:ad00:beef:0:0:ff:fe00:fc00
+[2025-04-25 23:46:09.832652] [_do_command] Received: fdde:ad00:beef:0:0:ff:fe00:6c00
+[2025-04-25 23:46:09.832662] [_do_command] Received: fdde:ad00:beef:0:19ea:f9c5:c8fe:cefe
+[2025-04-25 23:46:09.832667] [_do_command] Received: fe80:0:0:0:d407:4cf7:5d16:e632
+[2025-04-25 23:46:09.832671] [_do_command] Received: Done
+[2025-04-25 23:46:09.832701] [_do_command] Sending command: node 4 "coap post fdde:ad00:beef:0:0:ff:fe00:fc00 logs con \"tIcUtiAl\""
+[2025-04-25 23:46:09.833950] [_do_command] Received: Done
+KeepAlive: Node 4 ➔ Node 2 (fdde:ad00:...) ✅
+[2025-04-25 23:46:09.834018] [_do_command] Sending command: go 5
+[2025-04-25 23:46:09.886541] [_do_command] Received: Done
+[2025-04-25 23:46:09.986866] [_do_command] Sending command: node 4 "ipaddr"
+[2025-04-25 23:46:09.987557] [_do_command] Received: fdde:ad00:beef:0:0:ff:fe00:d002
+[2025-04-25 23:46:09.987617] [_do_command] Received: fdde:ad00:beef:0:727a:a3e2:b877:f29d
+[2025-04-25 23:46:09.987626] [_do_command] Received: fe80:0:0:0:20e9:9de8:8229:a206
+[2025-04-25 23:46:09.987631] [_do_command] Received: Done
+[2025-04-25 23:46:09.987666] [_do_command] Sending command: node 1 "coap post fdde:ad00:beef:0:0:ff:fe00:d002 logs con \"zllKX2by\""
+[2025-04-25 23:46:09.988351] [_do_command] Received: Done
+KeepAlive: Node 1 ➔ Node 4 (fdde:ad00:...) ✅
+[2025-04-25 23:46:09.988415] [_do_command] Sending command: go 5
+[2025-04-25 23:46:10.043572] [_do_command] Received: Done
+[2025-04-25 23:46:10.143898] [_do_command] Sending command: node 4 "ipaddr"
+[2025-04-25 23:46:10.144604] [_do_command] Received: fdde:ad00:beef:0:0:ff:fe00:d002
+[2025-04-25 23:46:10.144665] [_do_command] Received: fdde:ad00:beef:0:727a:a3e2:b877:f29d
+[2025-04-25 23:46:10.144675] [_do_command] Received: fe80:0:0:0:20e9:9de8:8229:a206
+[2025-04-25 23:46:10.144679] [_do_command] Received: Done
+[2025-04-25 23:46:10.144718] [_do_command] Sending command: node 1 "coap post fdde:ad00:beef:0:0:ff:fe00:d002 logs con \"P5bICiU0\""
+[2025-04-25 23:46:10.145360] [_do_command] Received: Done
+KeepAlive: Node 1 ➔ Node 4 (fdde:ad00:...) ✅
+[2025-04-25 23:46:10.145424] [_do_command] Sending command: go 5
+[2025-04-25 23:46:10.200898] [_do_command] Received: Done
+[2025-04-25 23:46:10.301226] [_do_command] Sending command: node 1 "ipaddr"
+[2025-04-25 23:46:10.301982] [_do_command] Received: fdde:ad00:beef:0:0:ff:fe00:d000
+[2025-04-25 23:46:10.302106] [_do_command] Received: fdde:ad00:beef:0:4c99:4274:ffaa:c307
+[2025-04-25 23:46:10.302122] [_do_command] Received: fe80:0:0:0:dcb5:b76f:d67e:6ced
+[2025-04-25 23:46:10.302129] [_do_command] Received: Done
+[2025-04-25 23:46:10.302186] [_do_command] Sending command: node 4 "coap post fdde:ad00:beef:0:0:ff:fe00:d000 logs con \"jXV0kVYu\""
+[2025-04-25 23:46:10.302867] [_do_command] Received: Done
+KeepAlive: Node 4 ➔ Node 1 (fdde:ad00:...) ✅
+[2025-04-25 23:46:10.302953] [_do_command] Sending command: go 5
+[2025-04-25 23:46:10.359903] [_do_command] Received: Done
+[2025-04-25 23:46:10.460242] [_do_command] Sending command: node 3 "ipaddr"
+[2025-04-25 23:46:10.460867] [_do_command] Received: fdde:ad00:beef:0:0:ff:fe00:d001
+[2025-04-25 23:46:10.460930] [_do_command] Received: fdde:ad00:beef:0:7230:eeb1:e8b1:6b26
+[2025-04-25 23:46:10.460938] [_do_command] Received: fe80:0:0:0:1056:fea9:59c7:dc93
+[2025-04-25 23:46:10.460943] [_do_command] Received: Done
+[2025-04-25 23:46:10.460979] [_do_command] Sending command: node 4 "coap post fdde:ad00:beef:0:0:ff:fe00:d001 logs con \"AUr6Czlh\""
+[2025-04-25 23:46:10.461715] [_do_command] Received: Done
+KeepAlive: Node 4 ➔ Node 3 (fdde:ad00:...) ✅
+[2025-04-25 23:46:10.461781] [_do_command] Sending command: go 5
+[2025-04-25 23:46:10.516706] [_do_command] Received: Done
+[2025-04-25 23:46:10.617086] [_do_command] Sending command: node 3 "ipaddr"
+[2025-04-25 23:46:10.617836] [_do_command] Received: fdde:ad00:beef:0:0:ff:fe00:d001
+[2025-04-25 23:46:10.617963] [_do_command] Received: fdde:ad00:beef:0:7230:eeb1:e8b1:6b26
+[2025-04-25 23:46:10.617984] [_do_command] Received: fe80:0:0:0:1056:fea9:59c7:dc93
+[2025-04-25 23:46:10.617994] [_do_command] Received: Done
+[2025-04-25 23:46:10.618046] [_do_command] Sending command: node 1 "coap post fdde:ad00:beef:0:0:ff:fe00:d001 logs con \"iE56PkRJ\""
+[2025-04-25 23:46:10.618713] [_do_command] Received: Done
+KeepAlive: Node 1 ➔ Node 3 (fdde:ad00:...) ✅
+[2025-04-25 23:46:10.618797] [_do_command] Sending command: go 5
+[2025-04-25 23:46:10.674209] [_do_command] Received: Done
+[2025-04-25 23:46:10.774564] [_do_command] Sending command: node 4 "ipaddr"
+[2025-04-25 23:46:10.775418] [_do_command] Received: fdde:ad00:beef:0:0:ff:fe00:d002
+[2025-04-25 23:46:10.775528] [_do_command] Received: fdde:ad00:beef:0:727a:a3e2:b877:f29d
+[2025-04-25 23:46:10.775546] [_do_command] Received: fe80:0:0:0:20e9:9de8:8229:a206
+[2025-04-25 23:46:10.775559] [_do_command] Received: Done
+[2025-04-25 23:46:10.775614] [_do_command] Sending command: node 1 "coap post fdde:ad00:beef:0:0:ff:fe00:d002 logs con \"kZ3wohFf\""
+[2025-04-25 23:46:10.776318] [_do_command] Received: Done
+KeepAlive: Node 1 ➔ Node 4 (fdde:ad00:...) ✅
+[2025-04-25 23:46:10.776387] [_do_command] Sending command: go 5
+[2025-04-25 23:46:10.831105] [_do_command] Received: Done
+[2025-04-25 23:46:10.931435] [_do_command] Sending command: node 3 "ipaddr"
+[2025-04-25 23:46:10.932050] [_do_command] Received: fdde:ad00:beef:0:0:ff:fe00:d001
+[2025-04-25 23:46:10.932121] [_do_command] Received: fdde:ad00:beef:0:7230:eeb1:e8b1:6b26
+[2025-04-25 23:46:10.932133] [_do_command] Received: fe80:0:0:0:1056:fea9:59c7:dc93
+[2025-04-25 23:46:10.932140] [_do_command] Received: Done
+[2025-04-25 23:46:10.932187] [_do_command] Sending command: node 2 "coap post fdde:ad00:beef:0:0:ff:fe00:d001 logs con \"pY87SIaD\""
+[2025-04-25 23:46:10.932851] [_do_command] Received: Done
+KeepAlive: Node 2 ➔ Node 3 (fdde:ad00:...) ✅
+[2025-04-25 23:46:10.932934] [_do_command] Sending command: go 5
+[2025-04-25 23:46:10.988510] [_do_command] Received: Done
+[2025-04-25 23:46:11.088883] [_do_command] Sending command: node 3 "ipaddr"
+[2025-04-25 23:46:11.089618] [_do_command] Received: fdde:ad00:beef:0:0:ff:fe00:d001
+[2025-04-25 23:46:11.089690] [_do_command] Received: fdde:ad00:beef:0:7230:eeb1:e8b1:6b26
+[2025-04-25 23:46:11.089703] [_do_command] Received: fe80:0:0:0:1056:fea9:59c7:dc93
+[2025-04-25 23:46:11.089710] [_do_command] Received: Done
+[2025-04-25 23:46:11.089748] [_do_command] Sending command: node 4 "coap post fdde:ad00:beef:0:0:ff:fe00:d001 logs con \"WV0R4orx\""
+[2025-04-25 23:46:11.090317] [_do_command] Received: Done
+KeepAlive: Node 4 ➔ Node 3 (fdde:ad00:...) ✅
+[2025-04-25 23:46:11.090380] [_do_command] Sending command: go 5
+[2025-04-25 23:46:11.142967] [_do_command] Received: Done
+[2025-04-25 23:46:11.243361] [_do_command] Sending command: node 1 "ipaddr"
+[2025-04-25 23:46:11.244173] [_do_command] Received: fdde:ad00:beef:0:0:ff:fe00:d000
+[2025-04-25 23:46:11.244251] [_do_command] Received: fdde:ad00:beef:0:4c99:4274:ffaa:c307
+[2025-04-25 23:46:11.244260] [_do_command] Received: fe80:0:0:0:dcb5:b76f:d67e:6ced
+[2025-04-25 23:46:11.244266] [_do_command] Received: Done
+[2025-04-25 23:46:11.244326] [_do_command] Sending command: node 4 "coap post fdde:ad00:beef:0:0:ff:fe00:d000 logs con \"mDVdBQRE\""
+[2025-04-25 23:46:11.245024] [_do_command] Received: Done
+KeepAlive: Node 4 ➔ Node 1 (fdde:ad00:...) ✅
+[2025-04-25 23:46:11.245110] [_do_command] Sending command: go 5
+[2025-04-25 23:46:11.298014] [_do_command] Received: Done
+[2025-04-25 23:46:11.398356] [_do_command] Sending command: node 4 "ipaddr"
+[2025-04-25 23:46:11.399067] [_do_command] Received: fdde:ad00:beef:0:0:ff:fe00:d002
+[2025-04-25 23:46:11.399120] [_do_command] Received: fdde:ad00:beef:0:727a:a3e2:b877:f29d
+[2025-04-25 23:46:11.399129] [_do_command] Received: fe80:0:0:0:20e9:9de8:8229:a206
+[2025-04-25 23:46:11.399136] [_do_command] Received: Done
+[2025-04-25 23:46:11.399171] [_do_command] Sending command: node 1 "coap post fdde:ad00:beef:0:0:ff:fe00:d002 logs con \"eEeR1wdd\""
+[2025-04-25 23:46:11.400179] [_do_command] Received: Done
+KeepAlive: Node 1 ➔ Node 4 (fdde:ad00:...) ✅
+[2025-04-25 23:46:11.400275] [_do_command] Sending command: go 5
+[2025-04-25 23:46:11.456434] [_do_command] Received: Done
+[2025-04-25 23:46:11.556780] [_do_command] Sending command: node 4 "ipaddr"
+[2025-04-25 23:46:11.557405] [_do_command] Received: fdde:ad00:beef:0:0:ff:fe00:d002
+[2025-04-25 23:46:11.557462] [_do_command] Received: fdde:ad00:beef:0:727a:a3e2:b877:f29d
+[2025-04-25 23:46:11.557471] [_do_command] Received: fe80:0:0:0:20e9:9de8:8229:a206
+[2025-04-25 23:46:11.557476] [_do_command] Received: Done
+[2025-04-25 23:46:11.557512] [_do_command] Sending command: node 3 "coap post fdde:ad00:beef:0:0:ff:fe00:d002 logs con \"OIEPhLHG\""
+[2025-04-25 23:46:11.558218] [_do_command] Received: Done
+KeepAlive: Node 3 ➔ Node 4 (fdde:ad00:...) ✅
+[2025-04-25 23:46:11.558272] [_do_command] Sending command: go 5
+[2025-04-25 23:46:11.613806] [_do_command] Received: Done
+[2025-04-25 23:46:11.714241] [_do_command] Sending command: node 4 "ipaddr"
+[2025-04-25 23:46:11.714911] [_do_command] Received: fdde:ad00:beef:0:0:ff:fe00:d002
+[2025-04-25 23:46:11.714959] [_do_command] Received: fdde:ad00:beef:0:727a:a3e2:b877:f29d
+[2025-04-25 23:46:11.714969] [_do_command] Received: fe80:0:0:0:20e9:9de8:8229:a206
+[2025-04-25 23:46:11.714974] [_do_command] Received: Done
+[2025-04-25 23:46:11.715007] [_do_command] Sending command: node 3 "coap post fdde:ad00:beef:0:0:ff:fe00:d002 logs con \"KEfwtyud\""
+[2025-04-25 23:46:11.716596] [_do_command] Received: Done
+KeepAlive: Node 3 ➔ Node 4 (fdde:ad00:...) ✅
+[2025-04-25 23:46:11.716660] [_do_command] Sending command: go 5
+[2025-04-25 23:46:11.772649] [_do_command] Received: Done
+[2025-04-25 23:46:11.873020] [_do_command] Sending command: node 3 "ipaddr"
+[2025-04-25 23:46:11.873993] [_do_command] Received: fdde:ad00:beef:0:0:ff:fe00:d001
+[2025-04-25 23:46:11.874062] [_do_command] Received: fdde:ad00:beef:0:7230:eeb1:e8b1:6b26
+[2025-04-25 23:46:11.874070] [_do_command] Received: fe80:0:0:0:1056:fea9:59c7:dc93
+[2025-04-25 23:46:11.874074] [_do_command] Received: Done
+[2025-04-25 23:46:11.874109] [_do_command] Sending command: node 2 "coap post fdde:ad00:beef:0:0:ff:fe00:d001 logs con \"xTtzce8x\""
+[2025-04-25 23:46:11.874970] [_do_command] Received: Done
+KeepAlive: Node 2 ➔ Node 3 (fdde:ad00:...) ✅
+[2025-04-25 23:46:11.875035] [_do_command] Sending command: go 5
+[2025-04-25 23:46:11.928081] [_do_command] Received: Done
+[2025-04-25 23:46:12.028515] [_do_command] Sending command: node 3 "ipaddr"
+[2025-04-25 23:46:12.029309] [_do_command] Received: fdde:ad00:beef:0:0:ff:fe00:d001
+[2025-04-25 23:46:12.029389] [_do_command] Received: fdde:ad00:beef:0:7230:eeb1:e8b1:6b26
+[2025-04-25 23:46:12.029404] [_do_command] Received: fe80:0:0:0:1056:fea9:59c7:dc93
+[2025-04-25 23:46:12.029415] [_do_command] Received: Done
+[2025-04-25 23:46:12.029459] [_do_command] Sending command: node 2 "coap post fdde:ad00:beef:0:0:ff:fe00:d001 logs con \"sNvzyH3I\""
+[2025-04-25 23:46:12.030208] [_do_command] Received: Done
+KeepAlive: Node 2 ➔ Node 3 (fdde:ad00:...) ✅
+[2025-04-25 23:46:12.030272] [_do_command] Sending command: go 5
+[2025-04-25 23:46:12.082514] [_do_command] Received: Done
+[2025-04-25 23:46:12.182874] [_do_command] Sending command: node 2 "ipaddr"
+[2025-04-25 23:46:12.183483] [_do_command] Received: fdde:ad00:beef:0:0:ff:fe00:fc00
+[2025-04-25 23:46:12.183540] [_do_command] Received: fdde:ad00:beef:0:0:ff:fe00:6c00
+[2025-04-25 23:46:12.183548] [_do_command] Received: fdde:ad00:beef:0:19ea:f9c5:c8fe:cefe
+[2025-04-25 23:46:12.183552] [_do_command] Received: fe80:0:0:0:d407:4cf7:5d16:e632
+[2025-04-25 23:46:12.183557] [_do_command] Received: Done
+[2025-04-25 23:46:12.183595] [_do_command] Sending command: node 4 "coap post fdde:ad00:beef:0:0:ff:fe00:fc00 logs con \"W3QSgTGH\""
+[2025-04-25 23:46:12.184478] [_do_command] Received: Done
+KeepAlive: Node 4 ➔ Node 2 (fdde:ad00:...) ✅
+[2025-04-25 23:46:12.184603] [_do_command] Sending command: go 5
+[2025-04-25 23:46:12.239916] [_do_command] Received: Done
+[2025-04-25 23:46:12.340269] [_do_command] Sending command: node 1 "ipaddr"
+[2025-04-25 23:46:12.340962] [_do_command] Received: fdde:ad00:beef:0:0:ff:fe00:d000
+[2025-04-25 23:46:12.341039] [_do_command] Received: fdde:ad00:beef:0:4c99:4274:ffaa:c307
+[2025-04-25 23:46:12.341053] [_do_command] Received: fe80:0:0:0:dcb5:b76f:d67e:6ced
+[2025-04-25 23:46:12.341061] [_do_command] Received: Done
+[2025-04-25 23:46:12.341108] [_do_command] Sending command: node 3 "coap post fdde:ad00:beef:0:0:ff:fe00:d000 logs con \"VlxJoZIF\""
+[2025-04-25 23:46:12.342027] [_do_command] Received: Done
+KeepAlive: Node 3 ➔ Node 1 (fdde:ad00:...) ✅
+[2025-04-25 23:46:12.342093] [_do_command] Sending command: go 5
+[2025-04-25 23:46:12.397350] [_do_command] Received: Done
+
+✅ KeepAlive Traffic Injection finished.
+
+# Step 7b: Role Transition Preparation
+
+🔧 Step 7b: Preparing node roles for stable routing...
+
+[2025-04-25 23:46:12.497758] [_do_command] Sending command: nodes
+[2025-04-25 23:46:12.498158] [_do_command] Received: id=3	extaddr=1256fea959c7dc93	rloc16=d001	x=260	y=200	state=child	failed=false
+[2025-04-25 23:46:12.498303] [_do_command] Received: id=4	extaddr=22e99de88229a206	rloc16=d002	x=140	y=200	state=child	failed=false
+[2025-04-25 23:46:12.498326] [_do_command] Received: id=1	extaddr=deb5b76fd67e6ced	rloc16=d000	x=200	y=200	state=router	failed=false
+[2025-04-25 23:46:12.498338] [_do_command] Received: id=2	extaddr=d6074cf75d16e632	rloc16=6c00	x=170	y=170	state=leader	failed=false
+[2025-04-25 23:46:12.498350] [_do_command] Received: Done
+[2025-04-25 23:46:12.498427] [_do_command] Sending command: node 3 "mode rdn"
+[2025-04-25 23:46:12.514556] [_do_command] Received: Done
+[2025-04-25 23:46:12.514661] [_do_command] Sending command: node 3 "routerupgradethreshold 99"
+[2025-04-25 23:46:12.515056] [_do_command] Received: Done
+[2025-04-25 23:46:12.515120] [_do_command] Sending command: node 3 "routerselectionjitter 1"
+[2025-04-25 23:46:12.515446] [_do_command] Received: Done
+• Node 3: router mode forced + upgrade threshold set
+[2025-04-25 23:46:12.515511] [_do_command] Sending command: node 4 "mode rdn"
+[2025-04-25 23:46:12.528453] [_do_command] Received: Done
+[2025-04-25 23:46:12.528522] [_do_command] Sending command: node 4 "routerupgradethreshold 99"
+[2025-04-25 23:46:12.528906] [_do_command] Received: Done
+[2025-04-25 23:46:12.528963] [_do_command] Sending command: node 4 "routerselectionjitter 1"
+[2025-04-25 23:46:12.529277] [_do_command] Received: Done
+• Node 4: router mode forced + upgrade threshold set
+[2025-04-25 23:46:12.529319] [_do_command] Sending command: node 1 "mode rdn"
+[2025-04-25 23:46:12.529671] [_do_command] Received: Done
+[2025-04-25 23:46:12.529713] [_do_command] Sending command: node 1 "routerupgradethreshold 99"
+[2025-04-25 23:46:12.530064] [_do_command] Received: Done
+[2025-04-25 23:46:12.530115] [_do_command] Sending command: node 1 "routerselectionjitter 1"
+[2025-04-25 23:46:12.530650] [_do_command] Received: Done
+• Node 1: router mode forced + upgrade threshold set
+[2025-04-25 23:46:12.530748] [_do_command] Sending command: node 2 "mode rdn"
+[2025-04-25 23:46:12.531110] [_do_command] Received: Done
+[2025-04-25 23:46:12.531152] [_do_command] Sending command: node 2 "routerupgradethreshold 99"
+[2025-04-25 23:46:12.531643] [_do_command] Received: Done
+[2025-04-25 23:46:12.531676] [_do_command] Sending command: node 2 "routerselectionjitter 1"
+[2025-04-25 23:46:12.531972] [_do_command] Received: Done
+• Node 2: router mode forced + upgrade threshold set
+⏳ Waiting for nodes to settle as routers...
+[2025-04-25 23:46:12.532016] [_do_command] Sending command: go 10
+[2025-04-25 23:46:12.679536] [_do_command] Received: Done
+✅ Step 7b complete: Role transitions should be stabilized.
+
+# Step 8: Neighbor Table Stability
+[2025-04-25 23:46:13.680983] [_do_command] Sending command: nodes
+[2025-04-25 23:46:13.681380] [_do_command] Received: id=3	extaddr=1256fea959c7dc93	rloc16=2c00	x=260	y=200	state=router	failed=false
+[2025-04-25 23:46:13.681426] [_do_command] Received: id=4	extaddr=22e99de88229a206	rloc16=dc00	x=140	y=200	state=router	failed=false
+[2025-04-25 23:46:13.681433] [_do_command] Received: id=1	extaddr=deb5b76fd67e6ced	rloc16=d000	x=200	y=200	state=router	failed=false
+[2025-04-25 23:46:13.681436] [_do_command] Received: id=2	extaddr=d6074cf75d16e632	rloc16=6c00	x=170	y=170	state=leader	failed=false
+[2025-04-25 23:46:13.681440] [_do_command] Received: Done
+[2025-04-25 23:46:13.681472] [_do_command] Sending command: node 3 "state"
+[2025-04-25 23:46:13.682014] [_do_command] Received: router
+[2025-04-25 23:46:13.682054] [_do_command] Received: Done
+[2025-04-25 23:46:13.682071] [_do_command] Sending command: node 4 "state"
+[2025-04-25 23:46:13.682393] [_do_command] Received: router
+[2025-04-25 23:46:13.682424] [_do_command] Received: Done
+[2025-04-25 23:46:13.682439] [_do_command] Sending command: node 1 "state"
+[2025-04-25 23:46:13.682881] [_do_command] Received: router
+[2025-04-25 23:46:13.682922] [_do_command] Received: Done
+[2025-04-25 23:46:13.682939] [_do_command] Sending command: node 2 "state"
+[2025-04-25 23:46:13.683434] [_do_command] Received: leader
+[2025-04-25 23:46:13.683470] [_do_command] Received: Done
+[2025-04-25 23:46:13.683499] [_do_command] Sending command: go 5
+[2025-04-25 23:46:13.739003] [_do_command] Received: Done
+[2025-04-25 23:46:13.739106] [_do_command] Sending command: nodes
+[2025-04-25 23:46:13.739261] [_do_command] Received: id=1	extaddr=deb5b76fd67e6ced	rloc16=d000	x=200	y=200	state=router	failed=false
+[2025-04-25 23:46:13.739287] [_do_command] Received: id=2	extaddr=d6074cf75d16e632	rloc16=6c00	x=170	y=170	state=leader	failed=false
+[2025-04-25 23:46:13.739294] [_do_command] Received: id=3	extaddr=1256fea959c7dc93	rloc16=2c00	x=260	y=200	state=router	failed=false
+[2025-04-25 23:46:13.739297] [_do_command] Received: id=4	extaddr=22e99de88229a206	rloc16=dc00	x=140	y=200	state=router	failed=false
+[2025-04-25 23:46:13.739301] [_do_command] Received: Done
+[2025-04-25 23:46:13.739329] [_do_command] Sending command: node 1 "state"
+[2025-04-25 23:46:13.739626] [_do_command] Received: router
+[2025-04-25 23:46:13.739689] [_do_command] Received: Done
+[2025-04-25 23:46:13.739712] [_do_command] Sending command: node 2 "state"
+[2025-04-25 23:46:13.739954] [_do_command] Received: leader
+[2025-04-25 23:46:13.739998] [_do_command] Received: Done
+[2025-04-25 23:46:13.740015] [_do_command] Sending command: node 3 "state"
+[2025-04-25 23:46:13.740289] [_do_command] Received: router
+[2025-04-25 23:46:13.740324] [_do_command] Received: Done
+[2025-04-25 23:46:13.740338] [_do_command] Sending command: node 4 "state"
+[2025-04-25 23:46:13.740602] [_do_command] Received: router
+[2025-04-25 23:46:13.740639] [_do_command] Received: Done
+@  0s | Changes: {}
+! Step 8 ✅ Neighbor Table is stable.
+# Step 9: Router Table Stability
+[2025-04-25 23:46:13.740678] [_do_command] Sending command: nodes
+[2025-04-25 23:46:13.740808] [_do_command] Received: id=1	extaddr=deb5b76fd67e6ced	rloc16=d000	x=200	y=200	state=router	failed=false
+[2025-04-25 23:46:13.740843] [_do_command] Received: id=2	extaddr=d6074cf75d16e632	rloc16=6c00	x=170	y=170	state=leader	failed=false
+[2025-04-25 23:46:13.740851] [_do_command] Received: id=3	extaddr=1256fea959c7dc93	rloc16=2c00	x=260	y=200	state=router	failed=false
+[2025-04-25 23:46:13.740854] [_do_command] Received: id=4	extaddr=22e99de88229a206	rloc16=dc00	x=140	y=200	state=router	failed=false
+[2025-04-25 23:46:13.740858] [_do_command] Received: Done
+[2025-04-25 23:46:13.740884] [_do_command] Sending command: node 1 "state"
+[2025-04-25 23:46:13.741113] [_do_command] Received: router
+[2025-04-25 23:46:13.741144] [_do_command] Received: Done
+[2025-04-25 23:46:13.741156] [_do_command] Sending command: node 2 "state"
+[2025-04-25 23:46:13.741400] [_do_command] Received: leader
+[2025-04-25 23:46:13.741432] [_do_command] Received: Done
+[2025-04-25 23:46:13.741445] [_do_command] Sending command: node 3 "state"
+[2025-04-25 23:46:13.741672] [_do_command] Received: router
+[2025-04-25 23:46:13.741702] [_do_command] Received: Done
+[2025-04-25 23:46:13.741714] [_do_command] Sending command: node 4 "state"
+[2025-04-25 23:46:13.741937] [_do_command] Received: router
+[2025-04-25 23:46:13.741972] [_do_command] Received: Done
+[2025-04-25 23:46:13.741990] [_do_command] Sending command: node 1 "router table"
+[2025-04-25 23:46:13.742503] [_do_command] Received: | ID | RLOC16 | Next Hop | Path Cost | LQ In | LQ Out | Age | Extended MAC     | Link |
+[2025-04-25 23:46:13.742535] [_do_command] Received: +----+--------+----------+-----------+-------+--------+-----+------------------+------+
+[2025-04-25 23:46:13.742544] [_do_command] Received: | 11 | 0x2c00 |       27 |         1 |     3 |      3 |   0 | 1256fea959c7dc93 |    1 |
+[2025-04-25 23:46:13.742548] [_do_command] Received: | 27 | 0x6c00 |       55 |         1 |     3 |      3 |   2 | d6074cf75d16e632 |    1 |
+[2025-04-25 23:46:13.742551] [_do_command] Received: | 52 | 0xd000 |       63 |         0 |     0 |      0 |   0 | deb5b76fd67e6ced |    0 |
+[2025-04-25 23:46:13.742554] [_do_command] Received: | 55 | 0xdc00 |       27 |         1 |     3 |      3 |   7 | 22e99de88229a206 |    1 |
+[2025-04-25 23:46:13.742557] [_do_command] Received: | ID | RLOC16 | Next Hop | Path Cost | LQ In | LQ Out | Age | Extended MAC     | Link |
+[2025-04-25 23:46:13.742560] [_do_command] Received: +----+--------+----------+-----------+-------+--------+-----+------------------+------+
+[2025-04-25 23:46:13.742563] [_do_command] Received: | 11 | 0x2c00 |       27 |         1 |     3 |      3 |   0 | 1256fea959c7dc93 |    1 |
+[2025-04-25 23:46:13.742566] [_do_command] Received: | 27 | 0x6c00 |       55 |         1 |     3 |      3 |   2 | d6074cf75d16e632 |    1 |
+[2025-04-25 23:46:13.742569] [_do_command] Received: | 52 | 0xd000 |       63 |         0 |     0 |      0 |   0 | deb5b76fd67e6ced |    0 |
+[2025-04-25 23:46:13.742572] [_do_command] Received: | 55 | 0xdc00 |       27 |         1 |     3 |      3 |   7 | 22e99de88229a206 |    1 |
+[2025-04-25 23:46:13.742575] [_do_command] Received:
+[2025-04-25 23:46:13.742579] [_do_command] Received: Done
+[2025-04-25 23:46:13.742598] [_do_command] Sending command: node 2 "router table"
+[2025-04-25 23:46:13.743145] [_do_command] Received: | ID | RLOC16 | Next Hop | Path Cost | LQ In | LQ Out | Age | Extended MAC     | Link |
+[2025-04-25 23:46:13.743180] [_do_command] Received: +----+--------+----------+-----------+-------+--------+-----+------------------+------+
+[2025-04-25 23:46:13.743188] [_do_command] Received: | 11 | 0x2c00 |       55 |         1 |     3 |      3 |   0 | 1256fea959c7dc93 |    1 |
+[2025-04-25 23:46:13.743193] [_do_command] Received: | 27 | 0x6c00 |       63 |         0 |     0 |      0 |   0 | d6074cf75d16e632 |    0 |
+[2025-04-25 23:46:13.743196] [_do_command] Received: | 52 | 0xd000 |       55 |         1 |     3 |      3 |   0 | deb5b76fd67e6ced |    1 |
+[2025-04-25 23:46:13.743199] [_do_command] Received: | 55 | 0xdc00 |       11 |         1 |     3 |      3 |   7 | 22e99de88229a206 |    1 |
+[2025-04-25 23:46:13.743202] [_do_command] Received: | ID | RLOC16 | Next Hop | Path Cost | LQ In | LQ Out | Age | Extended MAC     | Link |
+[2025-04-25 23:46:13.743205] [_do_command] Received: +----+--------+----------+-----------+-------+--------+-----+------------------+------+
+[2025-04-25 23:46:13.743208] [_do_command] Received: | 11 | 0x2c00 |       55 |         1 |     3 |      3 |   0 | 1256fea959c7dc93 |    1 |
+[2025-04-25 23:46:13.743210] [_do_command] Received: | 27 | 0x6c00 |       63 |         0 |     0 |      0 |   0 | d6074cf75d16e632 |    0 |
+[2025-04-25 23:46:13.743213] [_do_command] Received: | 52 | 0xd000 |       55 |         1 |     3 |      3 |   0 | deb5b76fd67e6ced |    1 |
+[2025-04-25 23:46:13.743216] [_do_command] Received: | 55 | 0xdc00 |       11 |         1 |     3 |      3 |   7 | 22e99de88229a206 |    1 |
+[2025-04-25 23:46:13.743219] [_do_command] Received:
+[2025-04-25 23:46:13.743222] [_do_command] Received: Done
+[2025-04-25 23:46:13.743238] [_do_command] Sending command: node 3 "router table"
+[2025-04-25 23:46:13.743821] [_do_command] Received: | ID | RLOC16 | Next Hop | Path Cost | LQ In | LQ Out | Age | Extended MAC     | Link |
+[2025-04-25 23:46:13.743854] [_do_command] Received: +----+--------+----------+-----------+-------+--------+-----+------------------+------+
+[2025-04-25 23:46:13.743860] [_do_command] Received: | 11 | 0x2c00 |       63 |         0 |     0 |      0 |   0 | 1256fea959c7dc93 |    0 |
+[2025-04-25 23:46:13.743865] [_do_command] Received: | 27 | 0x6c00 |       55 |         1 |     3 |      3 |   2 | d6074cf75d16e632 |    1 |
+[2025-04-25 23:46:13.743868] [_do_command] Received: | 52 | 0xd000 |       27 |         1 |     3 |      3 |   0 | deb5b76fd67e6ced |    1 |
+[2025-04-25 23:46:13.743871] [_do_command] Received: | 55 | 0xdc00 |       27 |         1 |     3 |      3 |   7 | 22e99de88229a206 |    1 |
+[2025-04-25 23:46:13.743874] [_do_command] Received: | ID | RLOC16 | Next Hop | Path Cost | LQ In | LQ Out | Age | Extended MAC     | Link |
+[2025-04-25 23:46:13.743877] [_do_command] Received: +----+--------+----------+-----------+-------+--------+-----+------------------+------+
+[2025-04-25 23:46:13.743879] [_do_command] Received: | 11 | 0x2c00 |       63 |         0 |     0 |      0 |   0 | 1256fea959c7dc93 |    0 |
+[2025-04-25 23:46:13.743882] [_do_command] Received: | 27 | 0x6c00 |       55 |         1 |     3 |      3 |   2 | d6074cf75d16e632 |    1 |
+[2025-04-25 23:46:13.743885] [_do_command] Received: | 52 | 0xd000 |       27 |         1 |     3 |      3 |   0 | deb5b76fd67e6ced |    1 |
+[2025-04-25 23:46:13.743888] [_do_command] Received: | 55 | 0xdc00 |       27 |         1 |     3 |      3 |   7 | 22e99de88229a206 |    1 |
+[2025-04-25 23:46:13.743890] [_do_command] Received:
+[2025-04-25 23:46:13.743894] [_do_command] Received: Done
+[2025-04-25 23:46:13.743910] [_do_command] Sending command: node 4 "router table"
+[2025-04-25 23:46:13.744493] [_do_command] Received: | ID | RLOC16 | Next Hop | Path Cost | LQ In | LQ Out | Age | Extended MAC     | Link |
+[2025-04-25 23:46:13.744535] [_do_command] Received: +----+--------+----------+-----------+-------+--------+-----+------------------+------+
+[2025-04-25 23:46:13.744543] [_do_command] Received: | 11 | 0x2c00 |       27 |         1 |     3 |      3 |   0 | 1256fea959c7dc93 |    1 |
+[2025-04-25 23:46:13.744548] [_do_command] Received: | 27 | 0x6c00 |       11 |         1 |     3 |      3 |   2 | d6074cf75d16e632 |    1 |
+[2025-04-25 23:46:13.744551] [_do_command] Received: | 52 | 0xd000 |       27 |         1 |     3 |      3 |   0 | deb5b76fd67e6ced |    1 |
+[2025-04-25 23:46:13.744554] [_do_command] Received: | 55 | 0xdc00 |       63 |         0 |     0 |      0 |   0 | 22e99de88229a206 |    0 |
+[2025-04-25 23:46:13.744557] [_do_command] Received: | ID | RLOC16 | Next Hop | Path Cost | LQ In | LQ Out | Age | Extended MAC     | Link |
+[2025-04-25 23:46:13.744560] [_do_command] Received: +----+--------+----------+-----------+-------+--------+-----+------------------+------+
+[2025-04-25 23:46:13.744563] [_do_command] Received: | 11 | 0x2c00 |       27 |         1 |     3 |      3 |   0 | 1256fea959c7dc93 |    1 |
+[2025-04-25 23:46:13.744566] [_do_command] Received: | 27 | 0x6c00 |       11 |         1 |     3 |      3 |   2 | d6074cf75d16e632 |    1 |
+[2025-04-25 23:46:13.744569] [_do_command] Received: | 52 | 0xd000 |       27 |         1 |     3 |      3 |   0 | deb5b76fd67e6ced |    1 |
+[2025-04-25 23:46:13.744571] [_do_command] Received: | 55 | 0xdc00 |       63 |         0 |     0 |      0 |   0 | 22e99de88229a206 |    0 |
+[2025-04-25 23:46:13.744574] [_do_command] Received:
+[2025-04-25 23:46:13.744578] [_do_command] Received: Done
+[2025-04-25 23:46:13.744597] [_do_command] Sending command: go 5
+[2025-04-25 23:46:13.797591] [_do_command] Received: Done
+[2025-04-25 23:46:13.797690] [_do_command] Sending command: nodes
+[2025-04-25 23:46:13.797882] [_do_command] Received: id=3	extaddr=1256fea959c7dc93	rloc16=2c00	x=260	y=200	state=router	failed=false
+[2025-04-25 23:46:13.797936] [_do_command] Received: id=4	extaddr=22e99de88229a206	rloc16=dc00	x=140	y=200	state=router	failed=false
+[2025-04-25 23:46:13.797944] [_do_command] Received: id=1	extaddr=deb5b76fd67e6ced	rloc16=d000	x=200	y=200	state=router	failed=false
+[2025-04-25 23:46:13.797947] [_do_command] Received: id=2	extaddr=d6074cf75d16e632	rloc16=6c00	x=170	y=170	state=leader	failed=false
+[2025-04-25 23:46:13.797951] [_do_command] Received: Done
+[2025-04-25 23:46:13.797985] [_do_command] Sending command: node 3 "state"
+[2025-04-25 23:46:13.798263] [_do_command] Received: router
+[2025-04-25 23:46:13.798302] [_do_command] Received: Done
+[2025-04-25 23:46:13.798316] [_do_command] Sending command: node 4 "state"
+[2025-04-25 23:46:13.798608] [_do_command] Received: router
+[2025-04-25 23:46:13.798641] [_do_command] Received: Done
+[2025-04-25 23:46:13.798655] [_do_command] Sending command: node 1 "state"
+[2025-04-25 23:46:13.798942] [_do_command] Received: router
+[2025-04-25 23:46:13.798991] [_do_command] Received: Done
+[2025-04-25 23:46:13.799012] [_do_command] Sending command: node 2 "state"
+[2025-04-25 23:46:13.799298] [_do_command] Received: leader
+[2025-04-25 23:46:13.799332] [_do_command] Received: Done
+[2025-04-25 23:46:13.799353] [_do_command] Sending command: node 3 "router table"
+[2025-04-25 23:46:13.800556] [_do_command] Received: | ID | RLOC16 | Next Hop | Path Cost | LQ In | LQ Out | Age | Extended MAC     | Link |
+[2025-04-25 23:46:13.800592] [_do_command] Received: +----+--------+----------+-----------+-------+--------+-----+------------------+------+
+[2025-04-25 23:46:13.800602] [_do_command] Received: | 11 | 0x2c00 |       63 |         0 |     0 |      0 |   0 | 1256fea959c7dc93 |    0 |
+[2025-04-25 23:46:13.800605] [_do_command] Received: | 27 | 0x6c00 |       55 |         1 |     3 |      3 |   7 | d6074cf75d16e632 |    1 |
+[2025-04-25 23:46:13.800608] [_do_command] Received: | 52 | 0xd000 |       27 |         1 |     3 |      3 |   5 | deb5b76fd67e6ced |    1 |
+[2025-04-25 23:46:13.800611] [_do_command] Received: | 55 | 0xdc00 |       27 |         1 |     3 |      3 |   3 | 22e99de88229a206 |    1 |
+[2025-04-25 23:46:13.800614] [_do_command] Received: | ID | RLOC16 | Next Hop | Path Cost | LQ In | LQ Out | Age | Extended MAC     | Link |
+[2025-04-25 23:46:13.800617] [_do_command] Received: +----+--------+----------+-----------+-------+--------+-----+------------------+------+
+[2025-04-25 23:46:13.800620] [_do_command] Received: | 11 | 0x2c00 |       63 |         0 |     0 |      0 |   0 | 1256fea959c7dc93 |    0 |
+[2025-04-25 23:46:13.800622] [_do_command] Received: | 27 | 0x6c00 |       55 |         1 |     3 |      3 |   7 | d6074cf75d16e632 |    1 |
+[2025-04-25 23:46:13.800625] [_do_command] Received: | 52 | 0xd000 |       27 |         1 |     3 |      3 |   5 | deb5b76fd67e6ced |    1 |
+[2025-04-25 23:46:13.800628] [_do_command] Received: | 55 | 0xdc00 |       27 |         1 |     3 |      3 |   3 | 22e99de88229a206 |    1 |
+[2025-04-25 23:46:13.800631] [_do_command] Received:
+[2025-04-25 23:46:13.800635] [_do_command] Received: Done
+[2025-04-25 23:46:13.800655] [_do_command] Sending command: node 4 "router table"
+[2025-04-25 23:46:13.801229] [_do_command] Received: | ID | RLOC16 | Next Hop | Path Cost | LQ In | LQ Out | Age | Extended MAC     | Link |
+[2025-04-25 23:46:13.801264] [_do_command] Received: +----+--------+----------+-----------+-------+--------+-----+------------------+------+
+[2025-04-25 23:46:13.801271] [_do_command] Received: | 11 | 0x2c00 |       27 |         1 |     3 |      3 |   5 | 1256fea959c7dc93 |    1 |
+[2025-04-25 23:46:13.801277] [_do_command] Received: | 27 | 0x6c00 |       11 |         1 |     3 |      3 |   7 | d6074cf75d16e632 |    1 |
+[2025-04-25 23:46:13.801280] [_do_command] Received: | 52 | 0xd000 |       27 |         1 |     3 |      3 |   5 | deb5b76fd67e6ced |    1 |
+[2025-04-25 23:46:13.801283] [_do_command] Received: | 55 | 0xdc00 |       63 |         0 |     0 |      0 |   0 | 22e99de88229a206 |    0 |
+[2025-04-25 23:46:13.801286] [_do_command] Received: | ID | RLOC16 | Next Hop | Path Cost | LQ In | LQ Out | Age | Extended MAC     | Link |
+[2025-04-25 23:46:13.801289] [_do_command] Received: +----+--------+----------+-----------+-------+--------+-----+------------------+------+
+[2025-04-25 23:46:13.801292] [_do_command] Received: | 11 | 0x2c00 |       27 |         1 |     3 |      3 |   5 | 1256fea959c7dc93 |    1 |
+[2025-04-25 23:46:13.801295] [_do_command] Received: | 27 | 0x6c00 |       11 |         1 |     3 |      3 |   7 | d6074cf75d16e632 |    1 |
+[2025-04-25 23:46:13.801298] [_do_command] Received: | 52 | 0xd000 |       27 |         1 |     3 |      3 |   5 | deb5b76fd67e6ced |    1 |
+[2025-04-25 23:46:13.801301] [_do_command] Received: | 55 | 0xdc00 |       63 |         0 |     0 |      0 |   0 | 22e99de88229a206 |    0 |
+[2025-04-25 23:46:13.801304] [_do_command] Received:
+[2025-04-25 23:46:13.801308] [_do_command] Received: Done
+[2025-04-25 23:46:13.801325] [_do_command] Sending command: node 1 "router table"
+[2025-04-25 23:46:13.801865] [_do_command] Received: | ID | RLOC16 | Next Hop | Path Cost | LQ In | LQ Out | Age | Extended MAC     | Link |
+[2025-04-25 23:46:13.801904] [_do_command] Received: +----+--------+----------+-----------+-------+--------+-----+------------------+------+
+[2025-04-25 23:46:13.801912] [_do_command] Received: | 11 | 0x2c00 |       27 |         1 |     3 |      3 |   5 | 1256fea959c7dc93 |    1 |
+[2025-04-25 23:46:13.801917] [_do_command] Received: | 27 | 0x6c00 |       55 |         1 |     3 |      3 |   7 | d6074cf75d16e632 |    1 |
+[2025-04-25 23:46:13.801921] [_do_command] Received: | 52 | 0xd000 |       63 |         0 |     0 |      0 |   0 | deb5b76fd67e6ced |    0 |
+[2025-04-25 23:46:13.801924] [_do_command] Received: | 55 | 0xdc00 |       27 |         1 |     3 |      3 |   3 | 22e99de88229a206 |    1 |
+[2025-04-25 23:46:13.801927] [_do_command] Received: | ID | RLOC16 | Next Hop | Path Cost | LQ In | LQ Out | Age | Extended MAC     | Link |
+[2025-04-25 23:46:13.801930] [_do_command] Received: +----+--------+----------+-----------+-------+--------+-----+------------------+------+
+[2025-04-25 23:46:13.801932] [_do_command] Received: | 11 | 0x2c00 |       27 |         1 |     3 |      3 |   5 | 1256fea959c7dc93 |    1 |
+[2025-04-25 23:46:13.801935] [_do_command] Received: | 27 | 0x6c00 |       55 |         1 |     3 |      3 |   7 | d6074cf75d16e632 |    1 |
+[2025-04-25 23:46:13.801938] [_do_command] Received: | 52 | 0xd000 |       63 |         0 |     0 |      0 |   0 | deb5b76fd67e6ced |    0 |
+[2025-04-25 23:46:13.801941] [_do_command] Received: | 55 | 0xdc00 |       27 |         1 |     3 |      3 |   3 | 22e99de88229a206 |    1 |
+[2025-04-25 23:46:13.801944] [_do_command] Received:
+[2025-04-25 23:46:13.801948] [_do_command] Received: Done
+[2025-04-25 23:46:13.801965] [_do_command] Sending command: node 2 "router table"
+[2025-04-25 23:46:13.803084] [_do_command] Received: | ID | RLOC16 | Next Hop | Path Cost | LQ In | LQ Out | Age | Extended MAC     | Link |
+[2025-04-25 23:46:13.803120] [_do_command] Received: +----+--------+----------+-----------+-------+--------+-----+------------------+------+
+[2025-04-25 23:46:13.803129] [_do_command] Received: | 11 | 0x2c00 |       55 |         1 |     3 |      3 |   5 | 1256fea959c7dc93 |    1 |
+[2025-04-25 23:46:13.803133] [_do_command] Received: | 27 | 0x6c00 |       63 |         0 |     0 |      0 |   0 | d6074cf75d16e632 |    0 |
+[2025-04-25 23:46:13.803136] [_do_command] Received: | 52 | 0xd000 |       55 |         1 |     3 |      3 |   5 | deb5b76fd67e6ced |    1 |
+[2025-04-25 23:46:13.803139] [_do_command] Received: | 55 | 0xdc00 |       11 |         1 |     3 |      3 |   3 | 22e99de88229a206 |    1 |
+[2025-04-25 23:46:13.803142] [_do_command] Received: | ID | RLOC16 | Next Hop | Path Cost | LQ In | LQ Out | Age | Extended MAC     | Link |
+[2025-04-25 23:46:13.803144] [_do_command] Received: +----+--------+----------+-----------+-------+--------+-----+------------------+------+
+[2025-04-25 23:46:13.803147] [_do_command] Received: | 11 | 0x2c00 |       55 |         1 |     3 |      3 |   5 | 1256fea959c7dc93 |    1 |
+[2025-04-25 23:46:13.803150] [_do_command] Received: | 27 | 0x6c00 |       63 |         0 |     0 |      0 |   0 | d6074cf75d16e632 |    0 |
+[2025-04-25 23:46:13.803153] [_do_command] Received: | 52 | 0xd000 |       55 |         1 |     3 |      3 |   5 | deb5b76fd67e6ced |    1 |
+[2025-04-25 23:46:13.803156] [_do_command] Received: | 55 | 0xdc00 |       11 |         1 |     3 |      3 |   3 | 22e99de88229a206 |    1 |
+[2025-04-25 23:46:13.803159] [_do_command] Received:
+[2025-04-25 23:46:13.803162] [_do_command] Received: Done
+@  0s | Changed: {}
+! Step 9
+# Step 10: Prefix & Route Propagation
+[2025-04-25 23:46:13.803203] [_do_command] Sending command: nodes
+[2025-04-25 23:46:13.803305] [_do_command] Received: id=1	extaddr=deb5b76fd67e6ced	rloc16=d000	x=200	y=200	state=router	failed=false
+[2025-04-25 23:46:13.803342] [_do_command] Received: id=2	extaddr=d6074cf75d16e632	rloc16=6c00	x=170	y=170	state=leader	failed=false
+[2025-04-25 23:46:13.803350] [_do_command] Received: id=3	extaddr=1256fea959c7dc93	rloc16=2c00	x=260	y=200	state=router	failed=false
+[2025-04-25 23:46:13.803353] [_do_command] Received: id=4	extaddr=22e99de88229a206	rloc16=dc00	x=140	y=200	state=router	failed=false
+[2025-04-25 23:46:13.803362] [_do_command] Received: Done
+[2025-04-25 23:46:13.803402] [_do_command] Sending command: node 1 "state"
+[2025-04-25 23:46:13.803675] [_do_command] Received: router
+[2025-04-25 23:46:13.803711] [_do_command] Received: Done
+[2025-04-25 23:46:13.803724] [_do_command] Sending command: node 2 "state"
+[2025-04-25 23:46:13.803948] [_do_command] Received: leader
+[2025-04-25 23:46:13.803982] [_do_command] Received: Done
+[2025-04-25 23:46:13.803995] [_do_command] Sending command: node 3 "state"
+[2025-04-25 23:46:13.804228] [_do_command] Received: router
+[2025-04-25 23:46:13.804269] [_do_command] Received: Done
+[2025-04-25 23:46:13.804281] [_do_command] Sending command: node 4 "state"
+[2025-04-25 23:46:13.804537] [_do_command] Received: router
+[2025-04-25 23:46:13.804568] [_do_command] Received: Done
+[2025-04-25 23:46:13.804584] [_do_command] Sending command: node 1 "netdata show"
+[2025-04-25 23:46:13.804855] [_do_command] Received: Prefixes:
+[2025-04-25 23:46:13.804886] [_do_command] Received: Routes:
+[2025-04-25 23:46:13.804893] [_do_command] Received: Services:
+[2025-04-25 23:46:13.804896] [_do_command] Received: Contexts:
+[2025-04-25 23:46:13.804900] [_do_command] Received: Commissioning:
+[2025-04-25 23:46:13.804903] [_do_command] Received: 40991 - - -
+[2025-04-25 23:46:13.804906] [_do_command] Received: Done
+[2025-04-25 23:46:13.804914] [_do_command] Sending command: node 2 "netdata show"
+[2025-04-25 23:46:13.805193] [_do_command] Received: Prefixes:
+[2025-04-25 23:46:13.805223] [_do_command] Received: Routes:
+[2025-04-25 23:46:13.805230] [_do_command] Received: Services:
+[2025-04-25 23:46:13.805234] [_do_command] Received: Contexts:
+[2025-04-25 23:46:13.805237] [_do_command] Received: Commissioning:
+[2025-04-25 23:46:13.805240] [_do_command] Received: 40991 - - -
+[2025-04-25 23:46:13.805243] [_do_command] Received: Done
+[2025-04-25 23:46:13.805252] [_do_command] Sending command: node 3 "netdata show"
+[2025-04-25 23:46:13.805510] [_do_command] Received: Prefixes:
+[2025-04-25 23:46:13.805543] [_do_command] Received: Routes:
+[2025-04-25 23:46:13.805550] [_do_command] Received: Services:
+[2025-04-25 23:46:13.805553] [_do_command] Received: Contexts:
+[2025-04-25 23:46:13.805557] [_do_command] Received: Commissioning:
+[2025-04-25 23:46:13.805560] [_do_command] Received: 40991 - - -
+[2025-04-25 23:46:13.805563] [_do_command] Received: Done
+[2025-04-25 23:46:13.805571] [_do_command] Sending command: node 4 "netdata show"
+[2025-04-25 23:46:13.805875] [_do_command] Received: Prefixes:
+[2025-04-25 23:46:13.805908] [_do_command] Received: Routes:
+[2025-04-25 23:46:13.805915] [_do_command] Received: Services:
+[2025-04-25 23:46:13.805918] [_do_command] Received: Contexts:
+[2025-04-25 23:46:13.805921] [_do_command] Received: Commissioning:
+[2025-04-25 23:46:13.805924] [_do_command] Received: 40991 - - -
+[2025-04-25 23:46:13.805927] [_do_command] Received: Done
+[2025-04-25 23:46:13.805937] [_do_command] Sending command: go 5
+[2025-04-25 23:46:13.857679] [_do_command] Received: Done
+[2025-04-25 23:46:13.857808] [_do_command] Sending command: nodes
+[2025-04-25 23:46:13.858016] [_do_command] Received: id=3	extaddr=1256fea959c7dc93	rloc16=2c00	x=260	y=200	state=router	failed=false
+[2025-04-25 23:46:13.858078] [_do_command] Received: id=4	extaddr=22e99de88229a206	rloc16=dc00	x=140	y=200	state=router	failed=false
+[2025-04-25 23:46:13.858089] [_do_command] Received: id=1	extaddr=deb5b76fd67e6ced	rloc16=d000	x=200	y=200	state=router	failed=false
+[2025-04-25 23:46:13.858096] [_do_command] Received: id=2	extaddr=d6074cf75d16e632	rloc16=6c00	x=170	y=170	state=leader	failed=false
+[2025-04-25 23:46:13.858100] [_do_command] Received: Done
+[2025-04-25 23:46:13.858134] [_do_command] Sending command: node 3 "state"
+[2025-04-25 23:46:13.858508] [_do_command] Received: router
+[2025-04-25 23:46:13.858540] [_do_command] Received: Done
+[2025-04-25 23:46:13.858554] [_do_command] Sending command: node 4 "state"
+[2025-04-25 23:46:13.858958] [_do_command] Received: router
+[2025-04-25 23:46:13.859048] [_do_command] Received: Done
+[2025-04-25 23:46:13.859084] [_do_command] Sending command: node 1 "state"
+[2025-04-25 23:46:13.859478] [_do_command] Received: router
+[2025-04-25 23:46:13.859551] [_do_command] Received: Done
+[2025-04-25 23:46:13.859686] [_do_command] Sending command: node 2 "state"
+[2025-04-25 23:46:13.859961] [_do_command] Received: leader
+[2025-04-25 23:46:13.860005] [_do_command] Received: Done
+[2025-04-25 23:46:13.860025] [_do_command] Sending command: node 3 "netdata show"
+[2025-04-25 23:46:13.860965] [_do_command] Received: Prefixes:
+[2025-04-25 23:46:13.861000] [_do_command] Received: Routes:
+[2025-04-25 23:46:13.861007] [_do_command] Received: Services:
+[2025-04-25 23:46:13.861011] [_do_command] Received: Contexts:
+[2025-04-25 23:46:13.861015] [_do_command] Received: Commissioning:
+[2025-04-25 23:46:13.861018] [_do_command] Received: 40991 - - -
+[2025-04-25 23:46:13.861021] [_do_command] Received: Done
+[2025-04-25 23:46:13.861030] [_do_command] Sending command: node 4 "netdata show"
+[2025-04-25 23:46:13.861317] [_do_command] Received: Prefixes:
+[2025-04-25 23:46:13.861353] [_do_command] Received: Routes:
+[2025-04-25 23:46:13.861362] [_do_command] Received: Services:
+[2025-04-25 23:46:13.861368] [_do_command] Received: Contexts:
+[2025-04-25 23:46:13.861373] [_do_command] Received: Commissioning:
+[2025-04-25 23:46:13.861378] [_do_command] Received: 40991 - - -
+[2025-04-25 23:46:13.861382] [_do_command] Received: Done
+[2025-04-25 23:46:13.861394] [_do_command] Sending command: node 1 "netdata show"
+[2025-04-25 23:46:13.861712] [_do_command] Received: Prefixes:
+[2025-04-25 23:46:13.861743] [_do_command] Received: Routes:
+[2025-04-25 23:46:13.861750] [_do_command] Received: Services:
+[2025-04-25 23:46:13.861754] [_do_command] Received: Contexts:
+[2025-04-25 23:46:13.861757] [_do_command] Received: Commissioning:
+[2025-04-25 23:46:13.861760] [_do_command] Received: 40991 - - -
+[2025-04-25 23:46:13.861763] [_do_command] Received: Done
+[2025-04-25 23:46:13.861772] [_do_command] Sending command: node 2 "netdata show"
+[2025-04-25 23:46:13.862065] [_do_command] Received: Prefixes:
+[2025-04-25 23:46:13.862098] [_do_command] Received: Routes:
+[2025-04-25 23:46:13.862104] [_do_command] Received: Services:
+[2025-04-25 23:46:13.862108] [_do_command] Received: Contexts:
+[2025-04-25 23:46:13.862111] [_do_command] Received: Commissioning:
+[2025-04-25 23:46:13.862114] [_do_command] Received: 40991 - - -
+[2025-04-25 23:46:13.862117] [_do_command] Received: Done
+@  0s | Changed: {}
+! Step 10
+# Step 10_b: Topology Troubleshoot
+
+🔍 Step 10_b: Running automatic topology diagnostics...
+
+📦 Checking node states...
+[2025-04-25 23:46:13.862151] [_do_command] Sending command: nodes
+[2025-04-25 23:46:13.862295] [_do_command] Received: id=1	extaddr=deb5b76fd67e6ced	rloc16=d000	x=200	y=200	state=router	failed=false
+[2025-04-25 23:46:13.862328] [_do_command] Received: id=2	extaddr=d6074cf75d16e632	rloc16=6c00	x=170	y=170	state=leader	failed=false
+[2025-04-25 23:46:13.862336] [_do_command] Received: id=3	extaddr=1256fea959c7dc93	rloc16=2c00	x=260	y=200	state=router	failed=false
+[2025-04-25 23:46:13.862339] [_do_command] Received: id=4	extaddr=22e99de88229a206	rloc16=dc00	x=140	y=200	state=router	failed=false
+[2025-04-25 23:46:13.862344] [_do_command] Received: Done
+[2025-04-25 23:46:13.862375] [_do_command] Sending command: node 1 "state"
+[2025-04-25 23:46:13.862611] [_do_command] Received: router
+[2025-04-25 23:46:13.862639] [_do_command] Received: Done
+• Node 1: router
+[2025-04-25 23:46:13.862655] [_do_command] Sending command: node 2 "state"
+[2025-04-25 23:46:13.862907] [_do_command] Received: leader
+[2025-04-25 23:46:13.862948] [_do_command] Received: Done
+• Node 2: leader
+[2025-04-25 23:46:13.862963] [_do_command] Sending command: node 3 "state"
+[2025-04-25 23:46:13.863207] [_do_command] Received: router
+[2025-04-25 23:46:13.863249] [_do_command] Received: Done
+• Node 3: router
+[2025-04-25 23:46:13.863265] [_do_command] Sending command: node 4 "state"
+[2025-04-25 23:46:13.863505] [_do_command] Received: router
+[2025-04-25 23:46:13.863537] [_do_command] Received: Done
+• Node 4: router
+
+🧭 Leader is node 2
+
+🧱 Checking router table of the leader...
+[2025-04-25 23:46:13.863557] [_do_command] Sending command: node 2 "router table"
+[2025-04-25 23:46:13.864024] [_do_command] Received: | ID | RLOC16 | Next Hop | Path Cost | LQ In | LQ Out | Age | Extended MAC     | Link |
+[2025-04-25 23:46:13.864057] [_do_command] Received: +----+--------+----------+-----------+-------+--------+-----+------------------+------+
+[2025-04-25 23:46:13.864064] [_do_command] Received: | 11 | 0x2c00 |       55 |         1 |     3 |      3 |  10 | 1256fea959c7dc93 |    1 |
+[2025-04-25 23:46:13.864068] [_do_command] Received: | 27 | 0x6c00 |       63 |         0 |     0 |      0 |   0 | d6074cf75d16e632 |    0 |
+[2025-04-25 23:46:13.864074] [_do_command] Received: | 52 | 0xd000 |       55 |         1 |     3 |      3 |  10 | deb5b76fd67e6ced |    1 |
+[2025-04-25 23:46:13.864077] [_do_command] Received: | 55 | 0xdc00 |       11 |         1 |     3 |      3 |   8 | 22e99de88229a206 |    1 |
+[2025-04-25 23:46:13.864080] [_do_command] Received: | ID | RLOC16 | Next Hop | Path Cost | LQ In | LQ Out | Age | Extended MAC     | Link |
+[2025-04-25 23:46:13.864083] [_do_command] Received: +----+--------+----------+-----------+-------+--------+-----+------------------+------+
+[2025-04-25 23:46:13.864086] [_do_command] Received: | 11 | 0x2c00 |       55 |         1 |     3 |      3 |  10 | 1256fea959c7dc93 |    1 |
+[2025-04-25 23:46:13.864089] [_do_command] Received: | 27 | 0x6c00 |       63 |         0 |     0 |      0 |   0 | d6074cf75d16e632 |    0 |
+[2025-04-25 23:46:13.864092] [_do_command] Received: | 52 | 0xd000 |       55 |         1 |     3 |      3 |  10 | deb5b76fd67e6ced |    1 |
+[2025-04-25 23:46:13.864094] [_do_command] Received: | 55 | 0xdc00 |       11 |         1 |     3 |      3 |   8 | 22e99de88229a206 |    1 |
+[2025-04-25 23:46:13.864098] [_do_command] Received:
+[2025-04-25 23:46:13.864101] [_do_command] Received: Done
+  | ID | RLOC16 | Next Hop | Path Cost | LQ In | LQ Out | Age | Extended MAC     | Link |
+  +----+--------+----------+-----------+-------+--------+-----+------------------+------+
+  | 11 | 0x2c00 |       55 |         1 |     3 |      3 |  10 | 1256fea959c7dc93 |    1 |
+  | 27 | 0x6c00 |       63 |         0 |     0 |      0 |   0 | d6074cf75d16e632 |    0 |
+  | 52 | 0xd000 |       55 |         1 |     3 |      3 |  10 | deb5b76fd67e6ced |    1 |
+  | 55 | 0xdc00 |       11 |         1 |     3 |      3 |   8 | 22e99de88229a206 |    1 |
+  | ID | RLOC16 | Next Hop | Path Cost | LQ In | LQ Out | Age | Extended MAC     | Link |
+  +----+--------+----------+-----------+-------+--------+-----+------------------+------+
+  | 11 | 0x2c00 |       55 |         1 |     3 |      3 |  10 | 1256fea959c7dc93 |    1 |
+  | 27 | 0x6c00 |       63 |         0 |     0 |      0 |   0 | d6074cf75d16e632 |    0 |
+  | 52 | 0xd000 |       55 |         1 |     3 |      3 |  10 | deb5b76fd67e6ced |    1 |
+  | 55 | 0xdc00 |       11 |         1 |     3 |      3 |   8 | 22e99de88229a206 |    1 |
+
+
+🔍 Checking neighbor tables...
+[2025-04-25 23:46:13.864120] [_do_command] Sending command: nodes
+[2025-04-25 23:46:13.864245] [_do_command] Received: id=4	extaddr=22e99de88229a206	rloc16=dc00	x=140	y=200	state=router	failed=false
+[2025-04-25 23:46:13.864285] [_do_command] Received: id=1	extaddr=deb5b76fd67e6ced	rloc16=d000	x=200	y=200	state=router	failed=false
+[2025-04-25 23:46:13.864293] [_do_command] Received: id=2	extaddr=d6074cf75d16e632	rloc16=6c00	x=170	y=170	state=leader	failed=false
+[2025-04-25 23:46:13.864296] [_do_command] Received: id=3	extaddr=1256fea959c7dc93	rloc16=2c00	x=260	y=200	state=router	failed=false
+[2025-04-25 23:46:13.864300] [_do_command] Received: Done
+[2025-04-25 23:46:13.864322] [_do_command] Sending command: node 4 "neighbor table"
+[2025-04-25 23:46:13.865413] [_do_command] Received: | Role | RLOC16 | Age | Avg RSSI | Last RSSI |R|D|N| Extended MAC     | Version |
+[2025-04-25 23:46:13.865465] [_do_command] Received: +------+--------+-----+----------+-----------+-+-+-+------------------+---------+
+[2025-04-25 23:46:13.865472] [_do_command] Received: |   R  | 0x2c00 |  10 |      -20 |       -20 |1|1|1| 1256fea959c7dc93 |       5 |
+[2025-04-25 23:46:13.865477] [_do_command] Received: |   R  | 0x6c00 |  12 |      -20 |       -20 |1|1|1| d6074cf75d16e632 |       5 |
+[2025-04-25 23:46:13.865483] [_do_command] Received: |   R  | 0xd000 |  10 |      -20 |       -20 |1|1|1| deb5b76fd67e6ced |       5 |
+[2025-04-25 23:46:13.865486] [_do_command] Received: | Role | RLOC16 | Age | Avg RSSI | Last RSSI |R|D|N| Extended MAC     | Version |
+[2025-04-25 23:46:13.865489] [_do_command] Received: +------+--------+-----+----------+-----------+-+-+-+------------------+---------+
+[2025-04-25 23:46:13.865492] [_do_command] Received: |   R  | 0x2c00 |  10 |      -20 |       -20 |1|1|1| 1256fea959c7dc93 |       5 |
+[2025-04-25 23:46:13.865495] [_do_command] Received: |   R  | 0x6c00 |  12 |      -20 |       -20 |1|1|1| d6074cf75d16e632 |       5 |
+[2025-04-25 23:46:13.865498] [_do_command] Received: |   R  | 0xd000 |  10 |      -20 |       -20 |1|1|1| deb5b76fd67e6ced |       5 |
+[2025-04-25 23:46:13.865501] [_do_command] Received:
+[2025-04-25 23:46:13.865505] [_do_command] Received: Done
+
+• Node 4 neighbors:
+   | Role | RLOC16 | Age | Avg RSSI | Last RSSI |R|D|N| Extended MAC     | Version |
+   +------+--------+-----+----------+-----------+-+-+-+------------------+---------+
+   |   R  | 0x2c00 |  10 |      -20 |       -20 |1|1|1| 1256fea959c7dc93 |       5 |
+   |   R  | 0x6c00 |  12 |      -20 |       -20 |1|1|1| d6074cf75d16e632 |       5 |
+   |   R  | 0xd000 |  10 |      -20 |       -20 |1|1|1| deb5b76fd67e6ced |       5 |
+   | Role | RLOC16 | Age | Avg RSSI | Last RSSI |R|D|N| Extended MAC     | Version |
+   +------+--------+-----+----------+-----------+-+-+-+------------------+---------+
+   |   R  | 0x2c00 |  10 |      -20 |       -20 |1|1|1| 1256fea959c7dc93 |       5 |
+   |   R  | 0x6c00 |  12 |      -20 |       -20 |1|1|1| d6074cf75d16e632 |       5 |
+   |   R  | 0xd000 |  10 |      -20 |       -20 |1|1|1| deb5b76fd67e6ced |       5 |
+
+[2025-04-25 23:46:13.865524] [_do_command] Sending command: node 1 "neighbor table"
+[2025-04-25 23:46:13.866112] [_do_command] Received: | Role | RLOC16 | Age | Avg RSSI | Last RSSI |R|D|N| Extended MAC     | Version |
+[2025-04-25 23:46:13.866143] [_do_command] Received: +------+--------+-----+----------+-----------+-+-+-+------------------+---------+
+[2025-04-25 23:46:13.866152] [_do_command] Received: |   R  | 0x2c00 |  10 |      -20 |       -20 |1|1|1| 1256fea959c7dc93 |       5 |
+[2025-04-25 23:46:13.866157] [_do_command] Received: |   R  | 0x6c00 |  12 |      -20 |       -20 |1|1|1| d6074cf75d16e632 |       5 |
+[2025-04-25 23:46:13.866160] [_do_command] Received: |   R  | 0xdc00 |   8 |      -20 |       -20 |1|1|1| 22e99de88229a206 |       5 |
+[2025-04-25 23:46:13.866164] [_do_command] Received: | Role | RLOC16 | Age | Avg RSSI | Last RSSI |R|D|N| Extended MAC     | Version |
+[2025-04-25 23:46:13.866166] [_do_command] Received: +------+--------+-----+----------+-----------+-+-+-+------------------+---------+
+[2025-04-25 23:46:13.866169] [_do_command] Received: |   R  | 0x2c00 |  10 |      -20 |       -20 |1|1|1| 1256fea959c7dc93 |       5 |
+[2025-04-25 23:46:13.866173] [_do_command] Received: |   R  | 0x6c00 |  12 |      -20 |       -20 |1|1|1| d6074cf75d16e632 |       5 |
+[2025-04-25 23:46:13.866176] [_do_command] Received: |   R  | 0xdc00 |   8 |      -20 |       -20 |1|1|1| 22e99de88229a206 |       5 |
+[2025-04-25 23:46:13.866179] [_do_command] Received:
+[2025-04-25 23:46:13.866183] [_do_command] Received: Done
+
+• Node 1 neighbors:
+   | Role | RLOC16 | Age | Avg RSSI | Last RSSI |R|D|N| Extended MAC     | Version |
+   +------+--------+-----+----------+-----------+-+-+-+------------------+---------+
+   |   R  | 0x2c00 |  10 |      -20 |       -20 |1|1|1| 1256fea959c7dc93 |       5 |
+   |   R  | 0x6c00 |  12 |      -20 |       -20 |1|1|1| d6074cf75d16e632 |       5 |
+   |   R  | 0xdc00 |   8 |      -20 |       -20 |1|1|1| 22e99de88229a206 |       5 |
+   | Role | RLOC16 | Age | Avg RSSI | Last RSSI |R|D|N| Extended MAC     | Version |
+   +------+--------+-----+----------+-----------+-+-+-+------------------+---------+
+   |   R  | 0x2c00 |  10 |      -20 |       -20 |1|1|1| 1256fea959c7dc93 |       5 |
+   |   R  | 0x6c00 |  12 |      -20 |       -20 |1|1|1| d6074cf75d16e632 |       5 |
+   |   R  | 0xdc00 |   8 |      -20 |       -20 |1|1|1| 22e99de88229a206 |       5 |
+
+[2025-04-25 23:46:13.866202] [_do_command] Sending command: node 2 "neighbor table"
+[2025-04-25 23:46:13.866694] [_do_command] Received: | Role | RLOC16 | Age | Avg RSSI | Last RSSI |R|D|N| Extended MAC     | Version |
+[2025-04-25 23:46:13.866735] [_do_command] Received: +------+--------+-----+----------+-----------+-+-+-+------------------+---------+
+[2025-04-25 23:46:13.866745] [_do_command] Received: |   R  | 0x2c00 |  10 |      -20 |       -20 |1|1|1| 1256fea959c7dc93 |       5 |
+[2025-04-25 23:46:13.866749] [_do_command] Received: |   R  | 0xd000 |  10 |      -20 |       -20 |1|1|1| deb5b76fd67e6ced |       5 |
+[2025-04-25 23:46:13.866752] [_do_command] Received: |   R  | 0xdc00 |   8 |      -20 |       -20 |1|1|1| 22e99de88229a206 |       5 |
+[2025-04-25 23:46:13.866755] [_do_command] Received: | Role | RLOC16 | Age | Avg RSSI | Last RSSI |R|D|N| Extended MAC     | Version |
+[2025-04-25 23:46:13.866758] [_do_command] Received: +------+--------+-----+----------+-----------+-+-+-+------------------+---------+
+[2025-04-25 23:46:13.866760] [_do_command] Received: |   R  | 0x2c00 |  10 |      -20 |       -20 |1|1|1| 1256fea959c7dc93 |       5 |
+[2025-04-25 23:46:13.866763] [_do_command] Received: |   R  | 0xd000 |  10 |      -20 |       -20 |1|1|1| deb5b76fd67e6ced |       5 |
+[2025-04-25 23:46:13.866766] [_do_command] Received: |   R  | 0xdc00 |   8 |      -20 |       -20 |1|1|1| 22e99de88229a206 |       5 |
+[2025-04-25 23:46:13.866770] [_do_command] Received:
+[2025-04-25 23:46:13.866773] [_do_command] Received: Done
+
+• Node 2 neighbors:
+   | Role | RLOC16 | Age | Avg RSSI | Last RSSI |R|D|N| Extended MAC     | Version |
+   +------+--------+-----+----------+-----------+-+-+-+------------------+---------+
+   |   R  | 0x2c00 |  10 |      -20 |       -20 |1|1|1| 1256fea959c7dc93 |       5 |
+   |   R  | 0xd000 |  10 |      -20 |       -20 |1|1|1| deb5b76fd67e6ced |       5 |
+   |   R  | 0xdc00 |   8 |      -20 |       -20 |1|1|1| 22e99de88229a206 |       5 |
+   | Role | RLOC16 | Age | Avg RSSI | Last RSSI |R|D|N| Extended MAC     | Version |
+   +------+--------+-----+----------+-----------+-+-+-+------------------+---------+
+   |   R  | 0x2c00 |  10 |      -20 |       -20 |1|1|1| 1256fea959c7dc93 |       5 |
+   |   R  | 0xd000 |  10 |      -20 |       -20 |1|1|1| deb5b76fd67e6ced |       5 |
+   |   R  | 0xdc00 |   8 |      -20 |       -20 |1|1|1| 22e99de88229a206 |       5 |
+
+[2025-04-25 23:46:13.866791] [_do_command] Sending command: node 3 "neighbor table"
+[2025-04-25 23:46:13.867901] [_do_command] Received: | Role | RLOC16 | Age | Avg RSSI | Last RSSI |R|D|N| Extended MAC     | Version |
+[2025-04-25 23:46:13.867933] [_do_command] Received: +------+--------+-----+----------+-----------+-+-+-+------------------+---------+
+[2025-04-25 23:46:13.867942] [_do_command] Received: |   R  | 0x6c00 |  12 |      -20 |       -20 |1|1|1| d6074cf75d16e632 |       5 |
+[2025-04-25 23:46:13.867945] [_do_command] Received: |   R  | 0xd000 |  10 |      -20 |       -20 |1|1|1| deb5b76fd67e6ced |       5 |
+[2025-04-25 23:46:13.867948] [_do_command] Received: |   R  | 0xdc00 |   8 |      -20 |       -20 |1|1|1| 22e99de88229a206 |       5 |
+[2025-04-25 23:46:13.867951] [_do_command] Received: | Role | RLOC16 | Age | Avg RSSI | Last RSSI |R|D|N| Extended MAC     | Version |
+[2025-04-25 23:46:13.867954] [_do_command] Received: +------+--------+-----+----------+-----------+-+-+-+------------------+---------+
+[2025-04-25 23:46:13.867956] [_do_command] Received: |   R  | 0x6c00 |  12 |      -20 |       -20 |1|1|1| d6074cf75d16e632 |       5 |
+[2025-04-25 23:46:13.867959] [_do_command] Received: |   R  | 0xd000 |  10 |      -20 |       -20 |1|1|1| deb5b76fd67e6ced |       5 |
+[2025-04-25 23:46:13.867962] [_do_command] Received: |   R  | 0xdc00 |   8 |      -20 |       -20 |1|1|1| 22e99de88229a206 |       5 |
+[2025-04-25 23:46:13.867965] [_do_command] Received:
+[2025-04-25 23:46:13.867969] [_do_command] Received: Done
+
+• Node 3 neighbors:
+   | Role | RLOC16 | Age | Avg RSSI | Last RSSI |R|D|N| Extended MAC     | Version |
+   +------+--------+-----+----------+-----------+-+-+-+------------------+---------+
+   |   R  | 0x6c00 |  12 |      -20 |       -20 |1|1|1| d6074cf75d16e632 |       5 |
+   |   R  | 0xd000 |  10 |      -20 |       -20 |1|1|1| deb5b76fd67e6ced |       5 |
+   |   R  | 0xdc00 |   8 |      -20 |       -20 |1|1|1| 22e99de88229a206 |       5 |
+   | Role | RLOC16 | Age | Avg RSSI | Last RSSI |R|D|N| Extended MAC     | Version |
+   +------+--------+-----+----------+-----------+-+-+-+------------------+---------+
+   |   R  | 0x6c00 |  12 |      -20 |       -20 |1|1|1| d6074cf75d16e632 |       5 |
+   |   R  | 0xd000 |  10 |      -20 |       -20 |1|1|1| deb5b76fd67e6ced |       5 |
+   |   R  | 0xdc00 |   8 |      -20 |       -20 |1|1|1| 22e99de88229a206 |       5 |
+
+
+🌐 Verifying netdata on the leader...
+[2025-04-25 23:46:13.867992] [_do_command] Sending command: node 2 "netdata show"
+[2025-04-25 23:46:13.868300] [_do_command] Received: Prefixes:
+[2025-04-25 23:46:13.868331] [_do_command] Received: Routes:
+[2025-04-25 23:46:13.868337] [_do_command] Received: Services:
+[2025-04-25 23:46:13.868341] [_do_command] Received: Contexts:
+[2025-04-25 23:46:13.868345] [_do_command] Received: Commissioning:
+[2025-04-25 23:46:13.868348] [_do_command] Received: 40991 - - -
+[2025-04-25 23:46:13.868352] [_do_command] Received: Done
+  Prefixes:
+  Routes:
+  Services:
+  Contexts:
+  Commissioning:
+  40991 - - -
+
+✅ Step 10_b: Topology health check passed — all nodes are attached and reachable at routing level.
+# Step 10_c: Deep Troubleshoot
+
+🛠️ Step 10_c: Deep Troubleshoot Started...
+
+📦 Node States:
+[2025-04-25 23:46:13.868380] [_do_command] Sending command: nodes
+[2025-04-25 23:46:13.868496] [_do_command] Received: id=1	extaddr=deb5b76fd67e6ced	rloc16=d000	x=200	y=200	state=router	failed=false
+[2025-04-25 23:46:13.868536] [_do_command] Received: id=2	extaddr=d6074cf75d16e632	rloc16=6c00	x=170	y=170	state=leader	failed=false
+[2025-04-25 23:46:13.868548] [_do_command] Received: id=3	extaddr=1256fea959c7dc93	rloc16=2c00	x=260	y=200	state=router	failed=false
+[2025-04-25 23:46:13.868554] [_do_command] Received: id=4	extaddr=22e99de88229a206	rloc16=dc00	x=140	y=200	state=router	failed=false
+[2025-04-25 23:46:13.868559] [_do_command] Received: Done
+[2025-04-25 23:46:13.868589] [_do_command] Sending command: node 1 "state"
+[2025-04-25 23:46:13.868835] [_do_command] Received: router
+[2025-04-25 23:46:13.868863] [_do_command] Received: Done
+• Node 1: router
+[2025-04-25 23:46:13.868877] [_do_command] Sending command: node 2 "state"
+[2025-04-25 23:46:13.869133] [_do_command] Received: leader
+[2025-04-25 23:46:13.869173] [_do_command] Received: Done
+• Node 2: leader
+[2025-04-25 23:46:13.869192] [_do_command] Sending command: node 3 "state"
+[2025-04-25 23:46:13.869408] [_do_command] Received: router
+[2025-04-25 23:46:13.869440] [_do_command] Received: Done
+• Node 3: router
+[2025-04-25 23:46:13.869456] [_do_command] Sending command: node 4 "state"
+[2025-04-25 23:46:13.869732] [_do_command] Received: router
+[2025-04-25 23:46:13.869773] [_do_command] Received: Done
+• Node 4: router
+
+🧱 Neighbor Tables:
+[2025-04-25 23:46:13.869790] [_do_command] Sending command: nodes
+[2025-04-25 23:46:13.869879] [_do_command] Received: id=1	extaddr=deb5b76fd67e6ced	rloc16=d000	x=200	y=200	state=router	failed=false
+[2025-04-25 23:46:13.869907] [_do_command] Received: id=2	extaddr=d6074cf75d16e632	rloc16=6c00	x=170	y=170	state=leader	failed=false
+[2025-04-25 23:46:13.869914] [_do_command] Received: id=3	extaddr=1256fea959c7dc93	rloc16=2c00	x=260	y=200	state=router	failed=false
+[2025-04-25 23:46:13.869918] [_do_command] Received: id=4	extaddr=22e99de88229a206	rloc16=dc00	x=140	y=200	state=router	failed=false
+[2025-04-25 23:46:13.869923] [_do_command] Received: Done
+[2025-04-25 23:46:13.869943] [_do_command] Sending command: node 1 "neighbor table"
+[2025-04-25 23:46:13.870449] [_do_command] Received: | Role | RLOC16 | Age | Avg RSSI | Last RSSI |R|D|N| Extended MAC     | Version |
+[2025-04-25 23:46:13.870488] [_do_command] Received: +------+--------+-----+----------+-----------+-+-+-+------------------+---------+
+[2025-04-25 23:46:13.870498] [_do_command] Received: |   R  | 0x2c00 |  10 |      -20 |       -20 |1|1|1| 1256fea959c7dc93 |       5 |
+[2025-04-25 23:46:13.870502] [_do_command] Received: |   R  | 0x6c00 |  12 |      -20 |       -20 |1|1|1| d6074cf75d16e632 |       5 |
+[2025-04-25 23:46:13.870505] [_do_command] Received: |   R  | 0xdc00 |   8 |      -20 |       -20 |1|1|1| 22e99de88229a206 |       5 |
+[2025-04-25 23:46:13.870507] [_do_command] Received: | Role | RLOC16 | Age | Avg RSSI | Last RSSI |R|D|N| Extended MAC     | Version |
+[2025-04-25 23:46:13.870510] [_do_command] Received: +------+--------+-----+----------+-----------+-+-+-+------------------+---------+
+[2025-04-25 23:46:13.870513] [_do_command] Received: |   R  | 0x2c00 |  10 |      -20 |       -20 |1|1|1| 1256fea959c7dc93 |       5 |
+[2025-04-25 23:46:13.870516] [_do_command] Received: |   R  | 0x6c00 |  12 |      -20 |       -20 |1|1|1| d6074cf75d16e632 |       5 |
+[2025-04-25 23:46:13.870519] [_do_command] Received: |   R  | 0xdc00 |   8 |      -20 |       -20 |1|1|1| 22e99de88229a206 |       5 |
+[2025-04-25 23:46:13.870522] [_do_command] Received:
+[2025-04-25 23:46:13.870525] [_do_command] Received: Done
+• Node 1 has 11 neighbor(s)
+[2025-04-25 23:46:13.870538] [_do_command] Sending command: node 2 "neighbor table"
+[2025-04-25 23:46:13.871734] [_do_command] Received: | Role | RLOC16 | Age | Avg RSSI | Last RSSI |R|D|N| Extended MAC     | Version |
+[2025-04-25 23:46:13.871765] [_do_command] Received: +------+--------+-----+----------+-----------+-+-+-+------------------+---------+
+[2025-04-25 23:46:13.871774] [_do_command] Received: |   R  | 0x2c00 |  10 |      -20 |       -20 |1|1|1| 1256fea959c7dc93 |       5 |
+[2025-04-25 23:46:13.871779] [_do_command] Received: |   R  | 0xd000 |  10 |      -20 |       -20 |1|1|1| deb5b76fd67e6ced |       5 |
+[2025-04-25 23:46:13.871782] [_do_command] Received: |   R  | 0xdc00 |   8 |      -20 |       -20 |1|1|1| 22e99de88229a206 |       5 |
+[2025-04-25 23:46:13.871785] [_do_command] Received: | Role | RLOC16 | Age | Avg RSSI | Last RSSI |R|D|N| Extended MAC     | Version |
+[2025-04-25 23:46:13.871788] [_do_command] Received: +------+--------+-----+----------+-----------+-+-+-+------------------+---------+
+[2025-04-25 23:46:13.871791] [_do_command] Received: |   R  | 0x2c00 |  10 |      -20 |       -20 |1|1|1| 1256fea959c7dc93 |       5 |
+[2025-04-25 23:46:13.871793] [_do_command] Received: |   R  | 0xd000 |  10 |      -20 |       -20 |1|1|1| deb5b76fd67e6ced |       5 |
+[2025-04-25 23:46:13.871796] [_do_command] Received: |   R  | 0xdc00 |   8 |      -20 |       -20 |1|1|1| 22e99de88229a206 |       5 |
+[2025-04-25 23:46:13.871800] [_do_command] Received:
+[2025-04-25 23:46:13.871803] [_do_command] Received: Done
+• Node 2 has 11 neighbor(s)
+[2025-04-25 23:46:13.871816] [_do_command] Sending command: node 3 "neighbor table"
+[2025-04-25 23:46:13.872333] [_do_command] Received: | Role | RLOC16 | Age | Avg RSSI | Last RSSI |R|D|N| Extended MAC     | Version |
+[2025-04-25 23:46:13.872363] [_do_command] Received: +------+--------+-----+----------+-----------+-+-+-+------------------+---------+
+[2025-04-25 23:46:13.872369] [_do_command] Received: |   R  | 0x6c00 |  12 |      -20 |       -20 |1|1|1| d6074cf75d16e632 |       5 |
+[2025-04-25 23:46:13.872373] [_do_command] Received: |   R  | 0xd000 |  10 |      -20 |       -20 |1|1|1| deb5b76fd67e6ced |       5 |
+[2025-04-25 23:46:13.872376] [_do_command] Received: |   R  | 0xdc00 |   8 |      -20 |       -20 |1|1|1| 22e99de88229a206 |       5 |
+[2025-04-25 23:46:13.872379] [_do_command] Received: | Role | RLOC16 | Age | Avg RSSI | Last RSSI |R|D|N| Extended MAC     | Version |
+[2025-04-25 23:46:13.872382] [_do_command] Received: +------+--------+-----+----------+-----------+-+-+-+------------------+---------+
+[2025-04-25 23:46:13.872384] [_do_command] Received: |   R  | 0x6c00 |  12 |      -20 |       -20 |1|1|1| d6074cf75d16e632 |       5 |
+[2025-04-25 23:46:13.872387] [_do_command] Received: |   R  | 0xd000 |  10 |      -20 |       -20 |1|1|1| deb5b76fd67e6ced |       5 |
+[2025-04-25 23:46:13.872390] [_do_command] Received: |   R  | 0xdc00 |   8 |      -20 |       -20 |1|1|1| 22e99de88229a206 |       5 |
+[2025-04-25 23:46:13.872394] [_do_command] Received:
+[2025-04-25 23:46:13.872397] [_do_command] Received: Done
+• Node 3 has 11 neighbor(s)
+[2025-04-25 23:46:13.872410] [_do_command] Sending command: node 4 "neighbor table"
+[2025-04-25 23:46:13.872856] [_do_command] Received: | Role | RLOC16 | Age | Avg RSSI | Last RSSI |R|D|N| Extended MAC     | Version |
+[2025-04-25 23:46:13.872887] [_do_command] Received: +------+--------+-----+----------+-----------+-+-+-+------------------+---------+
+[2025-04-25 23:46:13.872897] [_do_command] Received: |   R  | 0x2c00 |  10 |      -20 |       -20 |1|1|1| 1256fea959c7dc93 |       5 |
+[2025-04-25 23:46:13.872900] [_do_command] Received: |   R  | 0x6c00 |  12 |      -20 |       -20 |1|1|1| d6074cf75d16e632 |       5 |
+[2025-04-25 23:46:13.872904] [_do_command] Received: |   R  | 0xd000 |  10 |      -20 |       -20 |1|1|1| deb5b76fd67e6ced |       5 |
+[2025-04-25 23:46:13.872907] [_do_command] Received: | Role | RLOC16 | Age | Avg RSSI | Last RSSI |R|D|N| Extended MAC     | Version |
+[2025-04-25 23:46:13.872910] [_do_command] Received: +------+--------+-----+----------+-----------+-+-+-+------------------+---------+
+[2025-04-25 23:46:13.872913] [_do_command] Received: |   R  | 0x2c00 |  10 |      -20 |       -20 |1|1|1| 1256fea959c7dc93 |       5 |
+[2025-04-25 23:46:13.872916] [_do_command] Received: |   R  | 0x6c00 |  12 |      -20 |       -20 |1|1|1| d6074cf75d16e632 |       5 |
+[2025-04-25 23:46:13.872918] [_do_command] Received: |   R  | 0xd000 |  10 |      -20 |       -20 |1|1|1| deb5b76fd67e6ced |       5 |
+[2025-04-25 23:46:13.872922] [_do_command] Received:
+[2025-04-25 23:46:13.872925] [_do_command] Received: Done
+• Node 4 has 11 neighbor(s)
+
+🛣️ Router Tables (Leader Only):
+[2025-04-25 23:46:13.872940] [_do_command] Sending command: nodes
+[2025-04-25 23:46:13.873046] [_do_command] Received: id=3	extaddr=1256fea959c7dc93	rloc16=2c00	x=260	y=200	state=router	failed=false
+[2025-04-25 23:46:13.873092] [_do_command] Received: id=4	extaddr=22e99de88229a206	rloc16=dc00	x=140	y=200	state=router	failed=false
+[2025-04-25 23:46:13.873101] [_do_command] Received: id=1	extaddr=deb5b76fd67e6ced	rloc16=d000	x=200	y=200	state=router	failed=false
+[2025-04-25 23:46:13.873105] [_do_command] Received: id=2	extaddr=d6074cf75d16e632	rloc16=6c00	x=170	y=170	state=leader	failed=false
+[2025-04-25 23:46:13.873110] [_do_command] Received: Done
+[2025-04-25 23:46:13.873135] [_do_command] Sending command: node 3 "state"
+[2025-04-25 23:46:13.873408] [_do_command] Received: router
+[2025-04-25 23:46:13.873442] [_do_command] Received: Done
+[2025-04-25 23:46:13.873455] [_do_command] Sending command: node 4 "state"
+[2025-04-25 23:46:13.873708] [_do_command] Received: router
+[2025-04-25 23:46:13.873739] [_do_command] Received: Done
+[2025-04-25 23:46:13.873750] [_do_command] Sending command: node 1 "state"
+[2025-04-25 23:46:13.873986] [_do_command] Received: router
+[2025-04-25 23:46:13.874018] [_do_command] Received: Done
+[2025-04-25 23:46:13.874030] [_do_command] Sending command: node 2 "state"
+[2025-04-25 23:46:13.874332] [_do_command] Received: leader
+[2025-04-25 23:46:13.874369] [_do_command] Received: Done
+• Leader is Node 2
+[2025-04-25 23:46:13.874404] [_do_command] Sending command: node 2 "router table"
+[2025-04-25 23:46:13.875734] [_do_command] Received: | ID | RLOC16 | Next Hop | Path Cost | LQ In | LQ Out | Age | Extended MAC     | Link |
+[2025-04-25 23:46:13.875768] [_do_command] Received: +----+--------+----------+-----------+-------+--------+-----+------------------+------+
+[2025-04-25 23:46:13.875777] [_do_command] Received: | 11 | 0x2c00 |       55 |         1 |     3 |      3 |  10 | 1256fea959c7dc93 |    1 |
+[2025-04-25 23:46:13.875780] [_do_command] Received: | 27 | 0x6c00 |       63 |         0 |     0 |      0 |   0 | d6074cf75d16e632 |    0 |
+[2025-04-25 23:46:13.875783] [_do_command] Received: | 52 | 0xd000 |       55 |         1 |     3 |      3 |  10 | deb5b76fd67e6ced |    1 |
+[2025-04-25 23:46:13.875786] [_do_command] Received: | 55 | 0xdc00 |       11 |         1 |     3 |      3 |   8 | 22e99de88229a206 |    1 |
+[2025-04-25 23:46:13.875789] [_do_command] Received: | ID | RLOC16 | Next Hop | Path Cost | LQ In | LQ Out | Age | Extended MAC     | Link |
+[2025-04-25 23:46:13.875792] [_do_command] Received: +----+--------+----------+-----------+-------+--------+-----+------------------+------+
+[2025-04-25 23:46:13.875795] [_do_command] Received: | 11 | 0x2c00 |       55 |         1 |     3 |      3 |  10 | 1256fea959c7dc93 |    1 |
+[2025-04-25 23:46:13.875798] [_do_command] Received: | 27 | 0x6c00 |       63 |         0 |     0 |      0 |   0 | d6074cf75d16e632 |    0 |
+[2025-04-25 23:46:13.875801] [_do_command] Received: | 52 | 0xd000 |       55 |         1 |     3 |      3 |  10 | deb5b76fd67e6ced |    1 |
+[2025-04-25 23:46:13.875804] [_do_command] Received: | 55 | 0xdc00 |       11 |         1 |     3 |      3 |   8 | 22e99de88229a206 |    1 |
+[2025-04-25 23:46:13.875807] [_do_command] Received:
+[2025-04-25 23:46:13.875811] [_do_command] Received: Done
+• Leader router table OK (13 entries)
+
+🌐 Netdata Show:
+[2025-04-25 23:46:13.875823] [_do_command] Sending command: node 2 "netdata show"
+[2025-04-25 23:46:13.876142] [_do_command] Received: Prefixes:
+[2025-04-25 23:46:13.876175] [_do_command] Received: Routes:
+[2025-04-25 23:46:13.876184] [_do_command] Received: Services:
+[2025-04-25 23:46:13.876188] [_do_command] Received: Contexts:
+[2025-04-25 23:46:13.876191] [_do_command] Received: Commissioning:
+[2025-04-25 23:46:13.876194] [_do_command] Received: 40991 - - -
+[2025-04-25 23:46:13.876197] [_do_command] Received: Done
+  Prefixes:
+  Routes:
+  Services:
+  Contexts:
+  Commissioning:
+  40991 - - -
+
+📡 CoAP Service Check:
+[2025-04-25 23:46:13.876211] [_do_command] Sending command: nodes
+[2025-04-25 23:46:13.876332] [_do_command] Received: id=1	extaddr=deb5b76fd67e6ced	rloc16=d000	x=200	y=200	state=router	failed=false
+[2025-04-25 23:46:13.876368] [_do_command] Received: id=2	extaddr=d6074cf75d16e632	rloc16=6c00	x=170	y=170	state=leader	failed=false
+[2025-04-25 23:46:13.876375] [_do_command] Received: id=3	extaddr=1256fea959c7dc93	rloc16=2c00	x=260	y=200	state=router	failed=false
+[2025-04-25 23:46:13.876379] [_do_command] Received: id=4	extaddr=22e99de88229a206	rloc16=dc00	x=140	y=200	state=router	failed=false
+[2025-04-25 23:46:13.876384] [_do_command] Received: Done
+[2025-04-25 23:46:13.876407] [_do_command] Sending command: node 1 "coap start"
+[2025-04-25 23:46:13.876638] [_do_command] Received: Done
+[2025-04-25 23:46:13.876676] [_do_command] Sending command: node 1 "coap resource logs"
+[2025-04-25 23:46:13.876969] [_do_command] Received: Done
+[2025-04-25 23:46:13.877013] [_do_command] Sending command: node 2 "coap start"
+[2025-04-25 23:46:13.877253] [_do_command] Received: Done
+[2025-04-25 23:46:13.877287] [_do_command] Sending command: node 2 "coap resource logs"
+[2025-04-25 23:46:13.879842] [_do_command] Received: Done
+[2025-04-25 23:46:13.879916] [_do_command] Sending command: node 3 "coap start"
+[2025-04-25 23:46:13.880244] [_do_command] Received: Done
+[2025-04-25 23:46:13.880305] [_do_command] Sending command: node 3 "coap resource logs"
+[2025-04-25 23:46:13.880661] [_do_command] Received: Done
+[2025-04-25 23:46:13.880715] [_do_command] Sending command: node 4 "coap start"
+[2025-04-25 23:46:13.880982] [_do_command] Received: Done
+[2025-04-25 23:46:13.881024] [_do_command] Sending command: node 4 "coap resource logs"
+[2025-04-25 23:46:13.881293] [_do_command] Received: Done
+
+📋 Troubleshoot Summary:
+⚠️ Nodes with no neighbors: [1, 2, 3, 4]
+⚠️ CoAP service problems: [1, 2, 3, 4]
+^ Step 10_c: Deep Troubleshoot FAILED: ^Step 10_c FAILED: Topology problems detected!
+Traceback (most recent call last):
+  File "/mnt/c/Users/kos00/OneDrive - University of Cyprus/PhD/PhD_Lessons/IoT project/Implementation/SETUP/dafitests/main.py", line 89, in <module>
+    run_single_experiment(dev_count, run_index, log_files)
+  File "/mnt/c/Users/kos00/OneDrive - University of Cyprus/PhD/PhD_Lessons/IoT project/Implementation/SETUP/dafitests/main.py", line 72, in run_single_experiment
+    Experiment(initial_devices=dev_count, run_index=run_index)
+  File "/mnt/c/Users/kos00/OneDrive - University of Cyprus/PhD/PhD_Lessons/IoT project/Implementation/SETUP/dafitests/Experiment.py", line 30, in __init__
+    self.Converge()
+  File "/mnt/c/Users/kos00/OneDrive - University of Cyprus/PhD/PhD_Lessons/IoT project/Implementation/SETUP/dafitests/Experiment.py", line 64, in Converge
+    self.Converge__()
+  File "/mnt/c/Users/kos00/OneDrive - University of Cyprus/PhD/PhD_Lessons/IoT project/Implementation/SETUP/dafitests/Experiment.py", line 84, in Converge__
+    raise RuntimeError("$ Topology Convergence Phase failed.")
+RuntimeError: $ Topology Convergence Phase failed.
+
+Process finished with exit code 1

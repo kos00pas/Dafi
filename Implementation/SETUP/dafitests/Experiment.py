@@ -7,12 +7,14 @@ from my_functions import (
     place_reeds_diagonal_and_ring, place_feds_ring,
     add_fed, add_reed, add_router
 )
-import subprocess ,  os ,  signal
+import subprocess ,  os ,  signal , time
 from datetime import datetime
 from metrics.leader_election_phase import LeaderElectionPhase
 from metrics.topology_convergence_phase import TopologyConvergencePhase
-
-CENTER_X, CENTER_Y = 400, 400
+CENTER_X, CENTER_Y = 200, 200
+import time
+from random import choice, choices
+from string import ascii_letters, digits
 
 
 class Experiment:
@@ -37,7 +39,7 @@ class Experiment:
         self.ns.set_title("DAfI - Scalable Mesh Network")
         self.ns.set_network_info(version="Latest", commit="main", real=False)
         self.ns.web()
-        self.ns.speed = 10
+        self.ns.speed = 100
 
     def Baseline(self):
         self.start_baseline = datetime.now()
@@ -71,10 +73,34 @@ class Experiment:
         if not success:
             raise RuntimeError("$ Leader Election Phase failed.")
 
+        self.safe_comm_window(extra_wait=10)
+
+        # 🛡️ Inject keepalive traffic before Step 8 begins
+        self.inject_keepalive_traffic(interval=5, duration=3)
+
         phase_topology = TopologyConvergencePhase(self.ns)
         success = phase_topology.run()
         if not success:
             raise RuntimeError("$ Topology Convergence Phase failed.")
+
+    def safe_comm_window(self, extra_wait=10):
+        print("\n🛡️ Entering Safe Communication Window...\n")
+
+        # 🌟 Advance simulation to let RPL stabilize
+        print(f"⏳ Waiting {extra_wait} simulated seconds...")
+        self.ns.go(extra_wait)
+        time.sleep(2)  # real wall time sleep
+
+        # 📦 Optional small CoAP refresh: wake up nodes
+        for nid in self.ns.nodes().keys():
+            try:
+                self.ns.node_cmd(nid, "coap start")
+                self.ns.node_cmd(nid, "coap resource logs")
+                print(f"• Node {nid}: CoAP service restarted")
+            except Exception as e:
+                print(f"⚠️ Node {nid}: CoAP restart failed: {e}")
+
+        print("\n✅ Safe Communication Window ready — you can start ping/CoAP tests now!\n")
 
     def ScaleUP(self):pass
 
@@ -84,7 +110,64 @@ class Experiment:
         self.ns.close()
         print("\n\n\n!===End:",self.initial_devices,":",self.run_index)
 
+    def inject_keepalive_traffic(self, interval=5, duration=60):
+        """
+        Periodically send small CoAP messages between random nodes
+        to keep neighbor tables alive.
 
+        Args:
+            interval: seconds between messages
+            duration: total simulated seconds to keep injecting
+        """
+        print("\n🔄 Starting KeepAlive Traffic Injection...\n")
+
+        start_time = time.time()
+        elapsed = 0
+
+        nodes = list(self.ns.nodes().keys())
+
+        # Make sure CoAP service is started everywhere
+        for nid in nodes:
+            try:
+                self.ns.node_cmd(nid, "coap start")
+                self.ns.node_cmd(nid, "coap resource logs")
+            except Exception as e:
+                print(f"⚠️ Node {nid} failed to start CoAP: {e}")
+
+        while elapsed < duration:
+            src = choice(nodes)
+            dst = choice(nodes)
+            if src == dst:
+                continue  # avoid self
+
+            # get dst IP
+            try:
+                ips = [ip for ip in self.ns.node_cmd(dst, "ipaddr") if ip.startswith("fd") and ":ff:fe00:" in ip]
+                if not ips:
+                    continue
+                dst_ip = ips[0]
+            except Exception as e:
+                print(f"⚠️ Could not get IP for node {dst}: {e}")
+                continue
+
+            # safe payload generation
+            payload = ''.join(choices(ascii_letters + digits, k=8))
+            payload = payload.replace('"', '').replace("'", '')  # clean, safe payload
+            cmd = f'coap post {dst_ip} logs con \\"{payload}\\"'
+
+            try:
+                res = self.ns.node_cmd(src, cmd)
+                print(f"KeepAlive: Node {src} ➔ Node {dst} ({dst_ip[:10]}...) ✅")
+            except Exception as e:
+                print(f"⚠️ KeepAlive failed: {src} ➔ {dst}: {e}")
+
+            # Go simulation forward and wait real time
+            self.ns.go(interval)
+            time.sleep(0.1)
+
+            elapsed = time.time() - start_time
+
+        print("\n✅ KeepAlive Traffic Injection finished.\n")
 
 
 # ----------------------------------------------------
