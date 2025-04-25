@@ -10,6 +10,7 @@ from my_functions import (
 import subprocess ,  os ,  signal
 from datetime import datetime
 from metrics.leader_election_phase import LeaderElectionPhase
+from metrics.topology_convergence_phase import TopologyConvergencePhase
 
 CENTER_X, CENTER_Y = 400, 400
 
@@ -36,6 +37,8 @@ class Experiment:
         self.ns.set_title("DAfI - Scalable Mesh Network")
         self.ns.set_network_info(version="Latest", commit="main", real=False)
         self.ns.web()
+        self.ns.speed=1000000000000000000000000000000000
+
 
 
     def Baseline(self):
@@ -65,12 +68,15 @@ class Experiment:
 
     def Converge__(self):
         self.ns.go(0.1)
-        phase = LeaderElectionPhase(self.ns)
-        success = phase.run()
+        phase_leader = LeaderElectionPhase(self.ns)
+        success = phase_leader.run()
         if not success:
             raise RuntimeError("$ Leader Election Phase failed.")
 
-
+        phase_topology = TopologyConvergencePhase(self.ns)
+        success = phase_topology.run()
+        if not success:
+            raise RuntimeError("$ Topology Convergence Phase failed.")
 
     def ScaleUP(self):pass
 

@@ -1,9 +1,8 @@
 OT_CLI_ftd = "/home/otns/otns/openthread/build/simulation/examples/apps/cli/ot-cli-ftd"
 OTNS_PATH = "/home/otns/go/bin/otns"
-from otns.cli import OTNS
 from otns.cli.errors import OTNSExitedError
 import os, time, shutil, socket, sys
-from LeaderElectionTest import LeaderElectionTest , kill_otns_port
+from Experiment import Experiment , kill_otns_port
 import errno
 
 
@@ -70,7 +69,7 @@ def run_single_experiment(dev_count, run_index, log_files):
     kill_otns_port(9000)
     # log_handle = start_log(filename=log_file)
     # test = LeaderElectionTest(initial_devices=dev_count, log_file=log_file, run_index=run_index)
-    LeaderElectionTest(initial_devices=dev_count, run_index=run_index)
+    Experiment(initial_devices=dev_count, run_index=run_index)
 
     # continue cleanup after experiment
     cleanup_after_experiment(folder_path)
@@ -79,7 +78,8 @@ def run_single_experiment(dev_count, run_index, log_files):
 if __name__ == '__main__':
     try:
         log_files = []
-        device_configs = [10,11]
+        device_configs = [10]
+        # device_configs = [10,11]
         # device_configs = [10, 25, 40, 80, 150, 250, 350, 450, 500]
         # runs_per_config = 5
         runs_per_config = 1
