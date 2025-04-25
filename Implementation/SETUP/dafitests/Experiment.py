@@ -37,7 +37,7 @@ class Experiment:
         self.ns.set_title("DAfI - Scalable Mesh Network")
         self.ns.set_network_info(version="Latest", commit="main", real=False)
         self.ns.web()
-        self.ns.speed = 1000000000000000000000000000000000000000000000000000000000
+        self.ns.speed = 10
 
     def Baseline(self):
         self.start_baseline = datetime.now()

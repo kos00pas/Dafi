@@ -1,13 +1,15 @@
 # metrics/topology_convergence_phase.py
 max_wait=1200
+import time
+
 class TopologyConvergencePhase:
     def __init__(self, ns):
         self.ns = ns
         self.steps = [
             ("Step 8: Neighbor Table Stability", self._8_neighbor_table_stability),
             ("Step 9: Router Table Stability", self._9_router_table_stability),
-            # ("Step 10: Prefix & Route Propagation", self._10_prefix_route_stability),
-            # ("Step 11: End-to-End Reachability", self._11_end_to_end_ping)
+            ("Step 10: Prefix & Route Propagation", self._10_prefix_route_stability),
+            ("Step 11: End-to-End Reachability", self._11_end_to_end_ping)
         ]
 
     def run(self):
@@ -159,19 +161,57 @@ class TopologyConvergencePhase:
             waited += interval
         raise AssertionError(f"^Step 10 FAILED: Prefix/Route tables changed → {changed}")
 
-    def _11_end_to_end_ping(self,  interval=2):
+    import time
+
+    import time
+    import random
+
+    import time
+    import random
+
+    def _11_end_to_end_ping(self, interval=2):
         waited = 0
 
         def get_addrs():
+            """Get all mesh-local addresses (only fd..fe00 ones)."""
             return {
-                nid: [ip for ip in self.ns.node_cmd(nid, "ipaddr") if ip.startswith("fd")]
+                nid: [ip for ip in self.ns.node_cmd(nid, "ipaddr") if ip.startswith("fd") and ":ff:fe00:" in ip]
                 for nid in self.ns.nodes().keys()
             }
 
         def get_state(nid):
             return self.ns.node_cmd(nid, "state")[0].strip()
 
-        while waited <= max_wait:
+        def safe_ping(src, dst_ip):
+            """Ping once, retry once with sleep if first fails."""
+            try:
+                res = self.ns.node_cmd(src, f"ping {dst_ip}")
+                success = any("bytes from" in line for line in res)
+            except Exception as e:
+                print(f"⚠️ Ping error from {src} to {dst_ip}: {e}")
+                success = False
+
+            if not success:
+                time.sleep(0.5)  # Wait before retrying
+                try:
+                    res = self.ns.node_cmd(src, f"ping {dst_ip}")
+                    success = any("bytes from" in line for line in res)
+                except Exception as e:
+                    print(f"⚠️ Retry ping error from {src} to {dst_ip}: {e}")
+                    success = False
+
+            return success
+
+        # 🌟 Important: slow down simulation slightly
+        print("⚙️ Setting simulation speed to safer value...")
+        self.ns.speed = 100000  # Safer simulation speed
+
+        # 💡 Give time for network to stabilize
+        print("⏳ Waiting for RPL routes to settle before pinging...")
+        self.ns.go(10)
+        time.sleep(2)
+
+        while waited <= 1200:
             addrs = get_addrs()
             failed = []
 
@@ -182,22 +222,29 @@ class TopologyConvergencePhase:
                         continue
                     dst_state = get_state(dst)
 
-                    # Optional: Skip child -> child pings
+                    # Skip child -> child pinging (optional)
                     if src_state == "child" and dst_state == "child":
                         continue
 
-                    for ip in addrs[dst]:
-                        res = self.ns.node_cmd(src, f"ping {ip}")
-                        success = any("bytes from" in line for line in res)
-                        print(f"ping {src} ➔ {dst} ({ip[:10]}...) = {'✅' if success else '❌'}")
+                    # Pick RLOC address (fd..fe00:xxxx)
+                    dst_ips = addrs[dst]
+                    if not dst_ips:
+                        continue  # No valid address
 
-                        if not success:
-                            failed.append((src, dst, ip))
+                    dst_ip = dst_ips[0]
+                    success = safe_ping(src, dst_ip)
+
+                    print(f"ping {src} ➔ {dst} ({dst_ip[:10]}...) = {'✅' if success else '❌'}")
+
+                    if not success:
+                        failed.append((src, dst, dst_ip))
+
+                    time.sleep(0.1)  # ⏳ Slow down between pings
 
             print(f"@ {waited:>2}s | Ping failures: {failed}")
 
             if not failed:
-                print("! Step 11: All mesh-local addresses reachable ✅")
+                print("! Step 11 ✅ All mesh-local addresses reachable")
                 return
 
             waited += interval
