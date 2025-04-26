@@ -22,7 +22,7 @@ def cleanup_after_experiment(folder_path):
         try:
             with socket.create_connection(('localhost', port), timeout=1):
                 # Port is in use
-                print("⏳ Waiting for OTNS port to become available...")
+                print("⏳ Waiting for OTNS_ port to become available...")
         except socket.error as e:
             if e.errno == errno.ECONNREFUSED:
                 # Port is free

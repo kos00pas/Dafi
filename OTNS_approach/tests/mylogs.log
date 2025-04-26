@@ -1,0 +1,1381 @@
+niaou
+[2025-04-25 23:53:02.014770] [_do_command] Sending command: title "DAfI - Scalable Mesh Network"
+[2025-04-25 23:53:02.025187] [OTNS LOG] info	2025-04-25 23:53:02.024 - Using env PORT_OFFSET=0
+[2025-04-25 23:53:02.030889] [OTNS LOG] info	2025-04-25 23:53:02.030 - dispatcher listening on 127.0.0.1:9000 ...
+[2025-04-25 23:53:02.041604] [OTNS LOG] info	2025-04-25 23:53:02.041 - dispatcher started: cfg={Speed:1 Real:false Host:localhost Port:9000 DumpPackets:false NoPcap:false}
+[2025-04-25 23:53:02.082489] [OTNS LOG] debug	2025-04-25 23:53:02.082 - ConfigWeb: {serverBindAddress:localhost serverHttpDebugPort:8998 grpcServicePort:8999 webSitePort:8997}
+[2025-04-25 23:53:02.084246] [OTNS LOG] debug	2025-04-25 23:53:02.082 - open web: false
+[2025-04-25 23:53:02.085196] [OTNS LOG] info	2025-04-25 23:53:02.083 - gRPC visualizer serving on 127.0.0.1:8999 ...
+[2025-04-25 23:53:02.086071] [_do_command] Received: Done
+[2025-04-25 23:53:02.087195] [_do_command] Sending command: netinfo version "Latest" commit "main" real 0
+[2025-04-25 23:53:02.088699] [_do_command] Received: Done
+[2025-04-25 23:53:02.089714] [_do_command] Sending command: web
+[2025-04-25 23:53:02.129063] [OTNS LOG] info	2025-04-25 23:53:02.128 - grpcwebproxy started.
+[2025-04-25 23:53:02.130000] [_do_command] Received: Done
+[2025-04-25 23:53:02.131063] [_do_command] Sending command: speed 101
+[2025-04-25 23:53:02.132743] [_do_command] Received: Done
+⏱ Starting full simulation...
+1 1 8
+[2025-04-25 23:53:02.137312] [_do_command] Sending command: add router x 400 y 400 exe "/home/otns/otns/openthread/build/simulation/examples/apps/cli/ot-cli-ftd"
+[2025-04-25 23:53:02.140614] [OTNS LOG] info	2025-04-25 23:53:02.140 - Add: cli.AddCmd{Cmd:struct {}{}, Type:cli.NodeType{Val:"router"}, X:(*int)(0xc00030e058), Y:(*int)(0xc00030e068), Id:(*cli.AddNodeId)(nil), RadioRange:(*cli.RadioRangeFlag)(nil), Restore:(*cli.RestoreFlag)(nil), Executable:(*cli.ExecutableFlag)(0xc0002a8100)}
+[2025-04-25 23:53:02.142075] [OTNS LOG] debug	2025-04-25 23:53:02.141 - node exe path: /home/otns/otns/openthread/build/simulation/examples/apps/cli/ot-cli-ftd
+[2025-04-25 23:53:02.144245] [OTNS LOG] info	2025-04-25 23:53:02.143 - simulation:CtrlAddNode: &{ID:-1 X:400 Y:400 IsMtd:false IsRouter:true RxOffWhenIdle:false RadioRange:160 ExecutablePath:/home/otns/otns/openthread/build/simulation/examples/apps/cli/ot-cli-ftd Restore:false}, rawMode=false
+[2025-04-25 23:53:02.145868] [OTNS LOG] info	2025-04-25 23:53:02.143 - dispatcher add node 1
+[2025-04-25 23:53:02.146873] [OTNS LOG] warn	2025-04-25 23:53:02.144 - grpcwebproxy exit unexpectedly: exit status 1, try restarting ...
+[2025-04-25 23:53:02.148345] [OTNS LOG] debug	2025-04-25 23:53:02.148 - status push: 1: "extaddr=ca4fb251c7611c87"
+[2025-04-25 23:53:02.149361] [OTNS LOG] debug	2025-04-25 23:53:02.148 - extaddr changed: node=1, extaddr=ca4fb251c7611c87, old extaddr=ffffffffffffffff
+[2025-04-25 23:53:02.150243] [OTNS LOG] debug	2025-04-25 23:53:02.148 - status push: 1: "rloc16=65534"
+[2025-04-25 23:53:02.151536] [OTNS LOG] debug	2025-04-25 23:53:02.148 - set node rloc: fffe -> fffe
+[2025-04-25 23:53:02.153006] [OTNS LOG] info	2025-04-25 23:53:02.149 - grpcwebproxy restarted.
+[2025-04-25 23:53:02.154329] [OTNS LOG] info	2025-04-25 23:53:02.150 - OTNS web serving on localhost:8997 ...
+[2025-04-25 23:53:02.164985] [OTNS LOG] debug	2025-04-25 23:53:02.164 - node 1's extaddr becomes valid in 20.931613ms
+[2025-04-25 23:53:02.166200] [OTNS LOG] debug	2025-04-25 23:53:02.165 - Node<1>'s UART type is 2
+[2025-04-25 23:53:02.167210] [OTNS LOG] debug	2025-04-25 23:53:02.165 - Node<1> - 
+[2025-04-25 23:53:02.168698] [OTNS LOG] debug	2025-04-25 23:53:02.165 - Node<1> - mode rdn
+[2025-04-25 23:53:02.169741] [OTNS LOG] debug	2025-04-25 23:53:02.165 - Node<1> - Done
+[2025-04-25 23:53:02.170589] [OTNS LOG] debug	2025-04-25 23:53:02.166 - Node<1> - routerselectionjitter 1
+[2025-04-25 23:53:02.171886] [OTNS LOG] debug	2025-04-25 23:53:02.166 - Node<1> - Done
+[2025-04-25 23:53:02.173109] [OTNS LOG] debug	2025-04-25 23:53:02.166 - Node<1> - dataset init new
+[2025-04-25 23:53:02.174534] [OTNS LOG] debug	2025-04-25 23:53:02.166 - Node<1> - Done
+[2025-04-25 23:53:02.175431] [OTNS LOG] debug	2025-04-25 23:53:02.166 - Node<1> - dataset channel 11
+[2025-04-25 23:53:02.176474] [OTNS LOG] debug	2025-04-25 23:53:02.166 - Node<1> - Done
+[2025-04-25 23:53:02.177238] [OTNS LOG] debug	2025-04-25 23:53:02.167 - Node<1> - dataset extpanid dead00beef00cafe
+[2025-04-25 23:53:02.178011] [OTNS LOG] debug	2025-04-25 23:53:02.167 - Node<1> - Done
+[2025-04-25 23:53:02.178641] [OTNS LOG] debug	2025-04-25 23:53:02.167 - Node<1> - dataset meshlocalprefix fdde:ad00:beef:0::
+[2025-04-25 23:53:02.179767] [OTNS LOG] debug	2025-04-25 23:53:02.167 - Node<1> - Done
+[2025-04-25 23:53:02.180600] [OTNS LOG] debug	2025-04-25 23:53:02.167 - Node<1> - dataset networkkey 00112233445566778899aabbccddeeff
+[2025-04-25 23:53:02.181370] [OTNS LOG] debug	2025-04-25 23:53:02.167 - Node<1> - Done
+[2025-04-25 23:53:02.182246] [OTNS LOG] debug	2025-04-25 23:53:02.168 - Node<1> - dataset networkname otns
+[2025-04-25 23:53:02.183022] [OTNS LOG] debug	2025-04-25 23:53:02.168 - Node<1> - Done
+[2025-04-25 23:53:02.183837] [OTNS LOG] debug	2025-04-25 23:53:02.168 - Node<1> - dataset panid 0xface
+[2025-04-25 23:53:02.184994] [OTNS LOG] debug	2025-04-25 23:53:02.168 - Node<1> - Done
+[2025-04-25 23:53:02.185767] [OTNS LOG] debug	2025-04-25 23:53:02.169 - Node<1> - dataset pskc 3aa55f91ca47d1e4e71a08cb35e91591
+[2025-04-25 23:53:02.186655] [OTNS LOG] debug	2025-04-25 23:53:02.169 - Node<1> - Done
+[2025-04-25 23:53:02.287491] [OTNS LOG] debug	2025-04-25 23:53:02.287 - Node<1> - dataset commit active
+[2025-04-25 23:53:02.288629] [OTNS LOG] debug	2025-04-25 23:53:02.287 - Node<1> - Done
+[2025-04-25 23:53:02.289680] [OTNS LOG] debug	2025-04-25 23:53:02.287 - Node<1> - ifconfig up
+[2025-04-25 23:53:02.290748] [OTNS LOG] debug	2025-04-25 23:53:02.287 - Node<1> - Done
+[2025-04-25 23:53:02.291500] [OTNS LOG] debug	2025-04-25 23:53:02.288 - status push: 1: "rloc16=65534"
+[2025-04-25 23:53:02.292462] [OTNS LOG] debug	2025-04-25 23:53:02.288 - set node rloc: fffe -> fffe
+[2025-04-25 23:53:02.293607] [OTNS LOG] debug	2025-04-25 23:53:02.290 - status push: 1: "role=1"
+[2025-04-25 23:53:02.294737] [OTNS LOG] debug	2025-04-25 23:53:02.290 - Node<1> - thread start
+[2025-04-25 23:53:02.295801] [OTNS LOG] debug	2025-04-25 23:53:02.290 - Node<1> - Done
+[2025-04-25 23:53:02.296924] [OTNS LOG] debug	2025-04-25 23:53:02.290 - Node<1> - panid
+[2025-04-25 23:53:02.297902] [OTNS LOG] debug	2025-04-25 23:53:02.290 - Node<1> - 0xface
+[2025-04-25 23:53:02.299082] [OTNS LOG] debug	2025-04-25 23:53:02.290 - Node<1> - Done
+[2025-04-25 23:53:02.300184] [OTNS LOG] debug	2025-04-25 23:53:02.290 - Node<1> - channel
+[2025-04-25 23:53:02.300823] [OTNS LOG] debug	2025-04-25 23:53:02.290 - Node<1> - 11
+[2025-04-25 23:53:02.301791] [OTNS LOG] debug	2025-04-25 23:53:02.290 - Node<1> - Done
+[2025-04-25 23:53:02.302457] [OTNS LOG] debug	2025-04-25 23:53:02.291 - Node<1> - eui64
+[2025-04-25 23:53:02.303436] [OTNS LOG] debug	2025-04-25 23:53:02.291 - Node<1> - 18b4300000000001
+[2025-04-25 23:53:02.304910] [OTNS LOG] debug	2025-04-25 23:53:02.291 - Node<1> - Done
+[2025-04-25 23:53:02.305969] [OTNS LOG] debug	2025-04-25 23:53:02.291 - Node<1> - extaddr
+[2025-04-25 23:53:02.306550] [OTNS LOG] debug	2025-04-25 23:53:02.291 - Node<1> - ca4fb251c7611c87
+[2025-04-25 23:53:02.307392] [OTNS LOG] debug	2025-04-25 23:53:02.291 - Node<1> - Done
+[2025-04-25 23:53:02.308518] [OTNS LOG] debug	2025-04-25 23:53:02.291 - Node<1> - state
+[2025-04-25 23:53:02.309511] [OTNS LOG] debug	2025-04-25 23:53:02.291 - Node<1> - detached
+[2025-04-25 23:53:02.311047] [OTNS LOG] debug	2025-04-25 23:53:02.291 - Node<1> - Done
+[2025-04-25 23:53:02.312617] [OTNS LOG] debug	2025-04-25 23:53:02.292 - Node<1> - networkkey
+[2025-04-25 23:53:02.314854] [OTNS LOG] debug	2025-04-25 23:53:02.292 - Node<1> - 00112233445566778899aabbccddeeff
+[2025-04-25 23:53:02.316073] [OTNS LOG] debug	2025-04-25 23:53:02.292 - Node<1> - Done
+[2025-04-25 23:53:02.317168] [OTNS LOG] debug	2025-04-25 23:53:02.292 - Node<1> - mode
+[2025-04-25 23:53:02.317916] [OTNS LOG] debug	2025-04-25 23:53:02.292 - Node<1> - rdn
+[2025-04-25 23:53:02.318917] [OTNS LOG] debug	2025-04-25 23:53:02.292 - Node<1> - Done
+[2025-04-25 23:53:02.320076] [OTNS LOG] info	2025-04-25 23:53:02.292 - Node<1> - started, panid=0xface, channel=11, eui64="18b4300000000001", extaddr=0xca4fb251c7611c87, state=detached, networkkey="00112233445566778899aabbccddeeff", mode=rdn
+[2025-04-25 23:53:02.321737] [_do_command] Received: 1
+[2025-04-25 23:53:02.323214] [_do_command] Received: Done
+[2025-04-25 23:53:02.324558] [_do_command] Sending command: node 1 "mode rdn"
+[2025-04-25 23:53:02.326266] [OTNS LOG] debug	2025-04-25 23:53:02.326 - Node<1> - mode rdn
+[2025-04-25 23:53:02.327022] [OTNS LOG] debug	2025-04-25 23:53:02.326 - Node<1> - Done
+[2025-04-25 23:53:02.327838] [_do_command] Received: Done
+[2025-04-25 23:53:02.329047] [_do_command] Sending command: node 1 "routerselectionjitter 1"
+[2025-04-25 23:53:02.330770] [OTNS LOG] debug	2025-04-25 23:53:02.330 - Node<1> - routerselectionjitter 1
+[2025-04-25 23:53:02.331881] [OTNS LOG] debug	2025-04-25 23:53:02.330 - Node<1> - Done
+[2025-04-25 23:53:02.332814] [_do_command] Received: Done
+[2025-04-25 23:53:02.333881] [_do_command] Sending command: add router x 363 y 363 exe "/home/otns/otns/openthread/build/simulation/examples/apps/cli/ot-cli-ftd"
+[2025-04-25 23:53:02.334913] [OTNS LOG] info	2025-04-25 23:53:02.334 - Add: cli.AddCmd{Cmd:struct {}{}, Type:cli.NodeType{Val:"router"}, X:(*int)(0xc0002c20f8), Y:(*int)(0xc0002c2108), Id:(*cli.AddNodeId)(nil), RadioRange:(*cli.RadioRangeFlag)(nil), Restore:(*cli.RestoreFlag)(nil), Executable:(*cli.ExecutableFlag)(0xc0003bc370)}
+[2025-04-25 23:53:02.335873] [OTNS LOG] debug	2025-04-25 23:53:02.335 - node exe path: /home/otns/otns/openthread/build/simulation/examples/apps/cli/ot-cli-ftd
+[2025-04-25 23:53:02.336717] [OTNS LOG] info	2025-04-25 23:53:02.336 - simulation:CtrlAddNode: &{ID:-1 X:363 Y:363 IsMtd:false IsRouter:true RxOffWhenIdle:false RadioRange:160 ExecutablePath:/home/otns/otns/openthread/build/simulation/examples/apps/cli/ot-cli-ftd Restore:false}, rawMode=false
+[2025-04-25 23:53:02.337638] [OTNS LOG] info	2025-04-25 23:53:02.336 - dispatcher add node 2
+[2025-04-25 23:53:02.339972] [OTNS LOG] debug	2025-04-25 23:53:02.339 - status push: 2: "extaddr=46566ad32411d92a"
+[2025-04-25 23:53:02.340825] [OTNS LOG] debug	2025-04-25 23:53:02.339 - extaddr changed: node=2, extaddr=46566ad32411d92a, old extaddr=ffffffffffffffff
+[2025-04-25 23:53:02.341882] [OTNS LOG] debug	2025-04-25 23:53:02.339 - status push: 2: "rloc16=65534"
+[2025-04-25 23:53:02.342919] [OTNS LOG] debug	2025-04-25 23:53:02.339 - set node rloc: fffe -> fffe
+[2025-04-25 23:53:02.350124] [OTNS LOG] debug	2025-04-25 23:53:02.349 - node 2's extaddr becomes valid in 13.520318ms
+[2025-04-25 23:53:02.351240] [OTNS LOG] debug	2025-04-25 23:53:02.350 - Node<2>'s UART type is 2
+[2025-04-25 23:53:02.352099] [OTNS LOG] debug	2025-04-25 23:53:02.350 - Node<2> - 
+[2025-04-25 23:53:02.353062] [OTNS LOG] debug	2025-04-25 23:53:02.350 - Node<2> - mode rdn
+[2025-04-25 23:53:02.353876] [OTNS LOG] debug	2025-04-25 23:53:02.350 - Node<2> - Done
+[2025-04-25 23:53:02.354893] [OTNS LOG] debug	2025-04-25 23:53:02.350 - Node<2> - routerselectionjitter 1
+[2025-04-25 23:53:02.355630] [OTNS LOG] debug	2025-04-25 23:53:02.350 - Node<2> - Done
+[2025-04-25 23:53:02.356361] [OTNS LOG] debug	2025-04-25 23:53:02.351 - Node<2> - dataset init new
+[2025-04-25 23:53:02.357190] [OTNS LOG] debug	2025-04-25 23:53:02.351 - Node<2> - Done
+[2025-04-25 23:53:02.358114] [OTNS LOG] debug	2025-04-25 23:53:02.351 - Node<2> - dataset channel 11
+[2025-04-25 23:53:02.359229] [OTNS LOG] debug	2025-04-25 23:53:02.351 - Node<2> - Done
+[2025-04-25 23:53:02.360049] [OTNS LOG] debug	2025-04-25 23:53:02.352 - Node<2> - dataset extpanid dead00beef00cafe
+[2025-04-25 23:53:02.361019] [OTNS LOG] debug	2025-04-25 23:53:02.352 - Node<2> - Done
+[2025-04-25 23:53:02.361824] [OTNS LOG] debug	2025-04-25 23:53:02.352 - Node<2> - dataset meshlocalprefix fdde:ad00:beef:0::
+[2025-04-25 23:53:02.362610] [OTNS LOG] debug	2025-04-25 23:53:02.352 - Node<2> - Done
+[2025-04-25 23:53:02.363521] [OTNS LOG] debug	2025-04-25 23:53:02.352 - Node<2> - dataset networkkey 00112233445566778899aabbccddeeff
+[2025-04-25 23:53:02.364311] [OTNS LOG] debug	2025-04-25 23:53:02.353 - Node<2> - Done
+[2025-04-25 23:53:02.365023] [OTNS LOG] debug	2025-04-25 23:53:02.353 - Node<2> - dataset networkname otns
+[2025-04-25 23:53:02.365719] [OTNS LOG] debug	2025-04-25 23:53:02.353 - Node<2> - Done
+[2025-04-25 23:53:02.366983] [OTNS LOG] debug	2025-04-25 23:53:02.353 - Node<2> - dataset panid 0xface
+[2025-04-25 23:53:02.367662] [OTNS LOG] debug	2025-04-25 23:53:02.353 - Node<2> - Done
+[2025-04-25 23:53:02.368523] [OTNS LOG] debug	2025-04-25 23:53:02.354 - Node<2> - dataset pskc 3aa55f91ca47d1e4e71a08cb35e91591
+[2025-04-25 23:53:02.369342] [OTNS LOG] debug	2025-04-25 23:53:02.354 - Node<2> - Done
+[2025-04-25 23:53:02.418306] [OTNS LOG] debug	2025-04-25 23:53:02.418 - Node<2> - dataset commit active
+[2025-04-25 23:53:02.419263] [OTNS LOG] debug	2025-04-25 23:53:02.418 - Node<2> - Done
+[2025-04-25 23:53:02.419969] [OTNS LOG] debug	2025-04-25 23:53:02.418 - Node<2> - ifconfig up
+[2025-04-25 23:53:02.420813] [OTNS LOG] debug	2025-04-25 23:53:02.418 - Node<2> - Done
+[2025-04-25 23:53:02.421664] [OTNS LOG] debug	2025-04-25 23:53:02.418 - status push: 2: "rloc16=65534"
+[2025-04-25 23:53:02.422441] [OTNS LOG] debug	2025-04-25 23:53:02.418 - set node rloc: fffe -> fffe
+[2025-04-25 23:53:02.423035] [OTNS LOG] debug	2025-04-25 23:53:02.420 - status push: 2: "role=1"
+[2025-04-25 23:53:02.423611] [OTNS LOG] debug	2025-04-25 23:53:02.420 - Node<2> - thread start
+[2025-04-25 23:53:02.424192] [OTNS LOG] debug	2025-04-25 23:53:02.420 - Node<2> - Done
+[2025-04-25 23:53:02.424718] [OTNS LOG] debug	2025-04-25 23:53:02.420 - Node<2> - panid
+[2025-04-25 23:53:02.425300] [OTNS LOG] debug	2025-04-25 23:53:02.420 - Node<2> - 0xface
+[2025-04-25 23:53:02.425777] [OTNS LOG] debug	2025-04-25 23:53:02.420 - Node<2> - Done
+[2025-04-25 23:53:02.426376] [OTNS LOG] debug	2025-04-25 23:53:02.420 - Node<2> - channel
+[2025-04-25 23:53:02.426993] [OTNS LOG] debug	2025-04-25 23:53:02.420 - Node<2> - 11
+[2025-04-25 23:53:02.427636] [OTNS LOG] debug	2025-04-25 23:53:02.420 - Node<2> - Done
+[2025-04-25 23:53:02.428259] [OTNS LOG] debug	2025-04-25 23:53:02.420 - Node<2> - eui64
+[2025-04-25 23:53:02.428830] [OTNS LOG] debug	2025-04-25 23:53:02.420 - Node<2> - 18b4300000000002
+[2025-04-25 23:53:02.429397] [OTNS LOG] debug	2025-04-25 23:53:02.420 - Node<2> - Done
+[2025-04-25 23:53:02.429980] [OTNS LOG] debug	2025-04-25 23:53:02.421 - Node<2> - extaddr
+[2025-04-25 23:53:02.430496] [OTNS LOG] debug	2025-04-25 23:53:02.421 - Node<2> - 46566ad32411d92a
+[2025-04-25 23:53:02.431072] [OTNS LOG] debug	2025-04-25 23:53:02.421 - Node<2> - Done
+[2025-04-25 23:53:02.431642] [OTNS LOG] debug	2025-04-25 23:53:02.421 - Node<2> - state
+[2025-04-25 23:53:02.432136] [OTNS LOG] debug	2025-04-25 23:53:02.421 - Node<2> - detached
+[2025-04-25 23:53:02.432693] [OTNS LOG] debug	2025-04-25 23:53:02.421 - Node<2> - Done
+[2025-04-25 23:53:02.433161] [OTNS LOG] debug	2025-04-25 23:53:02.421 - Node<2> - networkkey
+[2025-04-25 23:53:02.433701] [OTNS LOG] debug	2025-04-25 23:53:02.421 - Node<2> - 00112233445566778899aabbccddeeff
+[2025-04-25 23:53:02.434150] [OTNS LOG] debug	2025-04-25 23:53:02.421 - Node<2> - Done
+[2025-04-25 23:53:02.434633] [OTNS LOG] debug	2025-04-25 23:53:02.421 - Node<2> - mode
+[2025-04-25 23:53:02.435250] [OTNS LOG] debug	2025-04-25 23:53:02.421 - Node<2> - rdn
+[2025-04-25 23:53:02.435707] [OTNS LOG] debug	2025-04-25 23:53:02.421 - Node<2> - Done
+[2025-04-25 23:53:02.436201] [OTNS LOG] info	2025-04-25 23:53:02.421 - Node<2> - started, panid=0xface, channel=11, eui64="18b4300000000002", extaddr=0x46566ad32411d92a, state=detached, networkkey="00112233445566778899aabbccddeeff", mode=rdn
+[2025-04-25 23:53:02.436798] [_do_command] Received: 2
+[2025-04-25 23:53:02.437503] [_do_command] Received: Done
+[2025-04-25 23:53:02.438086] [_do_command] Sending command: node 2 "mode rdn"
+[2025-04-25 23:53:02.439388] [OTNS LOG] debug	2025-04-25 23:53:02.439 - Node<2> - mode rdn
+[2025-04-25 23:53:02.440043] [OTNS LOG] debug	2025-04-25 23:53:02.439 - Node<2> - Done
+[2025-04-25 23:53:02.440679] [_do_command] Received: Done
+[2025-04-25 23:53:02.441351] [_do_command] Sending command: add router x 475 y 400 exe "/home/otns/otns/openthread/build/simulation/examples/apps/cli/ot-cli-ftd"
+[2025-04-25 23:53:02.442251] [OTNS LOG] info	2025-04-25 23:53:02.442 - Add: cli.AddCmd{Cmd:struct {}{}, Type:cli.NodeType{Val:"router"}, X:(*int)(0xc00030fb90), Y:(*int)(0xc00030fba0), Id:(*cli.AddNodeId)(nil), RadioRange:(*cli.RadioRangeFlag)(nil), Restore:(*cli.RestoreFlag)(nil), Executable:(*cli.ExecutableFlag)(0xc0002a8cf0)}
+[2025-04-25 23:53:02.442884] [OTNS LOG] debug	2025-04-25 23:53:02.442 - node exe path: /home/otns/otns/openthread/build/simulation/examples/apps/cli/ot-cli-ftd
+[2025-04-25 23:53:02.443472] [OTNS LOG] info	2025-04-25 23:53:02.443 - simulation:CtrlAddNode: &{ID:-1 X:475 Y:400 IsMtd:false IsRouter:true RxOffWhenIdle:false RadioRange:160 ExecutablePath:/home/otns/otns/openthread/build/simulation/examples/apps/cli/ot-cli-ftd Restore:false}, rawMode=false
+[2025-04-25 23:53:02.444000] [OTNS LOG] info	2025-04-25 23:53:02.443 - dispatcher add node 3
+[2025-04-25 23:53:02.446052] [OTNS LOG] debug	2025-04-25 23:53:02.445 - status push: 3: "extaddr=da37220e230f40b4"
+[2025-04-25 23:53:02.446751] [OTNS LOG] debug	2025-04-25 23:53:02.446 - extaddr changed: node=3, extaddr=da37220e230f40b4, old extaddr=ffffffffffffffff
+[2025-04-25 23:53:02.447391] [OTNS LOG] debug	2025-04-25 23:53:02.446 - status push: 3: "rloc16=65534"
+[2025-04-25 23:53:02.447931] [OTNS LOG] debug	2025-04-25 23:53:02.446 - set node rloc: fffe -> fffe
+[2025-04-25 23:53:02.453511] [OTNS LOG] debug	2025-04-25 23:53:02.453 - node 3's extaddr becomes valid in 10.29707ms
+[2025-04-25 23:53:02.454179] [OTNS LOG] debug	2025-04-25 23:53:02.453 - Node<3>'s UART type is 2
+[2025-04-25 23:53:02.455093] [OTNS LOG] debug	2025-04-25 23:53:02.453 - Node<3> - 
+[2025-04-25 23:53:02.455888] [OTNS LOG] debug	2025-04-25 23:53:02.454 - Node<3> - mode rdn
+[2025-04-25 23:53:02.456705] [OTNS LOG] debug	2025-04-25 23:53:02.454 - Node<3> - Done
+[2025-04-25 23:53:02.457664] [OTNS LOG] debug	2025-04-25 23:53:02.455 - Node<3> - routerselectionjitter 1
+[2025-04-25 23:53:02.458269] [OTNS LOG] debug	2025-04-25 23:53:02.455 - Node<3> - Done
+[2025-04-25 23:53:02.458893] [OTNS LOG] debug	2025-04-25 23:53:02.455 - Node<3> - dataset init new
+[2025-04-25 23:53:02.459514] [OTNS LOG] debug	2025-04-25 23:53:02.455 - Node<3> - Done
+[2025-04-25 23:53:02.460269] [OTNS LOG] debug	2025-04-25 23:53:02.455 - Node<3> - dataset channel 11
+[2025-04-25 23:53:02.460912] [OTNS LOG] debug	2025-04-25 23:53:02.455 - Node<3> - Done
+[2025-04-25 23:53:02.461888] [OTNS LOG] debug	2025-04-25 23:53:02.456 - Node<3> - dataset extpanid dead00beef00cafe
+[2025-04-25 23:53:02.462560] [OTNS LOG] debug	2025-04-25 23:53:02.456 - Node<3> - Done
+[2025-04-25 23:53:02.463647] [OTNS LOG] debug	2025-04-25 23:53:02.456 - Node<3> - dataset meshlocalprefix fdde:ad00:beef:0::
+[2025-04-25 23:53:02.464443] [OTNS LOG] debug	2025-04-25 23:53:02.456 - Node<3> - Done
+[2025-04-25 23:53:02.465481] [OTNS LOG] debug	2025-04-25 23:53:02.457 - Node<3> - dataset networkkey 00112233445566778899aabbccddeeff
+[2025-04-25 23:53:02.466015] [OTNS LOG] debug	2025-04-25 23:53:02.457 - Node<3> - Done
+[2025-04-25 23:53:02.467059] [OTNS LOG] debug	2025-04-25 23:53:02.457 - Node<3> - dataset networkname otns
+[2025-04-25 23:53:02.467871] [OTNS LOG] debug	2025-04-25 23:53:02.457 - Node<3> - Done
+[2025-04-25 23:53:02.468496] [OTNS LOG] debug	2025-04-25 23:53:02.457 - Node<3> - dataset panid 0xface
+[2025-04-25 23:53:02.469087] [OTNS LOG] debug	2025-04-25 23:53:02.457 - Node<3> - Done
+[2025-04-25 23:53:02.469993] [OTNS LOG] debug	2025-04-25 23:53:02.457 - Node<3> - dataset pskc 3aa55f91ca47d1e4e71a08cb35e91591
+[2025-04-25 23:53:02.470740] [OTNS LOG] debug	2025-04-25 23:53:02.457 - Node<3> - Done
+[2025-04-25 23:53:02.527672] [OTNS LOG] debug	2025-04-25 23:53:02.527 - Node<3> - dataset commit active
+[2025-04-25 23:53:02.528736] [OTNS LOG] debug	2025-04-25 23:53:02.527 - Node<3> - Done
+[2025-04-25 23:53:02.529615] [OTNS LOG] debug	2025-04-25 23:53:02.527 - Node<3> - ifconfig up
+[2025-04-25 23:53:02.530329] [OTNS LOG] debug	2025-04-25 23:53:02.527 - Node<3> - Done
+[2025-04-25 23:53:02.531087] [OTNS LOG] debug	2025-04-25 23:53:02.528 - status push: 3: "rloc16=65534"
+[2025-04-25 23:53:02.531830] [OTNS LOG] debug	2025-04-25 23:53:02.528 - set node rloc: fffe -> fffe
+[2025-04-25 23:53:02.532495] [OTNS LOG] debug	2025-04-25 23:53:02.529 - status push: 3: "role=1"
+[2025-04-25 23:53:02.533076] [OTNS LOG] debug	2025-04-25 23:53:02.529 - Node<3> - thread start
+[2025-04-25 23:53:02.533859] [OTNS LOG] debug	2025-04-25 23:53:02.529 - Node<3> - Done
+[2025-04-25 23:53:02.534450] [OTNS LOG] debug	2025-04-25 23:53:02.530 - Node<3> - panid
+[2025-04-25 23:53:02.535169] [OTNS LOG] debug	2025-04-25 23:53:02.530 - Node<3> - 0xface
+[2025-04-25 23:53:02.535990] [OTNS LOG] debug	2025-04-25 23:53:02.530 - Node<3> - Done
+[2025-04-25 23:53:02.536917] [OTNS LOG] debug	2025-04-25 23:53:02.530 - Node<3> - channel
+[2025-04-25 23:53:02.537987] [OTNS LOG] debug	2025-04-25 23:53:02.530 - Node<3> - 11
+[2025-04-25 23:53:02.538905] [OTNS LOG] debug	2025-04-25 23:53:02.530 - Node<3> - Done
+[2025-04-25 23:53:02.539452] [OTNS LOG] debug	2025-04-25 23:53:02.530 - Node<3> - eui64
+[2025-04-25 23:53:02.540001] [OTNS LOG] debug	2025-04-25 23:53:02.530 - Node<3> - 18b4300000000003
+[2025-04-25 23:53:02.540753] [OTNS LOG] debug	2025-04-25 23:53:02.530 - Node<3> - Done
+[2025-04-25 23:53:02.541658] [OTNS LOG] debug	2025-04-25 23:53:02.531 - Node<3> - extaddr
+[2025-04-25 23:53:02.542233] [OTNS LOG] debug	2025-04-25 23:53:02.531 - Node<3> - da37220e230f40b4
+[2025-04-25 23:53:02.542914] [OTNS LOG] debug	2025-04-25 23:53:02.531 - Node<3> - Done
+[2025-04-25 23:53:02.543476] [OTNS LOG] debug	2025-04-25 23:53:02.531 - Node<3> - state
+[2025-04-25 23:53:02.544214] [OTNS LOG] debug	2025-04-25 23:53:02.531 - Node<3> - detached
+[2025-04-25 23:53:02.544822] [OTNS LOG] debug	2025-04-25 23:53:02.531 - Node<3> - Done
+[2025-04-25 23:53:02.545745] [OTNS LOG] debug	2025-04-25 23:53:02.531 - Node<3> - networkkey
+[2025-04-25 23:53:02.546334] [OTNS LOG] debug	2025-04-25 23:53:02.531 - Node<3> - 00112233445566778899aabbccddeeff
+[2025-04-25 23:53:02.546978] [OTNS LOG] debug	2025-04-25 23:53:02.531 - Node<3> - Done
+[2025-04-25 23:53:02.547731] [OTNS LOG] debug	2025-04-25 23:53:02.531 - Node<3> - mode
+[2025-04-25 23:53:02.548316] [OTNS LOG] debug	2025-04-25 23:53:02.531 - Node<3> - rdn
+[2025-04-25 23:53:02.548792] [OTNS LOG] debug	2025-04-25 23:53:02.531 - Node<3> - Done
+[2025-04-25 23:53:02.549298] [OTNS LOG] info	2025-04-25 23:53:02.531 - Node<3> - started, panid=0xface, channel=11, eui64="18b4300000000003", extaddr=0xda37220e230f40b4, state=detached, networkkey="00112233445566778899aabbccddeeff", mode=rdn
+[2025-04-25 23:53:02.550012] [_do_command] Received: 3
+[2025-04-25 23:53:02.551103] [_do_command] Received: Done
+[2025-04-25 23:53:02.551755] [_do_command] Sending command: node 3 "routerupgradethreshold 99"
+[2025-04-25 23:53:02.553320] [OTNS LOG] debug	2025-04-25 23:53:02.553 - Node<3> - routerupgradethreshold 99
+[2025-04-25 23:53:02.554026] [OTNS LOG] debug	2025-04-25 23:53:02.553 - Node<3> - Done
+[2025-04-25 23:53:02.554946] [_do_command] Received: Done
+[2025-04-25 23:53:02.555512] [_do_command] Sending command: node 3 "routerdowngradethreshold 1"
+[2025-04-25 23:53:02.556788] [OTNS LOG] debug	2025-04-25 23:53:02.556 - Node<3> - routerdowngradethreshold 1
+[2025-04-25 23:53:02.557548] [OTNS LOG] debug	2025-04-25 23:53:02.556 - Node<3> - Done
+[2025-04-25 23:53:02.558252] [_do_command] Received: Done
+[2025-04-25 23:53:02.558745] [_do_command] Sending command: node 3 "mode rn"
+[2025-04-25 23:53:02.559824] [OTNS LOG] debug	2025-04-25 23:53:02.559 - status push: 3: "mode=rn"
+[2025-04-25 23:53:02.560608] [OTNS LOG] debug	2025-04-25 23:53:02.560 - Node<3> - mode rn
+[2025-04-25 23:53:02.561230] [OTNS LOG] debug	2025-04-25 23:53:02.560 - Node<3> - Done
+[2025-04-25 23:53:02.561821] [_do_command] Received: Done
+[2025-04-25 23:53:02.562408] [_do_command] Sending command: add router x 453 y 453 exe "/home/otns/otns/openthread/build/simulation/examples/apps/cli/ot-cli-ftd"
+[2025-04-25 23:53:02.563284] [OTNS LOG] info	2025-04-25 23:53:02.563 - Add: cli.AddCmd{Cmd:struct {}{}, Type:cli.NodeType{Val:"router"}, X:(*int)(0xc000293050), Y:(*int)(0xc000293060), Id:(*cli.AddNodeId)(nil), RadioRange:(*cli.RadioRangeFlag)(nil), Restore:(*cli.RestoreFlag)(nil), Executable:(*cli.ExecutableFlag)(0xc000046ab0)}
+[2025-04-25 23:53:02.563895] [OTNS LOG] debug	2025-04-25 23:53:02.563 - node exe path: /home/otns/otns/openthread/build/simulation/examples/apps/cli/ot-cli-ftd
+[2025-04-25 23:53:02.564666] [OTNS LOG] info	2025-04-25 23:53:02.564 - simulation:CtrlAddNode: &{ID:-1 X:453 Y:453 IsMtd:false IsRouter:true RxOffWhenIdle:false RadioRange:160 ExecutablePath:/home/otns/otns/openthread/build/simulation/examples/apps/cli/ot-cli-ftd Restore:false}, rawMode=false
+[2025-04-25 23:53:02.565347] [OTNS LOG] info	2025-04-25 23:53:02.564 - dispatcher add node 4
+[2025-04-25 23:53:02.567428] [OTNS LOG] debug	2025-04-25 23:53:02.567 - status push: 4: "extaddr=0e85abe1c60b0afc"
+[2025-04-25 23:53:02.568702] [OTNS LOG] debug	2025-04-25 23:53:02.567 - extaddr changed: node=4, extaddr=0e85abe1c60b0afc, old extaddr=ffffffffffffffff
+[2025-04-25 23:53:02.569450] [OTNS LOG] debug	2025-04-25 23:53:02.567 - status push: 4: "rloc16=65534"
+[2025-04-25 23:53:02.570735] [OTNS LOG] debug	2025-04-25 23:53:02.567 - set node rloc: fffe -> fffe
+[2025-04-25 23:53:02.577204] [OTNS LOG] debug	2025-04-25 23:53:02.577 - node 4's extaddr becomes valid in 12.739594ms
+[2025-04-25 23:53:02.577927] [OTNS LOG] debug	2025-04-25 23:53:02.577 - Node<4>'s UART type is 2
+[2025-04-25 23:53:02.578767] [OTNS LOG] debug	2025-04-25 23:53:02.577 - Node<4> - 
+[2025-04-25 23:53:02.579505] [OTNS LOG] debug	2025-04-25 23:53:02.577 - Node<4> - mode rdn
+[2025-04-25 23:53:02.580258] [OTNS LOG] debug	2025-04-25 23:53:02.577 - Node<4> - Done
+[2025-04-25 23:53:02.581035] [OTNS LOG] debug	2025-04-25 23:53:02.578 - Node<4> - routerselectionjitter 1
+[2025-04-25 23:53:02.581831] [OTNS LOG] debug	2025-04-25 23:53:02.578 - Node<4> - Done
+[2025-04-25 23:53:02.582457] [OTNS LOG] debug	2025-04-25 23:53:02.578 - Node<4> - dataset init new
+[2025-04-25 23:53:02.583413] [OTNS LOG] debug	2025-04-25 23:53:02.578 - Node<4> - Done
+[2025-04-25 23:53:02.584436] [OTNS LOG] debug	2025-04-25 23:53:02.578 - Node<4> - dataset channel 11
+[2025-04-25 23:53:02.585228] [OTNS LOG] debug	2025-04-25 23:53:02.578 - Node<4> - Done
+[2025-04-25 23:53:02.586237] [OTNS LOG] debug	2025-04-25 23:53:02.578 - Node<4> - dataset extpanid dead00beef00cafe
+[2025-04-25 23:53:02.587222] [OTNS LOG] debug	2025-04-25 23:53:02.578 - Node<4> - Done
+[2025-04-25 23:53:02.588104] [OTNS LOG] debug	2025-04-25 23:53:02.579 - Node<4> - dataset meshlocalprefix fdde:ad00:beef:0::
+[2025-04-25 23:53:02.588882] [OTNS LOG] debug	2025-04-25 23:53:02.579 - Node<4> - Done
+[2025-04-25 23:53:02.589831] [OTNS LOG] debug	2025-04-25 23:53:02.579 - Node<4> - dataset networkkey 00112233445566778899aabbccddeeff
+[2025-04-25 23:53:02.590722] [OTNS LOG] debug	2025-04-25 23:53:02.579 - Node<4> - Done
+[2025-04-25 23:53:02.591722] [OTNS LOG] debug	2025-04-25 23:53:02.579 - Node<4> - dataset networkname otns
+[2025-04-25 23:53:02.592496] [OTNS LOG] debug	2025-04-25 23:53:02.579 - Node<4> - Done
+[2025-04-25 23:53:02.593438] [OTNS LOG] debug	2025-04-25 23:53:02.579 - Node<4> - dataset panid 0xface
+[2025-04-25 23:53:02.594377] [OTNS LOG] debug	2025-04-25 23:53:02.579 - Node<4> - Done
+[2025-04-25 23:53:02.595477] [OTNS LOG] debug	2025-04-25 23:53:02.580 - Node<4> - dataset pskc 3aa55f91ca47d1e4e71a08cb35e91591
+[2025-04-25 23:53:02.596215] [OTNS LOG] debug	2025-04-25 23:53:02.580 - Node<4> - Done
+[2025-04-25 23:53:02.664004] [OTNS LOG] debug	2025-04-25 23:53:02.663 - Node<4> - dataset commit active
+[2025-04-25 23:53:02.665017] [OTNS LOG] debug	2025-04-25 23:53:02.663 - Node<4> - Done
+[2025-04-25 23:53:02.665815] [OTNS LOG] debug	2025-04-25 23:53:02.664 - Node<4> - ifconfig up
+[2025-04-25 23:53:02.666767] [OTNS LOG] debug	2025-04-25 23:53:02.664 - Node<4> - Done
+[2025-04-25 23:53:02.667655] [OTNS LOG] debug	2025-04-25 23:53:02.664 - status push: 4: "rloc16=65534"
+[2025-04-25 23:53:02.668624] [OTNS LOG] debug	2025-04-25 23:53:02.664 - set node rloc: fffe -> fffe
+[2025-04-25 23:53:02.669484] [OTNS LOG] debug	2025-04-25 23:53:02.666 - status push: 4: "role=1"
+[2025-04-25 23:53:02.670813] [OTNS LOG] debug	2025-04-25 23:53:02.666 - Node<4> - thread start
+[2025-04-25 23:53:02.671435] [OTNS LOG] debug	2025-04-25 23:53:02.666 - Node<4> - Done
+[2025-04-25 23:53:02.672361] [OTNS LOG] debug	2025-04-25 23:53:02.666 - Node<4> - panid
+[2025-04-25 23:53:02.673072] [OTNS LOG] debug	2025-04-25 23:53:02.666 - Node<4> - 0xface
+[2025-04-25 23:53:02.673966] [OTNS LOG] debug	2025-04-25 23:53:02.666 - Node<4> - Done
+[2025-04-25 23:53:02.674636] [OTNS LOG] debug	2025-04-25 23:53:02.667 - Node<4> - channel
+[2025-04-25 23:53:02.675317] [OTNS LOG] debug	2025-04-25 23:53:02.667 - Node<4> - 11
+[2025-04-25 23:53:02.675969] [OTNS LOG] debug	2025-04-25 23:53:02.667 - Node<4> - Done
+[2025-04-25 23:53:02.676378] [OTNS LOG] debug	2025-04-25 23:53:02.667 - Node<4> - eui64
+[2025-04-25 23:53:02.677136] [OTNS LOG] debug	2025-04-25 23:53:02.667 - Node<4> - 18b4300000000004
+[2025-04-25 23:53:02.677943] [OTNS LOG] debug	2025-04-25 23:53:02.667 - Node<4> - Done
+[2025-04-25 23:53:02.678697] [OTNS LOG] debug	2025-04-25 23:53:02.667 - Node<4> - extaddr
+[2025-04-25 23:53:02.679708] [OTNS LOG] debug	2025-04-25 23:53:02.667 - Node<4> - 0e85abe1c60b0afc
+[2025-04-25 23:53:02.680839] [OTNS LOG] debug	2025-04-25 23:53:02.667 - Node<4> - Done
+[2025-04-25 23:53:02.681545] [OTNS LOG] debug	2025-04-25 23:53:02.667 - Node<4> - state
+[2025-04-25 23:53:02.682378] [OTNS LOG] debug	2025-04-25 23:53:02.667 - Node<4> - detached
+[2025-04-25 23:53:02.683018] [OTNS LOG] debug	2025-04-25 23:53:02.667 - Node<4> - Done
+[2025-04-25 23:53:02.683678] [OTNS LOG] debug	2025-04-25 23:53:02.668 - Node<4> - networkkey
+[2025-04-25 23:53:02.684450] [OTNS LOG] debug	2025-04-25 23:53:02.668 - Node<4> - 00112233445566778899aabbccddeeff
+[2025-04-25 23:53:02.685298] [OTNS LOG] debug	2025-04-25 23:53:02.668 - Node<4> - Done
+[2025-04-25 23:53:02.685977] [OTNS LOG] debug	2025-04-25 23:53:02.668 - Node<4> - mode
+[2025-04-25 23:53:02.686854] [OTNS LOG] debug	2025-04-25 23:53:02.668 - Node<4> - rdn
+[2025-04-25 23:53:02.688294] [OTNS LOG] debug	2025-04-25 23:53:02.668 - Node<4> - Done
+[2025-04-25 23:53:02.689046] [OTNS LOG] info	2025-04-25 23:53:02.668 - Node<4> - started, panid=0xface, channel=11, eui64="18b4300000000004", extaddr=0xe85abe1c60b0afc, state=detached, networkkey="00112233445566778899aabbccddeeff", mode=rdn
+[2025-04-25 23:53:02.689911] [_do_command] Received: 4
+[2025-04-25 23:53:02.690438] [_do_command] Received: Done
+[2025-04-25 23:53:02.690994] [_do_command] Sending command: node 4 "routerupgradethreshold 99"
+[2025-04-25 23:53:02.692465] [OTNS LOG] debug	2025-04-25 23:53:02.692 - Node<4> - routerupgradethreshold 99
+[2025-04-25 23:53:02.693198] [OTNS LOG] debug	2025-04-25 23:53:02.692 - Node<4> - Done
+[2025-04-25 23:53:02.693833] [_do_command] Received: Done
+[2025-04-25 23:53:02.694491] [_do_command] Sending command: node 4 "routerdowngradethreshold 1"
+[2025-04-25 23:53:02.695955] [OTNS LOG] debug	2025-04-25 23:53:02.695 - Node<4> - routerdowngradethreshold 1
+[2025-04-25 23:53:02.696845] [OTNS LOG] debug	2025-04-25 23:53:02.695 - Node<4> - Done
+[2025-04-25 23:53:02.697744] [_do_command] Received: Done
+[2025-04-25 23:53:02.698689] [_do_command] Sending command: node 4 "mode rn"
+[2025-04-25 23:53:02.700251] [OTNS LOG] debug	2025-04-25 23:53:02.700 - status push: 4: "mode=rn"
+[2025-04-25 23:53:02.700953] [OTNS LOG] debug	2025-04-25 23:53:02.700 - Node<4> - mode rn
+[2025-04-25 23:53:02.701693] [OTNS LOG] debug	2025-04-25 23:53:02.700 - Node<4> - Done
+[2025-04-25 23:53:02.702414] [_do_command] Received: Done
+[2025-04-25 23:53:02.703226] [_do_command] Sending command: add router x 400 y 475 exe "/home/otns/otns/openthread/build/simulation/examples/apps/cli/ot-cli-ftd"
+[2025-04-25 23:53:02.704277] [OTNS LOG] info	2025-04-25 23:53:02.704 - Add: cli.AddCmd{Cmd:struct {}{}, Type:cli.NodeType{Val:"router"}, X:(*int)(0xc000015e00), Y:(*int)(0xc000015e10), Id:(*cli.AddNodeId)(nil), RadioRange:(*cli.RadioRangeFlag)(nil), Restore:(*cli.RestoreFlag)(nil), Executable:(*cli.ExecutableFlag)(0xc0002f6fb0)}
+[2025-04-25 23:53:02.705023] [OTNS LOG] debug	2025-04-25 23:53:02.704 - node exe path: /home/otns/otns/openthread/build/simulation/examples/apps/cli/ot-cli-ftd
+[2025-04-25 23:53:02.705879] [OTNS LOG] info	2025-04-25 23:53:02.705 - simulation:CtrlAddNode: &{ID:-1 X:400 Y:475 IsMtd:false IsRouter:true RxOffWhenIdle:false RadioRange:160 ExecutablePath:/home/otns/otns/openthread/build/simulation/examples/apps/cli/ot-cli-ftd Restore:false}, rawMode=false
+[2025-04-25 23:53:02.706736] [OTNS LOG] info	2025-04-25 23:53:02.705 - dispatcher add node 5
+[2025-04-25 23:53:02.708395] [OTNS LOG] debug	2025-04-25 23:53:02.708 - status push: 5: "extaddr=428ce490c4180f84"
+[2025-04-25 23:53:02.709779] [OTNS LOG] debug	2025-04-25 23:53:02.708 - extaddr changed: node=5, extaddr=428ce490c4180f84, old extaddr=ffffffffffffffff
+[2025-04-25 23:53:02.712014] [OTNS LOG] debug	2025-04-25 23:53:02.708 - status push: 5: "rloc16=65534"
+[2025-04-25 23:53:02.712655] [OTNS LOG] debug	2025-04-25 23:53:02.708 - set node rloc: fffe -> fffe
+[2025-04-25 23:53:02.718447] [OTNS LOG] debug	2025-04-25 23:53:02.718 - node 5's extaddr becomes valid in 12.850175ms
+[2025-04-25 23:53:02.719688] [OTNS LOG] debug	2025-04-25 23:53:02.718 - Node<5>'s UART type is 2
+[2025-04-25 23:53:02.720626] [OTNS LOG] debug	2025-04-25 23:53:02.718 - Node<5> - 
+[2025-04-25 23:53:02.721499] [OTNS LOG] debug	2025-04-25 23:53:02.718 - Node<5> - mode rdn
+[2025-04-25 23:53:02.722339] [OTNS LOG] debug	2025-04-25 23:53:02.718 - Node<5> - Done
+[2025-04-25 23:53:02.723339] [OTNS LOG] debug	2025-04-25 23:53:02.719 - Node<5> - routerselectionjitter 1
+[2025-04-25 23:53:02.724343] [OTNS LOG] debug	2025-04-25 23:53:02.719 - Node<5> - Done
+[2025-04-25 23:53:02.725094] [OTNS LOG] debug	2025-04-25 23:53:02.720 - Node<5> - dataset init new
+[2025-04-25 23:53:02.725968] [OTNS LOG] debug	2025-04-25 23:53:02.720 - Node<5> - Done
+[2025-04-25 23:53:02.726696] [OTNS LOG] debug	2025-04-25 23:53:02.721 - Node<5> - dataset channel 11
+[2025-04-25 23:53:02.727730] [OTNS LOG] debug	2025-04-25 23:53:02.721 - Node<5> - Done
+[2025-04-25 23:53:02.728414] [OTNS LOG] debug	2025-04-25 23:53:02.721 - Node<5> - dataset extpanid dead00beef00cafe
+[2025-04-25 23:53:02.729313] [OTNS LOG] debug	2025-04-25 23:53:02.721 - Node<5> - Done
+[2025-04-25 23:53:02.730222] [OTNS LOG] debug	2025-04-25 23:53:02.722 - Node<5> - dataset meshlocalprefix fdde:ad00:beef:0::
+[2025-04-25 23:53:02.730919] [OTNS LOG] debug	2025-04-25 23:53:02.722 - Node<5> - Done
+[2025-04-25 23:53:02.731725] [OTNS LOG] debug	2025-04-25 23:53:02.722 - Node<5> - dataset networkkey 00112233445566778899aabbccddeeff
+[2025-04-25 23:53:02.732546] [OTNS LOG] debug	2025-04-25 23:53:02.722 - Node<5> - Done
+[2025-04-25 23:53:02.733302] [OTNS LOG] debug	2025-04-25 23:53:02.722 - Node<5> - dataset networkname otns
+[2025-04-25 23:53:02.734031] [OTNS LOG] debug	2025-04-25 23:53:02.722 - Node<5> - Done
+[2025-04-25 23:53:02.734868] [OTNS LOG] debug	2025-04-25 23:53:02.723 - Node<5> - dataset panid 0xface
+[2025-04-25 23:53:02.736006] [OTNS LOG] debug	2025-04-25 23:53:02.723 - Node<5> - Done
+[2025-04-25 23:53:02.736597] [OTNS LOG] debug	2025-04-25 23:53:02.723 - Node<5> - dataset pskc 3aa55f91ca47d1e4e71a08cb35e91591
+[2025-04-25 23:53:02.737263] [OTNS LOG] debug	2025-04-25 23:53:02.723 - Node<5> - Done
+[2025-04-25 23:53:02.800947] [OTNS LOG] debug	2025-04-25 23:53:02.800 - Node<5> - dataset commit active
+[2025-04-25 23:53:02.801832] [OTNS LOG] debug	2025-04-25 23:53:02.800 - Node<5> - Done
+[2025-04-25 23:53:02.802507] [OTNS LOG] debug	2025-04-25 23:53:02.801 - Node<5> - ifconfig up
+[2025-04-25 23:53:02.803512] [OTNS LOG] debug	2025-04-25 23:53:02.801 - Node<5> - Done
+[2025-04-25 23:53:02.804496] [OTNS LOG] debug	2025-04-25 23:53:02.801 - status push: 5: "rloc16=65534"
+[2025-04-25 23:53:02.805372] [OTNS LOG] debug	2025-04-25 23:53:02.801 - set node rloc: fffe -> fffe
+[2025-04-25 23:53:02.806021] [OTNS LOG] debug	2025-04-25 23:53:02.803 - status push: 5: "role=1"
+[2025-04-25 23:53:02.806851] [OTNS LOG] debug	2025-04-25 23:53:02.803 - Node<5> - thread start
+[2025-04-25 23:53:02.807577] [OTNS LOG] debug	2025-04-25 23:53:02.803 - Node<5> - Done
+[2025-04-25 23:53:02.808221] [OTNS LOG] debug	2025-04-25 23:53:02.803 - Node<5> - panid
+[2025-04-25 23:53:02.808882] [OTNS LOG] debug	2025-04-25 23:53:02.803 - Node<5> - 0xface
+[2025-04-25 23:53:02.809656] [OTNS LOG] debug	2025-04-25 23:53:02.803 - Node<5> - Done
+[2025-04-25 23:53:02.810361] [OTNS LOG] debug	2025-04-25 23:53:02.803 - Node<5> - channel
+[2025-04-25 23:53:02.811304] [OTNS LOG] debug	2025-04-25 23:53:02.803 - Node<5> - 11
+[2025-04-25 23:53:02.812007] [OTNS LOG] debug	2025-04-25 23:53:02.803 - Node<5> - Done
+[2025-04-25 23:53:02.812747] [OTNS LOG] debug	2025-04-25 23:53:02.803 - Node<5> - eui64
+[2025-04-25 23:53:02.813446] [OTNS LOG] debug	2025-04-25 23:53:02.803 - Node<5> - 18b4300000000005
+[2025-04-25 23:53:02.814032] [OTNS LOG] debug	2025-04-25 23:53:02.803 - Node<5> - Done
+[2025-04-25 23:53:02.814751] [OTNS LOG] debug	2025-04-25 23:53:02.804 - Node<5> - extaddr
+[2025-04-25 23:53:02.815299] [OTNS LOG] debug	2025-04-25 23:53:02.804 - Node<5> - 428ce490c4180f84
+[2025-04-25 23:53:02.815804] [OTNS LOG] debug	2025-04-25 23:53:02.804 - Node<5> - Done
+[2025-04-25 23:53:02.816430] [OTNS LOG] debug	2025-04-25 23:53:02.804 - Node<5> - state
+[2025-04-25 23:53:02.817097] [OTNS LOG] debug	2025-04-25 23:53:02.804 - Node<5> - detached
+[2025-04-25 23:53:02.817783] [OTNS LOG] debug	2025-04-25 23:53:02.804 - Node<5> - Done
+[2025-04-25 23:53:02.818520] [OTNS LOG] debug	2025-04-25 23:53:02.804 - Node<5> - networkkey
+[2025-04-25 23:53:02.819389] [OTNS LOG] debug	2025-04-25 23:53:02.804 - Node<5> - 00112233445566778899aabbccddeeff
+[2025-04-25 23:53:02.820232] [OTNS LOG] debug	2025-04-25 23:53:02.804 - Node<5> - Done
+[2025-04-25 23:53:02.820958] [OTNS LOG] debug	2025-04-25 23:53:02.805 - Node<5> - mode
+[2025-04-25 23:53:02.821614] [OTNS LOG] debug	2025-04-25 23:53:02.805 - Node<5> - rdn
+[2025-04-25 23:53:02.822352] [OTNS LOG] debug	2025-04-25 23:53:02.805 - Node<5> - Done
+[2025-04-25 23:53:02.822947] [OTNS LOG] info	2025-04-25 23:53:02.805 - Node<5> - started, panid=0xface, channel=11, eui64="18b4300000000005", extaddr=0x428ce490c4180f84, state=detached, networkkey="00112233445566778899aabbccddeeff", mode=rdn
+[2025-04-25 23:53:02.823560] [_do_command] Received: 5
+[2025-04-25 23:53:02.824281] [_do_command] Received: Done
+[2025-04-25 23:53:02.825094] [_do_command] Sending command: node 5 "routerupgradethreshold 99"
+[2025-04-25 23:53:02.826358] [OTNS LOG] debug	2025-04-25 23:53:02.826 - Node<5> - routerupgradethreshold 99
+[2025-04-25 23:53:02.827531] [OTNS LOG] debug	2025-04-25 23:53:02.826 - Node<5> - Done
+[2025-04-25 23:53:02.828327] [_do_command] Received: Done
+[2025-04-25 23:53:02.829172] [_do_command] Sending command: node 5 "routerdowngradethreshold 1"
+[2025-04-25 23:53:02.830395] [OTNS LOG] debug	2025-04-25 23:53:02.830 - Node<5> - routerdowngradethreshold 1
+[2025-04-25 23:53:02.831078] [OTNS LOG] debug	2025-04-25 23:53:02.830 - Node<5> - Done
+[2025-04-25 23:53:02.831598] [_do_command] Received: Done
+[2025-04-25 23:53:02.832110] [_do_command] Sending command: node 5 "mode rn"
+[2025-04-25 23:53:02.833333] [OTNS LOG] debug	2025-04-25 23:53:02.833 - status push: 5: "mode=rn"
+[2025-04-25 23:53:02.834205] [OTNS LOG] debug	2025-04-25 23:53:02.833 - Node<5> - mode rn
+[2025-04-25 23:53:02.834871] [OTNS LOG] debug	2025-04-25 23:53:02.833 - Node<5> - Done
+[2025-04-25 23:53:02.835773] [_do_command] Received: Done
+[2025-04-25 23:53:02.836486] [_do_command] Sending command: add router x 346 y 453 exe "/home/otns/otns/openthread/build/simulation/examples/apps/cli/ot-cli-ftd"
+[2025-04-25 23:53:02.837606] [OTNS LOG] info	2025-04-25 23:53:02.837 - Add: cli.AddCmd{Cmd:struct {}{}, Type:cli.NodeType{Val:"router"}, X:(*int)(0xc00030e6f0), Y:(*int)(0xc00030e700), Id:(*cli.AddNodeId)(nil), RadioRange:(*cli.RadioRangeFlag)(nil), Restore:(*cli.RestoreFlag)(nil), Executable:(*cli.ExecutableFlag)(0xc0002f6d20)}
+[2025-04-25 23:53:02.838227] [OTNS LOG] debug	2025-04-25 23:53:02.838 - node exe path: /home/otns/otns/openthread/build/simulation/examples/apps/cli/ot-cli-ftd
+[2025-04-25 23:53:02.838946] [OTNS LOG] info	2025-04-25 23:53:02.838 - simulation:CtrlAddNode: &{ID:-1 X:346 Y:453 IsMtd:false IsRouter:true RxOffWhenIdle:false RadioRange:160 ExecutablePath:/home/otns/otns/openthread/build/simulation/examples/apps/cli/ot-cli-ftd Restore:false}, rawMode=false
+[2025-04-25 23:53:02.839838] [OTNS LOG] info	2025-04-25 23:53:02.838 - dispatcher add node 6
+[2025-04-25 23:53:02.841584] [OTNS LOG] debug	2025-04-25 23:53:02.841 - status push: 6: "extaddr=ea45367c7d149a86"
+[2025-04-25 23:53:02.842451] [OTNS LOG] debug	2025-04-25 23:53:02.841 - extaddr changed: node=6, extaddr=ea45367c7d149a86, old extaddr=ffffffffffffffff
+[2025-04-25 23:53:02.844391] [OTNS LOG] debug	2025-04-25 23:53:02.841 - status push: 6: "rloc16=65534"
+[2025-04-25 23:53:02.845569] [OTNS LOG] debug	2025-04-25 23:53:02.841 - set node rloc: fffe -> fffe
+[2025-04-25 23:53:02.851854] [OTNS LOG] debug	2025-04-25 23:53:02.851 - node 6's extaddr becomes valid in 12.886486ms
+[2025-04-25 23:53:02.852657] [OTNS LOG] debug	2025-04-25 23:53:02.851 - Node<6>'s UART type is 2
+[2025-04-25 23:53:02.853412] [OTNS LOG] debug	2025-04-25 23:53:02.851 - Node<6> - 
+[2025-04-25 23:53:02.854137] [OTNS LOG] debug	2025-04-25 23:53:02.852 - Node<6> - mode rdn
+[2025-04-25 23:53:02.854880] [OTNS LOG] debug	2025-04-25 23:53:02.852 - Node<6> - Done
+[2025-04-25 23:53:02.855724] [OTNS LOG] debug	2025-04-25 23:53:02.852 - Node<6> - routerselectionjitter 1
+[2025-04-25 23:53:02.856357] [OTNS LOG] debug	2025-04-25 23:53:02.852 - Node<6> - Done
+[2025-04-25 23:53:02.857297] [OTNS LOG] debug	2025-04-25 23:53:02.852 - Node<6> - dataset init new
+[2025-04-25 23:53:02.857993] [OTNS LOG] debug	2025-04-25 23:53:02.852 - Node<6> - Done
+[2025-04-25 23:53:02.858483] [OTNS LOG] debug	2025-04-25 23:53:02.853 - Node<6> - dataset channel 11
+[2025-04-25 23:53:02.859158] [OTNS LOG] debug	2025-04-25 23:53:02.853 - Node<6> - Done
+[2025-04-25 23:53:02.859722] [OTNS LOG] debug	2025-04-25 23:53:02.853 - Node<6> - dataset extpanid dead00beef00cafe
+[2025-04-25 23:53:02.860328] [OTNS LOG] debug	2025-04-25 23:53:02.853 - Node<6> - Done
+[2025-04-25 23:53:02.860807] [OTNS LOG] debug	2025-04-25 23:53:02.853 - Node<6> - dataset meshlocalprefix fdde:ad00:beef:0::
+[2025-04-25 23:53:02.861518] [OTNS LOG] debug	2025-04-25 23:53:02.853 - Node<6> - Done
+[2025-04-25 23:53:02.862096] [OTNS LOG] debug	2025-04-25 23:53:02.854 - Node<6> - dataset networkkey 00112233445566778899aabbccddeeff
+[2025-04-25 23:53:02.862754] [OTNS LOG] debug	2025-04-25 23:53:02.854 - Node<6> - Done
+[2025-04-25 23:53:02.863318] [OTNS LOG] debug	2025-04-25 23:53:02.854 - Node<6> - dataset networkname otns
+[2025-04-25 23:53:02.863862] [OTNS LOG] debug	2025-04-25 23:53:02.854 - Node<6> - Done
+[2025-04-25 23:53:02.864499] [OTNS LOG] debug	2025-04-25 23:53:02.854 - Node<6> - dataset panid 0xface
+[2025-04-25 23:53:02.864933] [OTNS LOG] debug	2025-04-25 23:53:02.854 - Node<6> - Done
+[2025-04-25 23:53:02.865416] [OTNS LOG] debug	2025-04-25 23:53:02.855 - Node<6> - dataset pskc 3aa55f91ca47d1e4e71a08cb35e91591
+[2025-04-25 23:53:02.865912] [OTNS LOG] debug	2025-04-25 23:53:02.855 - Node<6> - Done
+[2025-04-25 23:53:02.928425] [OTNS LOG] debug	2025-04-25 23:53:02.928 - Node<6> - dataset commit active
+[2025-04-25 23:53:02.929761] [OTNS LOG] debug	2025-04-25 23:53:02.928 - Node<6> - Done
+[2025-04-25 23:53:02.930611] [OTNS LOG] debug	2025-04-25 23:53:02.928 - Node<6> - ifconfig up
+[2025-04-25 23:53:02.932056] [OTNS LOG] debug	2025-04-25 23:53:02.928 - Node<6> - Done
+[2025-04-25 23:53:02.933240] [OTNS LOG] debug	2025-04-25 23:53:02.928 - status push: 6: "rloc16=65534"
+[2025-04-25 23:53:02.933921] [OTNS LOG] debug	2025-04-25 23:53:02.929 - set node rloc: fffe -> fffe
+[2025-04-25 23:53:02.934693] [OTNS LOG] debug	2025-04-25 23:53:02.930 - status push: 6: "role=1"
+[2025-04-25 23:53:02.935419] [OTNS LOG] debug	2025-04-25 23:53:02.930 - Node<6> - thread start
+[2025-04-25 23:53:02.936430] [OTNS LOG] debug	2025-04-25 23:53:02.930 - Node<6> - Done
+[2025-04-25 23:53:02.937313] [OTNS LOG] debug	2025-04-25 23:53:02.931 - Node<6> - panid
+[2025-04-25 23:53:02.938286] [OTNS LOG] debug	2025-04-25 23:53:02.931 - Node<6> - 0xface
+[2025-04-25 23:53:02.939251] [OTNS LOG] debug	2025-04-25 23:53:02.931 - Node<6> - Done
+[2025-04-25 23:53:02.940050] [OTNS LOG] debug	2025-04-25 23:53:02.931 - Node<6> - channel
+[2025-04-25 23:53:02.941197] [OTNS LOG] debug	2025-04-25 23:53:02.931 - Node<6> - 11
+[2025-04-25 23:53:02.942103] [OTNS LOG] debug	2025-04-25 23:53:02.931 - Node<6> - Done
+[2025-04-25 23:53:02.943191] [OTNS LOG] debug	2025-04-25 23:53:02.931 - Node<6> - eui64
+[2025-04-25 23:53:02.943886] [OTNS LOG] debug	2025-04-25 23:53:02.931 - Node<6> - 18b4300000000006
+[2025-04-25 23:53:02.944851] [OTNS LOG] debug	2025-04-25 23:53:02.931 - Node<6> - Done
+[2025-04-25 23:53:02.945657] [OTNS LOG] debug	2025-04-25 23:53:02.932 - Node<6> - extaddr
+[2025-04-25 23:53:02.946447] [OTNS LOG] debug	2025-04-25 23:53:02.932 - Node<6> - ea45367c7d149a86
+[2025-04-25 23:53:02.947523] [OTNS LOG] debug	2025-04-25 23:53:02.932 - Node<6> - Done
+[2025-04-25 23:53:02.948236] [OTNS LOG] debug	2025-04-25 23:53:02.932 - Node<6> - state
+[2025-04-25 23:53:02.949358] [OTNS LOG] debug	2025-04-25 23:53:02.932 - Node<6> - detached
+[2025-04-25 23:53:02.950207] [OTNS LOG] debug	2025-04-25 23:53:02.932 - Node<6> - Done
+[2025-04-25 23:53:02.951350] [OTNS LOG] debug	2025-04-25 23:53:02.933 - Node<6> - networkkey
+[2025-04-25 23:53:02.952407] [OTNS LOG] debug	2025-04-25 23:53:02.933 - Node<6> - 00112233445566778899aabbccddeeff
+[2025-04-25 23:53:02.953515] [OTNS LOG] debug	2025-04-25 23:53:02.933 - Node<6> - Done
+[2025-04-25 23:53:02.954760] [OTNS LOG] debug	2025-04-25 23:53:02.933 - Node<6> - mode
+[2025-04-25 23:53:02.955603] [OTNS LOG] debug	2025-04-25 23:53:02.933 - Node<6> - rdn
+[2025-04-25 23:53:02.956428] [OTNS LOG] debug	2025-04-25 23:53:02.933 - Node<6> - Done
+[2025-04-25 23:53:02.957207] [OTNS LOG] info	2025-04-25 23:53:02.933 - Node<6> - started, panid=0xface, channel=11, eui64="18b4300000000006", extaddr=0xea45367c7d149a86, state=detached, networkkey="00112233445566778899aabbccddeeff", mode=rdn
+[2025-04-25 23:53:02.957863] [_do_command] Received: 6
+[2025-04-25 23:53:02.958521] [_do_command] Received: Done
+[2025-04-25 23:53:02.959159] [_do_command] Sending command: node 6 "routerupgradethreshold 99"
+[2025-04-25 23:53:02.960701] [OTNS LOG] debug	2025-04-25 23:53:02.960 - Node<6> - routerupgradethreshold 99
+[2025-04-25 23:53:02.961368] [OTNS LOG] debug	2025-04-25 23:53:02.960 - Node<6> - Done
+[2025-04-25 23:53:02.962046] [_do_command] Received: Done
+[2025-04-25 23:53:02.963121] [_do_command] Sending command: node 6 "routerdowngradethreshold 1"
+[2025-04-25 23:53:02.965101] [OTNS LOG] debug	2025-04-25 23:53:02.964 - Node<6> - routerdowngradethreshold 1
+[2025-04-25 23:53:02.966350] [OTNS LOG] debug	2025-04-25 23:53:02.965 - Node<6> - Done
+[2025-04-25 23:53:02.967520] [_do_command] Received: Done
+[2025-04-25 23:53:02.968570] [_do_command] Sending command: node 6 "mode rn"
+[2025-04-25 23:53:02.970303] [OTNS LOG] debug	2025-04-25 23:53:02.970 - status push: 6: "mode=rn"
+[2025-04-25 23:53:02.971125] [OTNS LOG] debug	2025-04-25 23:53:02.970 - Node<6> - mode rn
+[2025-04-25 23:53:02.972383] [OTNS LOG] debug	2025-04-25 23:53:02.970 - Node<6> - Done
+[2025-04-25 23:53:02.973518] [_do_command] Received: Done
+[2025-04-25 23:53:02.974353] [_do_command] Sending command: add router x 325 y 400 exe "/home/otns/otns/openthread/build/simulation/examples/apps/cli/ot-cli-ftd"
+[2025-04-25 23:53:02.975633] [OTNS LOG] info	2025-04-25 23:53:02.975 - Add: cli.AddCmd{Cmd:struct {}{}, Type:cli.NodeType{Val:"router"}, X:(*int)(0xc000d220b0), Y:(*int)(0xc000d220c0), Id:(*cli.AddNodeId)(nil), RadioRange:(*cli.RadioRangeFlag)(nil), Restore:(*cli.RestoreFlag)(nil), Executable:(*cli.ExecutableFlag)(0xc000047480)}
+[2025-04-25 23:53:02.976549] [OTNS LOG] debug	2025-04-25 23:53:02.976 - node exe path: /home/otns/otns/openthread/build/simulation/examples/apps/cli/ot-cli-ftd
+[2025-04-25 23:53:02.977396] [OTNS LOG] info	2025-04-25 23:53:02.977 - simulation:CtrlAddNode: &{ID:-1 X:325 Y:400 IsMtd:false IsRouter:true RxOffWhenIdle:false RadioRange:160 ExecutablePath:/home/otns/otns/openthread/build/simulation/examples/apps/cli/ot-cli-ftd Restore:false}, rawMode=false
+[2025-04-25 23:53:02.977979] [OTNS LOG] info	2025-04-25 23:53:02.977 - dispatcher add node 7
+[2025-04-25 23:53:02.979929] [OTNS LOG] debug	2025-04-25 23:53:02.979 - status push: 7: "extaddr=eeb25be1dd1a845b"
+[2025-04-25 23:53:02.980979] [OTNS LOG] debug	2025-04-25 23:53:02.979 - extaddr changed: node=7, extaddr=eeb25be1dd1a845b, old extaddr=ffffffffffffffff
+[2025-04-25 23:53:02.982056] [OTNS LOG] debug	2025-04-25 23:53:02.979 - status push: 7: "rloc16=65534"
+[2025-04-25 23:53:02.983023] [OTNS LOG] debug	2025-04-25 23:53:02.979 - set node rloc: fffe -> fffe
+[2025-04-25 23:53:02.986127] [OTNS LOG] debug	2025-04-25 23:53:02.986 - node 7's extaddr becomes valid in 8.638205ms
+[2025-04-25 23:53:02.987025] [OTNS LOG] debug	2025-04-25 23:53:02.986 - Node<7>'s UART type is 2
+[2025-04-25 23:53:02.987783] [OTNS LOG] debug	2025-04-25 23:53:02.986 - Node<7> - 
+[2025-04-25 23:53:02.988809] [OTNS LOG] debug	2025-04-25 23:53:02.986 - Node<7> - mode rdn
+[2025-04-25 23:53:02.989627] [OTNS LOG] debug	2025-04-25 23:53:02.986 - Node<7> - Done
+[2025-04-25 23:53:02.990430] [OTNS LOG] debug	2025-04-25 23:53:02.986 - Node<7> - routerselectionjitter 1
+[2025-04-25 23:53:02.991152] [OTNS LOG] debug	2025-04-25 23:53:02.986 - Node<7> - Done
+[2025-04-25 23:53:02.991930] [OTNS LOG] debug	2025-04-25 23:53:02.987 - Node<7> - dataset init new
+[2025-04-25 23:53:02.992839] [OTNS LOG] debug	2025-04-25 23:53:02.987 - Node<7> - Done
+[2025-04-25 23:53:02.993814] [OTNS LOG] debug	2025-04-25 23:53:02.987 - Node<7> - dataset channel 11
+[2025-04-25 23:53:02.994668] [OTNS LOG] debug	2025-04-25 23:53:02.987 - Node<7> - Done
+[2025-04-25 23:53:02.995566] [OTNS LOG] debug	2025-04-25 23:53:02.987 - Node<7> - dataset extpanid dead00beef00cafe
+[2025-04-25 23:53:02.996531] [OTNS LOG] debug	2025-04-25 23:53:02.987 - Node<7> - Done
+[2025-04-25 23:53:02.997368] [OTNS LOG] debug	2025-04-25 23:53:02.988 - Node<7> - dataset meshlocalprefix fdde:ad00:beef:0::
+[2025-04-25 23:53:02.998195] [OTNS LOG] debug	2025-04-25 23:53:02.988 - Node<7> - Done
+[2025-04-25 23:53:02.998901] [OTNS LOG] debug	2025-04-25 23:53:02.989 - Node<7> - dataset networkkey 00112233445566778899aabbccddeeff
+[2025-04-25 23:53:02.999721] [OTNS LOG] debug	2025-04-25 23:53:02.989 - Node<7> - Done
+[2025-04-25 23:53:03.000672] [OTNS LOG] debug	2025-04-25 23:53:02.989 - Node<7> - dataset networkname otns
+[2025-04-25 23:53:03.001491] [OTNS LOG] debug	2025-04-25 23:53:02.989 - Node<7> - Done
+[2025-04-25 23:53:03.002363] [OTNS LOG] debug	2025-04-25 23:53:02.989 - Node<7> - dataset panid 0xface
+[2025-04-25 23:53:03.003410] [OTNS LOG] debug	2025-04-25 23:53:02.989 - Node<7> - Done
+[2025-04-25 23:53:03.004254] [OTNS LOG] debug	2025-04-25 23:53:02.989 - Node<7> - dataset pskc 3aa55f91ca47d1e4e71a08cb35e91591
+[2025-04-25 23:53:03.005033] [OTNS LOG] debug	2025-04-25 23:53:02.989 - Node<7> - Done
+[2025-04-25 23:53:03.071943] [OTNS LOG] debug	2025-04-25 23:53:03.071 - Node<7> - dataset commit active
+[2025-04-25 23:53:03.073228] [OTNS LOG] debug	2025-04-25 23:53:03.071 - Node<7> - Done
+[2025-04-25 23:53:03.074200] [OTNS LOG] debug	2025-04-25 23:53:03.072 - Node<7> - ifconfig up
+[2025-04-25 23:53:03.074888] [OTNS LOG] debug	2025-04-25 23:53:03.072 - Node<7> - Done
+[2025-04-25 23:53:03.075597] [OTNS LOG] debug	2025-04-25 23:53:03.072 - status push: 7: "rloc16=65534"
+[2025-04-25 23:53:03.076296] [OTNS LOG] debug	2025-04-25 23:53:03.072 - set node rloc: fffe -> fffe
+[2025-04-25 23:53:03.077106] [OTNS LOG] debug	2025-04-25 23:53:03.073 - status push: 7: "role=1"
+[2025-04-25 23:53:03.078010] [OTNS LOG] debug	2025-04-25 23:53:03.073 - Node<7> - thread start
+[2025-04-25 23:53:03.078828] [OTNS LOG] debug	2025-04-25 23:53:03.073 - Node<7> - Done
+[2025-04-25 23:53:03.079614] [OTNS LOG] debug	2025-04-25 23:53:03.074 - Node<7> - panid
+[2025-04-25 23:53:03.080217] [OTNS LOG] debug	2025-04-25 23:53:03.074 - Node<7> - 0xface
+[2025-04-25 23:53:03.080825] [OTNS LOG] debug	2025-04-25 23:53:03.074 - Node<7> - Done
+[2025-04-25 23:53:03.081443] [OTNS LOG] debug	2025-04-25 23:53:03.074 - Node<7> - channel
+[2025-04-25 23:53:03.082493] [OTNS LOG] debug	2025-04-25 23:53:03.074 - Node<7> - 11
+[2025-04-25 23:53:03.083323] [OTNS LOG] debug	2025-04-25 23:53:03.074 - Node<7> - Done
+[2025-04-25 23:53:03.084155] [OTNS LOG] debug	2025-04-25 23:53:03.074 - Node<7> - eui64
+[2025-04-25 23:53:03.084967] [OTNS LOG] debug	2025-04-25 23:53:03.074 - Node<7> - 18b4300000000007
+[2025-04-25 23:53:03.085861] [OTNS LOG] debug	2025-04-25 23:53:03.074 - Node<7> - Done
+[2025-04-25 23:53:03.086699] [OTNS LOG] debug	2025-04-25 23:53:03.074 - Node<7> - extaddr
+[2025-04-25 23:53:03.087215] [OTNS LOG] debug	2025-04-25 23:53:03.074 - Node<7> - eeb25be1dd1a845b
+[2025-04-25 23:53:03.087989] [OTNS LOG] debug	2025-04-25 23:53:03.074 - Node<7> - Done
+[2025-04-25 23:53:03.088576] [OTNS LOG] debug	2025-04-25 23:53:03.075 - Node<7> - state
+[2025-04-25 23:53:03.089442] [OTNS LOG] debug	2025-04-25 23:53:03.075 - Node<7> - detached
+[2025-04-25 23:53:03.090098] [OTNS LOG] debug	2025-04-25 23:53:03.075 - Node<7> - Done
+[2025-04-25 23:53:03.090869] [OTNS LOG] debug	2025-04-25 23:53:03.075 - Node<7> - networkkey
+[2025-04-25 23:53:03.091737] [OTNS LOG] debug	2025-04-25 23:53:03.075 - Node<7> - 00112233445566778899aabbccddeeff
+[2025-04-25 23:53:03.092523] [OTNS LOG] debug	2025-04-25 23:53:03.075 - Node<7> - Done
+[2025-04-25 23:53:03.093208] [OTNS LOG] debug	2025-04-25 23:53:03.075 - Node<7> - mode
+[2025-04-25 23:53:03.094052] [OTNS LOG] debug	2025-04-25 23:53:03.075 - Node<7> - rdn
+[2025-04-25 23:53:03.094629] [OTNS LOG] debug	2025-04-25 23:53:03.075 - Node<7> - Done
+[2025-04-25 23:53:03.095226] [OTNS LOG] info	2025-04-25 23:53:03.075 - Node<7> - started, panid=0xface, channel=11, eui64="18b4300000000007", extaddr=0xeeb25be1dd1a845b, state=detached, networkkey="00112233445566778899aabbccddeeff", mode=rdn
+[2025-04-25 23:53:03.095788] [_do_command] Received: 7
+[2025-04-25 23:53:03.096314] [_do_command] Received: Done
+[2025-04-25 23:53:03.097000] [_do_command] Sending command: node 7 "routerupgradethreshold 99"
+[2025-04-25 23:53:03.098478] [OTNS LOG] debug	2025-04-25 23:53:03.098 - Node<7> - routerupgradethreshold 99
+[2025-04-25 23:53:03.099260] [OTNS LOG] debug	2025-04-25 23:53:03.098 - Node<7> - Done
+[2025-04-25 23:53:03.100068] [_do_command] Received: Done
+[2025-04-25 23:53:03.101478] [_do_command] Sending command: node 7 "routerdowngradethreshold 1"
+[2025-04-25 23:53:03.103176] [OTNS LOG] debug	2025-04-25 23:53:03.103 - Node<7> - routerdowngradethreshold 1
+[2025-04-25 23:53:03.103913] [OTNS LOG] debug	2025-04-25 23:53:03.103 - Node<7> - Done
+[2025-04-25 23:53:03.104490] [_do_command] Received: Done
+[2025-04-25 23:53:03.105260] [_do_command] Sending command: node 7 "mode rn"
+[2025-04-25 23:53:03.106641] [OTNS LOG] debug	2025-04-25 23:53:03.106 - status push: 7: "mode=rn"
+[2025-04-25 23:53:03.107400] [OTNS LOG] debug	2025-04-25 23:53:03.106 - Node<7> - mode rn
+[2025-04-25 23:53:03.108168] [OTNS LOG] debug	2025-04-25 23:53:03.106 - Node<7> - Done
+[2025-04-25 23:53:03.108693] [_do_command] Received: Done
+[2025-04-25 23:53:03.109572] [_do_command] Sending command: add router x 346 y 346 exe "/home/otns/otns/openthread/build/simulation/examples/apps/cli/ot-cli-ftd"
+[2025-04-25 23:53:03.110611] [OTNS LOG] info	2025-04-25 23:53:03.110 - Add: cli.AddCmd{Cmd:struct {}{}, Type:cli.NodeType{Val:"router"}, X:(*int)(0xc000129570), Y:(*int)(0xc000129580), Id:(*cli.AddNodeId)(nil), RadioRange:(*cli.RadioRangeFlag)(nil), Restore:(*cli.RestoreFlag)(nil), Executable:(*cli.ExecutableFlag)(0xc0002a8c50)}
+[2025-04-25 23:53:03.111582] [OTNS LOG] debug	2025-04-25 23:53:03.111 - node exe path: /home/otns/otns/openthread/build/simulation/examples/apps/cli/ot-cli-ftd
+[2025-04-25 23:53:03.112757] [OTNS LOG] info	2025-04-25 23:53:03.112 - simulation:CtrlAddNode: &{ID:-1 X:346 Y:346 IsMtd:false IsRouter:true RxOffWhenIdle:false RadioRange:160 ExecutablePath:/home/otns/otns/openthread/build/simulation/examples/apps/cli/ot-cli-ftd Restore:false}, rawMode=false
+[2025-04-25 23:53:03.113623] [OTNS LOG] info	2025-04-25 23:53:03.112 - dispatcher add node 8
+[2025-04-25 23:53:03.115530] [OTNS LOG] debug	2025-04-25 23:53:03.115 - status push: 8: "extaddr=e25cc444d9e6c31b"
+[2025-04-25 23:53:03.116748] [OTNS LOG] debug	2025-04-25 23:53:03.115 - extaddr changed: node=8, extaddr=e25cc444d9e6c31b, old extaddr=ffffffffffffffff
+[2025-04-25 23:53:03.117288] [OTNS LOG] debug	2025-04-25 23:53:03.115 - status push: 8: "rloc16=65534"
+[2025-04-25 23:53:03.118018] [OTNS LOG] debug	2025-04-25 23:53:03.115 - set node rloc: fffe -> fffe
+[2025-04-25 23:53:03.123718] [OTNS LOG] debug	2025-04-25 23:53:03.123 - node 8's extaddr becomes valid in 11.48861ms
+[2025-04-25 23:53:03.124803] [OTNS LOG] debug	2025-04-25 23:53:03.123 - Node<8>'s UART type is 2
+[2025-04-25 23:53:03.125602] [OTNS LOG] debug	2025-04-25 23:53:03.124 - Node<8> - 
+[2025-04-25 23:53:03.126387] [OTNS LOG] debug	2025-04-25 23:53:03.124 - Node<8> - mode rdn
+[2025-04-25 23:53:03.127149] [OTNS LOG] debug	2025-04-25 23:53:03.124 - Node<8> - Done
+[2025-04-25 23:53:03.128058] [OTNS LOG] debug	2025-04-25 23:53:03.124 - Node<8> - routerselectionjitter 1
+[2025-04-25 23:53:03.128730] [OTNS LOG] debug	2025-04-25 23:53:03.124 - Node<8> - Done
+[2025-04-25 23:53:03.129694] [OTNS LOG] debug	2025-04-25 23:53:03.124 - Node<8> - dataset init new
+[2025-04-25 23:53:03.130640] [OTNS LOG] debug	2025-04-25 23:53:03.124 - Node<8> - Done
+[2025-04-25 23:53:03.131692] [OTNS LOG] debug	2025-04-25 23:53:03.125 - Node<8> - dataset channel 11
+[2025-04-25 23:53:03.132429] [OTNS LOG] debug	2025-04-25 23:53:03.125 - Node<8> - Done
+[2025-04-25 23:53:03.133261] [OTNS LOG] debug	2025-04-25 23:53:03.125 - Node<8> - dataset extpanid dead00beef00cafe
+[2025-04-25 23:53:03.134018] [OTNS LOG] debug	2025-04-25 23:53:03.125 - Node<8> - Done
+[2025-04-25 23:53:03.135020] [OTNS LOG] debug	2025-04-25 23:53:03.125 - Node<8> - dataset meshlocalprefix fdde:ad00:beef:0::
+[2025-04-25 23:53:03.135912] [OTNS LOG] debug	2025-04-25 23:53:03.125 - Node<8> - Done
+[2025-04-25 23:53:03.136842] [OTNS LOG] debug	2025-04-25 23:53:03.126 - Node<8> - dataset networkkey 00112233445566778899aabbccddeeff
+[2025-04-25 23:53:03.137677] [OTNS LOG] debug	2025-04-25 23:53:03.126 - Node<8> - Done
+[2025-04-25 23:53:03.138734] [OTNS LOG] debug	2025-04-25 23:53:03.126 - Node<8> - dataset networkname otns
+[2025-04-25 23:53:03.139580] [OTNS LOG] debug	2025-04-25 23:53:03.126 - Node<8> - Done
+[2025-04-25 23:53:03.140307] [OTNS LOG] debug	2025-04-25 23:53:03.127 - Node<8> - dataset panid 0xface
+[2025-04-25 23:53:03.141004] [OTNS LOG] debug	2025-04-25 23:53:03.127 - Node<8> - Done
+[2025-04-25 23:53:03.141692] [OTNS LOG] debug	2025-04-25 23:53:03.127 - Node<8> - dataset pskc 3aa55f91ca47d1e4e71a08cb35e91591
+[2025-04-25 23:53:03.142959] [OTNS LOG] debug	2025-04-25 23:53:03.127 - Node<8> - Done
+[2025-04-25 23:53:03.204760] [OTNS LOG] debug	2025-04-25 23:53:03.204 - Node<8> - dataset commit active
+[2025-04-25 23:53:03.205885] [OTNS LOG] debug	2025-04-25 23:53:03.204 - Node<8> - Done
+[2025-04-25 23:53:03.206761] [OTNS LOG] debug	2025-04-25 23:53:03.205 - Node<8> - ifconfig up
+[2025-04-25 23:53:03.207702] [OTNS LOG] debug	2025-04-25 23:53:03.205 - Node<8> - Done
+[2025-04-25 23:53:03.208685] [OTNS LOG] debug	2025-04-25 23:53:03.205 - status push: 8: "rloc16=65534"
+[2025-04-25 23:53:03.209361] [OTNS LOG] debug	2025-04-25 23:53:03.205 - set node rloc: fffe -> fffe
+[2025-04-25 23:53:03.209994] [OTNS LOG] debug	2025-04-25 23:53:03.206 - status push: 8: "role=1"
+[2025-04-25 23:53:03.210781] [OTNS LOG] debug	2025-04-25 23:53:03.206 - Node<8> - thread start
+[2025-04-25 23:53:03.211787] [OTNS LOG] debug	2025-04-25 23:53:03.206 - Node<8> - Done
+[2025-04-25 23:53:03.212547] [OTNS LOG] debug	2025-04-25 23:53:03.207 - Node<8> - panid
+[2025-04-25 23:53:03.213144] [OTNS LOG] debug	2025-04-25 23:53:03.207 - Node<8> - 0xface
+[2025-04-25 23:53:03.213847] [OTNS LOG] debug	2025-04-25 23:53:03.207 - Node<8> - Done
+[2025-04-25 23:53:03.214599] [OTNS LOG] debug	2025-04-25 23:53:03.207 - Node<8> - channel
+[2025-04-25 23:53:03.215462] [OTNS LOG] debug	2025-04-25 23:53:03.207 - Node<8> - 11
+[2025-04-25 23:53:03.216460] [OTNS LOG] debug	2025-04-25 23:53:03.207 - Node<8> - Done
+[2025-04-25 23:53:03.217190] [OTNS LOG] debug	2025-04-25 23:53:03.207 - Node<8> - eui64
+[2025-04-25 23:53:03.218095] [OTNS LOG] debug	2025-04-25 23:53:03.207 - Node<8> - 18b4300000000008
+[2025-04-25 23:53:03.218821] [OTNS LOG] debug	2025-04-25 23:53:03.207 - Node<8> - Done
+[2025-04-25 23:53:03.219388] [OTNS LOG] debug	2025-04-25 23:53:03.207 - Node<8> - extaddr
+[2025-04-25 23:53:03.220137] [OTNS LOG] debug	2025-04-25 23:53:03.207 - Node<8> - e25cc444d9e6c31b
+[2025-04-25 23:53:03.220747] [OTNS LOG] debug	2025-04-25 23:53:03.207 - Node<8> - Done
+[2025-04-25 23:53:03.221429] [OTNS LOG] debug	2025-04-25 23:53:03.208 - Node<8> - state
+[2025-04-25 23:53:03.222345] [OTNS LOG] debug	2025-04-25 23:53:03.208 - Node<8> - detached
+[2025-04-25 23:53:03.223042] [OTNS LOG] debug	2025-04-25 23:53:03.208 - Node<8> - Done
+[2025-04-25 23:53:03.223592] [OTNS LOG] debug	2025-04-25 23:53:03.208 - Node<8> - networkkey
+[2025-04-25 23:53:03.224245] [OTNS LOG] debug	2025-04-25 23:53:03.208 - Node<8> - 00112233445566778899aabbccddeeff
+[2025-04-25 23:53:03.224838] [OTNS LOG] debug	2025-04-25 23:53:03.208 - Node<8> - Done
+[2025-04-25 23:53:03.225400] [OTNS LOG] debug	2025-04-25 23:53:03.208 - Node<8> - mode
+[2025-04-25 23:53:03.226204] [OTNS LOG] debug	2025-04-25 23:53:03.208 - Node<8> - rdn
+[2025-04-25 23:53:03.226908] [OTNS LOG] debug	2025-04-25 23:53:03.208 - Node<8> - Done
+[2025-04-25 23:53:03.227466] [OTNS LOG] info	2025-04-25 23:53:03.208 - Node<8> - started, panid=0xface, channel=11, eui64="18b4300000000008", extaddr=0xe25cc444d9e6c31b, state=detached, networkkey="00112233445566778899aabbccddeeff", mode=rdn
+[2025-04-25 23:53:03.227955] [_do_command] Received: 8
+[2025-04-25 23:53:03.228517] [_do_command] Received: Done
+[2025-04-25 23:53:03.229181] [_do_command] Sending command: node 8 "routerupgradethreshold 99"
+[2025-04-25 23:53:03.231676] [OTNS LOG] debug	2025-04-25 23:53:03.231 - Node<8> - routerupgradethreshold 99
+[2025-04-25 23:53:03.232325] [OTNS LOG] debug	2025-04-25 23:53:03.231 - Node<8> - Done
+[2025-04-25 23:53:03.233270] [_do_command] Received: Done
+[2025-04-25 23:53:03.233936] [_do_command] Sending command: node 8 "routerdowngradethreshold 1"
+[2025-04-25 23:53:03.235473] [OTNS LOG] debug	2025-04-25 23:53:03.235 - Node<8> - routerdowngradethreshold 1
+[2025-04-25 23:53:03.236021] [OTNS LOG] debug	2025-04-25 23:53:03.235 - Node<8> - Done
+[2025-04-25 23:53:03.236761] [_do_command] Received: Done
+[2025-04-25 23:53:03.237360] [_do_command] Sending command: node 8 "mode rn"
+[2025-04-25 23:53:03.238337] [OTNS LOG] debug	2025-04-25 23:53:03.238 - status push: 8: "mode=rn"
+[2025-04-25 23:53:03.239221] [OTNS LOG] debug	2025-04-25 23:53:03.238 - Node<8> - mode rn
+[2025-04-25 23:53:03.239691] [OTNS LOG] debug	2025-04-25 23:53:03.238 - Node<8> - Done
+[2025-04-25 23:53:03.240328] [_do_command] Received: Done
+[2025-04-25 23:53:03.240887] [_do_command] Sending command: add router x 400 y 325 exe "/home/otns/otns/openthread/build/simulation/examples/apps/cli/ot-cli-ftd"
+[2025-04-25 23:53:03.241743] [OTNS LOG] info	2025-04-25 23:53:03.241 - Add: cli.AddCmd{Cmd:struct {}{}, Type:cli.NodeType{Val:"router"}, X:(*int)(0xc0002c3b80), Y:(*int)(0xc0002c3b90), Id:(*cli.AddNodeId)(nil), RadioRange:(*cli.RadioRangeFlag)(nil), Restore:(*cli.RestoreFlag)(nil), Executable:(*cli.ExecutableFlag)(0xc0002a9940)}
+[2025-04-25 23:53:03.242571] [OTNS LOG] debug	2025-04-25 23:53:03.242 - node exe path: /home/otns/otns/openthread/build/simulation/examples/apps/cli/ot-cli-ftd
+[2025-04-25 23:53:03.243566] [OTNS LOG] info	2025-04-25 23:53:03.242 - simulation:CtrlAddNode: &{ID:-1 X:400 Y:325 IsMtd:false IsRouter:true RxOffWhenIdle:false RadioRange:160 ExecutablePath:/home/otns/otns/openthread/build/simulation/examples/apps/cli/ot-cli-ftd Restore:false}, rawMode=false
+[2025-04-25 23:53:03.244261] [OTNS LOG] info	2025-04-25 23:53:03.242 - dispatcher add node 9
+[2025-04-25 23:53:03.245861] [OTNS LOG] debug	2025-04-25 23:53:03.245 - status push: 9: "extaddr=72bf35c1068520c8"
+[2025-04-25 23:53:03.246579] [OTNS LOG] debug	2025-04-25 23:53:03.245 - extaddr changed: node=9, extaddr=72bf35c1068520c8, old extaddr=ffffffffffffffff
+[2025-04-25 23:53:03.247255] [OTNS LOG] debug	2025-04-25 23:53:03.245 - status push: 9: "rloc16=65534"
+[2025-04-25 23:53:03.247911] [OTNS LOG] debug	2025-04-25 23:53:03.245 - set node rloc: fffe -> fffe
+[2025-04-25 23:53:03.253287] [OTNS LOG] debug	2025-04-25 23:53:03.253 - node 9's extaddr becomes valid in 10.41956ms
+[2025-04-25 23:53:03.254260] [OTNS LOG] debug	2025-04-25 23:53:03.253 - Node<9>'s UART type is 2
+[2025-04-25 23:53:03.254944] [OTNS LOG] debug	2025-04-25 23:53:03.253 - Node<9> - 
+[2025-04-25 23:53:03.255662] [OTNS LOG] debug	2025-04-25 23:53:03.253 - Node<9> - mode rdn
+[2025-04-25 23:53:03.256298] [OTNS LOG] debug	2025-04-25 23:53:03.253 - Node<9> - Done
+[2025-04-25 23:53:03.257171] [OTNS LOG] debug	2025-04-25 23:53:03.253 - Node<9> - routerselectionjitter 1
+[2025-04-25 23:53:03.257986] [OTNS LOG] debug	2025-04-25 23:53:03.254 - Node<9> - Done
+[2025-04-25 23:53:03.258680] [OTNS LOG] debug	2025-04-25 23:53:03.254 - Node<9> - dataset init new
+[2025-04-25 23:53:03.260006] [OTNS LOG] debug	2025-04-25 23:53:03.254 - Node<9> - Done
+[2025-04-25 23:53:03.261187] [OTNS LOG] debug	2025-04-25 23:53:03.254 - Node<9> - dataset channel 11
+[2025-04-25 23:53:03.262642] [OTNS LOG] debug	2025-04-25 23:53:03.254 - Node<9> - Done
+[2025-04-25 23:53:03.263324] [OTNS LOG] debug	2025-04-25 23:53:03.254 - Node<9> - dataset extpanid dead00beef00cafe
+[2025-04-25 23:53:03.264148] [OTNS LOG] debug	2025-04-25 23:53:03.254 - Node<9> - Done
+[2025-04-25 23:53:03.265617] [OTNS LOG] debug	2025-04-25 23:53:03.255 - Node<9> - dataset meshlocalprefix fdde:ad00:beef:0::
+[2025-04-25 23:53:03.266306] [OTNS LOG] debug	2025-04-25 23:53:03.255 - Node<9> - Done
+[2025-04-25 23:53:03.266967] [OTNS LOG] debug	2025-04-25 23:53:03.255 - Node<9> - dataset networkkey 00112233445566778899aabbccddeeff
+[2025-04-25 23:53:03.268081] [OTNS LOG] debug	2025-04-25 23:53:03.255 - Node<9> - Done
+[2025-04-25 23:53:03.269048] [OTNS LOG] debug	2025-04-25 23:53:03.255 - Node<9> - dataset networkname otns
+[2025-04-25 23:53:03.269702] [OTNS LOG] debug	2025-04-25 23:53:03.255 - Node<9> - Done
+[2025-04-25 23:53:03.270589] [OTNS LOG] debug	2025-04-25 23:53:03.255 - Node<9> - dataset panid 0xface
+[2025-04-25 23:53:03.271516] [OTNS LOG] debug	2025-04-25 23:53:03.255 - Node<9> - Done
+[2025-04-25 23:53:03.273463] [OTNS LOG] debug	2025-04-25 23:53:03.256 - Node<9> - dataset pskc 3aa55f91ca47d1e4e71a08cb35e91591
+[2025-04-25 23:53:03.274281] [OTNS LOG] debug	2025-04-25 23:53:03.256 - Node<9> - Done
+[2025-04-25 23:53:03.345218] [OTNS LOG] debug	2025-04-25 23:53:03.345 - Node<9> - dataset commit active
+[2025-04-25 23:53:03.346427] [OTNS LOG] debug	2025-04-25 23:53:03.345 - Node<9> - Done
+[2025-04-25 23:53:03.347854] [OTNS LOG] debug	2025-04-25 23:53:03.345 - Node<9> - ifconfig up
+[2025-04-25 23:53:03.349234] [OTNS LOG] debug	2025-04-25 23:53:03.345 - Node<9> - Done
+[2025-04-25 23:53:03.350398] [OTNS LOG] debug	2025-04-25 23:53:03.346 - status push: 9: "rloc16=65534"
+[2025-04-25 23:53:03.351446] [OTNS LOG] debug	2025-04-25 23:53:03.346 - set node rloc: fffe -> fffe
+[2025-04-25 23:53:03.352330] [OTNS LOG] debug	2025-04-25 23:53:03.347 - status push: 9: "role=1"
+[2025-04-25 23:53:03.353182] [OTNS LOG] debug	2025-04-25 23:53:03.347 - Node<9> - thread start
+[2025-04-25 23:53:03.354025] [OTNS LOG] debug	2025-04-25 23:53:03.347 - Node<9> - Done
+[2025-04-25 23:53:03.354919] [OTNS LOG] debug	2025-04-25 23:53:03.348 - Node<9> - panid
+[2025-04-25 23:53:03.355809] [OTNS LOG] debug	2025-04-25 23:53:03.348 - Node<9> - 0xface
+[2025-04-25 23:53:03.356750] [OTNS LOG] debug	2025-04-25 23:53:03.348 - Node<9> - Done
+[2025-04-25 23:53:03.357542] [OTNS LOG] debug	2025-04-25 23:53:03.348 - Node<9> - channel
+[2025-04-25 23:53:03.358328] [OTNS LOG] debug	2025-04-25 23:53:03.348 - Node<9> - 11
+[2025-04-25 23:53:03.359160] [OTNS LOG] debug	2025-04-25 23:53:03.348 - Node<9> - Done
+[2025-04-25 23:53:03.359921] [OTNS LOG] debug	2025-04-25 23:53:03.349 - Node<9> - eui64
+[2025-04-25 23:53:03.361238] [OTNS LOG] debug	2025-04-25 23:53:03.352 - Node<9> - 18b4300000000009
+[2025-04-25 23:53:03.362118] [OTNS LOG] debug	2025-04-25 23:53:03.352 - Node<9> - Done
+[2025-04-25 23:53:03.362605] [OTNS LOG] debug	2025-04-25 23:53:03.352 - Node<9> - extaddr
+[2025-04-25 23:53:03.363644] [OTNS LOG] debug	2025-04-25 23:53:03.352 - Node<9> - 72bf35c1068520c8
+[2025-04-25 23:53:03.364667] [OTNS LOG] debug	2025-04-25 23:53:03.352 - Node<9> - Done
+[2025-04-25 23:53:03.365430] [OTNS LOG] debug	2025-04-25 23:53:03.353 - Node<9> - state
+[2025-04-25 23:53:03.366610] [OTNS LOG] debug	2025-04-25 23:53:03.353 - Node<9> - detached
+[2025-04-25 23:53:03.367259] [OTNS LOG] debug	2025-04-25 23:53:03.353 - Node<9> - Done
+[2025-04-25 23:53:03.367853] [OTNS LOG] debug	2025-04-25 23:53:03.353 - Node<9> - networkkey
+[2025-04-25 23:53:03.368847] [OTNS LOG] debug	2025-04-25 23:53:03.353 - Node<9> - 00112233445566778899aabbccddeeff
+[2025-04-25 23:53:03.369729] [OTNS LOG] debug	2025-04-25 23:53:03.353 - Node<9> - Done
+[2025-04-25 23:53:03.370397] [OTNS LOG] debug	2025-04-25 23:53:03.353 - Node<9> - mode
+[2025-04-25 23:53:03.371142] [OTNS LOG] debug	2025-04-25 23:53:03.353 - Node<9> - rdn
+[2025-04-25 23:53:03.371745] [OTNS LOG] debug	2025-04-25 23:53:03.353 - Node<9> - Done
+[2025-04-25 23:53:03.372644] [OTNS LOG] info	2025-04-25 23:53:03.353 - Node<9> - started, panid=0xface, channel=11, eui64="18b4300000000009", extaddr=0x72bf35c1068520c8, state=detached, networkkey="00112233445566778899aabbccddeeff", mode=rdn
+[2025-04-25 23:53:03.373467] [_do_command] Received: 9
+[2025-04-25 23:53:03.374338] [_do_command] Received: Done
+[2025-04-25 23:53:03.375151] [_do_command] Sending command: node 9 "routerupgradethreshold 99"
+[2025-04-25 23:53:03.376641] [OTNS LOG] debug	2025-04-25 23:53:03.376 - Node<9> - routerupgradethreshold 99
+[2025-04-25 23:53:03.377596] [OTNS LOG] debug	2025-04-25 23:53:03.376 - Node<9> - Done
+[2025-04-25 23:53:03.378537] [_do_command] Received: Done
+[2025-04-25 23:53:03.379234] [_do_command] Sending command: node 9 "routerdowngradethreshold 1"
+[2025-04-25 23:53:03.380449] [OTNS LOG] debug	2025-04-25 23:53:03.380 - Node<9> - routerdowngradethreshold 1
+[2025-04-25 23:53:03.381133] [OTNS LOG] debug	2025-04-25 23:53:03.380 - Node<9> - Done
+[2025-04-25 23:53:03.381833] [_do_command] Received: Done
+[2025-04-25 23:53:03.382702] [_do_command] Sending command: node 9 "mode rn"
+[2025-04-25 23:53:03.384610] [OTNS LOG] debug	2025-04-25 23:53:03.384 - status push: 9: "mode=rn"
+[2025-04-25 23:53:03.385388] [OTNS LOG] debug	2025-04-25 23:53:03.384 - Node<9> - mode rn
+[2025-04-25 23:53:03.386162] [OTNS LOG] debug	2025-04-25 23:53:03.385 - Node<9> - Done
+[2025-04-25 23:53:03.387256] [_do_command] Received: Done
+[2025-04-25 23:53:03.388054] [_do_command] Sending command: add router x 453 y 346 exe "/home/otns/otns/openthread/build/simulation/examples/apps/cli/ot-cli-ftd"
+[2025-04-25 23:53:03.389220] [OTNS LOG] info	2025-04-25 23:53:03.389 - Add: cli.AddCmd{Cmd:struct {}{}, Type:cli.NodeType{Val:"router"}, X:(*int)(0xc000014a90), Y:(*int)(0xc000014aa0), Id:(*cli.AddNodeId)(nil), RadioRange:(*cli.RadioRangeFlag)(nil), Restore:(*cli.RestoreFlag)(nil), Executable:(*cli.ExecutableFlag)(0xc0002a86d0)}
+[2025-04-25 23:53:03.390226] [OTNS LOG] debug	2025-04-25 23:53:03.390 - node exe path: /home/otns/otns/openthread/build/simulation/examples/apps/cli/ot-cli-ftd
+[2025-04-25 23:53:03.391182] [OTNS LOG] info	2025-04-25 23:53:03.390 - simulation:CtrlAddNode: &{ID:-1 X:453 Y:346 IsMtd:false IsRouter:true RxOffWhenIdle:false RadioRange:160 ExecutablePath:/home/otns/otns/openthread/build/simulation/examples/apps/cli/ot-cli-ftd Restore:false}, rawMode=false
+[2025-04-25 23:53:03.392100] [OTNS LOG] info	2025-04-25 23:53:03.390 - dispatcher add node 10
+[2025-04-25 23:53:03.394099] [OTNS LOG] debug	2025-04-25 23:53:03.394 - status push: 10: "extaddr=0ab166076b0f500d"
+[2025-04-25 23:53:03.394950] [OTNS LOG] debug	2025-04-25 23:53:03.394 - extaddr changed: node=10, extaddr=0ab166076b0f500d, old extaddr=ffffffffffffffff
+[2025-04-25 23:53:03.395899] [OTNS LOG] debug	2025-04-25 23:53:03.394 - status push: 10: "rloc16=65534"
+[2025-04-25 23:53:03.397268] [OTNS LOG] debug	2025-04-25 23:53:03.394 - set node rloc: fffe -> fffe
+[2025-04-25 23:53:03.404027] [OTNS LOG] debug	2025-04-25 23:53:03.403 - node 10's extaddr becomes valid in 13.257134ms
+[2025-04-25 23:53:03.404975] [OTNS LOG] debug	2025-04-25 23:53:03.404 - Node<10>'s UART type is 2
+[2025-04-25 23:53:03.406239] [OTNS LOG] debug	2025-04-25 23:53:03.404 - Node<10> - 
+[2025-04-25 23:53:03.407181] [OTNS LOG] debug	2025-04-25 23:53:03.404 - Node<10> - mode rdn
+[2025-04-25 23:53:03.407996] [OTNS LOG] debug	2025-04-25 23:53:03.404 - Node<10> - Done
+[2025-04-25 23:53:03.408866] [OTNS LOG] debug	2025-04-25 23:53:03.404 - Node<10> - routerselectionjitter 1
+[2025-04-25 23:53:03.409758] [OTNS LOG] debug	2025-04-25 23:53:03.404 - Node<10> - Done
+[2025-04-25 23:53:03.410654] [OTNS LOG] debug	2025-04-25 23:53:03.405 - Node<10> - dataset init new
+[2025-04-25 23:53:03.411546] [OTNS LOG] debug	2025-04-25 23:53:03.405 - Node<10> - Done
+[2025-04-25 23:53:03.412288] [OTNS LOG] debug	2025-04-25 23:53:03.405 - Node<10> - dataset channel 11
+[2025-04-25 23:53:03.413172] [OTNS LOG] debug	2025-04-25 23:53:03.405 - Node<10> - Done
+[2025-04-25 23:53:03.414103] [OTNS LOG] debug	2025-04-25 23:53:03.405 - Node<10> - dataset extpanid dead00beef00cafe
+[2025-04-25 23:53:03.414780] [OTNS LOG] debug	2025-04-25 23:53:03.405 - Node<10> - Done
+[2025-04-25 23:53:03.415577] [OTNS LOG] debug	2025-04-25 23:53:03.406 - Node<10> - dataset meshlocalprefix fdde:ad00:beef:0::
+[2025-04-25 23:53:03.416253] [OTNS LOG] debug	2025-04-25 23:53:03.406 - Node<10> - Done
+[2025-04-25 23:53:03.417110] [OTNS LOG] debug	2025-04-25 23:53:03.406 - Node<10> - dataset networkkey 00112233445566778899aabbccddeeff
+[2025-04-25 23:53:03.417832] [OTNS LOG] debug	2025-04-25 23:53:03.406 - Node<10> - Done
+[2025-04-25 23:53:03.418445] [OTNS LOG] debug	2025-04-25 23:53:03.406 - Node<10> - dataset networkname otns
+[2025-04-25 23:53:03.419171] [OTNS LOG] debug	2025-04-25 23:53:03.406 - Node<10> - Done
+[2025-04-25 23:53:03.419756] [OTNS LOG] debug	2025-04-25 23:53:03.407 - Node<10> - dataset panid 0xface
+[2025-04-25 23:53:03.420276] [OTNS LOG] debug	2025-04-25 23:53:03.407 - Node<10> - Done
+[2025-04-25 23:53:03.420913] [OTNS LOG] debug	2025-04-25 23:53:03.407 - Node<10> - dataset pskc 3aa55f91ca47d1e4e71a08cb35e91591
+[2025-04-25 23:53:03.421681] [OTNS LOG] debug	2025-04-25 23:53:03.407 - Node<10> - Done
+[2025-04-25 23:53:03.477590] [OTNS LOG] debug	2025-04-25 23:53:03.477 - Node<10> - dataset commit active
+[2025-04-25 23:53:03.478762] [OTNS LOG] debug	2025-04-25 23:53:03.477 - Node<10> - Done
+[2025-04-25 23:53:03.479641] [OTNS LOG] debug	2025-04-25 23:53:03.478 - Node<10> - ifconfig up
+[2025-04-25 23:53:03.480710] [OTNS LOG] debug	2025-04-25 23:53:03.478 - Node<10> - Done
+[2025-04-25 23:53:03.481398] [OTNS LOG] debug	2025-04-25 23:53:03.478 - status push: 10: "rloc16=65534"
+[2025-04-25 23:53:03.482194] [OTNS LOG] debug	2025-04-25 23:53:03.478 - set node rloc: fffe -> fffe
+[2025-04-25 23:53:03.482891] [OTNS LOG] debug	2025-04-25 23:53:03.479 - status push: 10: "role=1"
+[2025-04-25 23:53:03.483491] [OTNS LOG] debug	2025-04-25 23:53:03.479 - Node<10> - thread start
+[2025-04-25 23:53:03.484067] [OTNS LOG] debug	2025-04-25 23:53:03.479 - Node<10> - Done
+[2025-04-25 23:53:03.484788] [OTNS LOG] debug	2025-04-25 23:53:03.479 - Node<10> - panid
+[2025-04-25 23:53:03.485468] [OTNS LOG] debug	2025-04-25 23:53:03.479 - Node<10> - 0xface
+[2025-04-25 23:53:03.486286] [OTNS LOG] debug	2025-04-25 23:53:03.479 - Node<10> - Done
+[2025-04-25 23:53:03.487137] [OTNS LOG] debug	2025-04-25 23:53:03.480 - Node<10> - channel
+[2025-04-25 23:53:03.487854] [OTNS LOG] debug	2025-04-25 23:53:03.480 - Node<10> - 11
+[2025-04-25 23:53:03.488563] [OTNS LOG] debug	2025-04-25 23:53:03.480 - Node<10> - Done
+[2025-04-25 23:53:03.489164] [OTNS LOG] debug	2025-04-25 23:53:03.480 - Node<10> - eui64
+[2025-04-25 23:53:03.489817] [OTNS LOG] debug	2025-04-25 23:53:03.480 - Node<10> - 18b430000000000a
+[2025-04-25 23:53:03.490343] [OTNS LOG] debug	2025-04-25 23:53:03.480 - Node<10> - Done
+[2025-04-25 23:53:03.490893] [OTNS LOG] debug	2025-04-25 23:53:03.480 - Node<10> - extaddr
+[2025-04-25 23:53:03.491667] [OTNS LOG] debug	2025-04-25 23:53:03.480 - Node<10> - 0ab166076b0f500d
+[2025-04-25 23:53:03.492329] [OTNS LOG] debug	2025-04-25 23:53:03.480 - Node<10> - Done
+[2025-04-25 23:53:03.493184] [OTNS LOG] debug	2025-04-25 23:53:03.480 - Node<10> - state
+[2025-04-25 23:53:03.493834] [OTNS LOG] debug	2025-04-25 23:53:03.480 - Node<10> - detached
+[2025-04-25 23:53:03.494366] [OTNS LOG] debug	2025-04-25 23:53:03.480 - Node<10> - Done
+[2025-04-25 23:53:03.495038] [OTNS LOG] debug	2025-04-25 23:53:03.481 - Node<10> - networkkey
+[2025-04-25 23:53:03.495885] [OTNS LOG] debug	2025-04-25 23:53:03.481 - Node<10> - 00112233445566778899aabbccddeeff
+[2025-04-25 23:53:03.496382] [OTNS LOG] debug	2025-04-25 23:53:03.481 - Node<10> - Done
+[2025-04-25 23:53:03.497043] [OTNS LOG] debug	2025-04-25 23:53:03.481 - Node<10> - mode
+[2025-04-25 23:53:03.497664] [OTNS LOG] debug	2025-04-25 23:53:03.481 - Node<10> - rdn
+[2025-04-25 23:53:03.498115] [OTNS LOG] debug	2025-04-25 23:53:03.481 - Node<10> - Done
+[2025-04-25 23:53:03.498732] [OTNS LOG] info	2025-04-25 23:53:03.481 - Node<10> - started, panid=0xface, channel=11, eui64="18b430000000000a", extaddr=0xab166076b0f500d, state=detached, networkkey="00112233445566778899aabbccddeeff", mode=rdn
+[2025-04-25 23:53:03.499201] [_do_command] Received: 10
+[2025-04-25 23:53:03.499793] [_do_command] Received: Done
+[2025-04-25 23:53:03.500391] [_do_command] Sending command: node 10 "routerupgradethreshold 99"
+[2025-04-25 23:53:03.501739] [OTNS LOG] debug	2025-04-25 23:53:03.501 - Node<10> - routerupgradethreshold 99
+[2025-04-25 23:53:03.502434] [OTNS LOG] debug	2025-04-25 23:53:03.501 - Node<10> - Done
+[2025-04-25 23:53:03.503103] [_do_command] Received: Done
+[2025-04-25 23:53:03.503881] [_do_command] Sending command: node 10 "routerdowngradethreshold 1"
+[2025-04-25 23:53:03.505029] [OTNS LOG] debug	2025-04-25 23:53:03.504 - Node<10> - routerdowngradethreshold 1
+[2025-04-25 23:53:03.505661] [OTNS LOG] debug	2025-04-25 23:53:03.505 - Node<10> - Done
+[2025-04-25 23:53:03.506334] [_do_command] Received: Done
+[2025-04-25 23:53:03.507208] [_do_command] Sending command: node 10 "mode rn"
+[2025-04-25 23:53:03.508543] [OTNS LOG] debug	2025-04-25 23:53:03.508 - status push: 10: "mode=rn"
+[2025-04-25 23:53:03.509940] [OTNS LOG] debug	2025-04-25 23:53:03.509 - Node<10> - mode rn
+[2025-04-25 23:53:03.510610] [OTNS LOG] debug	2025-04-25 23:53:03.509 - Node<10> - Done
+[2025-04-25 23:53:03.511436] [_do_command] Received: Done
+[2025-04-25 23:53:03.512055] [_do_command] Sending command: nodes
+[2025-04-25 23:53:03.513235] [_do_command] Received: id=1	extaddr=ca4fb251c7611c87	rloc16=fffe	x=400	y=400	state=detached	failed=false
+[2025-04-25 23:53:03.513895] [_do_command] Received: id=4	extaddr=0e85abe1c60b0afc	rloc16=fffe	x=453	y=453	state=detached	failed=false
+[2025-04-25 23:53:03.514654] [_do_command] Received: id=6	extaddr=ea45367c7d149a86	rloc16=fffe	x=346	y=453	state=detached	failed=false
+[2025-04-25 23:53:03.515287] [_do_command] Received: id=7	extaddr=eeb25be1dd1a845b	rloc16=fffe	x=325	y=400	state=detached	failed=false
+[2025-04-25 23:53:03.516418] [_do_command] Received: id=10	extaddr=0ab166076b0f500d	rloc16=fffe	x=453	y=346	state=detached	failed=false
+[2025-04-25 23:53:03.517054] [_do_command] Received: id=2	extaddr=46566ad32411d92a	rloc16=fffe	x=363	y=363	state=detached	failed=false
+[2025-04-25 23:53:03.517900] [_do_command] Received: id=3	extaddr=da37220e230f40b4	rloc16=fffe	x=475	y=400	state=detached	failed=false
+[2025-04-25 23:53:03.518625] [_do_command] Received: id=5	extaddr=428ce490c4180f84	rloc16=fffe	x=400	y=475	state=detached	failed=false
+[2025-04-25 23:53:03.519246] [_do_command] Received: id=8	extaddr=e25cc444d9e6c31b	rloc16=fffe	x=346	y=346	state=detached	failed=false
+[2025-04-25 23:53:03.519963] [_do_command] Received: id=9	extaddr=72bf35c1068520c8	rloc16=fffe	x=400	y=325	state=detached	failed=false
+[2025-04-25 23:53:03.520720] [_do_command] Received: Done
+[2025-04-25 23:53:03.521492] [_do_command] Sending command: node 1 "state"
+[2025-04-25 23:53:03.523435] [OTNS LOG] debug	2025-04-25 23:53:03.523 - Node<1> - state
+[2025-04-25 23:53:03.524091] [OTNS LOG] debug	2025-04-25 23:53:03.523 - Node<1> - detached
+[2025-04-25 23:53:03.524665] [OTNS LOG] debug	2025-04-25 23:53:03.523 - Node<1> - Done
+[2025-04-25 23:53:03.525281] [_do_command] Received: detached
+[2025-04-25 23:53:03.525802] [_do_command] Received: Done
+[2025-04-25 23:53:03.526420] [_do_command] Sending command: go 2
+[2025-04-25 23:53:03.529452] [OTNS LOG] debug	2025-04-25 23:53:03.529 - status push: 3: "transmit=11,d841,77,ffff"
+[2025-04-25 23:53:03.530745] [OTNS LOG] debug	2025-04-25 23:53:03.530 - status push: 1: "transmit=11,d841,194,ffff"
+[2025-04-25 23:53:03.531900] [OTNS LOG] debug	2025-04-25 23:53:03.531 - status push: 9: "transmit=11,d841,49,ffff"
+[2025-04-25 23:53:03.532779] [OTNS LOG] debug	2025-04-25 23:53:03.532 - status push: 4: "transmit=11,d841,157,ffff"
+[2025-04-25 23:53:03.533792] [OTNS LOG] debug	2025-04-25 23:53:03.533 - status push: 10: "transmit=11,d841,74,ffff"
+[2025-04-25 23:53:03.535117] [OTNS LOG] debug	2025-04-25 23:53:03.534 - status push: 6: "transmit=11,d841,26,ffff"
+[2025-04-25 23:53:03.536153] [OTNS LOG] debug	2025-04-25 23:53:03.535 - status push: 5: "transmit=11,d841,148,ffff"
+[2025-04-25 23:53:03.536947] [OTNS LOG] debug	2025-04-25 23:53:03.536 - status push: 8: "transmit=11,d841,239,ffff"
+[2025-04-25 23:53:03.538005] [OTNS LOG] debug	2025-04-25 23:53:03.537 - status push: 7: "transmit=11,d841,89,ffff"
+[2025-04-25 23:53:03.539606] [OTNS LOG] debug	2025-04-25 23:53:03.539 - status push: 2: "transmit=11,d841,12,ffff"
+[2025-04-25 23:53:03.541279] [OTNS LOG] debug	2025-04-25 23:53:03.541 - status push: 3: "transmit=11,d841,78,ffff"
+[2025-04-25 23:53:03.542824] [OTNS LOG] debug	2025-04-25 23:53:03.542 - status push: 1: "transmit=11,d841,195,ffff"
+[2025-04-25 23:53:03.544379] [OTNS LOG] debug	2025-04-25 23:53:03.544 - status push: 9: "transmit=11,d841,50,ffff"
+[2025-04-25 23:53:03.545481] [OTNS LOG] debug	2025-04-25 23:53:03.545 - status push: 4: "transmit=11,d841,158,ffff"
+[2025-04-25 23:53:03.546422] [OTNS LOG] debug	2025-04-25 23:53:03.546 - status push: 10: "transmit=11,d841,75,ffff"
+[2025-04-25 23:53:03.547644] [OTNS LOG] debug	2025-04-25 23:53:03.547 - status push: 6: "transmit=11,d841,27,ffff"
+[2025-04-25 23:53:03.549001] [OTNS LOG] debug	2025-04-25 23:53:03.548 - status push: 5: "transmit=11,d841,149,ffff"
+[2025-04-25 23:53:03.549856] [OTNS LOG] debug	2025-04-25 23:53:03.549 - status push: 8: "transmit=11,d841,240,ffff"
+[2025-04-25 23:53:03.550616] [OTNS LOG] debug	2025-04-25 23:53:03.550 - status push: 7: "transmit=11,d841,90,ffff"
+[2025-04-25 23:53:03.551600] [OTNS LOG] debug	2025-04-25 23:53:03.551 - status push: 2: "transmit=11,d841,13,ffff"
+[2025-04-25 23:53:03.553005] [OTNS LOG] debug	2025-04-25 23:53:03.552 - status push: 3: "transmit=11,d841,79,ffff"
+[2025-04-25 23:53:03.554375] [OTNS LOG] debug	2025-04-25 23:53:03.553 - status push: 1: "transmit=11,d841,196,ffff"
+[2025-04-25 23:53:03.555228] [OTNS LOG] debug	2025-04-25 23:53:03.554 - status push: 9: "transmit=11,d841,51,ffff"
+[2025-04-25 23:53:03.556158] [OTNS LOG] debug	2025-04-25 23:53:03.555 - status push: 4: "transmit=11,d841,159,ffff"
+[2025-04-25 23:53:03.557424] [OTNS LOG] debug	2025-04-25 23:53:03.556 - status push: 10: "transmit=11,d841,76,ffff"
+[2025-04-25 23:53:03.558266] [OTNS LOG] debug	2025-04-25 23:53:03.558 - status push: 6: "transmit=11,d841,28,ffff"
+[2025-04-25 23:53:03.559892] [OTNS LOG] debug	2025-04-25 23:53:03.559 - status push: 5: "transmit=11,d841,150,ffff"
+[2025-04-25 23:53:03.561129] [OTNS LOG] debug	2025-04-25 23:53:03.560 - status push: 8: "transmit=11,d841,241,ffff"
+[2025-04-25 23:53:03.566453] [_do_command] Received: Done
+[2025-04-25 23:53:03.567146] [_do_command] Sending command: nodes
+[2025-04-25 23:53:03.568668] [_do_command] Received: id=2	extaddr=46566ad32411d92a	rloc16=fffe	x=363	y=363	state=detached	failed=false
+[2025-04-25 23:53:03.569534] [_do_command] Received: id=3	extaddr=da37220e230f40b4	rloc16=fffe	x=475	y=400	state=detached	failed=false
+[2025-04-25 23:53:03.570332] [_do_command] Received: id=5	extaddr=428ce490c4180f84	rloc16=fffe	x=400	y=475	state=detached	failed=false
+[2025-04-25 23:53:03.571067] [_do_command] Received: id=8	extaddr=e25cc444d9e6c31b	rloc16=fffe	x=346	y=346	state=detached	failed=false
+[2025-04-25 23:53:03.571565] [_do_command] Received: id=9	extaddr=72bf35c1068520c8	rloc16=fffe	x=400	y=325	state=detached	failed=false
+[2025-04-25 23:53:03.572174] [_do_command] Received: id=1	extaddr=ca4fb251c7611c87	rloc16=fffe	x=400	y=400	state=detached	failed=false
+[2025-04-25 23:53:03.572953] [_do_command] Received: id=4	extaddr=0e85abe1c60b0afc	rloc16=fffe	x=453	y=453	state=detached	failed=false
+[2025-04-25 23:53:03.573808] [_do_command] Received: id=6	extaddr=ea45367c7d149a86	rloc16=fffe	x=346	y=453	state=detached	failed=false
+[2025-04-25 23:53:03.574494] [_do_command] Received: id=7	extaddr=eeb25be1dd1a845b	rloc16=fffe	x=325	y=400	state=detached	failed=false
+[2025-04-25 23:53:03.575278] [_do_command] Received: id=10	extaddr=0ab166076b0f500d	rloc16=fffe	x=453	y=346	state=detached	failed=false
+[2025-04-25 23:53:03.575712] [_do_command] Received: Done
+[2025-04-25 23:53:03.576716] [_do_command] Sending command: node 2 "state"
+[2025-04-25 23:53:03.577849] [OTNS LOG] debug	2025-04-25 23:53:03.577 - Node<2> - state
+[2025-04-25 23:53:03.578878] [OTNS LOG] debug	2025-04-25 23:53:03.577 - Node<2> - detached
+[2025-04-25 23:53:03.579628] [OTNS LOG] debug	2025-04-25 23:53:03.577 - Node<2> - Done
+[2025-04-25 23:53:03.580321] [_do_command] Received: detached
+[2025-04-25 23:53:03.581193] [_do_command] Received: Done
+[2025-04-25 23:53:03.581908] [_do_command] Sending command: go 2
+[2025-04-25 23:53:03.585278] [OTNS LOG] debug	2025-04-25 23:53:03.585 - status push: 7: "transmit=11,d841,91,ffff"
+[2025-04-25 23:53:03.586748] [OTNS LOG] debug	2025-04-25 23:53:03.586 - status push: 2: "transmit=11,d841,14,ffff"
+[2025-04-25 23:53:03.592490] [OTNS LOG] debug	2025-04-25 23:53:03.592 - status push: 3: "transmit=11,d841,80,ffff"
+[2025-04-25 23:53:03.593778] [OTNS LOG] debug	2025-04-25 23:53:03.593 - status push: 1: "transmit=11,d841,197,ffff"
+[2025-04-25 23:53:03.595082] [OTNS LOG] debug	2025-04-25 23:53:03.594 - status push: 9: "transmit=11,d841,52,ffff"
+[2025-04-25 23:53:03.596038] [OTNS LOG] debug	2025-04-25 23:53:03.595 - status push: 4: "transmit=11,d841,160,ffff"
+[2025-04-25 23:53:03.597182] [OTNS LOG] debug	2025-04-25 23:53:03.597 - status push: 10: "transmit=11,d841,77,ffff"
+[2025-04-25 23:53:03.598255] [OTNS LOG] debug	2025-04-25 23:53:03.598 - status push: 6: "transmit=11,d841,29,ffff"
+[2025-04-25 23:53:03.599858] [OTNS LOG] debug	2025-04-25 23:53:03.599 - status push: 5: "transmit=11,d841,151,ffff"
+[2025-04-25 23:53:03.601245] [OTNS LOG] debug	2025-04-25 23:53:03.601 - status push: 8: "transmit=11,d841,242,ffff"
+[2025-04-25 23:53:03.602435] [OTNS LOG] debug	2025-04-25 23:53:03.602 - status push: 7: "transmit=11,d841,92,ffff"
+[2025-04-25 23:53:03.603446] [OTNS LOG] debug	2025-04-25 23:53:03.603 - status push: 2: "transmit=11,d841,15,ffff"
+[2025-04-25 23:53:03.605910] [_do_command] Received: Done
+[2025-04-25 23:53:03.606794] [_do_command] Sending command: nodes
+[2025-04-25 23:53:03.607692] [_do_command] Received: id=1	extaddr=ca4fb251c7611c87	rloc16=fffe	x=400	y=400	state=detached	failed=false
+[2025-04-25 23:53:03.608247] [_do_command] Received: id=4	extaddr=0e85abe1c60b0afc	rloc16=fffe	x=453	y=453	state=detached	failed=false
+[2025-04-25 23:53:03.608962] [_do_command] Received: id=6	extaddr=ea45367c7d149a86	rloc16=fffe	x=346	y=453	state=detached	failed=false
+[2025-04-25 23:53:03.609737] [_do_command] Received: id=7	extaddr=eeb25be1dd1a845b	rloc16=fffe	x=325	y=400	state=detached	failed=false
+[2025-04-25 23:53:03.610529] [_do_command] Received: id=10	extaddr=0ab166076b0f500d	rloc16=fffe	x=453	y=346	state=detached	failed=false
+[2025-04-25 23:53:03.611320] [_do_command] Received: id=2	extaddr=46566ad32411d92a	rloc16=fffe	x=363	y=363	state=detached	failed=false
+[2025-04-25 23:53:03.612153] [_do_command] Received: id=3	extaddr=da37220e230f40b4	rloc16=fffe	x=475	y=400	state=detached	failed=false
+[2025-04-25 23:53:03.612758] [_do_command] Received: id=5	extaddr=428ce490c4180f84	rloc16=fffe	x=400	y=475	state=detached	failed=false
+[2025-04-25 23:53:03.613384] [_do_command] Received: id=8	extaddr=e25cc444d9e6c31b	rloc16=fffe	x=346	y=346	state=detached	failed=false
+[2025-04-25 23:53:03.613985] [_do_command] Received: id=9	extaddr=72bf35c1068520c8	rloc16=fffe	x=400	y=325	state=detached	failed=false
+[2025-04-25 23:53:03.614892] [_do_command] Received: Done
+[2025-04-25 23:53:03.615522] [_do_command] Sending command: node 1 "state"
+[2025-04-25 23:53:03.616485] [OTNS LOG] debug	2025-04-25 23:53:03.616 - Node<1> - state
+[2025-04-25 23:53:03.617250] [OTNS LOG] debug	2025-04-25 23:53:03.616 - Node<1> - detached
+[2025-04-25 23:53:03.618063] [OTNS LOG] debug	2025-04-25 23:53:03.616 - Node<1> - Done
+[2025-04-25 23:53:03.618767] [_do_command] Received: detached
+[2025-04-25 23:53:03.619863] [_do_command] Received: Done
+[2025-04-25 23:53:03.620788] [_do_command] Sending command: go 2
+[2025-04-25 23:53:03.623723] [OTNS LOG] debug	2025-04-25 23:53:03.623 - status push: 3: "transmit=11,d841,81,ffff"
+[2025-04-25 23:53:03.625255] [OTNS LOG] debug	2025-04-25 23:53:03.625 - status push: 1: "transmit=11,d841,198,ffff"
+[2025-04-25 23:53:03.626611] [OTNS LOG] debug	2025-04-25 23:53:03.626 - status push: 9: "transmit=11,d841,53,ffff"
+[2025-04-25 23:53:03.627996] [OTNS LOG] debug	2025-04-25 23:53:03.627 - status push: 4: "transmit=11,d841,161,ffff"
+[2025-04-25 23:53:03.629177] [OTNS LOG] debug	2025-04-25 23:53:03.629 - status push: 10: "transmit=11,d841,78,ffff"
+[2025-04-25 23:53:03.630287] [OTNS LOG] debug	2025-04-25 23:53:03.630 - status push: 6: "transmit=11,d841,30,ffff"
+[2025-04-25 23:53:03.631272] [OTNS LOG] debug	2025-04-25 23:53:03.631 - status push: 5: "transmit=11,d841,152,ffff"
+[2025-04-25 23:53:03.632176] [OTNS LOG] debug	2025-04-25 23:53:03.632 - status push: 8: "transmit=11,d841,243,ffff"
+[2025-04-25 23:53:03.633121] [OTNS LOG] debug	2025-04-25 23:53:03.633 - status push: 7: "transmit=11,d841,93,ffff"
+[2025-04-25 23:53:03.634348] [OTNS LOG] debug	2025-04-25 23:53:03.634 - status push: 2: "transmit=11,d841,16,ffff"
+[2025-04-25 23:53:03.635533] [OTNS LOG] debug	2025-04-25 23:53:03.635 - status push: 3: "transmit=11,d841,82,ffff"
+[2025-04-25 23:53:03.636319] [OTNS LOG] debug	2025-04-25 23:53:03.636 - status push: 1: "transmit=11,d841,199,ffff"
+[2025-04-25 23:53:03.637518] [OTNS LOG] debug	2025-04-25 23:53:03.637 - status push: 9: "transmit=11,d841,54,ffff"
+[2025-04-25 23:53:03.638635] [OTNS LOG] debug	2025-04-25 23:53:03.638 - status push: 4: "transmit=11,d841,162,ffff"
+[2025-04-25 23:53:03.639857] [OTNS LOG] debug	2025-04-25 23:53:03.639 - status push: 10: "transmit=11,d841,79,ffff"
+[2025-04-25 23:53:03.641266] [OTNS LOG] debug	2025-04-25 23:53:03.641 - status push: 6: "transmit=11,d841,31,ffff"
+[2025-04-25 23:53:03.642324] [OTNS LOG] debug	2025-04-25 23:53:03.642 - status push: 5: "transmit=11,d841,153,ffff"
+[2025-04-25 23:53:03.643207] [OTNS LOG] debug	2025-04-25 23:53:03.643 - status push: 8: "transmit=11,d841,244,ffff"
+[2025-04-25 23:53:03.644407] [OTNS LOG] debug	2025-04-25 23:53:03.644 - status push: 7: "transmit=11,d841,94,ffff"
+[2025-04-25 23:53:03.645343] [OTNS LOG] debug	2025-04-25 23:53:03.645 - status push: 2: "transmit=11,d841,17,ffff"
+[2025-04-25 23:53:03.647580] [_do_command] Received: Done
+[2025-04-25 23:53:03.648416] [_do_command] Sending command: nodes
+[2025-04-25 23:53:03.649197] [_do_command] Received: id=7	extaddr=eeb25be1dd1a845b	rloc16=fffe	x=325	y=400	state=detached	failed=false
+[2025-04-25 23:53:03.649951] [_do_command] Received: id=10	extaddr=0ab166076b0f500d	rloc16=fffe	x=453	y=346	state=detached	failed=false
+[2025-04-25 23:53:03.650698] [_do_command] Received: id=1	extaddr=ca4fb251c7611c87	rloc16=fffe	x=400	y=400	state=detached	failed=false
+[2025-04-25 23:53:03.651414] [_do_command] Received: id=4	extaddr=0e85abe1c60b0afc	rloc16=fffe	x=453	y=453	state=detached	failed=false
+[2025-04-25 23:53:03.652043] [_do_command] Received: id=6	extaddr=ea45367c7d149a86	rloc16=fffe	x=346	y=453	state=detached	failed=false
+[2025-04-25 23:53:03.652604] [_do_command] Received: id=8	extaddr=e25cc444d9e6c31b	rloc16=fffe	x=346	y=346	state=detached	failed=false
+[2025-04-25 23:53:03.653129] [_do_command] Received: id=9	extaddr=72bf35c1068520c8	rloc16=fffe	x=400	y=325	state=detached	failed=false
+[2025-04-25 23:53:03.653673] [_do_command] Received: id=2	extaddr=46566ad32411d92a	rloc16=fffe	x=363	y=363	state=detached	failed=false
+[2025-04-25 23:53:03.654231] [_do_command] Received: id=3	extaddr=da37220e230f40b4	rloc16=fffe	x=475	y=400	state=detached	failed=false
+[2025-04-25 23:53:03.654746] [_do_command] Received: id=5	extaddr=428ce490c4180f84	rloc16=fffe	x=400	y=475	state=detached	failed=false
+[2025-04-25 23:53:03.655400] [_do_command] Received: Done
+[2025-04-25 23:53:03.656049] [_do_command] Sending command: node 7 "state"
+[2025-04-25 23:53:03.657042] [OTNS LOG] debug	2025-04-25 23:53:03.656 - Node<7> - state
+[2025-04-25 23:53:03.657680] [OTNS LOG] debug	2025-04-25 23:53:03.657 - Node<7> - detached
+[2025-04-25 23:53:03.658157] [OTNS LOG] debug	2025-04-25 23:53:03.657 - Node<7> - Done
+[2025-04-25 23:53:03.658719] [_do_command] Received: detached
+[2025-04-25 23:53:03.659423] [_do_command] Received: Done
+[2025-04-25 23:53:03.660217] [_do_command] Sending command: go 2
+[2025-04-25 23:53:03.668130] [OTNS LOG] debug	2025-04-25 23:53:03.668 - status push: 3: "rloc16=65534"
+[2025-04-25 23:53:03.668836] [OTNS LOG] debug	2025-04-25 23:53:03.668 - set node rloc: fffe -> fffe
+[2025-04-25 23:53:03.669493] [OTNS LOG] debug	2025-04-25 23:53:03.669 - status push: 1: "rloc16=35840"
+[2025-04-25 23:53:03.670160] [OTNS LOG] debug	2025-04-25 23:53:03.669 - set node rloc: fffe -> 8c00
+[2025-04-25 23:53:03.695196] [OTNS LOG] debug	2025-04-25 23:53:03.695 - status push: 1: "role=4"
+[2025-04-25 23:53:03.695990] [OTNS LOG] debug	2025-04-25 23:53:03.695 - status push: 1: "parid=7974adba"
+[2025-04-25 23:53:03.696994] [OTNS LOG] debug	2025-04-25 23:53:03.696 - status push: 1: "transmit=11,d841,200,ffff"
+[2025-04-25 23:53:03.698311] [OTNS LOG] debug	2025-04-25 23:53:03.698 - status push: 9: "rloc16=65534"
+[2025-04-25 23:53:03.698908] [OTNS LOG] debug	2025-04-25 23:53:03.698 - set node rloc: fffe -> fffe
+[2025-04-25 23:53:03.700007] [OTNS LOG] debug	2025-04-25 23:53:03.699 - status push: 4: "rloc16=65534"
+[2025-04-25 23:53:03.701272] [OTNS LOG] debug	2025-04-25 23:53:03.699 - set node rloc: fffe -> fffe
+[2025-04-25 23:53:03.701936] [OTNS LOG] debug	2025-04-25 23:53:03.699 - status push: 3: "transmit=11,d841,83,ffff"
+[2025-04-25 23:53:03.702778] [OTNS LOG] debug	2025-04-25 23:53:03.700 - status push: 1: "transmit=11,dc61,201,da37220e230f40b4"
+[2025-04-25 23:53:03.703640] [OTNS LOG] debug	2025-04-25 23:53:03.702 - status push: 10: "rloc16=65534"
+[2025-04-25 23:53:03.704372] [OTNS LOG] debug	2025-04-25 23:53:03.702 - set node rloc: fffe -> fffe
+[2025-04-25 23:53:03.705183] [OTNS LOG] debug	2025-04-25 23:53:03.702 - status push: 6: "rloc16=65534"
+[2025-04-25 23:53:03.705874] [OTNS LOG] debug	2025-04-25 23:53:03.702 - set node rloc: fffe -> fffe
+[2025-04-25 23:53:03.706874] [OTNS LOG] debug	2025-04-25 23:53:03.703 - status push: 9: "transmit=11,d841,55,ffff"
+[2025-04-25 23:53:03.707677] [OTNS LOG] debug	2025-04-25 23:53:03.704 - status push: 1: "transmit=11,dc61,202,72bf35c1068520c8"
+[2025-04-25 23:53:03.708390] [OTNS LOG] debug	2025-04-25 23:53:03.705 - status push: 4: "transmit=11,d841,163,ffff"
+[2025-04-25 23:53:03.709224] [OTNS LOG] debug	2025-04-25 23:53:03.707 - status push: 5: "rloc16=65534"
+[2025-04-25 23:53:03.709895] [OTNS LOG] debug	2025-04-25 23:53:03.707 - set node rloc: fffe -> fffe
+[2025-04-25 23:53:03.711039] [OTNS LOG] debug	2025-04-25 23:53:03.708 - status push: 8: "rloc16=65534"
+[2025-04-25 23:53:03.712174] [OTNS LOG] debug	2025-04-25 23:53:03.708 - set node rloc: fffe -> fffe
+[2025-04-25 23:53:03.712681] [OTNS LOG] debug	2025-04-25 23:53:03.708 - status push: 7: "rloc16=65534"
+[2025-04-25 23:53:03.713315] [OTNS LOG] debug	2025-04-25 23:53:03.709 - set node rloc: fffe -> fffe
+[2025-04-25 23:53:03.713823] [OTNS LOG] debug	2025-04-25 23:53:03.709 - status push: 10: "transmit=11,d841,80,ffff"
+[2025-04-25 23:53:03.714444] [OTNS LOG] debug	2025-04-25 23:53:03.710 - status push: 6: "transmit=11,d841,32,ffff"
+[2025-04-25 23:53:03.715049] [OTNS LOG] debug	2025-04-25 23:53:03.713 - status push: 2: "rloc16=31744"
+[2025-04-25 23:53:03.715669] [OTNS LOG] debug	2025-04-25 23:53:03.713 - set node rloc: fffe -> 7c00
+[2025-04-25 23:53:03.751943] [OTNS LOG] debug	2025-04-25 23:53:03.751 - status push: 2: "role=4"
+[2025-04-25 23:53:03.752939] [OTNS LOG] debug	2025-04-25 23:53:03.751 - status push: 2: "parid=55ca2572"
+[2025-04-25 23:53:03.753759] [OTNS LOG] debug	2025-04-25 23:53:03.753 - status push: 2: "transmit=11,d841,18,ffff"
+[2025-04-25 23:53:03.755282] [OTNS LOG] debug	2025-04-25 23:53:03.755 - status push: 5: "transmit=11,d841,154,ffff"
+[2025-04-25 23:53:03.756649] [OTNS LOG] debug	2025-04-25 23:53:03.756 - status push: 8: "transmit=11,d841,245,ffff"
+[2025-04-25 23:53:03.758068] [OTNS LOG] debug	2025-04-25 23:53:03.757 - status push: 7: "transmit=11,d841,95,ffff"
+[2025-04-25 23:53:03.759061] [OTNS LOG] debug	2025-04-25 23:53:03.759 - status push: 2: "transmit=11,dc61,19,e25cc444d9e6c31b"
+[2025-04-25 23:53:03.760216] [OTNS LOG] debug	2025-04-25 23:53:03.760 - status push: 1: "transmit=11,dc61,203,0e85abe1c60b0afc"
+[2025-04-25 23:53:03.761477] [OTNS LOG] debug	2025-04-25 23:53:03.761 - status push: 2: "transmit=11,dc61,20,eeb25be1dd1a845b"
+[2025-04-25 23:53:03.762685] [OTNS LOG] debug	2025-04-25 23:53:03.762 - status push: 1: "transmit=11,dc61,204,e25cc444d9e6c31b"
+[2025-04-25 23:53:03.763727] [OTNS LOG] debug	2025-04-25 23:53:03.763 - status push: 1: "transmit=11,d841,205,ffff"
+[2025-04-25 23:53:03.764942] [OTNS LOG] debug	2025-04-25 23:53:03.764 - status push: 2: "transmit=11,d841,21,ffff"
+[2025-04-25 23:53:03.765698] [OTNS LOG] debug	2025-04-25 23:53:03.765 - status push: 3: "transmit=11,dc61,84,ca4fb251c7611c87"
+[2025-04-25 23:53:03.790154] [OTNS LOG] debug	2025-04-25 23:53:03.790 - status push: 1: "child_added=da37220e230f40b4"
+[2025-04-25 23:53:03.791215] [OTNS LOG] debug	2025-04-25 23:53:03.790 - status push: 1: "transmit=11,dc61,206,da37220e230f40b4"
+[2025-04-25 23:53:03.792014] [OTNS LOG] debug	2025-04-25 23:53:03.791 - status push: 3: "rloc16=35841"
+[2025-04-25 23:53:03.792844] [OTNS LOG] debug	2025-04-25 23:53:03.791 - set node rloc: fffe -> 8c01
+[2025-04-25 23:53:03.848583] [OTNS LOG] debug	2025-04-25 23:53:03.848 - status push: 3: "role=2"
+[2025-04-25 23:53:03.849484] [OTNS LOG] debug	2025-04-25 23:53:03.848 - status push: 3: "parid=7974adba"
+[2025-04-25 23:53:03.851019] [OTNS LOG] debug	2025-04-25 23:53:03.850 - status push: 1: "transmit=11,dc61,207,ea45367c7d149a86"
+[2025-04-25 23:53:03.852464] [OTNS LOG] debug	2025-04-25 23:53:03.852 - status push: 1: "transmit=11,dc61,208,428ce490c4180f84"
+[2025-04-25 23:53:03.853882] [OTNS LOG] debug	2025-04-25 23:53:03.853 - status push: 1: "transmit=11,dc61,209,46566ad32411d92a"
+[2025-04-25 23:53:03.855173] [OTNS LOG] debug	2025-04-25 23:53:03.854 - status push: 1: "transmit=11,dc61,210,0ab166076b0f500d"
+[2025-04-25 23:53:03.856266] [OTNS LOG] debug	2025-04-25 23:53:03.855 - status push: 9: "transmit=11,dc61,56,ca4fb251c7611c87"
+[2025-04-25 23:53:03.892037] [OTNS LOG] debug	2025-04-25 23:53:03.891 - status push: 1: "child_added=72bf35c1068520c8"
+[2025-04-25 23:53:03.893241] [OTNS LOG] debug	2025-04-25 23:53:03.892 - status push: 1: "transmit=11,dc61,211,72bf35c1068520c8"
+[2025-04-25 23:53:03.894314] [OTNS LOG] debug	2025-04-25 23:53:03.893 - status push: 9: "rloc16=35842"
+[2025-04-25 23:53:03.895182] [OTNS LOG] debug	2025-04-25 23:53:03.893 - set node rloc: fffe -> 8c02
+[2025-04-25 23:53:03.949281] [OTNS LOG] debug	2025-04-25 23:53:03.949 - status push: 9: "role=2"
+[2025-04-25 23:53:03.950236] [OTNS LOG] debug	2025-04-25 23:53:03.949 - status push: 9: "parid=7974adba"
+[2025-04-25 23:53:03.951671] [OTNS LOG] debug	2025-04-25 23:53:03.951 - status push: 1: "transmit=11,dc61,212,eeb25be1dd1a845b"
+[2025-04-25 23:53:03.953055] [OTNS LOG] debug	2025-04-25 23:53:03.952 - status push: 2: "transmit=11,dc61,22,428ce490c4180f84"
+[2025-04-25 23:53:03.954885] [OTNS LOG] debug	2025-04-25 23:53:03.954 - status push: 4: "transmit=11,dc61,164,ca4fb251c7611c87"
+[2025-04-25 23:53:03.976756] [OTNS LOG] debug	2025-04-25 23:53:03.976 - status push: 1: "child_added=0e85abe1c60b0afc"
+[2025-04-25 23:53:03.978061] [OTNS LOG] debug	2025-04-25 23:53:03.976 - status push: 1: "transmit=11,dc61,213,0e85abe1c60b0afc"
+[2025-04-25 23:53:03.978952] [OTNS LOG] debug	2025-04-25 23:53:03.977 - status push: 4: "rloc16=35843"
+[2025-04-25 23:53:03.979946] [OTNS LOG] debug	2025-04-25 23:53:03.977 - set node rloc: fffe -> 8c03
+[2025-04-25 23:53:04.031645] [OTNS LOG] debug	2025-04-25 23:53:04.031 - status push: 4: "role=2"
+[2025-04-25 23:53:04.032699] [OTNS LOG] debug	2025-04-25 23:53:04.031 - status push: 4: "parid=7974adba"
+[2025-04-25 23:53:04.034888] [OTNS LOG] debug	2025-04-25 23:53:04.034 - status push: 10: "transmit=11,dc61,81,ca4fb251c7611c87"
+[2025-04-25 23:53:04.062790] [OTNS LOG] debug	2025-04-25 23:53:04.062 - status push: 1: "child_added=0ab166076b0f500d"
+[2025-04-25 23:53:04.063698] [OTNS LOG] debug	2025-04-25 23:53:04.063 - status push: 1: "transmit=11,dc61,214,0ab166076b0f500d"
+[2025-04-25 23:53:04.064799] [OTNS LOG] debug	2025-04-25 23:53:04.064 - status push: 10: "rloc16=35844"
+[2025-04-25 23:53:04.065557] [OTNS LOG] debug	2025-04-25 23:53:04.064 - set node rloc: fffe -> 8c04
+[2025-04-25 23:53:04.116755] [OTNS LOG] debug	2025-04-25 23:53:04.116 - status push: 10: "role=2"
+[2025-04-25 23:53:04.117781] [OTNS LOG] debug	2025-04-25 23:53:04.116 - status push: 10: "parid=7974adba"
+[2025-04-25 23:53:04.120716] [OTNS LOG] debug	2025-04-25 23:53:04.120 - status push: 6: "transmit=11,dc61,33,ca4fb251c7611c87"
+[2025-04-25 23:53:04.161278] [OTNS LOG] debug	2025-04-25 23:53:04.161 - status push: 1: "child_added=ea45367c7d149a86"
+[2025-04-25 23:53:04.162250] [OTNS LOG] debug	2025-04-25 23:53:04.162 - status push: 1: "transmit=11,dc61,215,ea45367c7d149a86"
+[2025-04-25 23:53:04.163225] [OTNS LOG] debug	2025-04-25 23:53:04.163 - status push: 6: "rloc16=35845"
+[2025-04-25 23:53:04.163976] [OTNS LOG] debug	2025-04-25 23:53:04.163 - set node rloc: fffe -> 8c05
+[2025-04-25 23:53:04.217791] [OTNS LOG] debug	2025-04-25 23:53:04.217 - status push: 6: "role=2"
+[2025-04-25 23:53:04.218481] [OTNS LOG] debug	2025-04-25 23:53:04.217 - status push: 6: "parid=7974adba"
+[2025-04-25 23:53:04.221386] [OTNS LOG] debug	2025-04-25 23:53:04.221 - status push: 5: "transmit=11,dc61,155,ca4fb251c7611c87"
+[2025-04-25 23:53:04.275778] [OTNS LOG] debug	2025-04-25 23:53:04.275 - status push: 1: "child_added=428ce490c4180f84"
+[2025-04-25 23:53:04.276853] [OTNS LOG] debug	2025-04-25 23:53:04.276 - status push: 1: "transmit=11,dc61,216,428ce490c4180f84"
+[2025-04-25 23:53:04.278308] [OTNS LOG] debug	2025-04-25 23:53:04.277 - status push: 5: "rloc16=35846"
+[2025-04-25 23:53:04.279409] [OTNS LOG] debug	2025-04-25 23:53:04.277 - set node rloc: fffe -> 8c06
+[2025-04-25 23:53:04.324008] [OTNS LOG] debug	2025-04-25 23:53:04.323 - status push: 5: "role=2"
+[2025-04-25 23:53:04.325035] [OTNS LOG] debug	2025-04-25 23:53:04.323 - status push: 5: "parid=7974adba"
+[2025-04-25 23:53:04.329134] [_do_command] Received: Done
+[2025-04-25 23:53:04.330155] [_do_command] Sending command: nodes
+[2025-04-25 23:53:04.331319] [_do_command] Received: id=6	extaddr=ea45367c7d149a86	rloc16=8c05	x=346	y=453	state=child	failed=false
+[2025-04-25 23:53:04.332146] [_do_command] Received: id=7	extaddr=eeb25be1dd1a845b	rloc16=fffe	x=325	y=400	state=detached	failed=false
+[2025-04-25 23:53:04.332984] [_do_command] Received: id=10	extaddr=0ab166076b0f500d	rloc16=8c04	x=453	y=346	state=child	failed=false
+[2025-04-25 23:53:04.333643] [_do_command] Received: id=1	extaddr=ca4fb251c7611c87	rloc16=8c00	x=400	y=400	state=leader	failed=false
+[2025-04-25 23:53:04.334467] [_do_command] Received: id=4	extaddr=0e85abe1c60b0afc	rloc16=8c03	x=453	y=453	state=child	failed=false
+[2025-04-25 23:53:04.335545] [_do_command] Received: id=5	extaddr=428ce490c4180f84	rloc16=8c06	x=400	y=475	state=child	failed=false
+[2025-04-25 23:53:04.336097] [_do_command] Received: id=8	extaddr=e25cc444d9e6c31b	rloc16=fffe	x=346	y=346	state=detached	failed=false
+[2025-04-25 23:53:04.336869] [_do_command] Received: id=9	extaddr=72bf35c1068520c8	rloc16=8c02	x=400	y=325	state=child	failed=false
+[2025-04-25 23:53:04.337629] [_do_command] Received: id=2	extaddr=46566ad32411d92a	rloc16=7c00	x=363	y=363	state=leader	failed=false
+[2025-04-25 23:53:04.338379] [_do_command] Received: id=3	extaddr=da37220e230f40b4	rloc16=8c01	x=475	y=400	state=child	failed=false
+[2025-04-25 23:53:04.339063] [_do_command] Received: Done
+[2025-04-25 23:53:04.339794] [_do_command] Sending command: node 6 "state"
+[2025-04-25 23:53:04.341651] [OTNS LOG] debug	2025-04-25 23:53:04.341 - Node<6> - state
+[2025-04-25 23:53:04.342433] [OTNS LOG] debug	2025-04-25 23:53:04.341 - Node<6> - child
+[2025-04-25 23:53:04.343038] [OTNS LOG] debug	2025-04-25 23:53:04.341 - Node<6> - Done
+[2025-04-25 23:53:04.343635] [_do_command] Received: child
+[2025-04-25 23:53:04.344193] [_do_command] Received: Done
+[2025-04-25 23:53:04.345013] [_do_command] Sending command: node 7 "state"
+[2025-04-25 23:53:04.346679] [OTNS LOG] debug	2025-04-25 23:53:04.346 - Node<7> - state
+[2025-04-25 23:53:04.347548] [OTNS LOG] debug	2025-04-25 23:53:04.346 - Node<7> - detached
+[2025-04-25 23:53:04.348160] [OTNS LOG] debug	2025-04-25 23:53:04.346 - Node<7> - Done
+[2025-04-25 23:53:04.348877] [_do_command] Received: detached
+[2025-04-25 23:53:04.349627] [_do_command] Received: Done
+[2025-04-25 23:53:04.350210] [_do_command] Sending command: go 2
+[2025-04-25 23:53:04.351693] [OTNS LOG] debug	2025-04-25 23:53:04.351 - status push: 8: "transmit=11,dc61,246,46566ad32411d92a"
+[2025-04-25 23:53:04.377519] [OTNS LOG] debug	2025-04-25 23:53:04.377 - status push: 2: "child_added=e25cc444d9e6c31b"
+[2025-04-25 23:53:04.378982] [OTNS LOG] debug	2025-04-25 23:53:04.378 - status push: 2: "transmit=11,dc61,23,e25cc444d9e6c31b"
+[2025-04-25 23:53:04.379889] [OTNS LOG] debug	2025-04-25 23:53:04.379 - status push: 8: "rloc16=31745"
+[2025-04-25 23:53:04.380671] [OTNS LOG] debug	2025-04-25 23:53:04.379 - set node rloc: fffe -> 7c01
+[2025-04-25 23:53:04.429037] [OTNS LOG] debug	2025-04-25 23:53:04.428 - status push: 8: "role=2"
+[2025-04-25 23:53:04.430045] [OTNS LOG] debug	2025-04-25 23:53:04.428 - status push: 8: "parid=55ca2572"
+[2025-04-25 23:53:04.431694] [OTNS LOG] debug	2025-04-25 23:53:04.431 - status push: 7: "transmit=11,dc61,96,46566ad32411d92a"
+[2025-04-25 23:53:04.454064] [OTNS LOG] debug	2025-04-25 23:53:04.453 - status push: 2: "child_added=eeb25be1dd1a845b"
+[2025-04-25 23:53:04.455343] [OTNS LOG] debug	2025-04-25 23:53:04.454 - status push: 2: "transmit=11,dc61,24,eeb25be1dd1a845b"
+[2025-04-25 23:53:04.456671] [OTNS LOG] debug	2025-04-25 23:53:04.455 - status push: 7: "rloc16=31746"
+[2025-04-25 23:53:04.457708] [OTNS LOG] debug	2025-04-25 23:53:04.455 - set node rloc: fffe -> 7c02
+[2025-04-25 23:53:04.522591] [OTNS LOG] debug	2025-04-25 23:53:04.522 - status push: 7: "role=2"
+[2025-04-25 23:53:04.523550] [OTNS LOG] debug	2025-04-25 23:53:04.522 - status push: 7: "parid=55ca2572"
+[2025-04-25 23:53:04.526124] [OTNS LOG] debug	2025-04-25 23:53:04.526 - status push: 2: "transmit=11,dc61,25,ca4fb251c7611c87"
+[2025-04-25 23:53:04.577650] [OTNS LOG] debug	2025-04-25 23:53:04.577 - status push: 1: "child_added=46566ad32411d92a"
+[2025-04-25 23:53:04.580082] [OTNS LOG] debug	2025-04-25 23:53:04.578 - status push: 1: "transmit=11,dc61,217,46566ad32411d92a"
+[2025-04-25 23:53:04.581528] [OTNS LOG] debug	2025-04-25 23:53:04.581 - status push: 2: "rloc16=35847"
+[2025-04-25 23:53:04.582515] [OTNS LOG] debug	2025-04-25 23:53:04.581 - set node rloc: 7c00 -> 8c07
+[2025-04-25 23:53:04.583394] [OTNS LOG] debug	2025-04-25 23:53:04.581 - status push: 2: "coap=send,62303,0,2,a/as,fdde:ad00:beef:0:0:ff:fe00:8c00,61631"
+[2025-04-25 23:53:04.647643] [OTNS LOG] debug	2025-04-25 23:53:04.647 - status push: 2: "role=2"
+[2025-04-25 23:53:04.648788] [OTNS LOG] debug	2025-04-25 23:53:04.647 - status push: 2: "parid=7974adba"
+[2025-04-25 23:53:04.652845] [OTNS LOG] debug	2025-04-25 23:53:04.652 - status push: 2: "transmit=11,9869,26,8c00"
+[2025-04-25 23:53:04.654127] [OTNS LOG] debug	2025-04-25 23:53:04.653 - status push: 1: "coap=send,62303,2,68,,fdde:ad00:beef:0:0:ff:fe00:8c07,61631"
+[2025-04-25 23:53:04.655398] [OTNS LOG] debug	2025-04-25 23:53:04.653 - status push: 1: "coap=recv,62303,0,2,a/as,fdde:ad00:beef:0:0:ff:fe00:8c07,61631"
+[2025-04-25 23:53:04.656432] [OTNS LOG] debug	2025-04-25 23:53:04.654 - status push: 1: "transmit=11,9869,218,8c07"
+[2025-04-25 23:53:04.657445] [OTNS LOG] debug	2025-04-25 23:53:04.654 - status push: 2: "rloc16=31744"
+[2025-04-25 23:53:04.658372] [OTNS LOG] debug	2025-04-25 23:53:04.654 - set node rloc: 8c07 -> 7c00
+[2025-04-25 23:53:04.659179] [OTNS LOG] debug	2025-04-25 23:53:04.654 - status push: 2: "coap=recv,62303,2,68,,fdde:ad00:beef:0:0:ff:fe00:8c00,61631"
+[2025-04-25 23:53:04.711822] [OTNS LOG] debug	2025-04-25 23:53:04.711 - status push: 2: "role=3"
+[2025-04-25 23:53:04.713201] [OTNS LOG] debug	2025-04-25 23:53:04.712 - status push: 2: "transmit=11,d841,27,ffff"
+[2025-04-25 23:53:04.714114] [OTNS LOG] debug	2025-04-25 23:53:04.712 - status push: 8: "parid=7974adba"
+[2025-04-25 23:53:04.715401] [OTNS LOG] debug	2025-04-25 23:53:04.713 - status push: 7: "parid=7974adba"
+[2025-04-25 23:53:04.717237] [OTNS LOG] debug	2025-04-25 23:53:04.713 - status push: 1: "router_added=46566ad32411d92a"
+[2025-04-25 23:53:04.718116] [OTNS LOG] debug	2025-04-25 23:53:04.713 - status push: 1: "child_removed=46566ad32411d92a"
+[2025-04-25 23:53:04.758680] [OTNS LOG] debug	2025-04-25 23:53:04.758 - status push: 7: "transmit=11,dc61,97,46566ad32411d92a"
+[2025-04-25 23:53:04.762320] [OTNS LOG] debug	2025-04-25 23:53:04.762 - status push: 2: "transmit=11,dc61,28,eeb25be1dd1a845b"
+[2025-04-25 23:53:04.766622] [OTNS LOG] debug	2025-04-25 23:53:04.766 - status push: 8: "transmit=11,dc61,247,46566ad32411d92a"
+[2025-04-25 23:53:04.771311] [OTNS LOG] debug	2025-04-25 23:53:04.771 - status push: 2: "transmit=11,dc61,29,e25cc444d9e6c31b"
+[2025-04-25 23:53:04.774952] [OTNS LOG] debug	2025-04-25 23:53:04.774 - status push: 2: "transmit=11,d841,30,ffff"
+[2025-04-25 23:53:04.776355] [OTNS LOG] debug	2025-04-25 23:53:04.775 - status push: 7: "transmit=11,dc61,98,46566ad32411d92a"
+[2025-04-25 23:53:04.777406] [OTNS LOG] debug	2025-04-25 23:53:04.776 - status push: 2: "transmit=11,dc61,31,eeb25be1dd1a845b"
+[2025-04-25 23:53:04.778284] [OTNS LOG] debug	2025-04-25 23:53:04.777 - status push: 8: "transmit=11,dc61,248,46566ad32411d92a"
+[2025-04-25 23:53:04.779542] [OTNS LOG] debug	2025-04-25 23:53:04.778 - status push: 2: "transmit=11,dc61,32,e25cc444d9e6c31b"
+[2025-04-25 23:53:04.780435] [OTNS LOG] debug	2025-04-25 23:53:04.780 - status push: 1: "transmit=11,d841,219,ffff"
+[2025-04-25 23:53:04.784057] [_do_command] Received: Done
+[2025-04-25 23:53:04.784852] [_do_command] Sending command: nodes
+[2025-04-25 23:53:04.785820] [_do_command] Received: id=1	extaddr=ca4fb251c7611c87	rloc16=8c00	x=400	y=400	state=leader	failed=false
+[2025-04-25 23:53:04.786848] [_do_command] Received: id=4	extaddr=0e85abe1c60b0afc	rloc16=8c03	x=453	y=453	state=child	failed=false
+[2025-04-25 23:53:04.787459] [_do_command] Received: id=6	extaddr=ea45367c7d149a86	rloc16=8c05	x=346	y=453	state=child	failed=false
+[2025-04-25 23:53:04.788235] [_do_command] Received: id=7	extaddr=eeb25be1dd1a845b	rloc16=7c02	x=325	y=400	state=child	failed=false
+[2025-04-25 23:53:04.788957] [_do_command] Received: id=10	extaddr=0ab166076b0f500d	rloc16=8c04	x=453	y=346	state=child	failed=false
+[2025-04-25 23:53:04.789743] [_do_command] Received: id=2	extaddr=46566ad32411d92a	rloc16=7c00	x=363	y=363	state=router	failed=false
+[2025-04-25 23:53:04.790253] [_do_command] Received: id=3	extaddr=da37220e230f40b4	rloc16=8c01	x=475	y=400	state=child	failed=false
+[2025-04-25 23:53:04.790774] [_do_command] Received: id=5	extaddr=428ce490c4180f84	rloc16=8c06	x=400	y=475	state=child	failed=false
+[2025-04-25 23:53:04.791458] [_do_command] Received: id=8	extaddr=e25cc444d9e6c31b	rloc16=7c01	x=346	y=346	state=child	failed=false
+[2025-04-25 23:53:04.792190] [_do_command] Received: id=9	extaddr=72bf35c1068520c8	rloc16=8c02	x=400	y=325	state=child	failed=false
+[2025-04-25 23:53:04.792832] [_do_command] Received: Done
+[2025-04-25 23:53:04.793371] [_do_command] Sending command: node 1 "state"
+[2025-04-25 23:53:04.794555] [OTNS LOG] debug	2025-04-25 23:53:04.794 - Node<1> - state
+[2025-04-25 23:53:04.795200] [OTNS LOG] debug	2025-04-25 23:53:04.794 - Node<1> - leader
+[2025-04-25 23:53:04.795803] [OTNS LOG] debug	2025-04-25 23:53:04.794 - Node<1> - Done
+[2025-04-25 23:53:04.796896] [_do_command] Received: leader
+[2025-04-25 23:53:04.797918] [_do_command] Received: Done
+[2025-04-25 23:53:04.798758] [_do_command] Sending command: node 4 "state"
+[2025-04-25 23:53:04.800077] [OTNS LOG] debug	2025-04-25 23:53:04.800 - Node<4> - state
+[2025-04-25 23:53:04.800595] [OTNS LOG] debug	2025-04-25 23:53:04.800 - Node<4> - child
+[2025-04-25 23:53:04.801185] [OTNS LOG] debug	2025-04-25 23:53:04.800 - Node<4> - Done
+[2025-04-25 23:53:04.801705] [_do_command] Received: child
+[2025-04-25 23:53:04.802347] [_do_command] Received: Done
+[2025-04-25 23:53:04.802898] [_do_command] Sending command: node 6 "state"
+[2025-04-25 23:53:04.804306] [OTNS LOG] debug	2025-04-25 23:53:04.804 - Node<6> - state
+[2025-04-25 23:53:04.804912] [OTNS LOG] debug	2025-04-25 23:53:04.804 - Node<6> - child
+[2025-04-25 23:53:04.805559] [OTNS LOG] debug	2025-04-25 23:53:04.804 - Node<6> - Done
+[2025-04-25 23:53:04.806328] [_do_command] Received: child
+[2025-04-25 23:53:04.806876] [_do_command] Received: Done
+[2025-04-25 23:53:04.807459] [_do_command] Sending command: node 7 "state"
+[2025-04-25 23:53:04.808706] [OTNS LOG] debug	2025-04-25 23:53:04.808 - Node<7> - state
+[2025-04-25 23:53:04.809476] [OTNS LOG] debug	2025-04-25 23:53:04.808 - Node<7> - child
+[2025-04-25 23:53:04.810043] [OTNS LOG] debug	2025-04-25 23:53:04.808 - Node<7> - Done
+[2025-04-25 23:53:04.810755] [_do_command] Received: child
+[2025-04-25 23:53:04.811675] [_do_command] Received: Done
+[2025-04-25 23:53:04.812468] [_do_command] Sending command: node 10 "state"
+[2025-04-25 23:53:04.813808] [OTNS LOG] debug	2025-04-25 23:53:04.813 - Node<10> - state
+[2025-04-25 23:53:04.814532] [OTNS LOG] debug	2025-04-25 23:53:04.813 - Node<10> - child
+[2025-04-25 23:53:04.815015] [OTNS LOG] debug	2025-04-25 23:53:04.813 - Node<10> - Done
+[2025-04-25 23:53:04.815698] [_do_command] Received: child
+[2025-04-25 23:53:04.816200] [_do_command] Received: Done
+[2025-04-25 23:53:04.816739] [_do_command] Sending command: node 2 "state"
+[2025-04-25 23:53:04.818176] [OTNS LOG] debug	2025-04-25 23:53:04.818 - Node<2> - state
+[2025-04-25 23:53:04.819241] [OTNS LOG] debug	2025-04-25 23:53:04.818 - Node<2> - router
+[2025-04-25 23:53:04.819937] [OTNS LOG] debug	2025-04-25 23:53:04.818 - Node<2> - Done
+[2025-04-25 23:53:04.820475] [_do_command] Received: router
+[2025-04-25 23:53:04.821177] [_do_command] Received: Done
+[2025-04-25 23:53:04.821968] [_do_command] Sending command: node 3 "state"
+[2025-04-25 23:53:04.823416] [OTNS LOG] debug	2025-04-25 23:53:04.823 - Node<3> - state
+[2025-04-25 23:53:04.824139] [OTNS LOG] debug	2025-04-25 23:53:04.823 - Node<3> - child
+[2025-04-25 23:53:04.824604] [OTNS LOG] debug	2025-04-25 23:53:04.823 - Node<3> - Done
+[2025-04-25 23:53:04.825120] [_do_command] Received: child
+[2025-04-25 23:53:04.825821] [_do_command] Received: Done
+[2025-04-25 23:53:04.826367] [_do_command] Sending command: node 5 "state"
+[2025-04-25 23:53:04.827431] [OTNS LOG] debug	2025-04-25 23:53:04.827 - Node<5> - state
+[2025-04-25 23:53:04.827960] [OTNS LOG] debug	2025-04-25 23:53:04.827 - Node<5> - child
+[2025-04-25 23:53:04.828543] [OTNS LOG] debug	2025-04-25 23:53:04.827 - Node<5> - Done
+[2025-04-25 23:53:04.829091] [_do_command] Received: child
+[2025-04-25 23:53:04.829668] [_do_command] Received: Done
+[2025-04-25 23:53:04.830197] [_do_command] Sending command: node 8 "state"
+[2025-04-25 23:53:04.831149] [OTNS LOG] debug	2025-04-25 23:53:04.831 - Node<8> - state
+[2025-04-25 23:53:04.831675] [OTNS LOG] debug	2025-04-25 23:53:04.831 - Node<8> - child
+[2025-04-25 23:53:04.832576] [OTNS LOG] debug	2025-04-25 23:53:04.831 - Node<8> - Done
+[2025-04-25 23:53:04.833316] [_do_command] Received: child
+[2025-04-25 23:53:04.833872] [_do_command] Received: Done
+[2025-04-25 23:53:04.834396] [_do_command] Sending command: node 9 "state"
+[2025-04-25 23:53:04.835544] [OTNS LOG] debug	2025-04-25 23:53:04.835 - Node<9> - state
+[2025-04-25 23:53:04.836087] [OTNS LOG] debug	2025-04-25 23:53:04.835 - Node<9> - child
+[2025-04-25 23:53:04.836820] [OTNS LOG] debug	2025-04-25 23:53:04.835 - Node<9> - Done
+[2025-04-25 23:53:04.837459] [_do_command] Received: child
+[2025-04-25 23:53:04.838018] [_do_command] Received: Done
+✅ Baseline converged.
+[2025-04-25 23:53:04.839154] [_do_command] Sending command: nodes
+[2025-04-25 23:53:04.839967] [_do_command] Received: id=1	extaddr=ca4fb251c7611c87	rloc16=8c00	x=400	y=400	state=leader	failed=false
+[2025-04-25 23:53:04.840570] [_do_command] Received: id=4	extaddr=0e85abe1c60b0afc	rloc16=8c03	x=453	y=453	state=child	failed=false
+[2025-04-25 23:53:04.841107] [_do_command] Received: id=6	extaddr=ea45367c7d149a86	rloc16=8c05	x=346	y=453	state=child	failed=false
+[2025-04-25 23:53:04.841647] [_do_command] Received: id=7	extaddr=eeb25be1dd1a845b	rloc16=7c02	x=325	y=400	state=child	failed=false
+[2025-04-25 23:53:04.842314] [_do_command] Received: id=10	extaddr=0ab166076b0f500d	rloc16=8c04	x=453	y=346	state=child	failed=false
+[2025-04-25 23:53:04.843031] [_do_command] Received: id=2	extaddr=46566ad32411d92a	rloc16=7c00	x=363	y=363	state=router	failed=false
+[2025-04-25 23:53:04.843638] [_do_command] Received: id=3	extaddr=da37220e230f40b4	rloc16=8c01	x=475	y=400	state=child	failed=false
+[2025-04-25 23:53:04.844253] [_do_command] Received: id=5	extaddr=428ce490c4180f84	rloc16=8c06	x=400	y=475	state=child	failed=false
+[2025-04-25 23:53:04.844753] [_do_command] Received: id=8	extaddr=e25cc444d9e6c31b	rloc16=7c01	x=346	y=346	state=child	failed=false
+[2025-04-25 23:53:04.845349] [_do_command] Received: id=9	extaddr=72bf35c1068520c8	rloc16=8c02	x=400	y=325	state=child	failed=false
+[2025-04-25 23:53:04.846217] [_do_command] Received: Done
+[2025-04-25 23:53:04.846976] [_do_command] Sending command: node 1 "coap start"
+[2025-04-25 23:53:04.848463] [OTNS LOG] debug	2025-04-25 23:53:04.848 - Node<1> - coap start
+[2025-04-25 23:53:04.849104] [OTNS LOG] debug	2025-04-25 23:53:04.848 - Node<1> - Done
+[2025-04-25 23:53:04.849725] [_do_command] Received: Done
+[2025-04-25 23:53:04.850250] [_do_command] Sending command: node 1 "coap resource logs"
+[2025-04-25 23:53:04.852616] [OTNS LOG] debug	2025-04-25 23:53:04.852 - Node<1> - coap resource logs
+[2025-04-25 23:53:04.853344] [OTNS LOG] debug	2025-04-25 23:53:04.852 - Node<1> - Done
+[2025-04-25 23:53:04.853902] [_do_command] Received: Done
+[2025-04-25 23:53:04.854592] [_do_command] Sending command: node 1 "ipaddr"
+[2025-04-25 23:53:04.855724] [OTNS LOG] debug	2025-04-25 23:53:04.855 - Node<1> - ipaddr
+[2025-04-25 23:53:04.856431] [OTNS LOG] debug	2025-04-25 23:53:04.855 - Node<1> - fdde:ad00:beef:0:0:ff:fe00:fc00
+[2025-04-25 23:53:04.857182] [OTNS LOG] debug	2025-04-25 23:53:04.855 - Node<1> - fdde:ad00:beef:0:0:ff:fe00:8c00
+[2025-04-25 23:53:04.857840] [OTNS LOG] debug	2025-04-25 23:53:04.855 - Node<1> - fdde:ad00:beef:0:ea06:2116:7980:3f67
+[2025-04-25 23:53:04.858633] [OTNS LOG] debug	2025-04-25 23:53:04.855 - Node<1> - fe80:0:0:0:c84f:b251:c761:1c87
+[2025-04-25 23:53:04.859394] [OTNS LOG] debug	2025-04-25 23:53:04.855 - Node<1> - Done
+[2025-04-25 23:53:04.860061] [_do_command] Received: fdde:ad00:beef:0:0:ff:fe00:fc00
+[2025-04-25 23:53:04.860709] [_do_command] Received: fdde:ad00:beef:0:0:ff:fe00:8c00
+[2025-04-25 23:53:04.861277] [_do_command] Received: fdde:ad00:beef:0:ea06:2116:7980:3f67
+[2025-04-25 23:53:04.861858] [_do_command] Received: fe80:0:0:0:c84f:b251:c761:1c87
+[2025-04-25 23:53:04.862388] [_do_command] Received: Done
+🧭 Receiver Node 1 IP: fdde:ad00:beef:0:0:ff:fe00:fc00
+[2025-04-25 23:53:04.864032] [_do_command] Sending command: nodes
+[2025-04-25 23:53:04.864898] [_do_command] Received: id=2	extaddr=46566ad32411d92a	rloc16=7c00	x=363	y=363	state=router	failed=false
+[2025-04-25 23:53:04.865662] [_do_command] Received: id=3	extaddr=da37220e230f40b4	rloc16=8c01	x=475	y=400	state=child	failed=false
+[2025-04-25 23:53:04.866294] [_do_command] Received: id=5	extaddr=428ce490c4180f84	rloc16=8c06	x=400	y=475	state=child	failed=false
+[2025-04-25 23:53:04.867403] [_do_command] Received: id=8	extaddr=e25cc444d9e6c31b	rloc16=7c01	x=346	y=346	state=child	failed=false
+[2025-04-25 23:53:04.868138] [_do_command] Received: id=9	extaddr=72bf35c1068520c8	rloc16=8c02	x=400	y=325	state=child	failed=false
+[2025-04-25 23:53:04.868717] [_do_command] Received: id=1	extaddr=ca4fb251c7611c87	rloc16=8c00	x=400	y=400	state=leader	failed=false
+[2025-04-25 23:53:04.869276] [_do_command] Received: id=4	extaddr=0e85abe1c60b0afc	rloc16=8c03	x=453	y=453	state=child	failed=false
+[2025-04-25 23:53:04.869935] [_do_command] Received: id=6	extaddr=ea45367c7d149a86	rloc16=8c05	x=346	y=453	state=child	failed=false
+[2025-04-25 23:53:04.870588] [_do_command] Received: id=7	extaddr=eeb25be1dd1a845b	rloc16=7c02	x=325	y=400	state=child	failed=false
+[2025-04-25 23:53:04.871244] [_do_command] Received: id=10	extaddr=0ab166076b0f500d	rloc16=8c04	x=453	y=346	state=child	failed=false
+[2025-04-25 23:53:04.872085] [_do_command] Received: Done
+[2025-04-25 23:53:04.872752] [_do_command] Sending command: node 2 "coap start"
+[2025-04-25 23:53:04.874010] [OTNS LOG] debug	2025-04-25 23:53:04.873 - Node<2> - coap start
+[2025-04-25 23:53:04.874692] [OTNS LOG] debug	2025-04-25 23:53:04.873 - Node<2> - Done
+[2025-04-25 23:53:04.875314] [_do_command] Received: Done
+[2025-04-25 23:53:04.875868] [_do_command] Sending command: node 2 "coap post fdde:ad00:beef:0:0:ff:fe00:fc00 logs con hrrHxXWhvZ91IevWoVnxmZZlXF41hXQlBARs5SJjNmiwnJRrAbs8nGIs30KiMIFuM3gaM7XrtL87diyTSmxwqdmO2R3ok1ZNpt9mNiJNOZt2BTwQ31NMTYZNoCLFjDPf3wOzdx7bC6ZHGYS2nDtnhqCxREU9VlrDtPOyP6RtvvMa3Z3yPClNd01x56lGl4NmiIM19oE531s1YBrXm68urG6Xz2fAj4mwwQzWNkVQLNsSw0kffoKFkiNMpV"
+[2025-04-25 23:53:04.878228] [OTNS LOG] debug	2025-04-25 23:53:04.878 - status push: 2: "coap=send,29138,0,2,logs,fdde:ad00:beef:0:0:ff:fe00:fc00,5683"
+[2025-04-25 23:53:04.878981] [OTNS LOG] debug	2025-04-25 23:53:04.878 - status push: 2: "transmit=11,9879,33,8c00"
+[2025-04-25 23:53:04.879973] [OTNS LOG] debug	2025-04-25 23:53:04.878 - Node<2> - coap post fdde:ad00:beef:0:0:ff:fe00:fc00 logs con hrrHxXWhvZ91IevWoVnxmZZlXF41hXQlBARs5SJjNmiwnJRrAbs8nGIs30KiMIFuM3gaM7XrtL87diyTSmxwqdmO2R3ok1ZNpt9mNiJNOZt2BTwQ31NMTYZNoCLFjDPf3wOzdx7bC6ZHGYS2nDtnhqCxREU9VlrDtPOyP6RtvvMa3Z3yPClNd01x56lGl4NmiIM19oE531s1YBrXm68urG6Xz2fAj4mwwQzWNkVQLNsSw0kffoKFkiNMpV
+[2025-04-25 23:53:04.880516] [OTNS LOG] debug	2025-04-25 23:53:04.878 - Node<2> - Done
+[2025-04-25 23:53:04.881072] [_do_command] Received: Done
+📨 Node 2 sent payload: hrrHxXWhvZ91IevWoVnxmZZlXF41hXQlBARs5SJjNmiwnJRrAbs8nGIs30KiMIFuM3gaM7XrtL87diyTSmxwqdmO2R3ok1ZNpt9mNiJNOZt2BTwQ31NMTYZNoCLFjDPf3wOzdx7bC6ZHGYS2nDtnhqCxREU9VlrDtPOyP6RtvvMa3Z3yPClNd01x56lGl4NmiIM19oE531s1YBrXm68urG6Xz2fAj4mwwQzWNkVQLNsSw0kffoKFkiNMpV
+[2025-04-25 23:53:04.882400] [_do_command] Sending command: node 3 "coap start"
+[2025-04-25 23:53:04.884107] [OTNS LOG] debug	2025-04-25 23:53:04.884 - Node<3> - coap start
+[2025-04-25 23:53:04.885063] [OTNS LOG] debug	2025-04-25 23:53:04.884 - Node<3> - Done
+[2025-04-25 23:53:04.885522] [_do_command] Received: Done
+[2025-04-25 23:53:04.886086] [_do_command] Sending command: node 3 "coap post fdde:ad00:beef:0:0:ff:fe00:fc00 logs con L58bw18yAiGnboe5qzbOf3kdHQLVYqi9h9wWhWt99jBcVczueaP0p4xSNAS5tpOSO0MuAbqbt8TS07LBQ4zBOFr65c2yiVxT6jXFUznJi6RrT41ADIGG4fELOr4yGUiltHKjM04hJ2XZXPGINxdSqjvtH7vC4KEH7wUn9JuPa47NzD4pObgZCEWvAPQiuBnTPp4hdIWsyZ7w4TR9hg4ZExZBb9G2Nzpcaj59i5BNIhfMaN3A7F2ZynlUqT"
+[2025-04-25 23:53:04.888388] [OTNS LOG] debug	2025-04-25 23:53:04.888 - status push: 3: "coap=send,36394,0,2,logs,fdde:ad00:beef:0:0:ff:fe00:fc00,5683"
+[2025-04-25 23:53:04.890218] [OTNS LOG] debug	2025-04-25 23:53:04.888 - status push: 3: "transmit=11,9879,85,8c00"
+[2025-04-25 23:53:04.890990] [OTNS LOG] debug	2025-04-25 23:53:04.888 - Node<3> - coap post fdde:ad00:beef:0:0:ff:fe00:fc00 logs con L58bw18yAiGnboe5qzbOf3kdHQLVYqi9h9wWhWt99jBcVczueaP0p4xSNAS5tpOSO0MuAbqbt8TS07LBQ4zBOFr65c2yiVxT6jXFUznJi6RrT41ADIGG4fELOr4yGUiltHKjM04hJ2XZXPGINxdSqjvtH7vC4KEH7wUn9JuPa47NzD4pObgZCEWvAPQiuBnTPp4hdIWsyZ7w4TR9hg4ZExZBb9G2Nzpcaj59i5BNIhfMaN3A7F2ZynlUqT
+[2025-04-25 23:53:04.893163] [OTNS LOG] debug	2025-04-25 23:53:04.888 - Node<3> - Done
+[2025-04-25 23:53:04.893928] [_do_command] Received: Done
+📨 Node 3 sent payload: L58bw18yAiGnboe5qzbOf3kdHQLVYqi9h9wWhWt99jBcVczueaP0p4xSNAS5tpOSO0MuAbqbt8TS07LBQ4zBOFr65c2yiVxT6jXFUznJi6RrT41ADIGG4fELOr4yGUiltHKjM04hJ2XZXPGINxdSqjvtH7vC4KEH7wUn9JuPa47NzD4pObgZCEWvAPQiuBnTPp4hdIWsyZ7w4TR9hg4ZExZBb9G2Nzpcaj59i5BNIhfMaN3A7F2ZynlUqT
+[2025-04-25 23:53:04.895205] [_do_command] Sending command: node 5 "coap start"
+[2025-04-25 23:53:04.896654] [OTNS LOG] debug	2025-04-25 23:53:04.896 - Node<5> - coap start
+[2025-04-25 23:53:04.897159] [OTNS LOG] debug	2025-04-25 23:53:04.896 - Node<5> - Done
+[2025-04-25 23:53:04.897971] [_do_command] Received: Done
+[2025-04-25 23:53:04.898809] [_do_command] Sending command: node 5 "coap post fdde:ad00:beef:0:0:ff:fe00:fc00 logs con vye8kFVvLsCp5YPAS7tGAHaFphmYagcMESql9vOG14Or6QNMPSOZGKEqnbDxJkY5D4Qp4NTUxD7bdHIh1bnJNCyFHON0vzJWWkhs3KzHU0Ab9UZRptTQEY6Dj8oGZquCem35mEq8EEDVKltvaZ1Ifp0dpeeQgR3pZqRo3xEPi8hr3rWXaCf0Nisk0Ys7JKl2gogDQ40nPcBX5I5A6Zz742pzDoYFh2CSAbWSaGaoRNgrlHLbLTwT4pS7GH"
+[2025-04-25 23:53:04.901327] [OTNS LOG] debug	2025-04-25 23:53:04.901 - status push: 5: "coap=send,33441,0,2,logs,fdde:ad00:beef:0:0:ff:fe00:fc00,5683"
+[2025-04-25 23:53:04.902110] [OTNS LOG] debug	2025-04-25 23:53:04.901 - Node<5> - coap post fdde:ad00:beef:0:0:ff:fe00:fc00 logs con vye8kFVvLsCp5YPAS7tGAHaFphmYagcMESql9vOG14Or6QNMPSOZGKEqnbDxJkY5D4Qp4NTUxD7bdHIh1bnJNCyFHON0vzJWWkhs3KzHU0Ab9UZRptTQEY6Dj8oGZquCem35mEq8EEDVKltvaZ1Ifp0dpeeQgR3pZqRo3xEPi8hr3rWXaCf0Nisk0Ys7JKl2gogDQ40nPcBX5I5A6Zz742pzDoYFh2CSAbWSaGaoRNgrlHLbLTwT4pS7GH
+[2025-04-25 23:53:04.902848] [OTNS LOG] debug	2025-04-25 23:53:04.901 - Node<5> - Done
+[2025-04-25 23:53:04.903664] [_do_command] Received: Done
+📨 Node 5 sent payload: vye8kFVvLsCp5YPAS7tGAHaFphmYagcMESql9vOG14Or6QNMPSOZGKEqnbDxJkY5D4Qp4NTUxD7bdHIh1bnJNCyFHON0vzJWWkhs3KzHU0Ab9UZRptTQEY6Dj8oGZquCem35mEq8EEDVKltvaZ1Ifp0dpeeQgR3pZqRo3xEPi8hr3rWXaCf0Nisk0Ys7JKl2gogDQ40nPcBX5I5A6Zz742pzDoYFh2CSAbWSaGaoRNgrlHLbLTwT4pS7GH
+[2025-04-25 23:53:04.904684] [_do_command] Sending command: node 8 "coap start"
+[2025-04-25 23:53:04.905829] [OTNS LOG] debug	2025-04-25 23:53:04.905 - Node<8> - coap start
+[2025-04-25 23:53:04.906835] [OTNS LOG] debug	2025-04-25 23:53:04.905 - Node<8> - Done
+[2025-04-25 23:53:04.907948] [_do_command] Received: Done
+[2025-04-25 23:53:04.908748] [_do_command] Sending command: node 8 "coap post fdde:ad00:beef:0:0:ff:fe00:fc00 logs con p6FoZRu4svL7mQlDdgvmUpMFgrce2ndpi4mOSUEundPoMsZGKeixFbOEVu8TkKt5lSumD6F6RRn7dlTPAmw17hJuA1LWlhnSRKEECnagTP0YO9WRBcgNRh01Y5Lw1zh7qPh5iyz9mbLBhIpJVf06Qreev829gfHEc9kK6FYhEoPT6iwm9P53bSLrv0uuxk9duI04fKQQ4dc4H6ibJWXBL2zGj1PQPs2cvGDUOfOR36ASoQd6Tvm31R0yAr"
+[2025-04-25 23:53:04.912996] [OTNS LOG] debug	2025-04-25 23:53:04.912 - status push: 8: "coap=send,42562,0,2,logs,fdde:ad00:beef:0:0:ff:fe00:fc00,5683"
+[2025-04-25 23:53:04.914374] [OTNS LOG] debug	2025-04-25 23:53:04.912 - Node<8> - coap post fdde:ad00:beef:0:0:ff:fe00:fc00 logs con p6FoZRu4svL7mQlDdgvmUpMFgrce2ndpi4mOSUEundPoMsZGKeixFbOEVu8TkKt5lSumD6F6RRn7dlTPAmw17hJuA1LWlhnSRKEECnagTP0YO9WRBcgNRh01Y5Lw1zh7qPh5iyz9mbLBhIpJVf06Qreev829gfHEc9kK6FYhEoPT6iwm9P53bSLrv0uuxk9duI04fKQQ4dc4H6ibJWXBL2zGj1PQPs2cvGDUOfOR36ASoQd6Tvm31R0yAr
+[2025-04-25 23:53:04.915373] [OTNS LOG] debug	2025-04-25 23:53:04.912 - Node<8> - Done
+[2025-04-25 23:53:04.916266] [_do_command] Received: Done
+📨 Node 8 sent payload: p6FoZRu4svL7mQlDdgvmUpMFgrce2ndpi4mOSUEundPoMsZGKeixFbOEVu8TkKt5lSumD6F6RRn7dlTPAmw17hJuA1LWlhnSRKEECnagTP0YO9WRBcgNRh01Y5Lw1zh7qPh5iyz9mbLBhIpJVf06Qreev829gfHEc9kK6FYhEoPT6iwm9P53bSLrv0uuxk9duI04fKQQ4dc4H6ibJWXBL2zGj1PQPs2cvGDUOfOR36ASoQd6Tvm31R0yAr
+[2025-04-25 23:53:04.917800] [_do_command] Sending command: node 9 "coap start"
+[2025-04-25 23:53:04.919487] [OTNS LOG] debug	2025-04-25 23:53:04.919 - Node<9> - coap start
+[2025-04-25 23:53:04.920526] [OTNS LOG] debug	2025-04-25 23:53:04.919 - Node<9> - Done
+[2025-04-25 23:53:04.921209] [_do_command] Received: Done
+[2025-04-25 23:53:04.921987] [_do_command] Sending command: node 9 "coap post fdde:ad00:beef:0:0:ff:fe00:fc00 logs con 08CT7LzJJKjFL55pP3Q12d2vWSirAbP62e0IO1C5qUNJQLCdsZ7jXm5XgjIGv2SMVPSz46N6GNi1aeCJTsZLvfoz0yrd5I5q1OHY3JTJrKIvBvDJ5qtvujh6WFAzct7aMknMffSHKVs9Z29EWdUWH4S0F7B9bHTX69EYedmYlDporbwQmhE5Haa3B3ywKsz8vSfq4Jbj1nPqTIrIyU1pykGJGsxVubVmraarsUk5WHyOdCwx7gxE53eWsX"
+[2025-04-25 23:53:04.924385] [OTNS LOG] debug	2025-04-25 23:53:04.924 - status push: 9: "coap=send,5664,0,2,logs,fdde:ad00:beef:0:0:ff:fe00:fc00,5683"
+[2025-04-25 23:53:04.925223] [OTNS LOG] debug	2025-04-25 23:53:04.924 - Node<9> - coap post fdde:ad00:beef:0:0:ff:fe00:fc00 logs con 08CT7LzJJKjFL55pP3Q12d2vWSirAbP62e0IO1C5qUNJQLCdsZ7jXm5XgjIGv2SMVPSz46N6GNi1aeCJTsZLvfoz0yrd5I5q1OHY3JTJrKIvBvDJ5qtvujh6WFAzct7aMknMffSHKVs9Z29EWdUWH4S0F7B9bHTX69EYedmYlDporbwQmhE5Haa3B3ywKsz8vSfq4Jbj1nPqTIrIyU1pykGJGsxVubVmraarsUk5WHyOdCwx7gxE53eWsX
+[2025-04-25 23:53:04.925975] [OTNS LOG] debug	2025-04-25 23:53:04.924 - Node<9> - Done
+[2025-04-25 23:53:04.926609] [_do_command] Received: Done
+📨 Node 9 sent payload: 08CT7LzJJKjFL55pP3Q12d2vWSirAbP62e0IO1C5qUNJQLCdsZ7jXm5XgjIGv2SMVPSz46N6GNi1aeCJTsZLvfoz0yrd5I5q1OHY3JTJrKIvBvDJ5qtvujh6WFAzct7aMknMffSHKVs9Z29EWdUWH4S0F7B9bHTX69EYedmYlDporbwQmhE5Haa3B3ywKsz8vSfq4Jbj1nPqTIrIyU1pykGJGsxVubVmraarsUk5WHyOdCwx7gxE53eWsX
+[2025-04-25 23:53:04.927942] [_do_command] Sending command: node 1 "coap start"
+[2025-04-25 23:53:04.929143] [OTNS LOG] debug	2025-04-25 23:53:04.928 - Node<1> - coap start
+[2025-04-25 23:53:04.930227] [OTNS LOG] debug	2025-04-25 23:53:04.929 - Node<1> - Done
+[2025-04-25 23:53:04.930981] [_do_command] Received: Done
+[2025-04-25 23:53:04.933418] [_do_command] Sending command: node 4 "coap start"
+[2025-04-25 23:53:04.935195] [OTNS LOG] debug	2025-04-25 23:53:04.935 - Node<4> - coap start
+[2025-04-25 23:53:04.936582] [OTNS LOG] debug	2025-04-25 23:53:04.935 - Node<4> - Done
+[2025-04-25 23:53:04.937173] [_do_command] Received: Done
+[2025-04-25 23:53:04.937962] [_do_command] Sending command: node 4 "coap post fdde:ad00:beef:0:0:ff:fe00:fc00 logs con n1ffcjHYT7TrNFbO4cQOTWXgnlnheph3WmXlB9mod9U1oaKk80aUZ2v21Kfy5rpYKsVpdR8a6sADfT5qDsPRypcdkXStOXfu3WLYqFExHVnRAnTU2UECCJLlmoB9ZUE0F5SiG1dTBj21pFBhHZFxlq7rULFko0osmNv7XcCc26oUtb6onUmLXRHkOhhfCHRE4qdbEz6QVfjjHeRuRJjY2jrrdX6r2UnZ8ODn7FJfiCS7Ri5xAIUXCWleNq"
+[2025-04-25 23:53:04.940423] [OTNS LOG] debug	2025-04-25 23:53:04.940 - status push: 4: "coap=send,30995,0,2,logs,fdde:ad00:beef:0:0:ff:fe00:fc00,5683"
+[2025-04-25 23:53:04.941468] [OTNS LOG] debug	2025-04-25 23:53:04.940 - Node<4> - coap post fdde:ad00:beef:0:0:ff:fe00:fc00 logs con n1ffcjHYT7TrNFbO4cQOTWXgnlnheph3WmXlB9mod9U1oaKk80aUZ2v21Kfy5rpYKsVpdR8a6sADfT5qDsPRypcdkXStOXfu3WLYqFExHVnRAnTU2UECCJLlmoB9ZUE0F5SiG1dTBj21pFBhHZFxlq7rULFko0osmNv7XcCc26oUtb6onUmLXRHkOhhfCHRE4qdbEz6QVfjjHeRuRJjY2jrrdX6r2UnZ8ODn7FJfiCS7Ri5xAIUXCWleNq
+[2025-04-25 23:53:04.942214] [OTNS LOG] debug	2025-04-25 23:53:04.940 - Node<4> - Done
+[2025-04-25 23:53:04.942739] [_do_command] Received: Done
+📨 Node 4 sent payload: n1ffcjHYT7TrNFbO4cQOTWXgnlnheph3WmXlB9mod9U1oaKk80aUZ2v21Kfy5rpYKsVpdR8a6sADfT5qDsPRypcdkXStOXfu3WLYqFExHVnRAnTU2UECCJLlmoB9ZUE0F5SiG1dTBj21pFBhHZFxlq7rULFko0osmNv7XcCc26oUtb6onUmLXRHkOhhfCHRE4qdbEz6QVfjjHeRuRJjY2jrrdX6r2UnZ8ODn7FJfiCS7Ri5xAIUXCWleNq
+[2025-04-25 23:53:04.943953] [_do_command] Sending command: node 6 "coap start"
+[2025-04-25 23:53:04.945223] [OTNS LOG] debug	2025-04-25 23:53:04.945 - Node<6> - coap start
+[2025-04-25 23:53:04.945876] [OTNS LOG] debug	2025-04-25 23:53:04.945 - Node<6> - Done
+[2025-04-25 23:53:04.946687] [_do_command] Received: Done
+[2025-04-25 23:53:04.947478] [_do_command] Sending command: node 6 "coap post fdde:ad00:beef:0:0:ff:fe00:fc00 logs con 89YJXQAMnQIMtzFr3F1JcpyCkRAkWefG7S7qowdEN1QmpRotgxO9D8ZIjHcXNxNOQpImDb917PLwlF1V4XVuDLuGUYf8gwE95N7wN6V5695jCkJsgjRBvBH4SOSk7twuo5cEEM1ObgZdC4rX9hDU1arRhISXkExoutykb9SyMtDMSH6Fcnb94AEeSTltEWC34Q8xmkiBU5zWqTcoJV8lXtsLYPVTD474XVSVGosnQABgb11MTHk1ae8s9s"
+[2025-04-25 23:53:04.951453] [OTNS LOG] debug	2025-04-25 23:53:04.951 - status push: 6: "coap=send,41698,0,2,logs,fdde:ad00:beef:0:0:ff:fe00:fc00,5683"
+[2025-04-25 23:53:04.952130] [OTNS LOG] debug	2025-04-25 23:53:04.951 - Node<6> - coap post fdde:ad00:beef:0:0:ff:fe00:fc00 logs con 89YJXQAMnQIMtzFr3F1JcpyCkRAkWefG7S7qowdEN1QmpRotgxO9D8ZIjHcXNxNOQpImDb917PLwlF1V4XVuDLuGUYf8gwE95N7wN6V5695jCkJsgjRBvBH4SOSk7twuo5cEEM1ObgZdC4rX9hDU1arRhISXkExoutykb9SyMtDMSH6Fcnb94AEeSTltEWC34Q8xmkiBU5zWqTcoJV8lXtsLYPVTD474XVSVGosnQABgb11MTHk1ae8s9s
+[2025-04-25 23:53:04.952724] [OTNS LOG] debug	2025-04-25 23:53:04.951 - Node<6> - Done
+[2025-04-25 23:53:04.953264] [_do_command] Received: Done
+📨 Node 6 sent payload: 89YJXQAMnQIMtzFr3F1JcpyCkRAkWefG7S7qowdEN1QmpRotgxO9D8ZIjHcXNxNOQpImDb917PLwlF1V4XVuDLuGUYf8gwE95N7wN6V5695jCkJsgjRBvBH4SOSk7twuo5cEEM1ObgZdC4rX9hDU1arRhISXkExoutykb9SyMtDMSH6Fcnb94AEeSTltEWC34Q8xmkiBU5zWqTcoJV8lXtsLYPVTD474XVSVGosnQABgb11MTHk1ae8s9s
+[2025-04-25 23:53:04.954348] [_do_command] Sending command: node 7 "coap start"
+[2025-04-25 23:53:04.955645] [OTNS LOG] debug	2025-04-25 23:53:04.955 - Node<7> - coap start
+[2025-04-25 23:53:04.956381] [OTNS LOG] debug	2025-04-25 23:53:04.955 - Node<7> - Done
+[2025-04-25 23:53:04.957127] [_do_command] Received: Done
+[2025-04-25 23:53:04.957829] [_do_command] Sending command: node 7 "coap post fdde:ad00:beef:0:0:ff:fe00:fc00 logs con 2ZvMPWGce3BiNo6D5Q7OSLp1qtBnwt5RRzH8e0Mw5IuSmBrqOCeE8Zo5HLAxSrBEIfUTtZRyvnC67EOjS7ES1kRHFVHk5v0SNJjGwAnppnx9Mzh4qPahWE5lKyVmqnxMJFrVc3cfYzOiUbBnRFBlYzti3me5m2xnK9t2dnJKbL45YZNWRsKQ45h4eUeysm7LXSe66D9AxzrzP0vcIHMVEeOH5CGxnQmF8lZxFL9AR6nGF9IHX2gfCWH99h"
+[2025-04-25 23:53:04.959993] [OTNS LOG] debug	2025-04-25 23:53:04.959 - status push: 7: "coap=send,33300,0,2,logs,fdde:ad00:beef:0:0:ff:fe00:fc00,5683"
+[2025-04-25 23:53:04.960745] [OTNS LOG] debug	2025-04-25 23:53:04.959 - Node<7> - coap post fdde:ad00:beef:0:0:ff:fe00:fc00 logs con 2ZvMPWGce3BiNo6D5Q7OSLp1qtBnwt5RRzH8e0Mw5IuSmBrqOCeE8Zo5HLAxSrBEIfUTtZRyvnC67EOjS7ES1kRHFVHk5v0SNJjGwAnppnx9Mzh4qPahWE5lKyVmqnxMJFrVc3cfYzOiUbBnRFBlYzti3me5m2xnK9t2dnJKbL45YZNWRsKQ45h4eUeysm7LXSe66D9AxzrzP0vcIHMVEeOH5CGxnQmF8lZxFL9AR6nGF9IHX2gfCWH99h
+[2025-04-25 23:53:04.961261] [OTNS LOG] debug	2025-04-25 23:53:04.959 - Node<7> - Done
+[2025-04-25 23:53:04.962115] [_do_command] Received: Done
+📨 Node 7 sent payload: 2ZvMPWGce3BiNo6D5Q7OSLp1qtBnwt5RRzH8e0Mw5IuSmBrqOCeE8Zo5HLAxSrBEIfUTtZRyvnC67EOjS7ES1kRHFVHk5v0SNJjGwAnppnx9Mzh4qPahWE5lKyVmqnxMJFrVc3cfYzOiUbBnRFBlYzti3me5m2xnK9t2dnJKbL45YZNWRsKQ45h4eUeysm7LXSe66D9AxzrzP0vcIHMVEeOH5CGxnQmF8lZxFL9AR6nGF9IHX2gfCWH99h
+[2025-04-25 23:53:04.963493] [_do_command] Sending command: node 10 "coap start"
+[2025-04-25 23:53:04.964445] [OTNS LOG] debug	2025-04-25 23:53:04.964 - Node<10> - coap start
+[2025-04-25 23:53:04.964997] [OTNS LOG] debug	2025-04-25 23:53:04.964 - Node<10> - Done
+[2025-04-25 23:53:04.965473] [_do_command] Received: Done
+[2025-04-25 23:53:04.966117] [_do_command] Sending command: node 10 "coap post fdde:ad00:beef:0:0:ff:fe00:fc00 logs con C4KhL8nzLYYZ6I1GUkk1ELQeQ62mAW49ihYBijTGU2WCZiraDOJGulIcmeqG0BtUtlxszPEeV5237SrYI1oPfJF3t5I1plFaeLIdDNG2FmZ07NVktFTMYSlyU0ftb5rRDKrxYhYPWE5MtQVPtyO4ktkUMOarvpVzkc3ITZgBAJz7jqH6aVjsyizMOMN0neV7STc6rwRJkme4qJCSA5niTXXznKREJwumeFGYbKWq8Wx95bKIRVvybDumtI"
+[2025-04-25 23:53:04.968279] [OTNS LOG] debug	2025-04-25 23:53:04.968 - status push: 10: "coap=send,49987,0,2,logs,fdde:ad00:beef:0:0:ff:fe00:fc00,5683"
+[2025-04-25 23:53:04.968917] [OTNS LOG] debug	2025-04-25 23:53:04.968 - Node<10> - coap post fdde:ad00:beef:0:0:ff:fe00:fc00 logs con C4KhL8nzLYYZ6I1GUkk1ELQeQ62mAW49ihYBijTGU2WCZiraDOJGulIcmeqG0BtUtlxszPEeV5237SrYI1oPfJF3t5I1plFaeLIdDNG2FmZ07NVktFTMYSlyU0ftb5rRDKrxYhYPWE5MtQVPtyO4ktkUMOarvpVzkc3ITZgBAJz7jqH6aVjsyizMOMN0neV7STc6rwRJkme4qJCSA5niTXXznKREJwumeFGYbKWq8Wx95bKIRVvybDumtI
+[2025-04-25 23:53:04.969508] [OTNS LOG] debug	2025-04-25 23:53:04.968 - Node<10> - Done
+[2025-04-25 23:53:04.970047] [_do_command] Received: Done
+📨 Node 10 sent payload: C4KhL8nzLYYZ6I1GUkk1ELQeQ62mAW49ihYBijTGU2WCZiraDOJGulIcmeqG0BtUtlxszPEeV5237SrYI1oPfJF3t5I1plFaeLIdDNG2FmZ07NVktFTMYSlyU0ftb5rRDKrxYhYPWE5MtQVPtyO4ktkUMOarvpVzkc3ITZgBAJz7jqH6aVjsyizMOMN0neV7STc6rwRJkme4qJCSA5niTXXznKREJwumeFGYbKWq8Wx95bKIRVvybDumtI
+[2025-04-25 23:53:04.971430] [_do_command] Sending command: go 10
+[2025-04-25 23:53:04.973455] [OTNS LOG] debug	2025-04-25 23:53:04.973 - status push: 7: "transmit=11,9879,99,7c00"
+[2025-04-25 23:53:04.974090] [OTNS LOG] debug	2025-04-25 23:53:04.973 - status push: 4: "transmit=11,9879,165,8c00"
+[2025-04-25 23:53:04.974794] [OTNS LOG] debug	2025-04-25 23:53:04.974 - status push: 3: "transmit=11,9879,86,8c00"
+[2025-04-25 23:53:04.975493] [OTNS LOG] debug	2025-04-25 23:53:04.974 - status push: 2: "transmit=11,9879,34,8c00"
+[2025-04-25 23:53:04.976390] [OTNS LOG] debug	2025-04-25 23:53:04.974 - status push: 2: "transmit=11,9869,35,8c00"
+[2025-04-25 23:53:04.977161] [OTNS LOG] debug	2025-04-25 23:53:04.974 - status push: 6: "transmit=11,9879,34,8c00"
+[2025-04-25 23:53:04.978386] [OTNS LOG] debug	2025-04-25 23:53:04.974 - status push: 8: "transmit=11,9879,249,7c00"
+[2025-04-25 23:53:04.979157] [OTNS LOG] debug	2025-04-25 23:53:04.976 - status push: 1: "coap=send,29138,2,68,,fdde:ad00:beef:0:40fe:c3ec:20ec:9259,5683"
+[2025-04-25 23:53:04.979851] [OTNS LOG] debug	2025-04-25 23:53:04.976 - status push: 1: "coap=recv,29138,0,2,logs,fdde:ad00:beef:0:40fe:c3ec:20ec:9259,5683"
+[2025-04-25 23:53:04.980732] [OTNS LOG] debug	2025-04-25 23:53:04.977 - status push: 5: "transmit=11,9879,156,8c00"
+[2025-04-25 23:53:04.981458] [OTNS LOG] debug	2025-04-25 23:53:04.978 - status push: 4: "transmit=11,9879,166,8c00"
+[2025-04-25 23:53:04.982144] [OTNS LOG] debug	2025-04-25 23:53:04.978 - status push: 6: "transmit=11,9879,35,8c00"
+[2025-04-25 23:53:04.982807] [OTNS LOG] debug	2025-04-25 23:53:04.978 - status push: 4: "transmit=11,9869,167,8c00"
+[2025-04-25 23:53:04.983362] [OTNS LOG] debug	2025-04-25 23:53:04.978 - status push: 6: "transmit=11,9869,36,8c00"
+[2025-04-25 23:53:04.984060] [OTNS LOG] debug	2025-04-25 23:53:04.979 - status push: 1: "coap=send,30995,2,68,,fdde:ad00:beef:0:5e44:abba:cea6:1e12,5683"
+[2025-04-25 23:53:04.984902] [OTNS LOG] debug	2025-04-25 23:53:04.979 - status push: 1: "coap=recv,30995,0,2,logs,fdde:ad00:beef:0:5e44:abba:cea6:1e12,5683"
+[2025-04-25 23:53:04.985609] [OTNS LOG] debug	2025-04-25 23:53:04.980 - status push: 1: "coap=send,41698,2,68,,fdde:ad00:beef:0:500a:ad19:ed0d:d0f4,5683"
+[2025-04-25 23:53:04.986293] [OTNS LOG] debug	2025-04-25 23:53:04.980 - status push: 1: "coap=recv,41698,0,2,logs,fdde:ad00:beef:0:500a:ad19:ed0d:d0f4,5683"
+[2025-04-25 23:53:04.987125] [OTNS LOG] debug	2025-04-25 23:53:04.981 - status push: 9: "transmit=11,9879,57,8c00"
+[2025-04-25 23:53:04.987843] [OTNS LOG] debug	2025-04-25 23:53:04.981 - status push: 10: "transmit=11,9879,82,8c00"
+[2025-04-25 23:53:04.988694] [OTNS LOG] debug	2025-04-25 23:53:04.981 - status push: 1: "transmit=11,9869,220,7c00"
+[2025-04-25 23:53:04.989340] [OTNS LOG] debug	2025-04-25 23:53:04.982 - status push: 5: "transmit=11,9879,157,8c00"
+[2025-04-25 23:53:04.990114] [OTNS LOG] debug	2025-04-25 23:53:04.982 - status push: 2: "coap=recv,29138,2,68,,fdde:ad00:beef:0:0:ff:fe00:fc00,5683"
+[2025-04-25 23:53:04.991080] [OTNS LOG] debug	2025-04-25 23:53:04.983 - status push: 8: "transmit=11,9879,250,7c00"
+[2025-04-25 23:53:04.991795] [OTNS LOG] debug	2025-04-25 23:53:04.983 - status push: 8: "transmit=11,9869,251,7c00"
+[2025-04-25 23:53:04.992486] [OTNS LOG] debug	2025-04-25 23:53:04.984 - status push: 7: "transmit=11,9879,100,7c00"
+[2025-04-25 23:53:04.993322] [OTNS LOG] debug	2025-04-25 23:53:04.984 - status push: 1: "transmit=11,9869,221,8c03"
+[2025-04-25 23:53:04.993917] [OTNS LOG] debug	2025-04-25 23:53:04.985 - status push: 3: "transmit=11,9869,87,8c00"
+[2025-04-25 23:53:04.994670] [OTNS LOG] debug	2025-04-25 23:53:04.985 - status push: 4: "coap=recv,30995,2,68,,fdde:ad00:beef:0:0:ff:fe00:fc00,5683"
+[2025-04-25 23:53:04.995339] [OTNS LOG] debug	2025-04-25 23:53:04.986 - status push: 1: "coap=send,36394,2,68,,fdde:ad00:beef:0:d208:bd68:1631:52fe,5683"
+[2025-04-25 23:53:04.995954] [OTNS LOG] debug	2025-04-25 23:53:04.986 - status push: 1: "coap=recv,36394,0,2,logs,fdde:ad00:beef:0:d208:bd68:1631:52fe,5683"
+[2025-04-25 23:53:04.997273] [OTNS LOG] debug	2025-04-25 23:53:04.987 - status push: 5: "transmit=11,9869,158,8c00"
+[2025-04-25 23:53:04.998163] [OTNS LOG] debug	2025-04-25 23:53:04.987 - status push: 1: "coap=send,33441,2,68,,fdde:ad00:beef:0:b40c:df33:b933:55d7,5683"
+[2025-04-25 23:53:04.998839] [OTNS LOG] debug	2025-04-25 23:53:04.987 - status push: 1: "coap=recv,33441,0,2,logs,fdde:ad00:beef:0:b40c:df33:b933:55d7,5683"
+[2025-04-25 23:53:04.999433] [OTNS LOG] debug	2025-04-25 23:53:04.988 - status push: 9: "transmit=11,9879,58,8c00"
+[2025-04-25 23:53:05.000094] [OTNS LOG] debug	2025-04-25 23:53:04.988 - status push: 10: "transmit=11,9879,83,8c00"
+[2025-04-25 23:53:05.000890] [OTNS LOG] debug	2025-04-25 23:53:04.989 - status push: 7: "transmit=11,9869,101,7c00"
+[2025-04-25 23:53:05.001842] [OTNS LOG] debug	2025-04-25 23:53:04.990 - status push: 9: "transmit=11,9869,59,8c00"
+[2025-04-25 23:53:05.002417] [OTNS LOG] debug	2025-04-25 23:53:04.990 - status push: 1: "transmit=11,9869,222,8c05"
+[2025-04-25 23:53:05.003296] [OTNS LOG] debug	2025-04-25 23:53:04.990 - status push: 6: "coap=recv,41698,2,68,,fdde:ad00:beef:0:0:ff:fe00:fc00,5683"
+[2025-04-25 23:53:05.003874] [OTNS LOG] debug	2025-04-25 23:53:04.991 - status push: 1: "coap=send,5664,2,68,,fdde:ad00:beef:0:c708:1f7:1222:a201,5683"
+[2025-04-25 23:53:05.004621] [OTNS LOG] debug	2025-04-25 23:53:04.991 - status push: 1: "coap=recv,5664,0,2,logs,fdde:ad00:beef:0:c708:1f7:1222:a201,5683"
+[2025-04-25 23:53:05.005333] [OTNS LOG] debug	2025-04-25 23:53:04.991 - status push: 10: "transmit=11,9869,84,8c00"
+[2025-04-25 23:53:05.005821] [OTNS LOG] debug	2025-04-25 23:53:04.991 - status push: 2: "transmit=11,9879,36,8c00"
+[2025-04-25 23:53:05.006351] [OTNS LOG] debug	2025-04-25 23:53:04.993 - status push: 1: "coap=send,49987,2,68,,fdde:ad00:beef:0:1865:91ef:62e5:cf0b,5683"
+[2025-04-25 23:53:05.007029] [OTNS LOG] debug	2025-04-25 23:53:04.993 - status push: 1: "coap=recv,49987,0,2,logs,fdde:ad00:beef:0:1865:91ef:62e5:cf0b,5683"
+[2025-04-25 23:53:05.007639] [OTNS LOG] debug	2025-04-25 23:53:04.994 - status push: 1: "transmit=11,9869,223,8c01"
+[2025-04-25 23:53:05.008203] [OTNS LOG] debug	2025-04-25 23:53:04.994 - status push: 3: "coap=recv,36394,2,68,,fdde:ad00:beef:0:0:ff:fe00:fc00,5683"
+[2025-04-25 23:53:05.008765] [OTNS LOG] debug	2025-04-25 23:53:04.994 - status push: 2: "transmit=11,9879,37,8c00"
+[2025-04-25 23:53:05.009301] [OTNS LOG] debug	2025-04-25 23:53:04.995 - status push: 1: "transmit=11,9869,224,8c06"
+[2025-04-25 23:53:05.010079] [OTNS LOG] debug	2025-04-25 23:53:04.995 - status push: 5: "coap=recv,33441,2,68,,fdde:ad00:beef:0:0:ff:fe00:fc00,5683"
+[2025-04-25 23:53:05.010569] [OTNS LOG] debug	2025-04-25 23:53:04.996 - status push: 2: "transmit=11,9869,38,8c00"
+[2025-04-25 23:53:05.011186] [OTNS LOG] debug	2025-04-25 23:53:04.996 - status push: 1: "transmit=11,9869,225,8c02"
+[2025-04-25 23:53:05.011607] [OTNS LOG] debug	2025-04-25 23:53:04.996 - status push: 9: "coap=recv,5664,2,68,,fdde:ad00:beef:0:0:ff:fe00:fc00,5683"
+[2025-04-25 23:53:05.012103] [OTNS LOG] debug	2025-04-25 23:53:04.997 - status push: 1: "coap=send,42562,2,68,,fdde:ad00:beef:0:1a1b:3aed:5c7f:13f,5683"
+[2025-04-25 23:53:05.012671] [OTNS LOG] debug	2025-04-25 23:53:04.997 - status push: 1: "coap=recv,42562,0,2,logs,fdde:ad00:beef:0:1a1b:3aed:5c7f:13f,5683"
+[2025-04-25 23:53:05.013393] [OTNS LOG] debug	2025-04-25 23:53:04.997 - status push: 1: "transmit=11,9869,226,8c04"
+[2025-04-25 23:53:05.013891] [OTNS LOG] debug	2025-04-25 23:53:04.998 - status push: 10: "coap=recv,49987,2,68,,fdde:ad00:beef:0:0:ff:fe00:fc00,5683"
+[2025-04-25 23:53:05.014425] [OTNS LOG] debug	2025-04-25 23:53:04.998 - status push: 2: "transmit=11,9879,39,8c00"
+[2025-04-25 23:53:05.014849] [OTNS LOG] debug	2025-04-25 23:53:04.999 - status push: 1: "transmit=11,9869,227,7c00"
+[2025-04-25 23:53:05.015454] [OTNS LOG] debug	2025-04-25 23:53:05.000 - status push: 2: "transmit=11,9879,40,8c00"
+[2025-04-25 23:53:05.016456] [OTNS LOG] debug	2025-04-25 23:53:05.000 - status push: 2: "transmit=11,9869,41,8c00"
+[2025-04-25 23:53:05.017453] [OTNS LOG] debug	2025-04-25 23:53:05.001 - status push: 1: "coap=send,33300,2,68,,fdde:ad00:beef:0:d109:7c5d:aa92:dec5,5683"
+[2025-04-25 23:53:05.017999] [OTNS LOG] debug	2025-04-25 23:53:05.001 - status push: 1: "coap=recv,33300,0,2,logs,fdde:ad00:beef:0:d109:7c5d:aa92:dec5,5683"
+[2025-04-25 23:53:05.018534] [OTNS LOG] debug	2025-04-25 23:53:05.002 - status push: 2: "transmit=11,9869,42,7c01"
+[2025-04-25 23:53:05.019232] [OTNS LOG] debug	2025-04-25 23:53:05.002 - status push: 8: "coap=recv,42562,2,68,,fdde:ad00:beef:0:0:ff:fe00:fc00,5683"
+[2025-04-25 23:53:05.020047] [OTNS LOG] debug	2025-04-25 23:53:05.003 - status push: 1: "transmit=11,9869,228,7c00"
+[2025-04-25 23:53:05.020707] [OTNS LOG] debug	2025-04-25 23:53:05.004 - status push: 2: "transmit=11,9869,43,7c02"
+[2025-04-25 23:53:05.021206] [OTNS LOG] debug	2025-04-25 23:53:05.004 - status push: 7: "coap=recv,33300,2,68,,fdde:ad00:beef:0:0:ff:fe00:fc00,5683"
+[2025-04-25 23:53:05.021654] [OTNS LOG] debug	2025-04-25 23:53:05.005 - status push: 1: "transmit=11,d841,229,ffff"
+[2025-04-25 23:53:05.022087] [OTNS LOG] debug	2025-04-25 23:53:05.006 - status push: 2: "transmit=11,d841,44,ffff"
+[2025-04-25 23:53:05.022526] [OTNS LOG] debug	2025-04-25 23:53:05.016 - status push: 1: "transmit=11,d841,230,ffff"
+[2025-04-25 23:53:05.023105] [OTNS LOG] debug	2025-04-25 23:53:05.018 - status push: 2: "transmit=11,d841,45,ffff"
+[2025-04-25 23:53:05.074448] [_do_command] Received: Done
+
+========== 📊 SIMULATION TIME SUMMARY ==========
+🧱 Baseline convergence time      : 0:00:01.459378
+===============================================

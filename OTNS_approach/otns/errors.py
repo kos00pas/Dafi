@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Copyright (c) 2020, The OTNS Authors.
+# Copyright (c) 2020, The OTNS_ Authors.
 # All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
@@ -27,11 +27,11 @@
 #
 
 """
-This file contains definitions of OTNS errors
+This file contains definitions of OTNS_ errors
 """
 
 
 class OTNSError(Exception):
     """
-    Base class for all OTNS errors.
+    Base class for all OTNS_ errors.
     """

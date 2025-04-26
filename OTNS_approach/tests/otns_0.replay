@@ -1,0 +1,237 @@
+timestamp:51946  event:{set_speed:{speed:1}}
+timestamp:51987  event:{set_network_info:{commit:"main"}}
+timestamp:53460  event:{set_title:{title:"DAfI - Scalable Mesh Network"  y:20  font_size:20}}
+timestamp:58359  event:{set_network_info:{version:"Latest"  commit:"main"}}
+timestamp:102345  event:{set_speed:{speed:101}}
+timestamp:113540  event:{add_node:{node_id:1  x:400  y:400  radio_range:160}}
+timestamp:118031  event:{on_ext_addr_change:{node_id:1  ext_addr:14578066583128710279}}
+timestamp:118055  event:{set_node_rloc16:{node_id:1  rloc16:65534}}
+timestamp:257988  event:{set_node_rloc16:{node_id:1  rloc16:65534}}
+timestamp:259916  event:{set_node_role:{node_id:1  role:OT_DEVICE_ROLE_DETACHED}}
+timestamp:305986  event:{add_node:{node_id:2  x:363  y:363  radio_range:160}}
+timestamp:309657  event:{on_ext_addr_change:{node_id:2  ext_addr:5068355885727865130}}
+timestamp:309693  event:{set_node_rloc16:{node_id:2  rloc16:65534}}
+timestamp:388546  event:{set_node_rloc16:{node_id:2  rloc16:65534}}
+timestamp:389806  event:{set_node_role:{node_id:2  role:OT_DEVICE_ROLE_DETACHED}}
+timestamp:412858  event:{add_node:{node_id:3  x:475  y:400  radio_range:160}}
+timestamp:415766  event:{on_ext_addr_change:{node_id:3  ext_addr:15724074068100464820}}
+timestamp:415796  event:{set_node_rloc16:{node_id:3  rloc16:65534}}
+timestamp:497951  event:{set_node_rloc16:{node_id:3  rloc16:65534}}
+timestamp:499622  event:{set_node_role:{node_id:3  role:OT_DEVICE_ROLE_DETACHED}}
+timestamp:529510  event:{set_node_mode:{node_id:3  node_mode:{rx_on_when_idle:true  full_network_data:true}}}
+timestamp:534047  event:{add_node:{node_id:4  x:453  y:453  radio_range:160}}
+timestamp:537155  event:{on_ext_addr_change:{node_id:4  ext_addr:1046431474612112124}}
+timestamp:537184  event:{set_node_rloc16:{node_id:4  rloc16:65534}}
+timestamp:634446  event:{set_node_rloc16:{node_id:4  rloc16:65534}}
+timestamp:636344  event:{set_node_role:{node_id:4  role:OT_DEVICE_ROLE_DETACHED}}
+timestamp:669907  event:{set_node_mode:{node_id:4  node_mode:{rx_on_when_idle:true  full_network_data:true}}}
+timestamp:675159  event:{add_node:{node_id:5  x:400  y:475  radio_range:160}}
+timestamp:678091  event:{on_ext_addr_change:{node_id:5  ext_addr:4795459013659070340}}
+timestamp:678128  event:{set_node_rloc16:{node_id:5  rloc16:65534}}
+timestamp:771497  event:{set_node_rloc16:{node_id:5  rloc16:65534}}
+timestamp:772825  event:{set_node_role:{node_id:5  role:OT_DEVICE_ROLE_DETACHED}}
+timestamp:803032  event:{set_node_mode:{node_id:5  node_mode:{rx_on_when_idle:true  full_network_data:true}}}
+timestamp:808574  event:{add_node:{node_id:6  x:346  y:453  radio_range:160}}
+timestamp:811263  event:{on_ext_addr_change:{node_id:6  ext_addr:16880958686570519174}}
+timestamp:811295  event:{set_node_rloc16:{node_id:6  rloc16:65534}}
+timestamp:898743  event:{set_node_rloc16:{node_id:6  rloc16:65534}}
+timestamp:900523  event:{set_node_role:{node_id:6  role:OT_DEVICE_ROLE_DETACHED}}
+timestamp:939961  event:{set_node_mode:{node_id:6  node_mode:{rx_on_when_idle:true  full_network_data:true}}}
+timestamp:947108  event:{add_node:{node_id:7  x:325  y:400  radio_range:160}}
+timestamp:949612  event:{on_ext_addr_change:{node_id:7  ext_addr:17199910952516617307}}
+timestamp:949648  event:{set_node_rloc16:{node_id:7  rloc16:65534}}
+timestamp:1042126  event:{set_node_rloc16:{node_id:7  rloc16:65534}}
+timestamp:1043598  event:{set_node_role:{node_id:7  role:OT_DEVICE_ROLE_DETACHED}}
+timestamp:1076341  event:{set_node_mode:{node_id:7  node_mode:{rx_on_when_idle:true  full_network_data:true}}}
+timestamp:1081833  event:{add_node:{node_id:8  x:346  y:346  radio_range:160}}
+timestamp:1085238  event:{on_ext_addr_change:{node_id:8  ext_addr:16311127750421693211}}
+timestamp:1085273  event:{set_node_rloc16:{node_id:8  rloc16:65534}}
+timestamp:1175098  event:{set_node_rloc16:{node_id:8  rloc16:65534}}
+timestamp:1176619  event:{set_node_role:{node_id:8  role:OT_DEVICE_ROLE_DETACHED}}
+timestamp:1208033  event:{set_node_mode:{node_id:8  node_mode:{rx_on_when_idle:true  full_network_data:true}}}
+timestamp:1212496  event:{add_node:{node_id:9  x:400  y:325  radio_range:160}}
+timestamp:1215591  event:{on_ext_addr_change:{node_id:9  ext_addr:8268386544029868232}}
+timestamp:1215623  event:{set_node_rloc16:{node_id:9  rloc16:65534}}
+timestamp:1315793  event:{set_node_rloc16:{node_id:9  rloc16:65534}}
+timestamp:1317589  event:{set_node_role:{node_id:9  role:OT_DEVICE_ROLE_DETACHED}}
+timestamp:1354282  event:{set_node_mode:{node_id:9  node_mode:{rx_on_when_idle:true  full_network_data:true}}}
+timestamp:1360355  event:{add_node:{node_id:10  x:453  y:346  radio_range:160}}
+timestamp:1363824  event:{on_ext_addr_change:{node_id:10  ext_addr:770509193304035341}}
+timestamp:1363868  event:{set_node_rloc16:{node_id:10  rloc16:65534}}
+timestamp:1447989  event:{set_node_rloc16:{node_id:10  rloc16:65534}}
+timestamp:1449210  event:{set_node_role:{node_id:10  role:OT_DEVICE_ROLE_DETACHED}}
+timestamp:1478226  event:{set_node_mode:{node_id:10  node_mode:{rx_on_when_idle:true  full_network_data:true}}}
+timestamp:1499339  event:{send:{src_id:3  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:77  dst_addr_short:65535}}}
+timestamp:1500750  event:{send:{src_id:1  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:194  dst_addr_short:65535}}}
+timestamp:1501764  event:{send:{src_id:9  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:49  dst_addr_short:65535}}}
+timestamp:1502732  event:{send:{src_id:4  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:157  dst_addr_short:65535}}}
+timestamp:1503557  event:{send:{src_id:10  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:74  dst_addr_short:65535}}}
+timestamp:1504522  event:{send:{src_id:6  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:26  dst_addr_short:65535}}}
+timestamp:1505541  event:{send:{src_id:5  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:148  dst_addr_short:65535}}}
+timestamp:1506564  event:{send:{src_id:8  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:239  dst_addr_short:65535}}}
+timestamp:1507944  event:{send:{src_id:7  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:89  dst_addr_short:65535}}}
+timestamp:1509554  event:{send:{src_id:2  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:12  dst_addr_short:65535}}}
+timestamp:1511267  event:{send:{src_id:3  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:78  dst_addr_short:65535}}}
+timestamp:1512901  event:{send:{src_id:1  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:195  dst_addr_short:65535}}}
+timestamp:1514445  event:{send:{src_id:9  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:50  dst_addr_short:65535}}}
+timestamp:1515358  event:{send:{src_id:4  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:158  dst_addr_short:65535}}}
+timestamp:1515451  event:{advance_time:{ts:1092054  speed:60.065672955282984}}
+timestamp:1516413  event:{send:{src_id:10  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:75  dst_addr_short:65535}}}
+timestamp:1517752  event:{send:{src_id:6  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:27  dst_addr_short:65535}}}
+timestamp:1518586  event:{send:{src_id:5  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:149  dst_addr_short:65535}}}
+timestamp:1519620  event:{send:{src_id:8  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:240  dst_addr_short:65535}}}
+timestamp:1520494  event:{send:{src_id:7  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:90  dst_addr_short:65535}}}
+timestamp:1521557  event:{send:{src_id:2  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:13  dst_addr_short:65535}}}
+timestamp:1522560  event:{send:{src_id:3  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:79  dst_addr_short:65535}}}
+timestamp:1523726  event:{send:{src_id:1  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:196  dst_addr_short:65535}}}
+timestamp:1524969  event:{send:{src_id:9  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:51  dst_addr_short:65535}}}
+timestamp:1525913  event:{send:{src_id:4  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:159  dst_addr_short:65535}}}
+timestamp:1526986  event:{send:{src_id:10  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:76  dst_addr_short:65535}}}
+timestamp:1528180  event:{send:{src_id:6  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:28  dst_addr_short:65535}}}
+timestamp:1529807  event:{send:{src_id:5  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:150  dst_addr_short:65535}}}
+timestamp:1530859  event:{send:{src_id:8  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:241  dst_addr_short:65535}}}
+timestamp:1530907  event:{advance_time:{ts:2000000  speed:59.458334572048635}}
+timestamp:1555269  event:{send:{src_id:7  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:91  dst_addr_short:65535}}}
+timestamp:1556625  event:{send:{src_id:2  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:14  dst_addr_short:65535}}}
+timestamp:1562512  event:{send:{src_id:3  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:80  dst_addr_short:65535}}}
+timestamp:1563800  event:{send:{src_id:1  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:197  dst_addr_short:65535}}}
+timestamp:1565009  event:{send:{src_id:9  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:52  dst_addr_short:65535}}}
+timestamp:1565994  event:{send:{src_id:4  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:160  dst_addr_short:65535}}}
+timestamp:1566083  event:{advance_time:{ts:3092206  speed:82.89359441408622}}
+timestamp:1567143  event:{send:{src_id:10  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:77  dst_addr_short:65535}}}
+timestamp:1568217  event:{send:{src_id:6  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:29  dst_addr_short:65535}}}
+timestamp:1569867  event:{send:{src_id:5  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:151  dst_addr_short:65535}}}
+timestamp:1571282  event:{send:{src_id:8  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:242  dst_addr_short:65535}}}
+timestamp:1572396  event:{send:{src_id:7  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:92  dst_addr_short:65535}}}
+timestamp:1573408  event:{send:{src_id:2  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:15  dst_addr_short:65535}}}
+timestamp:1573548  event:{advance_time:{ts:4000000  speed:96.89453030376436}}
+timestamp:1593682  event:{send:{src_id:3  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:81  dst_addr_short:65535}}}
+timestamp:1595176  event:{send:{src_id:1  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:198  dst_addr_short:65535}}}
+timestamp:1596619  event:{send:{src_id:9  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:53  dst_addr_short:65535}}}
+timestamp:1597900  event:{send:{src_id:4  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:161  dst_addr_short:65535}}}
+timestamp:1599051  event:{send:{src_id:10  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:78  dst_addr_short:65535}}}
+timestamp:1600259  event:{send:{src_id:6  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:30  dst_addr_short:65535}}}
+timestamp:1601234  event:{send:{src_id:5  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:152  dst_addr_short:65535}}}
+timestamp:1602128  event:{send:{src_id:8  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:243  dst_addr_short:65535}}}
+timestamp:1603349  event:{send:{src_id:7  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:93  dst_addr_short:65535}}}
+timestamp:1604278  event:{send:{src_id:2  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:16  dst_addr_short:65535}}}
+timestamp:1604406  event:{advance_time:{ts:5273970  speed:98.43687219904189}}
+timestamp:1605132  event:{send:{src_id:3  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:82  dst_addr_short:65535}}}
+timestamp:1606104  event:{send:{src_id:1  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:199  dst_addr_short:65535}}}
+timestamp:1607501  event:{send:{src_id:9  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:54  dst_addr_short:65535}}}
+timestamp:1608526  event:{send:{src_id:4  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:162  dst_addr_short:65535}}}
+timestamp:1609942  event:{send:{src_id:10  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:79  dst_addr_short:65535}}}
+timestamp:1611221  event:{send:{src_id:6  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:31  dst_addr_short:65535}}}
+timestamp:1612231  event:{send:{src_id:5  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:153  dst_addr_short:65535}}}
+timestamp:1613165  event:{send:{src_id:8  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:244  dst_addr_short:65535}}}
+timestamp:1614253  event:{send:{src_id:7  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:94  dst_addr_short:65535}}}
+timestamp:1615064  event:{send:{src_id:2  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:17  dst_addr_short:65535}}}
+timestamp:1615186  event:{advance_time:{ts:6000000  speed:84.30992327796982}}
+timestamp:1637828  event:{set_node_rloc16:{node_id:3  rloc16:65534}}
+timestamp:1639005  event:{set_node_rloc16:{node_id:1  rloc16:35840}}
+timestamp:1664864  event:{set_node_role:{node_id:1  role:OT_DEVICE_ROLE_LEADER}}
+timestamp:1664906  event:{set_node_partition_id:{node_id:1  partition_id:2037689786}}
+timestamp:1666396  event:{send:{src_id:1  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:200  dst_addr_short:65535}}}
+timestamp:1668039  event:{set_node_rloc16:{node_id:9  rloc16:65534}}
+timestamp:1668875  event:{set_node_rloc16:{node_id:4  rloc16:65534}}
+timestamp:1669618  event:{send:{src_id:3  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:83  dst_addr_short:65535}}}
+timestamp:1670501  event:{send:{src_id:1  dst_id:3  mv_info:{channel:11  frame_control:56417  seq:201  dst_addr_extended:15724074068100464820}}}
+timestamp:1671902  event:{set_node_rloc16:{node_id:10  rloc16:65534}}
+timestamp:1672633  event:{set_node_rloc16:{node_id:6  rloc16:65534}}
+timestamp:1673765  event:{send:{src_id:9  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:55  dst_addr_short:65535}}}
+timestamp:1674213  event:{send:{src_id:1  dst_id:9  mv_info:{channel:11  frame_control:56417  seq:202  dst_addr_extended:8268386544029868232}}}
+timestamp:1675883  event:{send:{src_id:4  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:163  dst_addr_short:65535}}}
+timestamp:1676917  event:{set_node_rloc16:{node_id:5  rloc16:65534}}
+timestamp:1677897  event:{set_node_rloc16:{node_id:8  rloc16:65534}}
+timestamp:1677927  event:{advance_time:{ts:7037448  speed:21.984954120663716}}
+timestamp:1678736  event:{set_node_rloc16:{node_id:7  rloc16:65534}}
+timestamp:1679908  event:{send:{src_id:10  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:80  dst_addr_short:65535}}}
+timestamp:1681338  event:{send:{src_id:6  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:32  dst_addr_short:65535}}}
+timestamp:1682814  event:{set_node_rloc16:{node_id:2  rloc16:31744}}
+timestamp:1721601  event:{set_node_role:{node_id:2  role:OT_DEVICE_ROLE_LEADER}}
+timestamp:1721637  event:{set_node_partition_id:{node_id:2  partition_id:1439311218}}
+timestamp:1723765  event:{send:{src_id:2  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:18  dst_addr_short:65535}}}
+timestamp:1725295  event:{send:{src_id:5  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:154  dst_addr_short:65535}}}
+timestamp:1726661  event:{send:{src_id:8  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:245  dst_addr_short:65535}}}
+timestamp:1728083  event:{send:{src_id:7  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:95  dst_addr_short:65535}}}
+timestamp:1728870  event:{send:{src_id:2  dst_id:8  mv_info:{channel:11  frame_control:56417  seq:19  dst_addr_extended:16311127750421693211}}}
+timestamp:1730227  event:{send:{src_id:1  dst_id:4  mv_info:{channel:11  frame_control:56417  seq:203  dst_addr_extended:1046431474612112124}}}
+timestamp:1731254  event:{send:{src_id:2  dst_id:7  mv_info:{channel:11  frame_control:56417  seq:20  dst_addr_extended:17199910952516617307}}}
+timestamp:1732470  event:{send:{src_id:1  dst_id:8  mv_info:{channel:11  frame_control:56417  seq:204  dst_addr_extended:16311127750421693211}}}
+timestamp:1733701  event:{send:{src_id:1  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:205  dst_addr_short:65535}}}
+timestamp:1734446  event:{send:{src_id:2  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:21  dst_addr_short:65535}}}
+timestamp:1735314  event:{send:{src_id:3  dst_id:1  mv_info:{channel:11  frame_control:56417  seq:84  dst_addr_extended:14578066583128710279}}}
+timestamp:1759812  event:{add_child_table:{node_id:1  ext_addr:15724074068100464820}}
+timestamp:1760639  event:{send:{src_id:1  dst_id:3  mv_info:{channel:11  frame_control:56417  seq:206  dst_addr_extended:15724074068100464820}}}
+timestamp:1761301  event:{set_node_rloc16:{node_id:3  rloc16:35841}}
+timestamp:1818232  event:{set_node_role:{node_id:3  role:OT_DEVICE_ROLE_CHILD}}
+timestamp:1818267  event:{set_node_partition_id:{node_id:3  partition_id:2037689786}}
+timestamp:1820799  event:{send:{src_id:1  dst_id:6  mv_info:{channel:11  frame_control:56417  seq:207  dst_addr_extended:16880958686570519174}}}
+timestamp:1822237  event:{send:{src_id:1  dst_id:5  mv_info:{channel:11  frame_control:56417  seq:208  dst_addr_extended:4795459013659070340}}}
+timestamp:1823655  event:{send:{src_id:1  dst_id:2  mv_info:{channel:11  frame_control:56417  seq:209  dst_addr_extended:5068355885727865130}}}
+timestamp:1824564  event:{send:{src_id:1  dst_id:10  mv_info:{channel:11  frame_control:56417  seq:210  dst_addr_extended:770509193304035341}}}
+timestamp:1825764  event:{send:{src_id:9  dst_id:1  mv_info:{channel:11  frame_control:56417  seq:56  dst_addr_extended:14578066583128710279}}}
+timestamp:1861682  event:{add_child_table:{node_id:1  ext_addr:8268386544029868232}}
+timestamp:1862911  event:{send:{src_id:1  dst_id:9  mv_info:{channel:11  frame_control:56417  seq:211  dst_addr_extended:8268386544029868232}}}
+timestamp:1863595  event:{set_node_rloc16:{node_id:9  rloc16:35842}}
+timestamp:1918933  event:{set_node_role:{node_id:9  role:OT_DEVICE_ROLE_CHILD}}
+timestamp:1918963  event:{set_node_partition_id:{node_id:9  partition_id:2037689786}}
+timestamp:1921436  event:{send:{src_id:1  dst_id:7  mv_info:{channel:11  frame_control:56417  seq:212  dst_addr_extended:17199910952516617307}}}
+timestamp:1922859  event:{send:{src_id:2  dst_id:5  mv_info:{channel:11  frame_control:56417  seq:22  dst_addr_extended:4795459013659070340}}}
+timestamp:1924735  event:{send:{src_id:4  dst_id:1  mv_info:{channel:11  frame_control:56417  seq:164  dst_addr_extended:14578066583128710279}}}
+timestamp:1946423  event:{add_child_table:{node_id:1  ext_addr:1046431474612112124}}
+timestamp:1946769  event:{send:{src_id:1  dst_id:4  mv_info:{channel:11  frame_control:56417  seq:213  dst_addr_extended:1046431474612112124}}}
+timestamp:1947602  event:{set_node_rloc16:{node_id:4  rloc16:35843}}
+timestamp:2001297  event:{set_node_role:{node_id:4  role:OT_DEVICE_ROLE_CHILD}}
+timestamp:2001341  event:{set_node_partition_id:{node_id:4  partition_id:2037689786}}
+timestamp:2004699  event:{send:{src_id:10  dst_id:1  mv_info:{channel:11  frame_control:56417  seq:81  dst_addr_extended:14578066583128710279}}}
+timestamp:2032395  event:{add_child_table:{node_id:1  ext_addr:770509193304035341}}
+timestamp:2033433  event:{send:{src_id:1  dst_id:10  mv_info:{channel:11  frame_control:56417  seq:214  dst_addr_extended:770509193304035341}}}
+timestamp:2034156  event:{set_node_rloc16:{node_id:10  rloc16:35844}}
+timestamp:2086405  event:{set_node_role:{node_id:10  role:OT_DEVICE_ROLE_CHILD}}
+timestamp:2086494  event:{set_node_partition_id:{node_id:10  partition_id:2037689786}}
+timestamp:2090569  event:{send:{src_id:6  dst_id:1  mv_info:{channel:11  frame_control:56417  seq:33  dst_addr_extended:14578066583128710279}}}
+timestamp:2130915  event:{add_child_table:{node_id:1  ext_addr:16880958686570519174}}
+timestamp:2132106  event:{send:{src_id:1  dst_id:6  mv_info:{channel:11  frame_control:56417  seq:215  dst_addr_extended:16880958686570519174}}}
+timestamp:2132983  event:{set_node_rloc16:{node_id:6  rloc16:35845}}
+timestamp:2187478  event:{set_node_role:{node_id:6  role:OT_DEVICE_ROLE_CHILD}}
+timestamp:2187547  event:{set_node_partition_id:{node_id:6  partition_id:2037689786}}
+timestamp:2191165  event:{send:{src_id:5  dst_id:1  mv_info:{channel:11  frame_control:56417  seq:155  dst_addr_extended:14578066583128710279}}}
+timestamp:2245321  event:{add_child_table:{node_id:1  ext_addr:4795459013659070340}}
+timestamp:2246123  event:{send:{src_id:1  dst_id:5  mv_info:{channel:11  frame_control:56417  seq:216  dst_addr_extended:4795459013659070340}}}
+timestamp:2246924  event:{set_node_rloc16:{node_id:5  rloc16:35846}}
+timestamp:2293638  event:{set_node_role:{node_id:5  role:OT_DEVICE_ROLE_CHILD}}
+timestamp:2293650  event:{set_node_partition_id:{node_id:5  partition_id:2037689786}}
+timestamp:2296972  event:{advance_time:{ts:8000000  speed:3.0019527702770654}}
+timestamp:2321419  event:{send:{src_id:8  dst_id:2  mv_info:{channel:11  frame_control:56417  seq:246  dst_addr_extended:5068355885727865130}}}
+timestamp:2347174  event:{add_child_table:{node_id:2  ext_addr:16311127750421693211}}
+timestamp:2348029  event:{send:{src_id:2  dst_id:8  mv_info:{channel:11  frame_control:56417  seq:23  dst_addr_extended:16311127750421693211}}}
+timestamp:2348922  event:{set_node_rloc16:{node_id:8  rloc16:31745}}
+timestamp:2398655  event:{set_node_role:{node_id:8  role:OT_DEVICE_ROLE_CHILD}}
+timestamp:2398695  event:{set_node_partition_id:{node_id:8  partition_id:1439311218}}
+timestamp:2401473  event:{send:{src_id:7  dst_id:2  mv_info:{channel:11  frame_control:56417  seq:96  dst_addr_extended:5068355885727865130}}}
+timestamp:2423640  event:{add_child_table:{node_id:2  ext_addr:17199910952516617307}}
+timestamp:2424731  event:{send:{src_id:2  dst_id:7  mv_info:{channel:11  frame_control:56417  seq:24  dst_addr_extended:17199910952516617307}}}
+timestamp:2425343  event:{set_node_rloc16:{node_id:7  rloc16:31746}}
+timestamp:2492239  event:{set_node_role:{node_id:7  role:OT_DEVICE_ROLE_CHILD}}
+timestamp:2492272  event:{set_node_partition_id:{node_id:7  partition_id:1439311218}}
+timestamp:2496073  event:{send:{src_id:2  dst_id:1  mv_info:{channel:11  frame_control:56417  seq:25  dst_addr_extended:14578066583128710279}}}
+timestamp:2547290  event:{add_child_table:{node_id:1  ext_addr:5068355885727865130}}
+timestamp:2548650  event:{send:{src_id:1  dst_id:2  mv_info:{channel:11  frame_control:56417  seq:217  dst_addr_extended:5068355885727865130}}}
+timestamp:2551239  event:{set_node_rloc16:{node_id:2  rloc16:35847}}
+timestamp:2617287  event:{set_node_role:{node_id:2  role:OT_DEVICE_ROLE_CHILD}}
+timestamp:2617446  event:{set_node_partition_id:{node_id:2  partition_id:2037689786}}
+timestamp:2622767  event:{send:{src_id:2  dst_id:1  mv_info:{channel:11  frame_control:39017  seq:26  dst_addr_short:35840}}}
+timestamp:2624026  event:{send:{src_id:1  dst_id:2  mv_info:{channel:11  frame_control:39017  seq:218  dst_addr_short:35847}}}
+timestamp:2624284  event:{set_node_rloc16:{node_id:2  rloc16:31744}}
+timestamp:2681467  event:{set_node_role:{node_id:2  role:OT_DEVICE_ROLE_ROUTER}}
+timestamp:2682664  event:{send:{src_id:2  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:27  dst_addr_short:65535}}}
+timestamp:2682717  event:{set_node_partition_id:{node_id:8  partition_id:2037689786}}
+timestamp:2682747  event:{set_node_partition_id:{node_id:7  partition_id:2037689786}}
+timestamp:2682759  event:{add_router_table:{node_id:1  ext_addr:5068355885727865130}}
+timestamp:2682932  event:{remove_child_table:{node_id:1  ext_addr:5068355885727865130}}
+timestamp:2728509  event:{send:{src_id:7  dst_id:2  mv_info:{channel:11  frame_control:56417  seq:97  dst_addr_extended:5068355885727865130}}}
+timestamp:2732171  event:{send:{src_id:2  dst_id:7  mv_info:{channel:11  frame_control:56417  seq:28  dst_addr_extended:17199910952516617307}}}
+timestamp:2736088  event:{send:{src_id:8  dst_id:2  mv_info:{channel:11  frame_control:56417  seq:247  dst_addr_extended:5068355885727865130}}}
+timestamp:2741108  event:{send:{src_id:2  dst_id:8  mv_info:{channel:11  frame_control:56417  seq:29  dst_addr_extended:16311127750421693211}}}
+timestamp:2744896

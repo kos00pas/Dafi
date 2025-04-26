@@ -1,36 +1,57 @@
 #!/usr/bin/env python3
-# Copyright (c) 2020, The OTNS_ Authors.
-# All rights reserved.
-#
-# Redistribution and use in source and binary forms, with or without
-# modification, are permitted provided that the following conditions are met:
-# 1. Redistributions of source code must retain the above copyright
-#    notice, this list of conditions and the following disclaimer.
-# 2. Redistributions in binary form must reproduce the above copyright
-#    notice, this list of conditions and the following disclaimer in the
-#    documentation and/or other materials provided with the distribution.
-# 3. Neither the name of the copyright holder nor the
-#    names of its contributors may be used to endorse or promote products
-#    derived from this software without specific prior written permission.
-#
-# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-# AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-# IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
-# ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
-# LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
-# CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
-# SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
-# INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
-# CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-# ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
-# POSSIBILITY OF SUCH DAMAGE.
-from datetime import datetime
 
+[//]: # (# Copyright &#40;c&#41; 2020, The OTNS Authors.)
 
-def now():
-    return datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f")
+[//]: # (# All rights reserved.)
 
+[//]: # (#)
 
+[//]: # (# Redistribution and use in source and binary forms, with or without)
+
+[//]: # (# modification, are permitted provided that the following conditions are met:)
+
+[//]: # (# 1. Redistributions of source code must retain the above copyright)
+
+[//]: # (#    notice, this list of conditions and the following disclaimer.)
+
+[//]: # (# 2. Redistributions in binary form must reproduce the above copyright)
+
+[//]: # (#    notice, this list of conditions and the following disclaimer in the)
+
+[//]: # (#    documentation and/or other materials provided with the distribution.)
+
+[//]: # (# 3. Neither the name of the copyright holder nor the)
+
+[//]: # (#    names of its contributors may be used to endorse or promote products)
+
+[//]: # (#    derived from this software without specific prior written permission.)
+
+[//]: # (#)
+
+[//]: # (# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS")
+
+[//]: # (# AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE)
+
+[//]: # (# IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE)
+
+[//]: # (# ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE)
+
+[//]: # (# LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR)
+
+[//]: # (# CONSEQUENTIAL DAMAGES &#40;INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF)
+
+[//]: # (# SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS)
+
+[//]: # (# INTERRUPTION&#41; HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN)
+
+[//]: # (# CONTRACT, STRICT LIABILITY, OR TORT &#40;INCLUDING NEGLIGENCE OR OTHERWISE&#41;)
+
+[//]: # (# ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE)
+
+[//]: # (# POSSIBILITY OF SUCH DAMAGE.)
+
+### https://github.com/openthread/ot-ns/blob/main/cli/README.md
+```python
 import ipaddress
 import logging
 import os
@@ -41,7 +62,7 @@ from typing import List, Union, Optional, Tuple, Dict, Any, Collection
 
 import yaml
 
-from otns.cli.errors import OTNSCliError, OTNSExitedError
+from .errors import OTNSCliError, OTNSExitedError
 
 
 class OTNS(object):
@@ -51,8 +72,6 @@ class OTNS(object):
 
     MAX_SIMULATE_SPEED = 1000000  # Max simulating speed
     PAUSE_SIMULATE_SPEED = 0
-
-
 
     def __init__(self, otns_path: Optional[str] = None, otns_args: Optional[List[str]] = None):
         self._otns_path = otns_path or self._detect_otns_path()
@@ -66,9 +85,7 @@ class OTNS(object):
         self._otns = subprocess.Popen([self._otns_path] + self._otns_args,
                                       bufsize=16384,
                                       stdin=subprocess.PIPE,
-                                      stdout=subprocess.PIPE,
-                                      stderr=subprocess.STDOUT
-                                      )
+                                      stdout=subprocess.PIPE)
         logging.info("otns process launched: %s", self._otns)
 
     def close(self) -> None:
@@ -154,100 +171,27 @@ class OTNS(object):
         return which_otns
 
     def _do_command(self, cmd: str) -> List[str]:
-        "PASHIOURT"
         logging.info("OTNS_ <<< %s", cmd)
-        print(f"[{now()}] [_do_command] Sending command: {cmd}", flush=True)
-
         try:
             self._otns.stdin.write(cmd.encode('ascii') + b'\n')
             self._otns.stdin.flush()
         except BrokenPipeError:
-            print(f"[{now()}] [_do_command] BrokenPipeError on write.", flush=True)
             self._on_otns_eof()
-        timeout_seconds = 90  # ← you can tune this
 
         output = []
-        import time
-        start_time = time.time()
-
         while True:
-            if time.time() - start_time > timeout_seconds:
-                raise OTNSCliError(f"Command '{cmd}' timed out after {timeout_seconds} seconds.")
-
             line = self._otns.stdout.readline()
             if line == b'':
-                print(f"[{now()}] [_do_command] EOF reached.", flush=True)
                 self._on_otns_eof()
 
             line = line.rstrip(b'\r\n').decode('utf-8')
-
-            # 🪪 Print all received lines, tagging OTNS_ logs separately
-            if line.startswith(("info\t", "debug\t", "warn\t", "error\t")):
-                print(f"[{now()}] [OTNS_ LOG] {line}", flush=True)
-                continue
-
-            print(f"[{now()}] [_do_command] Received: {line}", flush=True)
-
+            logging.info(f"OTNS_ >>> {line}")
             if line == 'Done':
                 return output
             elif line.startswith('Error: '):
                 raise OTNSCliError(line[7:])
 
             output.append(line)
-    # def _do_command(self, cmd: str) -> List[str]:
-    #     logging.info("OTNS_ <<< %s", cmd)
-    #     print(f"[{now()}] [_do_command] Sending command: {cmd}", flush=True)
-    #
-    #     try:
-    #         self._otns.stdin.write(cmd.encode('ascii') + b'\n')
-    #         self._otns.stdin.flush()
-    #     except BrokenPipeError:
-    #         print(f"[{now()}] [_do_command] BrokenPipeError on write.", flush=True)
-    #         self._on_otns_eof()
-    #
-    #     output = []
-    #     while True:
-    #         line = self._otns.stdout.readline()
-    #         if line == b'':
-    #             print(f"[{now()}] [_do_command] EOF reached.", flush=True)
-    #             self._on_otns_eof()
-    #
-    #         line = line.rstrip(b'\r\n').decode('utf-8')
-    #         print(f"[{now()}] [_do_command] Received: {line}", flush=True)
-    #
-    #         # 🔍 Skip OTNS_-internal log lines from final output
-    #         if line.startswith(("info\t", "debug\t", "warn\t", "error\t")):
-    #             continue
-    #
-    #         if line == 'Done':
-    #             return output
-    #         elif line.startswith('Error: '):
-    #             raise OTNSCliError(line[7:])
-    #
-    #         output.append(line)
-
-    # def _do_command(self, cmd: str) -> List[str]:
-    #     logging.info("OTNS_ <<< %s", cmd)
-    #     try:
-    #         self._otns.stdin.write(cmd.encode('ascii') + b'\n')
-    #         self._otns.stdin.flush()
-    #     except BrokenPipeError:
-    #         self._on_otns_eof()
-    #
-    #     output = []
-    #     while True:
-    #         line = self._otns.stdout.readline()
-    #         if line == b'':
-    #             self._on_otns_eof()
-    #
-    #         line = line.rstrip(b'\r\n').decode('utf-8')
-    #         logging.info(f"OTNS_ >>> {line}")
-    #         if line == 'Done':
-    #             return output
-    #         elif line.startswith('Error: '):
-    #             raise OTNSCliError(line[7:])
-    #
-    #         output.append(line)
 
     def add(self, type: str, x: float = None, y: float = None, id=None, radio_range=None, executable=None,
             restore=False) -> int:
@@ -416,7 +360,6 @@ class OTNS(object):
         Set node radio fail time parameters.
 
         :param nodeids: node IDs
-        :param nodeids: node IDs
         :param fail_time: fail time (fail_duration, fail_interval) or None for always on.
         """
         fail_duration, period_time = fail_time
@@ -511,7 +454,6 @@ class OTNS(object):
         """
         cmd = f'node {nodeid} "{cmd}"'
         output = self._do_command(cmd)
-        # print(nodeid,cmd,output)
         return output
 
     def get_state(self, nodeid: int) -> str:
@@ -764,7 +706,7 @@ class OTNS(object):
         :param font_size: Font size of title
         """
         cmd = f'title "{title}"'
-        print("niaou")
+
         if x is not None:
             cmd += f' x {x}'
 
@@ -889,3 +831,6 @@ if __name__ == '__main__':
     import doctest
 
     doctest.testmod()
+
+
+```

@@ -163,7 +163,7 @@ class LeaderElectionTest:
 
         self.ns.go(4)
         time.sleep(1)
-        self.ns.close()  # ⬅️ Ensures OTNS is properly shut down
+        self.ns.close()  # ⬅️ Ensures OTNS_ is properly shut down
         print("\n========== 📊 SIMULATION TIME SUMMARY ==========")
         print(self.initial_devices,":",self.run_index)
         print(f"🧱 Baseline convergence time (wall): {end_baseline - start_baseline}")
@@ -234,7 +234,7 @@ def run_single_experiment(dev_count, run_index, log_files):
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             if s.connect_ex(('localhost', 9000)) != 0:
                 break
-        print("⏳ Waiting for OTNS port to become available...")
+        print("⏳ Waiting for OTNS_ port to become available...")
         time.sleep(1)
         waited += 1
 

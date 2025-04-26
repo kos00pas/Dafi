@@ -1,0 +1,436 @@
+timestamp:29506  event:{set_speed:{speed:1}}
+timestamp:29659  event:{set_network_info:{commit:"main"}}
+timestamp:30640  event:{set_title:{title:"DAfI - Scalable Mesh Network"  y:20  font_size:20}}
+timestamp:31081  event:{set_network_info:{version:"Latest"  commit:"main"}}
+timestamp:36505  event:{set_speed:{speed:100}}
+timestamp:38718  event:{add_node:{node_id:1  x:200  y:200  radio_range:160}}
+timestamp:62553  event:{on_ext_addr_change:{node_id:1  ext_addr:16047934538172493037}}
+timestamp:62578  event:{set_node_rloc16:{node_id:1  rloc16:65534}}
+timestamp:133684  event:{set_node_rloc16:{node_id:1  rloc16:65534}}
+timestamp:134766  event:{set_node_role:{node_id:1  role:OT_DEVICE_ROLE_DETACHED}}
+timestamp:139928  event:{add_node:{node_id:2  x:170  y:170  radio_range:160}}
+timestamp:144766  event:{on_ext_addr_change:{node_id:2  ext_addr:15422380074255967794}}
+timestamp:144771  event:{set_node_rloc16:{node_id:2  rloc16:65534}}
+timestamp:207284  event:{set_node_rloc16:{node_id:2  rloc16:65534}}
+timestamp:209356  event:{set_node_role:{node_id:2  role:OT_DEVICE_ROLE_DETACHED}}
+timestamp:213691  event:{add_node:{node_id:3  x:260  y:200  radio_range:160}}
+timestamp:216712  event:{on_ext_addr_change:{node_id:3  ext_addr:1321523543989017747}}
+timestamp:216716  event:{set_node_rloc16:{node_id:3  rloc16:65534}}
+timestamp:277509  event:{set_node_rloc16:{node_id:3  rloc16:65534}}
+timestamp:278464  event:{set_node_role:{node_id:3  role:OT_DEVICE_ROLE_DETACHED}}
+timestamp:282118  event:{set_node_mode:{node_id:3  node_mode:{rx_on_when_idle:true  full_network_data:true}}}
+timestamp:284675  event:{add_node:{node_id:4  x:140  y:200  radio_range:160}}
+timestamp:288279  event:{on_ext_addr_change:{node_id:4  ext_addr:2515715488804872710}}
+timestamp:288283  event:{set_node_rloc16:{node_id:4  rloc16:65534}}
+timestamp:351390  event:{set_node_rloc16:{node_id:4  rloc16:65534}}
+timestamp:352499  event:{set_node_role:{node_id:4  role:OT_DEVICE_ROLE_DETACHED}}
+timestamp:358002  event:{set_node_mode:{node_id:4  node_mode:{rx_on_when_idle:true  full_network_data:true}}}
+timestamp:367672  event:{send:{src_id:1  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:113  dst_addr_short:65535}}}
+timestamp:368827  event:{send:{src_id:2  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:166  dst_addr_short:65535}}}
+timestamp:369980  event:{send:{src_id:3  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:51  dst_addr_short:65535}}}
+timestamp:370936  event:{send:{src_id:4  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:204  dst_addr_short:65535}}}
+timestamp:374329  event:{send:{src_id:1  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:114  dst_addr_short:65535}}}
+timestamp:374395  event:{advance_time:{ts:1020565  speed:95.49429460580913}}
+timestamp:375261  event:{send:{src_id:2  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:167  dst_addr_short:65535}}}
+timestamp:376187  event:{send:{src_id:3  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:52  dst_addr_short:65535}}}
+timestamp:385824  event:{send:{src_id:4  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:205  dst_addr_short:65535}}}
+timestamp:389179  event:{send:{src_id:1  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:115  dst_addr_short:65535}}}
+timestamp:390257  event:{send:{src_id:2  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:168  dst_addr_short:65535}}}
+timestamp:391111  event:{send:{src_id:3  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:53  dst_addr_short:65535}}}
+timestamp:391658  event:{advance_time:{ts:2100000  speed:99.32459276916964}}
+timestamp:399394  event:{send:{src_id:4  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:206  dst_addr_short:65535}}}
+timestamp:406519  event:{send:{src_id:1  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:116  dst_addr_short:65535}}}
+timestamp:406805  event:{advance_time:{ts:3020562  speed:98.1618682021753}}
+timestamp:407546  event:{send:{src_id:2  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:169  dst_addr_short:65535}}}
+timestamp:408605  event:{send:{src_id:3  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:54  dst_addr_short:65535}}}
+timestamp:419001  event:{send:{src_id:4  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:207  dst_addr_short:65535}}}
+timestamp:425447  event:{advance_time:{ts:4100000  speed:95.60229445506693}}
+timestamp:432869  event:{send:{src_id:1  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:117  dst_addr_short:65535}}}
+timestamp:433917  event:{send:{src_id:2  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:170  dst_addr_short:65535}}}
+timestamp:434842  event:{send:{src_id:3  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:55  dst_addr_short:65535}}}
+timestamp:436763  event:{send:{src_id:4  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:208  dst_addr_short:65535}}}
+timestamp:441211  event:{advance_time:{ts:5100000  speed:96.4785335262904}}
+timestamp:451382  event:{send:{src_id:1  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:118  dst_addr_short:65535}}}
+timestamp:452367  event:{send:{src_id:2  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:171  dst_addr_short:65535}}}
+timestamp:453339  event:{send:{src_id:3  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:56  dst_addr_short:65535}}}
+timestamp:454601  event:{send:{src_id:4  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:209  dst_addr_short:65535}}}
+timestamp:456976  event:{advance_time:{ts:6100000  speed:93.29228472805299}}
+timestamp:469327  event:{set_node_rloc16:{node_id:1  rloc16:53248}}
+timestamp:494525  event:{set_node_role:{node_id:1  role:OT_DEVICE_ROLE_LEADER}}
+timestamp:494552  event:{set_node_partition_id:{node_id:1  partition_id:650854251}}
+timestamp:495839  event:{send:{src_id:1  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:119  dst_addr_short:65535}}}
+timestamp:497092  event:{set_node_rloc16:{node_id:2  rloc16:27648}}
+timestamp:523428  event:{set_node_role:{node_id:2  role:OT_DEVICE_ROLE_LEADER}}
+timestamp:523434  event:{set_node_partition_id:{node_id:2  partition_id:1777028083}}
+timestamp:524475  event:{send:{src_id:2  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:172  dst_addr_short:65535}}}
+timestamp:525304  event:{set_node_rloc16:{node_id:3  rloc16:65534}}
+timestamp:525308  event:{advance_time:{ts:7098242  speed:15.682806510400301}}
+timestamp:531599  event:{send:{src_id:3  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:57  dst_addr_short:65535}}}
+timestamp:532641  event:{set_node_rloc16:{node_id:4  rloc16:65534}}
+timestamp:532964  event:{send:{src_id:1  dst_id:3  mv_info:{channel:11  frame_control:56417  seq:120  dst_addr_extended:1321523543989017747}}}
+timestamp:534855  event:{send:{src_id:2  dst_id:3  mv_info:{channel:11  frame_control:56417  seq:173  dst_addr_extended:1321523543989017747}}}
+timestamp:536153  event:{send:{src_id:4  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:210  dst_addr_short:65535}}}
+timestamp:536907  event:{send:{src_id:1  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:121  dst_addr_short:65535}}}
+timestamp:537697  event:{send:{src_id:1  dst_id:4  mv_info:{channel:11  frame_control:56417  seq:122  dst_addr_extended:2515715488804872710}}}
+timestamp:539182  event:{send:{src_id:2  dst_id:4  mv_info:{channel:11  frame_control:56417  seq:174  dst_addr_extended:2515715488804872710}}}
+timestamp:540519  event:{send:{src_id:2  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:175  dst_addr_short:65535}}}
+timestamp:541183  event:{send:{src_id:1  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:123  dst_addr_short:65535}}}
+timestamp:541817  event:{send:{src_id:2  dst_id:1  mv_info:{channel:11  frame_control:56417  seq:176  dst_addr_extended:16047934538172493037}}}
+timestamp:543315  event:{send:{src_id:3  dst_id:1  mv_info:{channel:11  frame_control:56417  seq:58  dst_addr_extended:16047934538172493037}}}
+timestamp:561658  event:{add_child_table:{node_id:1  ext_addr:1321523543989017747}}
+timestamp:562263  event:{send:{src_id:1  dst_id:3  mv_info:{channel:11  frame_control:56417  seq:124  dst_addr_extended:1321523543989017747}}}
+timestamp:562835  event:{set_node_rloc16:{node_id:3  rloc16:53249}}
+timestamp:600205  event:{set_node_role:{node_id:3  role:OT_DEVICE_ROLE_CHILD}}
+timestamp:600211  event:{set_node_partition_id:{node_id:3  partition_id:650854251}}
+timestamp:601861  event:{advance_time:{ts:8100000  speed:14.161096635323439}}
+timestamp:612065  event:{send:{src_id:4  dst_id:1  mv_info:{channel:11  frame_control:56417  seq:211  dst_addr_extended:16047934538172493037}}}
+timestamp:633142  event:{add_child_table:{node_id:1  ext_addr:2515715488804872710}}
+timestamp:633858  event:{send:{src_id:1  dst_id:4  mv_info:{channel:11  frame_control:56417  seq:125  dst_addr_extended:2515715488804872710}}}
+timestamp:634577  event:{set_node_rloc16:{node_id:4  rloc16:53250}}
+timestamp:675537  event:{set_node_role:{node_id:4  role:OT_DEVICE_ROLE_CHILD}}
+timestamp:675571  event:{set_node_partition_id:{node_id:4  partition_id:650854251}}
+timestamp:677986  event:{send:{src_id:1  dst_id:2  mv_info:{channel:11  frame_control:56417  seq:126  dst_addr_extended:15422380074255967794}}}
+timestamp:695357  event:{add_child_table:{node_id:2  ext_addr:16047934538172493037}}
+timestamp:695872  event:{send:{src_id:2  dst_id:1  mv_info:{channel:11  frame_control:56417  seq:177  dst_addr_extended:16047934538172493037}}}
+timestamp:697246  event:{set_node_rloc16:{node_id:1  rloc16:27649}}
+timestamp:732445  event:{set_node_role:{node_id:1  role:OT_DEVICE_ROLE_CHILD}}
+timestamp:732449  event:{set_node_partition_id:{node_id:1  partition_id:1777028083}}
+timestamp:735386  event:{send:{src_id:1  dst_id:2  mv_info:{channel:11  frame_control:39017  seq:127  dst_addr_short:27648}}}
+timestamp:736076  event:{send:{src_id:2  dst_id:1  mv_info:{channel:11  frame_control:39017  seq:178  dst_addr_short:27649}}}
+timestamp:736288  event:{set_node_rloc16:{node_id:1  rloc16:53248}}
+timestamp:759695  event:{set_node_role:{node_id:1  role:OT_DEVICE_ROLE_ROUTER}}
+timestamp:760227  event:{send:{src_id:1  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:128  dst_addr_short:65535}}}
+timestamp:760356  event:{set_node_partition_id:{node_id:4  partition_id:1777028083}}
+timestamp:760359  event:{set_node_partition_id:{node_id:3  partition_id:1777028083}}
+timestamp:760363  event:{add_router_table:{node_id:2  ext_addr:16047934538172493037}}
+timestamp:760471  event:{remove_child_table:{node_id:2  ext_addr:16047934538172493037}}
+timestamp:766004  event:{send:{src_id:4  dst_id:1  mv_info:{channel:11  frame_control:56417  seq:212  dst_addr_extended:16047934538172493037}}}
+timestamp:768637  event:{send:{src_id:1  dst_id:4  mv_info:{channel:11  frame_control:56417  seq:129  dst_addr_extended:2515715488804872710}}}
+timestamp:771061  event:{send:{src_id:4  dst_id:1  mv_info:{channel:11  frame_control:56417  seq:213  dst_addr_extended:16047934538172493037}}}
+timestamp:771802  event:{send:{src_id:1  dst_id:4  mv_info:{channel:11  frame_control:56417  seq:130  dst_addr_extended:2515715488804872710}}}
+timestamp:772289  event:{advance_time:{ts:9070454  speed:5.988312826272075}}
+timestamp:772984  event:{send:{src_id:2  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:179  dst_addr_short:65535}}}
+timestamp:886095  event:{send:{src_id:1  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:131  dst_addr_short:65535}}}
+timestamp:886871  event:{send:{src_id:3  dst_id:1  mv_info:{channel:11  frame_control:56417  seq:59  dst_addr_extended:16047934538172493037}}}
+timestamp:889523  event:{send:{src_id:1  dst_id:3  mv_info:{channel:11  frame_control:56417  seq:132  dst_addr_extended:1321523543989017747}}}
+timestamp:892026  event:{send:{src_id:3  dst_id:1  mv_info:{channel:11  frame_control:56417  seq:60  dst_addr_extended:16047934538172493037}}}
+timestamp:892533  event:{send:{src_id:1  dst_id:3  mv_info:{channel:11  frame_control:56417  seq:133  dst_addr_extended:1321523543989017747}}}
+timestamp:894537  event:{advance_time:{ts:10100000  speed:97.39943508327652}}
+timestamp:1092597  event:{send:{src_id:1  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:134  dst_addr_short:65535}}}
+timestamp:1092791  event:{advance_time:{ts:11100000  speed:98.93153937475267}}
+timestamp:1118686  event:{send:{src_id:2  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:180  dst_addr_short:65535}}}
+timestamp:1127772  event:{advance_time:{ts:12480281  speed:98.90233591286902}}
+timestamp:1137891  event:{advance_time:{ts:13482281  speed:98.95248182762201}}
+timestamp:1143810  event:{advance_time:{ts:14085281  speed:99.52595432572096}}
+timestamp:1144300  event:{send:{src_id:1  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:135  dst_addr_short:65535}}}
+timestamp:1149781  event:{send:{src_id:2  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:181  dst_addr_short:65535}}}
+timestamp:1158469  event:{advance_time:{ts:15487923  speed:98.26714890376907}}
+timestamp:1164611  event:{advance_time:{ts:16100000  speed:98.43294747617922}}
+timestamp:1188906  event:{advance_time:{ts:17492000  speed:99.62069705861303}}
+timestamp:1199766  event:{advance_time:{ts:18493000  speed:96.36370957999436}}
+timestamp:1209586  event:{advance_time:{ts:19493000  speed:97.90794979079497}}
+timestamp:1219425  event:{advance_time:{ts:20490000  speed:98.67164145557528}}
+timestamp:1226034  event:{advance_time:{ts:21100000  speed:97.84161399526447}}
+timestamp:1240124  event:{send:{src_id:2  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:182  dst_addr_short:65535}}}
+timestamp:1245410  event:{advance_time:{ts:22495601  speed:99.62174316510814}}
+timestamp:1250599  event:{send:{src_id:1  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:136  dst_addr_short:65535}}}
+timestamp:1255932  event:{advance_time:{ts:23497562  speed:97.73600750071338}}
+timestamp:1263721  event:{advance_time:{ts:24225562  speed:96.70674504950495}}
+timestamp:1275958  event:{advance_time:{ts:25505562  speed:98.87696382080976}}
+timestamp:1281659  event:{advance_time:{ts:26100000  speed:99.48664889171873}}
+timestamp:1304766  event:{advance_time:{ts:27498000  speed:99.16300184423322}}
+timestamp:1311880  event:{advance_time:{ts:28144000  speed:96.3605506317179}}
+timestamp:1325157  event:{advance_time:{ts:29498000  speed:98.52416712575024}}
+timestamp:1332082  event:{advance_time:{ts:30171000  speed:98.30009175641088}}
+timestamp:1332724  event:{send:{src_id:2  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:183  dst_addr_short:65535}}}
+timestamp:1341221  event:{advance_time:{ts:31100000  speed:98.90609855003659}}
+timestamp:1362970  event:{advance_time:{ts:32503000  speed:92.56449165402124}}
+timestamp:1368998  event:{advance_time:{ts:33189000  speed:98.6075053103611}}
+timestamp:1374339  event:{send:{src_id:1  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:137  dst_addr_short:65535}}}
+timestamp:1382201  event:{advance_time:{ts:34505601  speed:99.03169618191863}}
+timestamp:1392982  event:{advance_time:{ts:35508601  speed:97.60236002568134}}
+timestamp:1401979  event:{advance_time:{ts:36510601  speed:99.88924786766606}}
+timestamp:1412885  event:{advance_time:{ts:37512601  speed:98.54624108679616}}
+timestamp:1422592  event:{advance_time:{ts:38514601  speed:99.15219309975929}}
+timestamp:1432429  event:{advance_time:{ts:39515601  speed:99.45637940814976}}
+timestamp:1442039  event:{advance_time:{ts:40514601  speed:99.91404799049104}}
+timestamp:1448793  event:{advance_time:{ts:41100000  speed:99.02754946426096}}
+timestamp:3461752  event:{send:{src_id:3  dst_id:1  mv_info:{channel:11  frame_control:39017  seq:61  dst_addr_short:53248}}}
+timestamp:3462068  event:{send:{src_id:1  dst_id:4  mv_info:{channel:11  frame_control:39017  seq:138  dst_addr_short:53250}}}
+timestamp:3462317  event:{send:{src_id:4  dst_id:1  mv_info:{channel:11  frame_control:39017  seq:214  dst_addr_short:53248}}}
+timestamp:3462681  event:{send:{src_id:1  dst_id:3  mv_info:{channel:11  frame_control:39017  seq:139  dst_addr_short:53249}}}
+timestamp:3474584  event:{advance_time:{ts:42309246  speed:92.70515179392824}}
+timestamp:3474918  event:{send:{src_id:2  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:184  dst_addr_short:65535}}}
+timestamp:3486590  event:{advance_time:{ts:43516207  speed:96.45536926147705}}
+timestamp:3496122  event:{advance_time:{ts:44520207  speed:98.89850504583177}}
+timestamp:3506107  event:{advance_time:{ts:45522207  speed:99.22604169003972}}
+timestamp:3511029  event:{advance_time:{ts:46028207  speed:99.58387892014225}}
+timestamp:3511608  event:{send:{src_id:1  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:140  dst_addr_short:65535}}}
+timestamp:3619392  event:{send:{src_id:3  dst_id:1  mv_info:{channel:11  frame_control:39017  seq:62  dst_addr_short:53248}}}
+timestamp:3620043  event:{send:{src_id:1  dst_id:3  mv_info:{channel:11  frame_control:39017  seq:141  dst_addr_short:53249}}}
+timestamp:3634113  event:{advance_time:{ts:47519243  speed:95.30877711369284}}
+timestamp:3643958  event:{advance_time:{ts:48517243  speed:97.7216607373868}}
+timestamp:3653674  event:{advance_time:{ts:49520243  speed:99.27848248236626}}
+timestamp:3664360  event:{advance_time:{ts:50523243  speed:97.995945676496}}
+timestamp:3670094  event:{advance_time:{ts:51100000  speed:98.2858940084919}}
+timestamp:3774677  event:{send:{src_id:4  dst_id:1  mv_info:{channel:11  frame_control:39017  seq:215  dst_addr_short:53248}}}
+timestamp:3775184  event:{send:{src_id:1  dst_id:3  mv_info:{channel:11  frame_control:39017  seq:142  dst_addr_short:53249}}}
+timestamp:3775556  event:{send:{src_id:3  dst_id:1  mv_info:{channel:11  frame_control:39017  seq:63  dst_addr_short:53248}}}
+timestamp:3775854  event:{send:{src_id:1  dst_id:4  mv_info:{channel:11  frame_control:39017  seq:143  dst_addr_short:53250}}}
+timestamp:3788837  event:{advance_time:{ts:52505765  speed:97.47365136596866}}
+timestamp:3799496  event:{advance_time:{ts:53518765  speed:96.43429551072482}}
+timestamp:3802369  event:{send:{src_id:2  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:185  dst_addr_short:65535}}}
+timestamp:3804661  event:{advance_time:{ts:54094046  speed:98.98327162126422}}
+timestamp:3819584  event:{advance_time:{ts:55523046  speed:97.92215900285593}}
+timestamp:3825270  event:{advance_time:{ts:56100000  speed:98.31488290697446}}
+timestamp:3932523  event:{send:{src_id:4  dst_id:1  mv_info:{channel:11  frame_control:39017  seq:216  dst_addr_short:53248}}}
+timestamp:3933009  event:{send:{src_id:1  dst_id:2  mv_info:{channel:11  frame_control:39017  seq:144  dst_addr_short:27648}}}
+timestamp:3933525  event:{send:{src_id:2  dst_id:1  mv_info:{channel:11  frame_control:39017  seq:186  dst_addr_short:53248}}}
+timestamp:3934006  event:{send:{src_id:1  dst_id:4  mv_info:{channel:11  frame_control:39017  seq:145  dst_addr_short:53250}}}
+timestamp:3946350  event:{advance_time:{ts:57471805  speed:97.56098428276793}}
+timestamp:3952224  event:{advance_time:{ts:58061805  speed:98.40021066359031}}
+timestamp:3952668  event:{send:{src_id:1  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:146  dst_addr_short:65535}}}
+timestamp:3967086  event:{advance_time:{ts:59521726  speed:98.32828529555447}}
+timestamp:3976994  event:{advance_time:{ts:60519726  speed:98.85982060974791}}
+timestamp:3982845  event:{advance_time:{ts:61100000  speed:98.8982732361493}}
+timestamp:4086947  event:{send:{src_id:1  dst_id:4  mv_info:{channel:11  frame_control:39017  seq:147  dst_addr_short:53250}}}
+timestamp:4087536  event:{send:{src_id:4  dst_id:1  mv_info:{channel:11  frame_control:39017  seq:217  dst_addr_short:53248}}}
+timestamp:4097759  event:{advance_time:{ts:62161963  speed:95.0727842435094}}
+timestamp:4111653  event:{advance_time:{ts:63521963  speed:96.6311442706671}}
+timestamp:4121303  event:{advance_time:{ts:64519963  speed:98.51542560852657}}
+timestamp:4131188  event:{advance_time:{ts:65523963  speed:99.19199551569507}}
+timestamp:4136890  event:{advance_time:{ts:66100000  speed:99.39962625740527}}
+timestamp:4243767  event:{send:{src_id:1  dst_id:4  mv_info:{channel:11  frame_control:39017  seq:148  dst_addr_short:53250}}}
+timestamp:4244363  event:{send:{src_id:4  dst_id:1  mv_info:{channel:11  frame_control:39017  seq:218  dst_addr_short:53248}}}
+timestamp:4248552  event:{send:{src_id:1  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:149  dst_addr_short:65535}}}
+timestamp:4251508  event:{send:{src_id:2  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:187  dst_addr_short:65535}}}
+timestamp:4256935  event:{advance_time:{ts:67383125  speed:96.09263835842133}}
+timestamp:4268898  event:{advance_time:{ts:68526125  speed:95.83744815326881}}
+timestamp:4278627  event:{advance_time:{ts:69530125  speed:97.88052162995092}}
+timestamp:4288455  event:{advance_time:{ts:70526125  speed:98.63890622214298}}
+timestamp:4294151  event:{advance_time:{ts:71100000  speed:98.87284951552304}}
+timestamp:4401389  event:{send:{src_id:4  dst_id:1  mv_info:{channel:11  frame_control:39017  seq:219  dst_addr_short:53248}}}
+timestamp:4402028  event:{send:{src_id:1  dst_id:4  mv_info:{channel:11  frame_control:39017  seq:150  dst_addr_short:53250}}}
+timestamp:4413377  event:{advance_time:{ts:72248243  speed:93.58896405575027}}
+timestamp:4425470  event:{advance_time:{ts:73521243  speed:99.38605204827189}}
+timestamp:4435565  event:{advance_time:{ts:74520243  speed:99.25543399402189}}
+timestamp:4445707  event:{advance_time:{ts:75519243  speed:99.08394430618148}}
+timestamp:4451406  event:{advance_time:{ts:76100000  speed:99.40357852882704}}
+timestamp:4560233  event:{send:{src_id:4  dst_id:1  mv_info:{channel:11  frame_control:39017  seq:220  dst_addr_short:53248}}}
+timestamp:4560586  event:{send:{src_id:1  dst_id:3  mv_info:{channel:11  frame_control:39017  seq:151  dst_addr_short:53249}}}
+timestamp:4560980  event:{send:{src_id:3  dst_id:1  mv_info:{channel:11  frame_control:39017  seq:64  dst_addr_short:53248}}}
+timestamp:4561017  event:{send:{src_id:1  dst_id:3  mv_info:{channel:11  frame_control:39017  seq:151  dst_addr_short:53249}}}
+timestamp:4561425  event:{send:{src_id:1  dst_id:4  mv_info:{channel:11  frame_control:39017  seq:152  dst_addr_short:53250}}}
+timestamp:4574600  event:{advance_time:{ts:77522923  speed:97.50722949359282}}
+timestamp:4585224  event:{advance_time:{ts:78525923  speed:96.2057027284264}}
+timestamp:4594865  event:{advance_time:{ts:79524923  speed:98.2563903950426}}
+timestamp:4604405  event:{advance_time:{ts:80527923  speed:99.73024167210973}}
+timestamp:4611019  event:{advance_time:{ts:81100000  speed:98.01807453294387}}
+timestamp:4717262  event:{send:{src_id:1  dst_id:3  mv_info:{channel:11  frame_control:39017  seq:153  dst_addr_short:53249}}}
+timestamp:4717894  event:{send:{src_id:3  dst_id:1  mv_info:{channel:11  frame_control:39017  seq:65  dst_addr_short:53248}}}
+timestamp:4718604  event:{send:{src_id:2  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:188  dst_addr_short:65535}}}
+timestamp:4725935  event:{send:{src_id:1  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:154  dst_addr_short:65535}}}
+timestamp:4731345  event:{advance_time:{ts:82530165  speed:99.75343516774778}}
+timestamp:4742176  event:{advance_time:{ts:83521165  speed:96.19631292462951}}
+timestamp:4752341  event:{advance_time:{ts:84531165  speed:97.10386302532899}}
+timestamp:4761905  event:{advance_time:{ts:85488165  speed:97.73413661774204}}
+timestamp:4767555  event:{advance_time:{ts:86100000  speed:98.91392510237591}}
+timestamp:4874837  event:{send:{src_id:1  dst_id:4  mv_info:{channel:11  frame_control:39017  seq:155  dst_addr_short:53250}}}
+timestamp:4875373  event:{send:{src_id:4  dst_id:1  mv_info:{channel:11  frame_control:39017  seq:221  dst_addr_short:53248}}}
+timestamp:4889566  event:{advance_time:{ts:87538883  speed:96.04719311127428}}
+timestamp:4897735  event:{advance_time:{ts:88336883  speed:96.62144183836551}}
+timestamp:4909681  event:{advance_time:{ts:89522883  speed:97.52914862092547}}
+timestamp:4919404  event:{advance_time:{ts:90537883  speed:99.01789419665766}}
+timestamp:4924047  event:{advance_time:{ts:91037883  speed:99.83185071367919}}
+timestamp:4924396  event:{send:{src_id:2  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:189  dst_addr_short:65535}}}
+timestamp:5031340  event:{send:{src_id:2  dst_id:1  mv_info:{channel:11  frame_control:39017  seq:190  dst_addr_short:53248}}}
+timestamp:5031847  event:{send:{src_id:1  dst_id:3  mv_info:{channel:11  frame_control:39017  seq:156  dst_addr_short:53249}}}
+timestamp:5032100  event:{send:{src_id:3  dst_id:1  mv_info:{channel:11  frame_control:39017  seq:66  dst_addr_short:53248}}}
+timestamp:5032553  event:{send:{src_id:1  dst_id:2  mv_info:{channel:11  frame_control:39017  seq:157  dst_addr_short:27648}}}
+timestamp:5045679  event:{advance_time:{ts:92536206  speed:98.39049119682126}}
+timestamp:5056315  event:{advance_time:{ts:93532206  speed:96.38988626005627}}
+timestamp:5060341  event:{send:{src_id:1  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:158  dst_addr_short:65535}}}
+timestamp:5065560  event:{advance_time:{ts:94535847  speed:99.6504248963137}}
+timestamp:5075400  event:{advance_time:{ts:95521847  speed:99.77541856581976}}
+timestamp:5082161  event:{advance_time:{ts:96100000  speed:97.88758589635663}}
+timestamp:5188751  event:{send:{src_id:4  dst_id:1  mv_info:{channel:11  frame_control:39017  seq:222  dst_addr_short:53248}}}
+timestamp:5189272  event:{send:{src_id:1  dst_id:3  mv_info:{channel:11  frame_control:39017  seq:159  dst_addr_short:53249}}}
+timestamp:5189936  event:{send:{src_id:3  dst_id:1  mv_info:{channel:11  frame_control:39017  seq:67  dst_addr_short:53248}}}
+timestamp:5190296  event:{send:{src_id:1  dst_id:4  mv_info:{channel:11  frame_control:39017  seq:160  dst_addr_short:53250}}}
+timestamp:5203299  event:{advance_time:{ts:97534485  speed:97.22026431718062}}
+timestamp:5213333  event:{advance_time:{ts:98538485  speed:98.36567164179104}}
+timestamp:5221959  event:{advance_time:{ts:99382485  speed:98.2338770013467}}
+timestamp:5233032  event:{advance_time:{ts:100538485  speed:99.76813972307139}}
+timestamp:5238948  event:{advance_time:{ts:101100000  speed:99.19650828290844}}
+timestamp:5343688  event:{send:{src_id:4  dst_id:1  mv_info:{channel:11  frame_control:39017  seq:223  dst_addr_short:53248}}}
+timestamp:5344241  event:{send:{src_id:1  dst_id:4  mv_info:{channel:11  frame_control:39017  seq:161  dst_addr_short:53250}}}
+timestamp:5358222  event:{advance_time:{ts:102538483  speed:97.65005770144593}}
+timestamp:5364181  event:{advance_time:{ts:103076483  speed:95.52841952634122}}
+timestamp:5378787  event:{advance_time:{ts:104539483  speed:97.44682116953763}}
+timestamp:5380816  event:{send:{src_id:2  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:191  dst_addr_short:65535}}}
+timestamp:5386392  event:{advance_time:{ts:105355124  speed:99.1847276287266}}
+timestamp:5386980  event:{send:{src_id:1  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:162  dst_addr_short:65535}}}
+timestamp:5394164  event:{advance_time:{ts:106100000  speed:98.6738238080202}}
+timestamp:5498847  event:{send:{src_id:1  dst_id:4  mv_info:{channel:11  frame_control:39017  seq:163  dst_addr_short:53250}}}
+timestamp:5499804  event:{send:{src_id:4  dst_id:1  mv_info:{channel:11  frame_control:39017  seq:224  dst_addr_short:53248}}}
+timestamp:5513214  event:{advance_time:{ts:107521843  speed:96.68455052359582}}
+timestamp:5521121  event:{advance_time:{ts:108354843  speed:99.71004687361811}}
+timestamp:5533597  event:{advance_time:{ts:109544843  speed:98.17164434311769}}
+timestamp:5543828  event:{advance_time:{ts:110548843  speed:98.1651147396293}}
+timestamp:5549467  event:{advance_time:{ts:111100000  speed:98.11809493906867}}
+timestamp:5656650  event:{send:{src_id:3  dst_id:1  mv_info:{channel:11  frame_control:39017  seq:68  dst_addr_short:53248}}}
+timestamp:5657167  event:{send:{src_id:1  dst_id:4  mv_info:{channel:11  frame_control:39017  seq:164  dst_addr_short:53250}}}
+timestamp:5657781  event:{send:{src_id:4  dst_id:1  mv_info:{channel:11  frame_control:39017  seq:225  dst_addr_short:53248}}}
+timestamp:5658183  event:{send:{src_id:1  dst_id:3  mv_info:{channel:11  frame_control:39017  seq:165  dst_addr_short:53249}}}
+timestamp:5669131  event:{advance_time:{ts:112324485  speed:96.9889108910891}}
+timestamp:5681084  event:{advance_time:{ts:113548485  speed:99.61694942837381}}
+timestamp:5684932  event:{send:{src_id:2  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:192  dst_addr_short:65535}}}
+timestamp:5691378  event:{advance_time:{ts:114546126  speed:98.81931580305681}}
+timestamp:5700148  event:{advance_time:{ts:115391126  speed:98.32109797452112}}
+timestamp:5706998  event:{advance_time:{ts:116042126  speed:97.8774483591785}}
+timestamp:5815062  event:{send:{src_id:3  dst_id:1  mv_info:{channel:11  frame_control:39017  seq:69  dst_addr_short:53248}}}
+timestamp:5815546  event:{send:{src_id:1  dst_id:4  mv_info:{channel:11  frame_control:39017  seq:166  dst_addr_short:53250}}}
+timestamp:5816041  event:{send:{src_id:4  dst_id:1  mv_info:{channel:11  frame_control:39017  seq:226  dst_addr_short:53248}}}
+timestamp:5816552  event:{send:{src_id:1  dst_id:3  mv_info:{channel:11  frame_control:39017  seq:167  dst_addr_short:53249}}}
+timestamp:5829746  event:{advance_time:{ts:117541325  speed:96.51299049149591}}
+timestamp:5831837  event:{send:{src_id:1  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:168  dst_addr_short:65535}}}
+timestamp:5840335  event:{advance_time:{ts:118537286  speed:95.49371155428437}}
+timestamp:5850090  event:{advance_time:{ts:119521286  speed:96.9807245308691}}
+timestamp:5859933  event:{advance_time:{ts:120537286  speed:98.33974557865344}}
+timestamp:5865686  event:{advance_time:{ts:121100000  speed:98.28009828009829}}
+timestamp:5973524  event:{send:{src_id:2  dst_id:1  mv_info:{channel:11  frame_control:39017  seq:193  dst_addr_short:53248}}}
+timestamp:5974286  event:{send:{src_id:1  dst_id:3  mv_info:{channel:11  frame_control:39017  seq:169  dst_addr_short:53249}}}
+timestamp:5975052  event:{send:{src_id:3  dst_id:1  mv_info:{channel:11  frame_control:39017  seq:70  dst_addr_short:53248}}}
+timestamp:5975367  event:{send:{src_id:1  dst_id:2  mv_info:{channel:11  frame_control:39017  seq:170  dst_addr_short:27648}}}
+timestamp:5988433  event:{advance_time:{ts:122533165  speed:94.20659961874712}}
+timestamp:5996386  event:{advance_time:{ts:123313165  speed:95.5350513683847}}
+timestamp:6007469  event:{advance_time:{ts:124471165  speed:98.431049081725}}
+timestamp:6018278  event:{advance_time:{ts:125529165  speed:98.29701058612042}}
+timestamp:6023928  event:{advance_time:{ts:126100000  speed:98.60377060818806}}
+timestamp:6128928  event:{send:{src_id:2  dst_id:1  mv_info:{channel:11  frame_control:39017  seq:194  dst_addr_short:53248}}}
+timestamp:6129528  event:{send:{src_id:1  dst_id:3  mv_info:{channel:11  frame_control:39017  seq:171  dst_addr_short:53249}}}
+timestamp:6130112  event:{send:{src_id:3  dst_id:1  mv_info:{channel:11  frame_control:39017  seq:71  dst_addr_short:53248}}}
+timestamp:6130687  event:{send:{src_id:1  dst_id:2  mv_info:{channel:11  frame_control:39017  seq:172  dst_addr_short:27648}}}
+timestamp:6133758  event:{send:{src_id:2  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:195  dst_addr_short:65535}}}
+timestamp:6143714  event:{advance_time:{ts:127529686  speed:94.02117585163751}}
+timestamp:6153713  event:{advance_time:{ts:128532686  speed:96.50835085492125}}
+timestamp:6163548  event:{advance_time:{ts:129532686  speed:97.95919182695052}}
+timestamp:6169325  event:{advance_time:{ts:130138686  speed:98.94375030623745}}
+timestamp:6177832  event:{send:{src_id:1  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:173  dst_addr_short:65535}}}
+timestamp:6179214  event:{advance_time:{ts:131100000  speed:98.60377060818806}}
+timestamp:6283123  event:{send:{src_id:4  dst_id:1  mv_info:{channel:11  frame_control:39017  seq:227  dst_addr_short:53248}}}
+timestamp:6283731  event:{send:{src_id:1  dst_id:2  mv_info:{channel:11  frame_control:39017  seq:174  dst_addr_short:27648}}}
+timestamp:6284483  event:{send:{src_id:2  dst_id:1  mv_info:{channel:11  frame_control:39017  seq:196  dst_addr_short:53248}}}
+timestamp:6284952  event:{send:{src_id:1  dst_id:4  mv_info:{channel:11  frame_control:39017  seq:175  dst_addr_short:53250}}}
+timestamp:6297695  event:{advance_time:{ts:132530165  speed:95.99067051479965}}
+timestamp:6305463  event:{advance_time:{ts:133321165  speed:97.98680959943533}}
+timestamp:6317171  event:{advance_time:{ts:134531165  speed:99.8157090909091}}
+timestamp:6324964  event:{advance_time:{ts:135273165  speed:98.96286371505134}}
+timestamp:6333069  event:{advance_time:{ts:136100000  speed:99.45498667303178}}
+timestamp:6440549  event:{send:{src_id:3  dst_id:1  mv_info:{channel:11  frame_control:39017  seq:72  dst_addr_short:53248}}}
+timestamp:6441173  event:{send:{src_id:1  dst_id:3  mv_info:{channel:11  frame_control:39017  seq:176  dst_addr_short:53249}}}
+timestamp:6454655  event:{advance_time:{ts:137536963  speed:99.71984732824427}}
+timestamp:6464373  event:{advance_time:{ts:138463963  speed:97.96779941980937}}
+timestamp:6475032  event:{advance_time:{ts:139542963  speed:98.96700106355458}}
+timestamp:6485699  event:{advance_time:{ts:140545963  speed:97.81020789792102}}
+timestamp:6486383  event:{send:{src_id:1  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:177  dst_addr_short:65535}}}
+timestamp:6490816  event:{advance_time:{ts:141100000  speed:98.86893933401882}}
+timestamp:6596924  event:{set_node_mode:{node_id:3  node_mode:{rx_on_when_idle:true  full_thread_device:true  full_network_data:true}}}
+timestamp:6612487  event:{set_node_rloc16:{node_id:3  rloc16:65534}}
+timestamp:6612504  event:{set_node_role:{node_id:3  role:OT_DEVICE_ROLE_DETACHED}}
+timestamp:6613775  event:{set_node_mode:{node_id:4  node_mode:{rx_on_when_idle:true  full_thread_device:true  full_network_data:true}}}
+timestamp:6625724  event:{set_node_rloc16:{node_id:4  rloc16:65534}}
+timestamp:6625747  event:{set_node_role:{node_id:4  role:OT_DEVICE_ROLE_DETACHED}}
+timestamp:6631787  event:{send:{src_id:2  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:197  dst_addr_short:65535}}}
+timestamp:6636634  event:{send:{src_id:3  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:73  dst_addr_short:65535}}}
+timestamp:6637204  event:{send:{src_id:4  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:228  dst_addr_short:65535}}}
+timestamp:6638669  event:{send:{src_id:2  dst_id:3  mv_info:{channel:11  frame_control:56417  seq:198  dst_addr_extended:1321523543989017747}}}
+timestamp:6640334  event:{advance_time:{ts:142068445  speed:95.04809107861419}}
+timestamp:6640623  event:{send:{src_id:1  dst_id:3  mv_info:{channel:11  frame_control:56417  seq:178  dst_addr_extended:1321523543989017747}}}
+timestamp:6641107  event:{send:{src_id:2  dst_id:4  mv_info:{channel:11  frame_control:56417  seq:199  dst_addr_extended:2515715488804872710}}}
+timestamp:6641568  event:{send:{src_id:1  dst_id:4  mv_info:{channel:11  frame_control:56417  seq:179  dst_addr_extended:2515715488804872710}}}
+timestamp:6644261  event:{send:{src_id:3  dst_id:2  mv_info:{channel:11  frame_control:56417  seq:74  dst_addr_extended:15422380074255967794}}}
+timestamp:6652973  event:{add_child_table:{node_id:2  ext_addr:1321523543989017747}}
+timestamp:6653263  event:{send:{src_id:2  dst_id:3  mv_info:{channel:11  frame_control:56417  seq:200  dst_addr_extended:1321523543989017747}}}
+timestamp:6653788  event:{set_node_rloc16:{node_id:3  rloc16:27650}}
+timestamp:6671662  event:{set_node_role:{node_id:3  role:OT_DEVICE_ROLE_CHILD}}
+timestamp:6673169  event:{send:{src_id:3  dst_id:2  mv_info:{channel:11  frame_control:39017  seq:75  dst_addr_short:27648}}}
+timestamp:6673611  event:{send:{src_id:2  dst_id:1  mv_info:{channel:11  frame_control:39017  seq:201  dst_addr_short:53248}}}
+timestamp:6673731  event:{remove_child_table:{node_id:1  ext_addr:1321523543989017747}}
+timestamp:6678806  event:{send:{src_id:3  dst_id:2  mv_info:{channel:11  frame_control:39017  seq:76  dst_addr_short:27648}}}
+timestamp:6679191  event:{send:{src_id:2  dst_id:3  mv_info:{channel:11  frame_control:39017  seq:202  dst_addr_short:27650}}}
+timestamp:6679307  event:{set_node_rloc16:{node_id:3  rloc16:11264}}
+timestamp:6692446  event:{set_node_role:{node_id:3  role:OT_DEVICE_ROLE_ROUTER}}
+timestamp:6692834  event:{send:{src_id:3  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:77  dst_addr_short:65535}}}
+timestamp:6692921  event:{add_router_table:{node_id:2  ext_addr:1321523543989017747}}
+timestamp:6692989  event:{remove_child_table:{node_id:2  ext_addr:1321523543989017747}}
+timestamp:6697037  event:{send:{src_id:4  dst_id:2  mv_info:{channel:11  frame_control:56417  seq:229  dst_addr_extended:15422380074255967794}}}
+timestamp:6706231  event:{add_child_table:{node_id:2  ext_addr:2515715488804872710}}
+timestamp:6706571  event:{send:{src_id:2  dst_id:4  mv_info:{channel:11  frame_control:56417  seq:203  dst_addr_extended:2515715488804872710}}}
+timestamp:6707190  event:{set_node_rloc16:{node_id:4  rloc16:27651}}
+timestamp:6729112  event:{set_node_role:{node_id:4  role:OT_DEVICE_ROLE_CHILD}}
+timestamp:6730891  event:{send:{src_id:4  dst_id:2  mv_info:{channel:11  frame_control:39017  seq:230  dst_addr_short:27648}}}
+timestamp:6731329  event:{send:{src_id:2  dst_id:1  mv_info:{channel:11  frame_control:39017  seq:204  dst_addr_short:53248}}}
+timestamp:6731446  event:{remove_child_table:{node_id:1  ext_addr:2515715488804872710}}
+timestamp:6740936  event:{send:{src_id:3  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:78  dst_addr_short:65535}}}
+timestamp:6741101  event:{advance_time:{ts:143317105  speed:19.982019737731513}}
+timestamp:6741357  event:{send:{src_id:4  dst_id:2  mv_info:{channel:11  frame_control:39017  seq:231  dst_addr_short:27648}}}
+timestamp:6741852  event:{send:{src_id:2  dst_id:4  mv_info:{channel:11  frame_control:39017  seq:205  dst_addr_short:27651}}}
+timestamp:6741980  event:{set_node_rloc16:{node_id:4  rloc16:56320}}
+timestamp:6758576  event:{set_node_role:{node_id:4  role:OT_DEVICE_ROLE_ROUTER}}
+timestamp:6759234  event:{send:{src_id:4  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:232  dst_addr_short:65535}}}
+timestamp:6759389  event:{add_router_table:{node_id:2  ext_addr:2515715488804872710}}
+timestamp:6759408  event:{remove_child_table:{node_id:2  ext_addr:2515715488804872710}}
+timestamp:6763123  event:{send:{src_id:2  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:206  dst_addr_short:65535}}}
+timestamp:6764111  event:{send:{src_id:4  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:233  dst_addr_short:65535}}}
+timestamp:6764211  event:{advance_time:{ts:144027150  speed:21.833649098205363}}
+timestamp:6764541  event:{send:{src_id:1  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:180  dst_addr_short:65535}}}
+timestamp:6765491  event:{send:{src_id:1  dst_id:4  mv_info:{channel:11  frame_control:56417  seq:181  dst_addr_extended:2515715488804872710}}}
+timestamp:6765982  event:{send:{src_id:4  dst_id:1  mv_info:{channel:11  frame_control:56417  seq:234  dst_addr_extended:16047934538172493037}}}
+timestamp:6766128  event:{add_router_table:{node_id:1  ext_addr:2515715488804872710}}
+timestamp:6766496  event:{send:{src_id:1  dst_id:4  mv_info:{channel:11  frame_control:56417  seq:182  dst_addr_extended:2515715488804872710}}}
+timestamp:6766625  event:{add_router_table:{node_id:4  ext_addr:16047934538172493037}}
+timestamp:6767309  event:{send:{src_id:3  dst_id:4  mv_info:{channel:11  frame_control:56417  seq:79  dst_addr_extended:2515715488804872710}}}
+timestamp:6767743  event:{send:{src_id:4  dst_id:3  mv_info:{channel:11  frame_control:56417  seq:235  dst_addr_extended:1321523543989017747}}}
+timestamp:6767865  event:{add_router_table:{node_id:3  ext_addr:2515715488804872710}}
+timestamp:6768205  event:{send:{src_id:3  dst_id:4  mv_info:{channel:11  frame_control:56417  seq:80  dst_addr_extended:2515715488804872710}}}
+timestamp:6768311  event:{add_router_table:{node_id:4  ext_addr:1321523543989017747}}
+timestamp:6768643  event:{advance_time:{ts:145003799  speed:28.18647788070672}}
+timestamp:6768909  event:{send:{src_id:3  dst_id:1  mv_info:{channel:11  frame_control:56417  seq:81  dst_addr_extended:16047934538172493037}}}
+timestamp:6769225  event:{send:{src_id:1  dst_id:3  mv_info:{channel:11  frame_control:56417  seq:183  dst_addr_extended:1321523543989017747}}}
+timestamp:6769385  event:{add_router_table:{node_id:3  ext_addr:16047934538172493037}}
+timestamp:6769643  event:{send:{src_id:3  dst_id:1  mv_info:{channel:11  frame_control:56417  seq:82  dst_addr_extended:16047934538172493037}}}
+timestamp:6769770  event:{add_router_table:{node_id:1  ext_addr:1321523543989017747}}
+timestamp:6770152  event:{send:{src_id:2  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:207  dst_addr_short:65535}}}
+timestamp:6770646  event:{send:{src_id:4  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:236  dst_addr_short:65535}}}
+timestamp:6771035  event:{send:{src_id:3  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:83  dst_addr_short:65535}}}
+timestamp:6771727  event:{advance_time:{ts:146030884  speed:34.827054286561854}}
+timestamp:6772071  event:{send:{src_id:1  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:184  dst_addr_short:65535}}}
+timestamp:6772648  event:{advance_time:{ts:147310845  speed:43.58395963593749}}
+timestamp:6772989  event:{advance_time:{ts:148047845  speed:48.63904931919213}}
+timestamp:6773620  event:{send:{src_id:4  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:237  dst_addr_short:65535}}}
+timestamp:6774093  event:{send:{src_id:2  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:208  dst_addr_short:65535}}}
+timestamp:6774183  event:{advance_time:{ts:149104447  speed:55.57138691604357}}
+timestamp:6774578  event:{send:{src_id:3  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:84  dst_addr_short:65535}}}
+timestamp:6775124  event:{send:{src_id:1  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:185  dst_addr_short:65535}}}
+timestamp:6775621  event:{advance_time:{ts:150316689  speed:63.354956453597474}}
+timestamp:6776131  event:{advance_time:{ts:151100000  speed:68.49924993321324}}
+timestamp:7794948  event:{advance_time:{ts:152322000  speed:91.8037713169559}}
+timestamp:7804891  event:{advance_time:{ts:153323000  speed:95.60056766868792}}
+timestamp:7811172  event:{send:{src_id:2  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:209  dst_addr_short:65535}}}
+timestamp:7814449  event:{advance_time:{ts:154321321  speed:98.17508838229917}}
+timestamp:7822326  event:{advance_time:{ts:155106321  speed:98.47895875325698}}
+timestamp:7822692  event:{send:{src_id:3  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:85  dst_addr_short:65535}}}
+timestamp:7827143  event:{send:{src_id:1  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:186  dst_addr_short:65535}}}
+timestamp:7832535  event:{advance_time:{ts:156100000  speed:98.2356870603953}}
+timestamp:7855882  event:{advance_time:{ts:157319000  speed:92.68552311435523}}
+timestamp:7860138  event:{send:{src_id:4  dst_id:-1  mv_info:{channel:11  frame_control:55361  seq:238  dst_addr_short:65535}}}
+timestamp:7865520  event:{advance_time:{ts:158319921  speed:97.40767880649408}}
+timestamp:7875626  event:{advance_time:{ts:159325921  speed:98.06423273346303}}
+timestamp:7885570  event:{advance_time:{ts:160326921  speed:98.66762371615313}}
+timestamp:7893503  event:{advance_time:{ts:161100000  speed:98.47753727374786}}
+timestamp:7916616  event:{advance_time:{ts:162324000  speed:97.58430997369051}}
+timestamp:7926627  event:{advance_time:{ts:163324000  speed:98.59904238340131}}
+timestamp:7936446  event:{advance_time:{ts:164328000  speed:99.70964354111324}}
+timestamp:7946399  event:{advance_time:{ts:165326000  speed:99.83934983934984}}
+timestamp:7954402  event:{advance_time:{ts:166090000  speed:99.14366891180386}}
