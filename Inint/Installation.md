@@ -31,5 +31,5 @@
    29  otns
    pip install grpcio grpcio-tools
    pip install pyshark
-    pip install pyroscope-io
+   pip install pyroscope-io
 ```

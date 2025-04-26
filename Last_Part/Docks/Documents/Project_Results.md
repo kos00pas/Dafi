@@ -31,8 +31,8 @@
 
 After analyzing all previous experiments, the most reliable and scalable configuration is:
 
-- Use **Docker Windows Engine with WSL**.
-- **Deploy a Single Container** hosting:
+- Use  Windows  WSL toolchain installation.
+- Deploy a Single Container hosting:
   - Multiple OpenThread CLI instances (e.g., `ot-cli-ftd`) launched as parallel processes inside the container.
   - A central Python control script to manage devices (start, monitor, command).
 - This setup will be used as the baseline to implement and validate the Dynamic Analysis Framework (DAfI) before moving to emulation or real devices in future work.
