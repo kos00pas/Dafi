@@ -1,4 +1,4 @@
-## Recommended OpenThread Network Role Allocation (with Border Router)
+# Recommended OpenThread Network Role Allocation (with Border Router)
 
 This table provides a balanced role distribution based on total device count, including one Border Router.
 
