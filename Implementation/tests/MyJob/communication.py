@@ -26,7 +26,7 @@ def initiate_coap_announcement(ns):
             cmd = f"coap post {receiver_ip} logs con {payload}"
             ns.node_cmd(node_id, cmd)
 
-            # print(f"📨 Node {node_id} sent payload: {payload}")
+            print(f"📨 Node {node_id} sent payload: {payload}")
 
         except Exception as e:
             pass
