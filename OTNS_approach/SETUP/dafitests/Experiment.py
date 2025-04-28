@@ -149,12 +149,12 @@ class Experiment:
         if not success:
             raise RuntimeError("$ Leader Election Phase failed.")
 
-        # self.safe_comm_window(extra_wait=10)
-        #
-        # # 🛡️ Inject keepalive traffic before Step 8 begins
-        # self.inject_keepalive_traffic(interval=5, duration=3)
-        #
-        # phase_topology = TopologyConvergencePhase(self.ns)
+        self.safe_comm_window(extra_wait=10)
+
+        # 🛡️ Inject keepalive traffic before Step 8 begins
+        self.inject_keepalive_traffic(interval=5, duration=3)
+
+        phase_topology = TopologyConvergencePhase(self.ns)
         # success = phase_topology.run()
         # if not success:
         #     raise RuntimeError("$ Topology Convergence Phase failed.")
