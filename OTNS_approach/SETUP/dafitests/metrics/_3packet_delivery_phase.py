@@ -19,51 +19,211 @@ class PacketDeliveryPhase:
 
     def _analyze_ipv6_forwarding_efficiency(self, results):
         print("\n🛰️ Analyzing IPv6 Forwarding Efficiency — Node Pairs:\n")
+        MAX_HOPS = 50
         for (src, dst), delivered in results.items():
             status = "✅ Delivered" if delivered else "❌ Failed"
             print(f"• {src} ➔ {dst}: {status}")
 
-            # Fetch and print the routing table of the source node
-            try:
-                routing_table = self.ns.node_cmd(src, "router table")
-                print(f"  📜 Routing Table for Node {src}:")
-                for entry in routing_table:
-                    print(f"    {entry}")
+            queue = [(src, 0)]  # (node_id, hops)
+            dst_rloc16 = self.ns.node_cmd(dst, "rloc16")[0].strip()
+            dst_router_rloc16 = f"{int(dst_rloc16, 16) & 0xFC00:04x}"
+            success = False
 
-                # Get RLOC16 of the destination node
-                dst_rloc16 = self.ns.node_cmd(dst, "rloc16")[0].strip()
-                print(f"  🎯 Searching for destination RLOC16 {dst_rloc16} in routing table...")
+            while queue:
+                current_src, hops = queue.pop(0)
+                if hops >= MAX_HOPS:
+                    continue
 
-                found = False
-                for entry in routing_table:
-                    if dst_rloc16.lower() in entry.lower():
-                        found = True
-                        print(f"    ✅ Found destination RLOC16 {dst_rloc16} in routing table entry!")
+                try:
+                    routing_table = self.ns.node_cmd(current_src, "router table")
+                    print(f"  📜 Routing Table for Node {current_src}:")
+                    for entry in routing_table:
+                        print(f"    {entry}")
+
+                    print(
+                        f"  🎯 Searching for destination RLOC16 {dst_rloc16} in routing table of Node {current_src}...")
+
+                    found = False
+                    for entry in routing_table:
+                        if dst_rloc16.lower() in entry.lower():
+                            found = True
+                            print(f"    ✅ Found destination RLOC16 {dst_rloc16} in routing table entry!")
+                            success = True
+                            break
+
+                    if found:
                         break
 
-                if not found:
-                    print(f"    ❌ Destination RLOC16 {dst_rloc16} NOT found in routing table.")
+                    for entry in routing_table:
+                        if dst_router_rloc16 in entry.lower():
+                            print(f"    ✅ Found parent router RLOC16 {dst_router_rloc16} in routing table entry!")
+                            success = True
+                            break
 
-                    # Fetch and search neighbor table of the source node
-                    try:
-                        neighbor_table = self.ns.node_cmd(src, "neighbor table")
-                        print(f"  👥 Neighbor Table for Source Node {src}:")
-                        dst_rloc16_found_in_neighbors = False
-                        for neighbor_entry in neighbor_table:
-                            print(f"    {neighbor_entry}")
-                            if dst_rloc16.lower() in neighbor_entry.lower():
-                                dst_rloc16_found_in_neighbors = True
-                        if dst_rloc16_found_in_neighbors:
-                            print(f"    ✅ Destination RLOC16 {dst_rloc16} found in source's neighbor table!{src}->{dst}")
-                        else:
-                            print(f"    ❌ Destination RLOC16-second-time {dst_rloc16} NOT found in source's neighbor table.")
-                    except Exception as e:
-                        print(f"⚠️ Failed to retrieve neighbor table for Source Node {src}: {e}")
+                    if success:
+                        break
 
-            except Exception as e:
-                print(f"⚠️ Failed to retrieve routing table or RLOC16 for Node {src} ➔ {dst}: {e}")
+                    neighbor_table = self.ns.node_cmd(current_src, "neighbor table")
+                    print(f"  👥 Neighbor Table for Source Node {current_src}:")
+                    for neighbor_entry in neighbor_table:
+                        print(f"    {neighbor_entry}")
+                        parts = neighbor_entry.split()
+                        if len(parts) > 1:
+                            neighbor_rloc16 = parts[1].lower()
+                            next_hop_node_id = None
+                            for node_id, node in self.ns.nodes().items():
+                                try:
+                                    node_rloc16 = self.ns.node_cmd(node_id, "rloc16")[0].strip().lower()
+                                    if node_rloc16 == neighbor_rloc16:
+                                        next_hop_node_id = node_id
+                                        break
+                                except:
+                                    continue
 
-        print("\n✅ Finished listing analyzed node pairs and their routing tables and neighbor tables if needed.\n")
+                            if next_hop_node_id is not None:
+                                queue.append((next_hop_node_id, hops + 1))
+
+                except Exception as e:
+                    print(f"⚠️ Failed to retrieve information for Node {current_src}: {e}")
+                    continue
+
+            if not success:
+                print(f"    ❌ Failed to find destination RLOC16 {dst_rloc16} within {MAX_HOPS} hops.")
+
+        print("\n✅ Finished listing analyzed node pairs with multi-hop forwarding analysis if needed.\n")
+
+    # def _analyze_ipv6_forwarding_efficiency(self, results):
+    #     print("\n🛰️ Analyzing IPv6 Forwarding Efficiency — Node Pairs:\n")
+    #     MAX_HOPS = 5
+    #     for (src, dst), delivered in results.items():
+    #         status = "✅ Delivered" if delivered else "❌ Failed"
+    #         print(f"• {src} ➔ {dst}: {status}")
+    #
+    #         current_src = src
+    #         hops = 0
+    #         success = False
+    #
+    #         while hops < MAX_HOPS:
+    #             try:
+    #                 routing_table = self.ns.node_cmd(current_src, "router table")
+    #                 print(f"  📜 Routing Table for Node {current_src}:")
+    #                 for entry in routing_table:
+    #                     print(f"    {entry}")
+    #
+    #                 dst_rloc16 = self.ns.node_cmd(dst, "rloc16")[0].strip()
+    #                 print(
+    #                     f"  🎯 Searching for destination RLOC16 {dst_rloc16} in routing table of Node {current_src}...")
+    #
+    #                 found = False
+    #                 for entry in routing_table:
+    #                     if dst_rloc16.lower() in entry.lower():
+    #                         found = True
+    #                         print(f"    ✅ Found destination RLOC16 {dst_rloc16} in routing table entry!")
+    #                         success = True
+    #                         break
+    #
+    #                 if found:
+    #                     break
+    #
+    #                 # Try to find parent router RLOC16
+    #                 dst_router_rloc16 = f"{int(dst_rloc16, 16) & 0xFC00:04x}"
+    #                 for entry in routing_table:
+    #                     if dst_router_rloc16 in entry.lower():
+    #                         print(f"    ✅ Found parent router RLOC16 {dst_router_rloc16} in routing table entry!")
+    #                         success = True
+    #                         break
+    #
+    #                 if success:
+    #                     break
+    #
+    #                 # If not found, move to next hop neighbor
+    #                 neighbor_table = self.ns.node_cmd(current_src, "neighbor table")
+    #                 print(f"  👥 Neighbor Table for Source Node {current_src}:")
+    #                 next_hop = None
+    #                 for neighbor_entry in neighbor_table:
+    #                     print(f"    {neighbor_entry}")
+    #                     if dst_router_rloc16 in neighbor_entry.lower():
+    #                         next_hop = neighbor_entry.split()[1]  # Assuming RLOC16 is the second field
+    #                         break
+    #
+    #                 if next_hop is None:
+    #                     print(f"    ❌ No neighbor towards destination found from Node {current_src}.")
+    #                     break
+    #
+    #                 # Find the node ID for next hop
+    #                 next_hop_node_id = None
+    #                 for node_id, node in self.ns.nodes().items():
+    #                     try:
+    #                         node_rloc16 = self.ns.node_cmd(node_id, "rloc16")[0].strip().lower()
+    #                         if node_rloc16 == next_hop.lower():
+    #                             next_hop_node_id = node_id
+    #                             break
+    #                     except:
+    #                         continue
+    #
+    #                 if next_hop_node_id is None:
+    #                     print(f"    ❌ Could not resolve next hop node ID from RLOC16 {next_hop}.")
+    #                     break
+    #
+    #                 print(f"    🔁 Moving to next hop Node {next_hop_node_id}...")
+    #                 current_src = next_hop_node_id
+    #                 hops += 1
+    #
+    #             except Exception as e:
+    #                 print(f"⚠️ Failed to retrieve information for Node {current_src}: {e}")
+    #                 break
+    #
+    #         if not success:
+    #             print(f"    ❌ Failed to find destination RLOC16 {dst_rloc16} within {MAX_HOPS} hops.")
+    #
+    #     print("\n✅ Finished listing analyzed node pairs with multi-hop forwarding analysis if needed.\n")
+    # def _analyze_ipv6_forwarding_efficiency(self, results):
+    #     print("\n🛰️ Analyzing IPv6 Forwarding Efficiency — Node Pairs:\n")
+    #     for (src, dst), delivered in results.items():
+    #         status = "✅ Delivered" if delivered else "❌ Failed"
+    #         print(f"• {src} ➔ {dst}: {status}")
+    #
+    #         # Fetch and print the routing table of the source node
+    #         try:
+    #             routing_table = self.ns.node_cmd(src, "router table")
+    #             print(f"  📜 Routing Table for Node {src}:")
+    #             for entry in routing_table:
+    #                 print(f"    {entry}")
+    #
+    #             # Get RLOC16 of the destination node
+    #             dst_rloc16 = self.ns.node_cmd(dst, "rloc16")[0].strip()
+    #             print(f"  🎯 Searching for destination RLOC16 {dst_rloc16} in routing table...")
+    #
+    #             found = False
+    #             for entry in routing_table:
+    #                 if dst_rloc16.lower() in entry.lower():
+    #                     found = True
+    #                     print(f"    ✅ Found destination RLOC16 {dst_rloc16} in routing table entry!")
+    #                     break
+    #
+    #             if not found:
+    #                 print(f"    ❌ Destination RLOC16 {dst_rloc16} NOT found in routing table.")
+    #
+    #                 # Fetch and search neighbor table of the source node
+    #                 try:
+    #                     neighbor_table = self.ns.node_cmd(src, "neighbor table")
+    #                     print(f"  👥 Neighbor Table for Source Node {src}:")
+    #                     dst_rloc16_found_in_neighbors = False
+    #                     for neighbor_entry in neighbor_table:
+    #                         print(f"    {neighbor_entry}")
+    #                         if dst_rloc16.lower() in neighbor_entry.lower():
+    #                             dst_rloc16_found_in_neighbors = True
+    #                     if dst_rloc16_found_in_neighbors:
+    #                         print(f"    ✅ Destination RLOC16 {dst_rloc16} found in source's neighbor table!{src}->{dst}")
+    #                     else:
+    #                         print(f"    ❌ Destination RLOC16-second-time {dst_rloc16} NOT found in source's neighbor table.")
+    #                 except Exception as e:
+    #                     print(f"⚠️ Failed to retrieve neighbor table for Source Node {src}: {e}")
+    #
+    #         except Exception as e:
+    #             print(f"⚠️ Failed to retrieve routing table or RLOC16 for Node {src} ➔ {dst}: {e}")
+    #
+    #     print("\n✅ Finished listing analyzed node pairs and their routing tables and neighbor tables if needed.\n")
 
     def _setup_coap_servers(self):
         print("\n⚙️ Setting up CoAP servers on all nodes...")
