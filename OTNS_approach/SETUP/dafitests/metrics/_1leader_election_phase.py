@@ -1,4 +1,4 @@
-# metrics/leader_election_phase.py
+# metrics/_1leader_election_phase.py
 
 class LeaderElectionPhase:
     def __init__(self, ns):
@@ -87,7 +87,9 @@ class LeaderElectionPhase:
             first = capture()
             self.ns.go(delay)
             second = capture()
-            changed = [(nid, first[nid], second[nid]) for nid in first if first[nid] != second[nid]]
+            # changed = [(nid, first[nid], second[nid]) for nid in first if first[nid] != second[nid]]
+            changed = [(nid, first[nid], second.get(nid, "missing")) for nid in first if
+                       nid not in second or first[nid] != second[nid]]
             print(f"@ {waited:>2}s | Changed: {changed}")
             if not changed:
                 print("! Step 4")

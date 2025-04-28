@@ -87,6 +87,12 @@ def place_feds_ring(ns, center_x, center_y, count, radius, exe, add_fed):
 
 # === Device Role Logic ===
 def add_fed(ns, x, y, exe):
+    # to test full router
+    # node = ns.add("router", x=x, y=y, executable=exe)
+    # ns.node_cmd(node, "mode rdn")
+    # ns.node_cmd(node, "routerselectionjitter 1")
+
+    # normal fed
     node = ns.add("router", x=x, y=y, executable=exe)
     ns.set_router_upgrade_threshold(node, 99)
     ns.set_router_downgrade_threshold(node, 1)

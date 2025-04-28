@@ -164,7 +164,7 @@ class OTNS(object):
         except BrokenPipeError:
             print(f"[{now()}] [_do_command] BrokenPipeError on write.", flush=True)
             self._on_otns_eof()
-        timeout_seconds = 90  # ← you can tune this
+        timeout_seconds = 150  # ← you can tune this
 
         output = []
         import time
