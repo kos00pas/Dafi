@@ -65,7 +65,7 @@
 ```
 
 
-# 3- Packet Delivery & Communication
+# 3&6- Packet Delivery & Communication & IPv6 Packet Forwarding Efficiency  
 ```text  
      🍞 Step 17  (need 1-11) 
                 § Identify multiple pairs of nodes in your OTNS environment for testing.
@@ -78,20 +78,18 @@
                 § Collect logs to verify packet delivery results.
                 § Parse logs, count packets sent vs. packets received.
                 § Calculate Packet Delivery Ratio (PDR) and Packet Loss Rate (PLR)
+                § For each source–destination pair from Step 17:
+                    • Forwarding Success Rate = (Packets Received / Packets Sent) × 100%
+                    • Record the number of hops for each delivered packet using OTNS trace logs or CLI (`route`, `neighbor`).
+                    • Calculate Total Transmissions:
+                        □ Total transmissions = Sum of all hop-level transmissions across all packets.
+                        □ (Example: a 3-hop delivery = 3 transmissions)
+                    • Calculate IPv6 Packet Forwarding Efficiency:
+                        □ Efficiency (%) = (Packets Received / Total Transmissions) × 100%
+
 ```
 
-# 6- IPv6 Packet Forwarding Efficiency  
-```text 
-    🥓  Step 18 (needs Steps 17 )
-             1. For each source–destination pair from Step 17:
-                • Forwarding Success Rate = (Packets Received / Packets Sent) × 100%
-    
-             2. Count the number of hops for each successfully delivered packet:
-                • Use debug logs and OTNS CLI (`route`, `neighbor`) to trace hop-by-hop forwarding paths.
-        
-             3. Calculate Latency Per Hop:
-                • `Latency per hop = (recv_time – send_time) / hop_count`
-```
+
 
 # 7- 6LoWPAN Compression Efficiency,
 ```text 

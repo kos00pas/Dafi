@@ -14,7 +14,6 @@ from metrics._4topology_convergence_phase import TopologyConvergencePhase
 from metrics._2_rpl_stability_phase import RPLStabilityPhase
 from metrics._5multicast_delay_phase import MulticastDelayPhase
 from metrics._3packet_delivery_phase import PacketDeliveryPhase
-from metrics._6_ipv6_forwarding_phase import IPv6ForwardingPhase
 from metrics._7_lowpan_compression_phase import LowpanCompressionPhase
 CENTER_X, CENTER_Y = 200, 200
 import time
@@ -73,48 +72,45 @@ class Experiment:
     def _Converge(self):
         self.ns.go(0.1)
 
-        # 🥇 Step 1-7: Leader Election and Initial Stability Checks
+        # 🥇 1 Step 1-7: Leader Election and Initial Stability Checks
         phase_leader = LeaderElectionPhase(self.ns)  # from _1leader_election_phase.py
         success = phase_leader.run()
         if not success:
             raise RuntimeError("$ Leader Election Phase failed.")
 
-        # 🛠️ Step 8-11: Topology and Neighbor Table Convergence
+        # 🛠️ 4 Step 8-11: Topology and Neighbor Table Convergence
         phase_topology = TopologyConvergencePhase(self.ns)  # from _4topology_convergence_phase.py
         success = phase_topology.run()
         if not success:
             raise RuntimeError("$ Topology Convergence Phase failed.")
 
-        # 🌳 Step 12-13: RPL Route Stability and DIO/DAO Decay
+        # 🌳 2 Step 12-13: RPL Route Stability and DIO/DAO Decay
         phase_rpl = RPLStabilityPhase(self.ns)  # from _2_rpl_stability_phase.py
         success = phase_rpl.run()
         if not success:
             raise RuntimeError("$ RPL Stability Phase failed.")
 
-        # # 📦 Step 17: Packet Delivery Ratio (CoAP) Analysis
-        # phase_packet_delivery = PacketDeliveryPhase(self.ns)  # from _3packet_delivery_phase.py
-        # success, coap_results = phase_packet_delivery.run()
-        # if not success:
-        #     raise RuntimeError("$ Packet Delivery Phase failed.")
-        #
-        # # 🚀 Step 18: IPv6 Forwarding Efficiency (Latency and Hop Count)
-        # phase_ipv6_forwarding = IPv6ForwardingPhase(self.ns, coap_results)  # from _6_ipv6_forwarding_phase.py
-        # success = phase_ipv6_forwarding.run()
-        # if not success:
-        #     raise RuntimeError("$ IPv6 Forwarding Phase failed.")
+        # 📦 3 Step 17: Packet Delivery Ratio (CoAP) Analysis
+        phase_packet_delivery = PacketDeliveryPhase(self.ns)  # from _3packet_delivery_phase.py
+        success, coap_results = phase_packet_delivery.run()
+        if not success:
+            raise RuntimeError("$ Packet Delivery Phase failed.")
 
-        # # 📡 Step 14-16: Multicast Propagation Delay (MPD) Measurement
-        # phase_mcast = MulticastDelayPhase(self.ns)  # from _5multicast_delay_phase.py
-        # success = phase_mcast.run()
-        # if not success:
-        #     raise RuntimeError("$ Multicast Delay Phase failed.")
-        #
-        # # 🚞 Step 19: 6LoWPAN Compression Efficiency
+
+
+        # # 🚞 17  Step 19: 6LoWPAN Compression Efficiency
         # pcap_file_path = "capture_step17.pcap"  # ⚡ You need to capture this PCAP during Packet Delivery Phase!
         # phase_lowpan = LowpanCompressionPhase(pcap_file_path, coap_results)  # from _7lowpan_compression_phase.py
         # success = phase_lowpan.run()
         # if not success:
         #     raise RuntimeError("$ 6LoWPAN Compression Efficiency Phase failed.")
+
+        # # 📡5  Step 14-16: Multicast Propagation Delay (MPD) Measurement
+        # phase_mcast = MulticastDelayPhase(self.ns)  # from _5multicast_delay_phase.py
+        # success = phase_mcast.run()
+        # if not success:
+        #     raise RuntimeError("$ Multicast Delay Phase failed.")
+        #
 
     def ScaleUP(self):pass
 

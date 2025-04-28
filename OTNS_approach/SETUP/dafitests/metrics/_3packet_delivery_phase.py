@@ -107,6 +107,7 @@ class PacketDeliveryPhase:
 
         pdr = (delivered / sent) * 100
         plr = (lost / sent) * 100
+        forwarding_success_rate = (delivered / sent) * 100  # Explicit for Step 18
 
         print("\n📊 Packet Delivery Statistics:")
         print(f"• Packets Sent: {sent}")
@@ -114,8 +115,10 @@ class PacketDeliveryPhase:
         print(f"• Packets Lost: {lost}")
         print(f"• Packet Delivery Ratio (PDR): {pdr:.2f}%")
         print(f"• Packet Loss Rate (PLR): {plr:.2f}%")
+        print(f"🚀 Forwarding Success Rate: {forwarding_success_rate:.2f}%")
 
         if pdr < 95:
             print(f"⚠️ WARNING: PDR too low: {pdr:.2f}% (threshold 95%)")
             return False
         return True
+
