@@ -316,8 +316,12 @@ class TopologyConvergencePhase:
                     continue
                 if nid % 10 != 0:  # only sample 10% of routers
                     continue
-                table = self.ns.node_cmd(nid, "neighbor table")
-                result[nid] = parse_table(table)
+                try:
+                    table = self.ns.node_cmd(nid, "neighbor table")
+                    result[nid] = parse_table(table)
+                except Exception as e:
+                    print(f"⚠️ Node {nid} neighbor table failed: {e}")
+                    continue
                 time.sleep(0.2)  # wait 200ms after each neighbor table
             return result
 
