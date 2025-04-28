@@ -1,0 +1,77 @@
+otns@kospas:/mnt/c/Users/kos00/OneDrive - University of Cyprus/PhD/PhD_Lessons/IoT project/Last_Part/src/openthread/build/simulation/examples/apps/cli$ ./ot-cli-ftd 1
+> dataset init new
+Done
+> dataset commit active
+Done
+> ifconfig up
+Done
+> thread start
+Done
+> state
+leader
+Done
+> ipaddr
+fd21:42ef:7711:fdfa:0:ff:fe00:fc00
+fd21:42ef:7711:fdfa:0:ff:fe00:b000
+fd21:42ef:7711:fdfa:62ed:5e4c:a909:f16c
+fe80:0:0:0:48f0:3f57:55bc:8fb8
+Done
+> dataset
+Active Timestamp: 1
+Channel: 23
+Wake-up Channel: 17
+Channel Mask: 0x07fff800
+Ext PAN ID: 4ad7dd4ed2acd14f
+Mesh Local Prefix: fd21:42ef:7711:fdfa::/64
+Network Key: 8a8ed5d8c7dd5182af8a92bc4d7b3981
+Network Name: OpenThread-5131
+PAN ID: 0x5131
+PSKc: d8427d562b8cdf2bc87fff2a48808729
+Security Policy: 672 onrc 0
+Done
+> rloc16
+b000
+Done
+> router table
+| ID | RLOC16 | Next Hop | Path Cost | LQ In | LQ Out | Age | Extended MAC     | Link |
++----+--------+----------+-----------+-------+--------+-----+------------------+------+
+| 44 | 0xb000 |       63 |         0 |     0 |      0 |   0 | 4af03f5755bc8fb8 |    0 |
+
+Done
+> neighbor table
+| Role | RLOC16 | Age | Avg RSSI | Last RSSI |R|D|N| Extended MAC     | Version |
++------+--------+-----+----------+-----------+-+-+-+------------------+---------+
+|   C  | 0xb001 |  91 |      -20 |       -20 |1|1|1| 7649591ed314ec75 |       5 |
+
+Done
+>  neighbor table
+| Role | RLOC16 | Age | Avg RSSI | Last RSSI |R|D|N| Extended MAC     | Version |
++------+--------+-----+----------+-----------+-+-+-+------------------+---------+
+|   R  | 0xe000 |   1 |      -20 |       -20 |1|1|1| 7649591ed314ec75 |       5 |
+
+Done
+> router table
+| ID | RLOC16 | Next Hop | Path Cost | LQ In | LQ Out | Age | Extended MAC     | Link |
++----+--------+----------+-----------+-------+--------+-----+------------------+------+
+| 44 | 0xb000 |       63 |         0 |     0 |      0 |   0 | 4af03f5755bc8fb8 |    0 |
+| 56 | 0xe000 |       63 |         0 |     3 |      3 |   4 | 7649591ed314ec75 |    1 |
+
+Done
+>
+> ipaddr
+fd21:42ef:7711:fdfa:0:ff:fe00:fc00
+fd21:42ef:7711:fdfa:0:ff:fe00:b000
+fd21:42ef:7711:fdfa:62ed:5e4c:a909:f16c
+fe80:0:0:0:48f0:3f57:55bc:8fb8
+Done
+> ping fd21:42ef:7711:fdfa:0:ff:fe00:e000
+16 bytes from fd21:42ef:7711:fdfa:0:ff:fe00:e000: icmp_seq=1 hlim=64 time=4ms
+1 packets transmitted, 1 packets received. Packet loss = 0.0%. Round-trip min/avg/max = 4/4.0/4 ms.
+Done
+>
+
+> coap start
+Done
+> coap resource test
+Done
+> coap request from fd21:42ef:7711:fdfa:7903:6cb2:8359:6ad1 POST

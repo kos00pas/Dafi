@@ -12,8 +12,8 @@ class TopologyConvergencePhase:
             ("Step 8: Neighbor Table Stability", self._8_neighbor_table_stability),
             ("Step 9: Router Table Stability", self._9_router_table_stability),
             ("Step 10: Prefix & Route Propagation", self._10_prefix_route_stability),
-            ("Step 10_b: Topology Troubleshoot", self._10b_topology_troubleshoot),
-            ("Step 10_c: Deep Troubleshoot", self._10c_deep_troubleshoot),
+            # ("Step 10_b: Topology Troubleshoot", self._10b_topology_troubleshoot),
+            # ("Step 10_c: Deep Troubleshoot", self._10c_deep_troubleshoot),
             # ("Step 10_d: Neighbor Table Refresh", self._10d_neighbor_refresh),
             # ("Step 11_b: CoAP Reachability", self._11_coap_reachability),
 

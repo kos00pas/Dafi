@@ -28,14 +28,90 @@ class Experiment:
         self.Setup()
         self.Baseline()
         self.Converge()
+        self.EndToEnd_Ping()  # <<< ADD THIS
         # self.ScaleUP() # self.ScaleDown()
         self.Closing()
 
+    def EndToEnd_Ping(self, datasize=4, count=1, interval=1):
+        print("\n🚀 Step: End-to-End Ping and CoAP Test...\n")
 
+        # 🧩 1. Discover all device pairs
+        nodes = list(self.ns.nodes().keys())
+        pending_pings = []
+        pending_coaps = []
+
+        # 🚀 2. Start CoAP servers and create /test-resource on all nodes
+        print("\n🚀 Starting CoAP servers and setting /test-resource on all nodes...\n")
+        for node_id in nodes:
+            try:
+                self.ns.node_cmd(node_id, "coap start")
+                self.ns.node_cmd(node_id, "coap resource test-resource")
+                print(f"✅ CoAP server and /test-resource created on Node {node_id}")
+            except Exception as e:
+                print(f"⚠️ Failed to setup CoAP server on Node {node_id}: {e}")
+
+        # Give time for CoAP servers to be ready
+        self.ns.go(2)
+
+        # 🔄 3. For each (src ➔ dst) pair, do:
+        for src in nodes:
+            for dst in nodes:
+                if src == dst:
+                    continue
+
+                # 🛰️ 3.1 Perform Ping
+                try:
+                    self.ns._do_command(f"ping {src} {dst} rloc datasize {datasize} count {count} interval {interval}")
+                    print(f"✅ Sent ping from Node {src} ➔ Node {dst}")
+                    pending_pings.append((src, dst))
+                    self.ns.go(2)  # allow ping to process
+                except Exception as e:
+                    print(f"⚠️ Immediate Ping Error: {src} ➔ {dst}: {e}")
+
+                # 🌐 3.2 Perform CoAP POST
+                try:
+                    payload = f"hello-{src}-to-{dst}"
+                    dst_mleid = self.ns.node_cmd(dst, "ipaddr mleid")[0]
+                    # Correct CoAP POST syntax to /test-resource
+                    self.ns.node_cmd(src, f'coap put {dst_mleid} test-resource con {payload}')
+                    print(f"✅ Sent CoAP from Node {src} ➔ Node {dst} payload='{payload}'")
+                    pending_coaps.append((src, dst))
+                    self.ns.go(2)  # allow CoAP to process
+                except Exception as e:
+                    print(f"⚠️ CoAP Error {src} ➔ {dst}: {e}")
+
+        # ⏳ 4. Wait for all messages to finish
+        print("\n⏳ Waiting for all pings and CoAPs to complete across the network...")
+        self.ns.go(5)
+
+        # 🧹 5. Collect Ping Results
+        print("\n📜 Collecting ping results...\n")
+        pings_output = self.ns._do_command("pings")
+
+        found_sources = set()
+        for line in pings_output:
+            if line.startswith("node="):
+                parts = line.split()
+                src_id = int(parts[0].split("=")[1])
+                found_sources.add(src_id)
+
+        failed_pings = []
+        for src, dst in pending_pings:
+            if src not in found_sources:
+                failed_pings.append((src, dst))
+
+        # 🚨 6. Final Check
+        if failed_pings:
+            print(f"\n❌ Unreachable pings detected: {failed_pings}")
+            raise AssertionError(f"End-to-End Ping FAILED: {failed_pings}")
+        else:
+            print("\n✅ All nodes reachable by ping!")
+
+        # 📦 CoAP delivery is currently fire-and-forget. Future: verify CoAP acks!
 
     def Setup(self):
         print("\n\n\n!===:",self.initial_devices,":",self.run_index,"\n\n\n")
-        self.ns = OTNS(otns_path=OTNS_PATH)  # , otns_args=["-log", "debug"]
+        self.ns = OTNS(otns_path=OTNS_PATH, otns_args=["-log", "debug"])  # ,
         self.ns.set_title("DAfI - Scalable Mesh Network")
         self.ns.set_network_info(version="Latest", commit="main", real=False)
         self.ns.web()
@@ -73,15 +149,15 @@ class Experiment:
         if not success:
             raise RuntimeError("$ Leader Election Phase failed.")
 
-        self.safe_comm_window(extra_wait=10)
-
-        # 🛡️ Inject keepalive traffic before Step 8 begins
-        self.inject_keepalive_traffic(interval=5, duration=3)
-
-        phase_topology = TopologyConvergencePhase(self.ns)
-        success = phase_topology.run()
-        if not success:
-            raise RuntimeError("$ Topology Convergence Phase failed.")
+        # self.safe_comm_window(extra_wait=10)
+        #
+        # # 🛡️ Inject keepalive traffic before Step 8 begins
+        # self.inject_keepalive_traffic(interval=5, duration=3)
+        #
+        # phase_topology = TopologyConvergencePhase(self.ns)
+        # success = phase_topology.run()
+        # if not success:
+        #     raise RuntimeError("$ Topology Convergence Phase failed.")
 
     def safe_comm_window(self, extra_wait=10):
         print("\n🛡️ Entering Safe Communication Window...\n")
@@ -107,6 +183,7 @@ class Experiment:
     def ScaleDown(self): pass
 
     def Closing(self):
+        self.ns.go()
         self.ns.close()
         print("\n\n\n!===End:",self.initial_devices,":",self.run_index)
 

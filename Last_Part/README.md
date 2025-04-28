@@ -40,4 +40,11 @@ cd openthread
 | ot-ip6          | ./build/posix/tools/ip6/ot-ip6                   | Direct IPv6 testing tool for OpenThread nodes.                                                                                |
 
 ## Test to ensure everything is ok 
-# start node 1 & 2 , do setup and ping them , then run coap and see if it is okay 
+# start node 1 & 2 , do setup and ping them , then run coap and see if it is okay
+
+```bash
+
+
+
+
+```

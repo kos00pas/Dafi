@@ -78,7 +78,7 @@ def run_single_experiment(dev_count, run_index, log_files):
 if __name__ == '__main__':
     try:
         log_files = []
-        device_configs = [4]
+        device_configs = [10]
         # device_configs = [10,11]
         # device_configs = [10, 25, 40, 80, 150, 250, 350, 450, 500]
         # runs_per_config = 5
@@ -92,3 +92,5 @@ if __name__ == '__main__':
     except OTNSExitedError as ex:
         if ex.exit_code != 0:
             raise
+
+# http://localhost:8997/visualize?addr=localhost:8998

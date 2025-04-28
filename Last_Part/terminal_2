@@ -1,0 +1,105 @@
+otns@kospas:/mnt/c/Users/kos00/OneDrive - University of Cyprus/PhD/PhD_Lessons/IoT project/Last_Part/src/openthread/build/simulation/examples/apps/cli$ ./ot-cli-ftd 2
+>   dataset networkkey   8a8ed5d8c7dd5182af8a92bc4d7b3981
+Er  dataset networkkey   8a8ed5d8c7dd5182af8a92bc4d7b3981
+otns@kospas:/mnt/c/Users/kos00/OneDrive - University of Cyprus/PhD/PhD_Lessons/IoT project/Last_Part/src/openthread/build/simulation/examples/apps/cli$ ./ot-cli-ftd 2
+> clear
+Error 35: InvalidCommand
+>   dataset networkkey   8a8ed5d8c7dd5182af8a92bc4d7b3981
+otns@kospas:/mnt/c/Users/kos00/OneDrive - University of Cyprus/PhD/PhD_Lessons/IoT project/Last_Part/src/openthread/build/simulation/examples/apps/cli$ ./ot-cli-ftd 2
+> dataset networkkey 8a8ed5d8c7dd5182af8a92bc4d7b3981
+Done
+> dataset panid 0x5131
+Done
+> dataset commit active
+Done
+> ifconfig up
+Done
+> thread start
+Done
+> state
+detached
+Done
+> state
+detached
+Done
+> state
+child
+Done
+> state
+child
+Done
+> state
+child
+Done
+> ipaddr
+fd21:42ef:7711:fdfa:0:ff:fe00:b001
+fd21:42ef:7711:fdfa:7903:6cb2:8359:6ad1
+fe80:0:0:0:7449:591e:d314:ec75
+Done
+> state
+child
+Done
+> state
+child
+Done
+> rloc
+Error 35: InvalidCommand
+> rloc16
+b001
+Done
+> state
+child
+Done
+> state
+child
+Done
+> neighbor table
+| Role | RLOC16 | Age | Avg RSSI | Last RSSI |R|D|N| Extended MAC     | Version |
++------+--------+-----+----------+-----------+-+-+-+------------------+---------+
+
+Done
+> state
+child
+Done
+> state
+router
+Done
+> router table
+| ID | RLOC16 | Next Hop | Path Cost | LQ In | LQ Out | Age | Extended MAC     | Link |
++----+--------+----------+-----------+-------+--------+-----+------------------+------+
+| 44 | 0xb000 |       63 |         0 |     3 |      3 |   4 | 4af03f5755bc8fb8 |    1 |
+| 56 | 0xe000 |       63 |         0 |     0 |      0 |   0 | 7649591ed314ec75 |    0 |
+
+Done
+> neighbor table
+Error 7: InvalidArgs
+> neighbore table
+Error 35: InvalidCommand
+>  neighbor table
+| Role | RLOC16 | Age | Avg RSSI | Last RSSI |R|D|N| Extended MAC     | Version |
++------+--------+-----+----------+-----------+-+-+-+------------------+---------+
+|   R  | 0xb000 |   2 |      -20 |       -20 |1|1|1| 4af03f5755bc8fb8 |       5 |
+
+Done
+>
+Done
+> ipaddr
+fd21:42ef:7711:fdfa:0:ff:fe00:e000
+fd21:42ef:7711:fdfa:7903:6cb2:8359:6ad1
+fe80:0:0:0:7449:591e:d314:ec75
+Done
+> ping fd21:42ef:7711:fdfa:62ed:5e4c:a909:f16c
+16 bytes from fd21:42ef:7711:fdfa:62ed:5e4c:a909:f16c: icmp_seq=1 hlim=64 time=8ms
+1 packets transmitted, 1 packets received. Packet loss = 0.0%. Round-trip min/avg/max = 8/8.0/8 ms.
+Done
+> ping fd21:42ef:7711:fdfa:0:ff:fe00:fc00
+16 bytes from fd21:42ef:7711:fdfa:0:ff:fe00:fc00: icmp_seq=2 hlim=64 time=5ms
+1 packets transmitted, 1 packets received. Packet loss = 0.0%. Round-trip min/avg/max = 5/5.0/5 ms.
+Done
+>
+
+
+> coap start
+Done
+> coap post fd21:42ef:7711:fdfa:62ed:5e4c:a909:f16c test HelloWorld
+Done
