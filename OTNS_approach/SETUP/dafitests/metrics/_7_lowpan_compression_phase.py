@@ -1,75 +1,80 @@
+# metrics/_7_lowpan_compression_phase.py
+
 import pyshark
-import statistics
 
 class LowpanCompressionPhase:
-    def __init__(self, pcap_file, coap_pairs_step17):
+    def __init__(self, ns, pcap_file="capture.pcap"):
+        self.ns = ns
         self.pcap_file = pcap_file
-        self.coap_pairs = coap_pairs_step17
-        self.header_sizes = []  # list of compressed IPv6+UDP header sizes
-        self.results = {}  # {(src, dst): compression ratio}
+        print("Step 19! Starting 6LoWPAN Compression Efficiency Phase...")
 
-    def run(self):
-        print("\n🚞 Starting 6LoWPAN Compression Efficiency Phase (Step 19)...\n")
-        self._capture_lowpan_headers()
-        self._analyze_compression()
-        self._report_summary()
-        print("\n✅ 6LoWPAN Compression Efficiency Phase completed successfully!\n")
-        return True
+    def run(self, coap_pairs):
+        print("\n🚞 Step 19: Analyzing 6LoWPAN Header Compression from PCAP...\n")
+        capture = pyshark.FileCapture(self.pcap_file, display_filter="coap")
 
-    def _capture_lowpan_headers(self):
-        print("\n🔎 Parsing PCAP file for 6LoWPAN CoAP packets...")
-
-        capture = pyshark.FileCapture(
-            self.pcap_file,
-            display_filter="lowpan and coap"
-        )
+        results = {}
 
         for packet in capture:
             try:
-                # Frame info
                 frame_len = int(packet.length)
+                src_mac = packet["wpan"].src64.replace(":", "").lower()
+                dst_mac = packet["wpan"].dst64.replace(":", "").lower()
 
-                # 6LoWPAN compressed size for headers
-                if hasattr(packet, 'lowpan'):  # if lowpan field exists
-                    lowpan_header_size = int(packet.lowpan.get_field('header_length'), 16)
+                ipv6_header_size = 40  # standard IPv6 header size
+                udp_header_size = 8    # standard UDP header size
+                uncompressed_size = ipv6_header_size + udp_header_size
 
-                    # Assume payload length = frame_len - header_size
-                    payload_len = frame_len - lowpan_header_size
+                if hasattr(packet, "lowpan"):
+                    compressed_hdr_size = int(packet.lowpan.length)
+                else:
+                    compressed_hdr_size = uncompressed_size  # fallback
 
-                    self.header_sizes.append(lowpan_header_size)
-                    print(f"Packet: Header={lowpan_header_size}B, Frame={frame_len}B, Payload~={payload_len}B")
+                payload_len = int(packet["udp"].length) if hasattr(packet, "udp") else 0
+
+                compression_ratio = compressed_hdr_size / uncompressed_size
+
+                key = (src_mac, dst_mac)
+
+                if key not in results:
+                    results[key] = []
+
+                results[key].append({
+                    "frame_size": frame_len,
+                    "compressed_hdr_size": compressed_hdr_size,
+                    "payload_len": payload_len,
+                    "compression_ratio": compression_ratio
+                })
 
             except Exception as e:
-                print(f"⚠️ Skipped packet: {e}")
+                print(f"⚠️ Error processing packet: {e}")
+                continue
 
         capture.close()
 
-    def _analyze_compression(self):
-        print("\n📊 Calculating Compression Ratios...")
+        self._analyze_results(results, coap_pairs)
 
-        for header_size in self.header_sizes:
-            uncompressed_size = 48  # IPv6 (40) + UDP (8)
-            compression_ratio = header_size / uncompressed_size
-            self.results.setdefault('compression_ratios', []).append(compression_ratio)
+    def _analyze_results(self, results, coap_pairs):
+        print("\n📋 6LoWPAN Compression Summary per Node Pair:")
 
-    def _report_summary(self):
-        if not self.results.get('compression_ratios'):
-            print("⚠️ No valid 6LoWPAN CoAP packets found.")
-            return
+        for (src, dst) in coap_pairs:
+            try:
+                src_mac = self.ns.node_cmd(src, "extaddr")[0].strip().lower()
+                dst_mac = self.ns.node_cmd(dst, "extaddr")[0].strip().lower()
+                key = (src_mac, dst_mac)
 
-        ratios = self.results['compression_ratios']
+                if key not in results:
+                    print(f"• {src} ➔ {dst}: No CoAP packets captured.")
+                    continue
 
-        avg_ratio = statistics.mean(ratios)
-        min_ratio = min(ratios)
-        max_ratio = max(ratios)
+                compressed_sizes = [entry["compressed_hdr_size"] for entry in results[key]]
+                compression_ratios = [entry["compression_ratio"] for entry in results[key]]
 
-        print("\n🔎 6LoWPAN Compression Efficiency Summary:")
-        print(f"• Average Compression Ratio: {avg_ratio:.2f}")
-        print(f"• Minimum Compression Ratio: {min_ratio:.2f}")
-        print(f"• Maximum Compression Ratio: {max_ratio:.2f}")
+                avg_compressed_size = sum(compressed_sizes) / len(compressed_sizes)
+                avg_compression_ratio = sum(compression_ratios) / len(compression_ratios)
 
-        if avg_ratio > 0.6:
-            print("⚠️ Warning: Compression ratio seems suboptimal.")
+                print(f"• {src} ➔ {dst}: Avg Compressed Header = {avg_compressed_size:.2f} bytes | Compression Ratio = {avg_compression_ratio:.2f}")
 
-        if avg_ratio <= 0.5:
-            print("✅ Excellent compression achieved.")
+            except Exception as e:
+                print(f"⚠️ Error summarizing for {src} ➔ {dst}: {e}")
+
+        print("\n✅ Step 19 Complete: 6LoWPAN Compression Efficiency Analysis Finished.\n")

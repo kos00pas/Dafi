@@ -1,7 +1,7 @@
 import random
 import time
 
-class PDR_ipv6_6LoWPAN:
+class PDR_ipv6:
     def __init__(self, ns):
         self.ns = ns
         print("Step 17 !")
@@ -228,61 +228,61 @@ class PDR_ipv6_6LoWPAN:
                 print(f"⚠️ Node {nid}: Failed to start CoAP: {e}")
         self.ns.go(5)
 
-    def _select_node_pairs(self):
-        import random
-
-        nodes = list(self.ns.nodes().keys())
-        if len(nodes) < 2:
-            return []
-
-        all_possible_pairs = [(src, dst) for src in nodes for dst in nodes if src != dst]
-
-        MAX_PAIRS = 100
-        selected_pairs = random.sample(all_possible_pairs, min(MAX_PAIRS, len(all_possible_pairs)))
-
-        return selected_pairs
-
     # def _select_node_pairs(self):
+    #     import random
+    #
     #     nodes = list(self.ns.nodes().keys())
-    #     states = {nid: self.ns.node_cmd(nid, "state")[0].strip() for nid in nodes}
+    #     if len(nodes) < 2:
+    #         return []
     #
-    #     leader = [nid for nid, role in states.items() if role == "leader"]
-    #     routers = [nid for nid, role in states.items() if role == "router"]
-    #     children = [nid for nid, role in states.items() if role == "child"]
-    #
-    #     pairs = []
-    #
-    #     for l in leader:
-    #         for r in routers:
-    #             pairs.append((l, r))
-    #     count_LR = len(pairs)
-    #
-    #     for l in leader:
-    #         for c in children:
-    #             pairs.append((l, c))
-    #     count_LC = len(pairs) - count_LR
+    #     all_possible_pairs = [(src, dst) for src in nodes for dst in nodes if src != dst]
     #
     #     MAX_PAIRS = 100
-    #     initial_target = int(len(nodes) * (len(nodes) - 1) * 0.3)
-    #     budget = min(initial_target, MAX_PAIRS)
-    #     remaining_budget = max(0, budget - len(pairs))
+    #     selected_pairs = random.sample(all_possible_pairs, min(MAX_PAIRS, len(all_possible_pairs)))
     #
-    #     rr_candidates = [(r1, r2) for r1 in routers for r2 in routers if r1 != r2]
-    #     rc_candidates = [(r, c) for r in routers for c in children]
-    #
-    #     random.shuffle(rr_candidates)
-    #     random.shuffle(rc_candidates)
-    #
-    #     rr_target = remaining_budget * 3 // 4
-    #     rc_target = remaining_budget - rr_target
-    #
-    #     pairs += rr_candidates[:rr_target]
-    #     pairs += rc_candidates[:rc_target]
-    #
-    #     if len(pairs) > MAX_PAIRS:
-    #         pairs = random.sample(pairs, MAX_PAIRS)
-    #
-    #     return pairs
+    #     return selected_pairs
+
+    def _select_node_pairs(self):
+        nodes = list(self.ns.nodes().keys())
+        states = {nid: self.ns.node_cmd(nid, "state")[0].strip() for nid in nodes}
+
+        leader = [nid for nid, role in states.items() if role == "leader"]
+        routers = [nid for nid, role in states.items() if role == "router"]
+        children = [nid for nid, role in states.items() if role == "child"]
+
+        pairs = []
+
+        for l in leader:
+            for r in routers:
+                pairs.append((l, r))
+        count_LR = len(pairs)
+
+        for l in leader:
+            for c in children:
+                pairs.append((l, c))
+        count_LC = len(pairs) - count_LR
+
+        MAX_PAIRS = 100
+        initial_target = int(len(nodes) * (len(nodes) - 1) * 0.3)
+        budget = min(initial_target, MAX_PAIRS)
+        remaining_budget = max(0, budget - len(pairs))
+
+        rr_candidates = [(r1, r2) for r1 in routers for r2 in routers if r1 != r2]
+        rc_candidates = [(r, c) for r in routers for c in children]
+
+        random.shuffle(rr_candidates)
+        random.shuffle(rc_candidates)
+
+        rr_target = remaining_budget * 3 // 4
+        rc_target = remaining_budget - rr_target
+
+        pairs += rr_candidates[:rr_target]
+        pairs += rc_candidates[:rc_target]
+
+        if len(pairs) > MAX_PAIRS:
+            pairs = random.sample(pairs, MAX_PAIRS)
+
+        return pairs
 
     def _send_coap_messages(self, pairs):
         results = {}

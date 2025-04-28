@@ -13,7 +13,7 @@ from metrics._1leader_election_phase import LeaderElectionPhase
 from metrics._4topology_convergence_phase import TopologyConvergencePhase
 from metrics._2_rpl_stability_phase import RPLStabilityPhase
 from metrics._5multicast_delay_phase import MulticastDelayPhase
-from metrics._3packet_delivery_phase import PDR_ipv6_6LoWPAN
+from metrics._36packet_delivery_phase import PDR_ipv6
 from metrics._7_lowpan_compression_phase import LowpanCompressionPhase
 CENTER_X, CENTER_Y = 200, 200
 import time
@@ -90,12 +90,15 @@ class Experiment:
         # if not success:
         #     raise RuntimeError("$ RPL Stability Phase failed.")
 
-        # 📦 3&6&7 Step 17&18&19: Packet Delivery Ratio (CoAP) Analysis
-        phase_packet_delivery = PDR_ipv6_6LoWPAN(self.ns)  # from _3packet_delivery_phase.py
+        # 📦 3&6 Step 17&18&19: Packet Delivery Ratio (CoAP) Analysis
+        phase_packet_delivery = PDR_ipv6(self.ns)  # from _36packet_delivery_phase.py
         success, coap_results = phase_packet_delivery.run()
         if not success:
             raise RuntimeError("$ Packet Delivery Phase failed.")
 
+        # 🛰️ 7 Step 19: 6LoWPAN Header Compression Efficiency
+        phase_lowpan = LowpanCompressionPhase(self.ns)  # from _7_lowpan_compression_phase.py
+        phase_lowpan.run(coap_results)
 
         # # 📡5  Step 14-16: Multicast Propagation Delay (MPD) Measurement
         # phase_mcast = MulticastDelayPhase(self.ns)  # from _5multicast_delay_phase.py
