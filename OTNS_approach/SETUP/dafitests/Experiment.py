@@ -15,7 +15,7 @@ from metrics._2_rpl_stability_phase import RPLStabilityPhase
 from metrics._5multicast_delay_phase import MulticastDelayPhase
 from metrics._3packet_delivery_phase import PacketDeliveryPhase
 from metrics._6_ipv6_forwarding_phase import IPv6ForwardingPhase
-
+from metrics._7_lowpan_compression_phase import LowpanCompressionPhase
 CENTER_X, CENTER_Y = 200, 200
 import time
 from random import choice, choices
@@ -70,40 +70,120 @@ class Experiment:
         self.total_converge = self.end_converge - self.start_converge
         print("! END Convergence Check:",self.total_converge)
 
-
     def _Converge(self):
         self.ns.go(0.1)
-        phase_leader = LeaderElectionPhase(self.ns)
+
+        # 🥇 Step 1-7: Leader Election and Initial Stability Checks
+        phase_leader = LeaderElectionPhase(self.ns)  # from _1leader_election_phase.py
         success = phase_leader.run()
         if not success:
             raise RuntimeError("$ Leader Election Phase failed.")
 
-        # self.EndToEnd_Ping()
-
-        phase_topology = TopologyConvergencePhase(self.ns)
+        # 🛠️ Step 8-11: Topology and Neighbor Table Convergence
+        phase_topology = TopologyConvergencePhase(self.ns)  # from _4topology_convergence_phase.py
         success = phase_topology.run()
         if not success:
             raise RuntimeError("$ Topology Convergence Phase failed.")
 
-        # 🚀 ADD HERE
-        phase_rpl = RPLStabilityPhase(self.ns)
+        # 🌳 Step 12-13: RPL Route Stability and DIO/DAO Decay
+        phase_rpl = RPLStabilityPhase(self.ns)  # from _2_rpl_stability_phase.py
         success = phase_rpl.run()
         if not success:
             raise RuntimeError("$ RPL Stability Phase failed.")
 
+        # # 📦 Step 17: Packet Delivery Ratio (CoAP) Analysis
+        # phase_packet_delivery = PacketDeliveryPhase(self.ns)  # from _3packet_delivery_phase.py
+        # success, coap_results = phase_packet_delivery.run()
+        # if not success:
+        #     raise RuntimeError("$ Packet Delivery Phase failed.")
         #
-        phase_packet_delivery = PacketDeliveryPhase(self.ns)
-        success,coap_results = phase_packet_delivery.run()
-        if not success:
-            raise RuntimeError("$ Packet Delivery Phase failed.")
+        # # 🚀 Step 18: IPv6 Forwarding Efficiency (Latency and Hop Count)
+        # phase_ipv6_forwarding = IPv6ForwardingPhase(self.ns, coap_results)  # from _6_ipv6_forwarding_phase.py
+        # success = phase_ipv6_forwarding.run()
+        # if not success:
+        #     raise RuntimeError("$ IPv6 Forwarding Phase failed.")
 
-        # phase_ipv6_forwarding = IPv6ForwardingPhase(self.ns, coap_results)
-        # phase_ipv6_forwarding.run()
-        # MDP
-        # phase_mcast = MulticastDelayPhase(self.ns)
+        # # 📡 Step 14-16: Multicast Propagation Delay (MPD) Measurement
+        # phase_mcast = MulticastDelayPhase(self.ns)  # from _5multicast_delay_phase.py
         # success = phase_mcast.run()
         # if not success:
         #     raise RuntimeError("$ Multicast Delay Phase failed.")
+        #
+        # # 🚞 Step 19: 6LoWPAN Compression Efficiency
+        # pcap_file_path = "capture_step17.pcap"  # ⚡ You need to capture this PCAP during Packet Delivery Phase!
+        # phase_lowpan = LowpanCompressionPhase(pcap_file_path, coap_results)  # from _7lowpan_compression_phase.py
+        # success = phase_lowpan.run()
+        # if not success:
+        #     raise RuntimeError("$ 6LoWPAN Compression Efficiency Phase failed.")
+
+    def ScaleUP(self):pass
+
+    def ScaleDown(self): pass
+
+    def Closing(self):
+        # self.ns.go()
+        self.ns.close()
+        print("\n\n\n!===End:",self.initial_devices,":",self.run_index)
+
+    # def inject_keepalive_traffic(self, interval=5, duration=60):
+    #     """
+    #     Periodically send small CoAP messages between random nodes
+    #     to keep neighbor tables alive.
+    #
+    #     Args:
+    #         interval: seconds between messages
+    #         duration: total simulated seconds to keep injecting
+    #     """
+    #     print("\n🔄 Starting KeepAlive Traffic Injection...\n")
+    #
+    #     start_time = time.time()
+    #     elapsed = 0
+    #
+    #     nodes = list(self.ns.nodes().keys())
+    #
+    #     # Make sure CoAP service is started everywhere
+    #     for nid in nodes:
+    #         try:
+    #             self.ns.node_cmd(nid, "coap start")
+    #             self.ns.node_cmd(nid, "coap resource logs")
+    #         except Exception as e:
+    #             print(f"⚠️ Node {nid} failed to start CoAP: {e}")
+    #
+    #     while elapsed < duration:
+    #         src = choice(nodes)
+    #         dst = choice(nodes)
+    #         if src == dst:
+    #             continue  # avoid self
+    #
+    #         # get dst IP
+    #         try:
+    #             ips = [ip for ip in self.ns.node_cmd(dst, "ipaddr") if ip.startswith("fd") and ":ff:fe00:" in ip]
+    #             if not ips:
+    #                 continue
+    #             dst_ip = ips[0]
+    #         except Exception as e:
+    #             print(f"⚠️ Could not get IP for node {dst}: {e}")
+    #             continue
+    #
+    #         # safe payload generation
+    #         payload = ''.join(choices(ascii_letters + digits, k=8))
+    #         payload = payload.replace('"', '').replace("'", '')  # clean, safe payload
+    #         cmd = f'coap post {dst_ip} logs con \\"{payload}\\"'
+    #
+    #         try:
+    #             res = self.ns.node_cmd(src, cmd)
+    #             print(f"KeepAlive: Node {src} ➔ Node {dst} ({dst_ip[:10]}...) ✅")
+    #         except Exception as e:
+    #             print(f"⚠️ KeepAlive failed: {src} ➔ {dst}: {e}")
+    #
+    #         # Go simulation forward and wait real time
+    #         self.ns.go(interval)
+    #         time.sleep(0.1)
+    #
+    #         elapsed = time.time() - start_time
+    #
+    #     print("\n✅ KeepAlive Traffic Injection finished.\n")
+
 
     # def safe_comm_window(self, extra_wait=10):
     #     print("\n🛡️ Entering Safe Communication Window...\n")
@@ -123,75 +203,6 @@ class Experiment:
     #             print(f"⚠️ Node {nid}: CoAP restart failed: {e}")
     #
     #     print("\n✅ Safe Communication Window ready — you can start ping/CoAP tests now!\n")
-
-    def ScaleUP(self):pass
-
-    def ScaleDown(self): pass
-
-    def Closing(self):
-        # self.ns.go()
-        self.ns.close()
-        print("\n\n\n!===End:",self.initial_devices,":",self.run_index)
-
-    def inject_keepalive_traffic(self, interval=5, duration=60):
-        """
-        Periodically send small CoAP messages between random nodes
-        to keep neighbor tables alive.
-
-        Args:
-            interval: seconds between messages
-            duration: total simulated seconds to keep injecting
-        """
-        print("\n🔄 Starting KeepAlive Traffic Injection...\n")
-
-        start_time = time.time()
-        elapsed = 0
-
-        nodes = list(self.ns.nodes().keys())
-
-        # Make sure CoAP service is started everywhere
-        for nid in nodes:
-            try:
-                self.ns.node_cmd(nid, "coap start")
-                self.ns.node_cmd(nid, "coap resource logs")
-            except Exception as e:
-                print(f"⚠️ Node {nid} failed to start CoAP: {e}")
-
-        while elapsed < duration:
-            src = choice(nodes)
-            dst = choice(nodes)
-            if src == dst:
-                continue  # avoid self
-
-            # get dst IP
-            try:
-                ips = [ip for ip in self.ns.node_cmd(dst, "ipaddr") if ip.startswith("fd") and ":ff:fe00:" in ip]
-                if not ips:
-                    continue
-                dst_ip = ips[0]
-            except Exception as e:
-                print(f"⚠️ Could not get IP for node {dst}: {e}")
-                continue
-
-            # safe payload generation
-            payload = ''.join(choices(ascii_letters + digits, k=8))
-            payload = payload.replace('"', '').replace("'", '')  # clean, safe payload
-            cmd = f'coap post {dst_ip} logs con \\"{payload}\\"'
-
-            try:
-                res = self.ns.node_cmd(src, cmd)
-                print(f"KeepAlive: Node {src} ➔ Node {dst} ({dst_ip[:10]}...) ✅")
-            except Exception as e:
-                print(f"⚠️ KeepAlive failed: {src} ➔ {dst}: {e}")
-
-            # Go simulation forward and wait real time
-            self.ns.go(interval)
-            time.sleep(0.1)
-
-            elapsed = time.time() - start_time
-
-        print("\n✅ KeepAlive Traffic Injection finished.\n")
-
 
 # ----------------------------------------------------
 def kill_otns_port(port=9000):
