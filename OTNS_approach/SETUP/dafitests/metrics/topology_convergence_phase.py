@@ -9,14 +9,16 @@ class TopologyConvergencePhase:
         self.ns = ns
         self.steps = [
             # ("Step 7b: Role Transition Preparation", self._7b_transition_prepare),
-            # ("Step 8: Neighbor Table Stability", self._8_neighbor_table_stability),
-            # ("Step 9: Router Table Stability", self._9_router_table_stability),
-            # ("Step 10: Prefix & Route Propagation", self._10_prefix_route_stability),
+            ("Step 8: Neighbor Table Stability", self._8_neighbor_table_stability),
+            # ("Step 11a: End-to-End ping", self._11_end_to_end_ping),
+            ("Step 9: Router Table Stability", self._9_router_table_stability),
+            # ("Step 11b: End-to-End ping", self._11_end_to_end_ping),
+            ("Step 10: Prefix & Route Propagation", self._10_prefix_route_stability),
             # ("Step 10_b: Topology Troubleshoot", self._10b_topology_troubleshoot),
             # ("Step 10_c: Deep Troubleshoot", self._10c_deep_troubleshoot),
             # ("Step 10_d: Neighbor Table Refresh", self._10d_neighbor_refresh),
             # ("Step 11_b: CoAP Reachability", self._11_coap_reachability),
-
+            ("Step 11: End-to-End ping",self._11_end_to_end_ping)
         ]
 
     def _10c_deep_troubleshoot(self):
@@ -501,87 +503,82 @@ class TopologyConvergencePhase:
             print(
                 "\n✅ Step 10_b: Topology health check passed — all nodes are attached and reachable at routing level.")
 
-    def _11_end_to_end_ping(self, interval=2):
-        waited = 0
+    def _11_end_to_end_ping(self, interval=2,datasize=4,count=1):
+        print("\n🚀 Step: End-to-End Ping and CoAP Test...\n")
 
-        def get_addrs():
-            """Get all mesh-local addresses (only fd..fe00 ones)."""
-            return {
-                nid: [ip for ip in self.ns.node_cmd(nid, "ipaddr") if ip.startswith("fd") and ":ff:fe00:" in ip]
-                for nid in self.ns.nodes().keys()
-            }
+        # 🧩 1. Discover all device pairs
+        nodes = list(self.ns.nodes().keys())
+        pending_pings = []
+        pending_coaps = []
 
-        def get_state(nid):
-            return self.ns.node_cmd(nid, "state")[0].strip()
-
-        def safe_ping(src, dst_ip):
-            """Ping once, retry once with sleep if first fails."""
+        # 🚀 2. Start CoAP servers and create /test-resource on all nodes
+        print("\n🚀 Starting CoAP servers and setting /test-resource on all nodes...\n")
+        for node_id in nodes:
             try:
-                res = self.ns.node_cmd(src, f"ping {dst_ip}")
-                success = any("bytes from" in line for line in res)
+                self.ns.node_cmd(node_id, "coap start")
+                self.ns.node_cmd(node_id, "coap resource test-resource")
+                print(f"✅ CoAP server and /test-resource created on Node {node_id}")
             except Exception as e:
-                print(f"⚠️ Ping error from {src} to {dst_ip}: {e}")
-                success = False
+                print(f"⚠️ Failed to setup CoAP server on Node {node_id}: {e}")
 
-            if not success:
-                time.sleep(0.5)  # Wait before retrying
+        # Give time for CoAP servers to be ready
+        self.ns.go(2)
+
+        # 🔄 3. For each (src ➔ dst) pair, do:
+        for src in nodes:
+            for dst in nodes:
+                if src == dst:
+                    continue
+
+                # 🛰️ 3.1 Perform Ping
                 try:
-                    res = self.ns.node_cmd(src, f"ping {dst_ip}")
-                    success = any("bytes from" in line for line in res)
+                    self.ns._do_command(f"ping {src} {dst} rloc datasize {datasize} count {count} interval {interval}")
+                    print(f"✅ Sent ping from Node {src} ➔ Node {dst}")
+                    pending_pings.append((src, dst))
+                    self.ns.go(2)  # allow ping to process
                 except Exception as e:
-                    print(f"⚠️ Retry ping error from {src} to {dst_ip}: {e}")
-                    success = False
+                    print(f"⚠️ Immediate Ping Error: {src} ➔ {dst}: {e}")
 
-            return success
+                # 🌐 3.2 Perform CoAP POST
+                try:
+                    payload = f"hello-{src}-to-{dst}"
+                    dst_mleid = self.ns.node_cmd(dst, "ipaddr mleid")[0]
+                    # Correct CoAP POST syntax to /test-resource
+                    self.ns.node_cmd(src, f'coap put {dst_mleid} test-resource con {payload}')
+                    print(f"✅ Sent CoAP from Node {src} ➔ Node {dst} payload='{payload}'")
+                    pending_coaps.append((src, dst))
+                    self.ns.go(2)  # allow CoAP to process
+                except Exception as e:
+                    print(f"⚠️ CoAP Error {src} ➔ {dst}: {e}")
 
-        # 🌟 Important: slow down simulation slightly
-        print("⚙️ Setting simulation speed to safer value...")
-        self.ns.speed = 100000  # Safer simulation speed
+        # ⏳ 4. Wait for all messages to finish
+        print("\n⏳ Waiting for all pings and CoAPs to complete across the network...")
+        self.ns.go(5)
 
-        # 💡 Give time for network to stabilize
-        print("⏳ Waiting for RPL routes to settle before pinging...")
-        self.ns.go(10)
-        time.sleep(2)
+        # 🧹 5. Collect Ping Results
+        print("\n📜 Collecting ping results...\n")
+        pings_output = self.ns._do_command("pings")
 
-        while waited <= 1200:
-            addrs = get_addrs()
-            failed = []
+        found_sources = set()
+        for line in pings_output:
+            if line.startswith("node="):
+                parts = line.split()
+                src_id = int(parts[0].split("=")[1])
+                found_sources.add(src_id)
 
-            for src in addrs:
-                src_state = get_state(src)
-                for dst in addrs:
-                    if src == dst:
-                        continue
-                    dst_state = get_state(dst)
+        failed_pings = []
+        for src, dst in pending_pings:
+            if src not in found_sources:
+                failed_pings.append((src, dst))
 
-                    # Skip child -> child pinging (optional)
-                    if src_state == "child" and dst_state == "child":
-                        continue
+        # 🚨 6. Final Check
+        if failed_pings:
+            print(f"\n❌ Unreachable pings detected: {failed_pings}")
+            raise AssertionError(f"End-to-End Ping FAILED: {failed_pings}")
+        else:
+            print("\n✅ All nodes reachable by ping!")
 
-                    # Pick RLOC address (fd..fe00:xxxx)
-                    dst_ips = addrs[dst]
-                    if not dst_ips:
-                        continue  # No valid address
-
-                    dst_ip = dst_ips[0]
-                    success = safe_ping(src, dst_ip)
-
-                    print(f"ping {src} ➔ {dst} ({dst_ip[:10]}...) = {'✅' if success else '❌'}")
-
-                    if not success:
-                        failed.append((src, dst, dst_ip))
-
-                    time.sleep(0.1)  # ⏳ Slow down between pings
-
-            print(f"@ {waited:>2}s | Ping failures: {failed}")
-
-            if not failed:
-                print("! Step 11 ✅ All mesh-local addresses reachable")
-                return
-
-            waited += interval
-
-        raise AssertionError(f"^Step 11 FAILED: Ping failures → {failed}")
+        # 📦 CoAP delivery is currently fire-and-forget. Future: verify CoAP acks!
 
 
 

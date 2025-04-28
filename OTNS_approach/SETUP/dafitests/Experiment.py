@@ -18,7 +18,7 @@ from string import ascii_letters, digits
 
 
 class Experiment:
-    def __init__(self, initial_devices=10, spacing=20, log_file="mylogs.log",run_index=0):
+    def __init__(self, initial_devices=10, spacing=35, log_file="mylogs.log",run_index=0):
         self.total_converge = None ;self.start_converge = None;self.end_baseline = None;self.start_baseline = None;self.end_converge = None
         self.run_index=run_index
         self.initial_devices = initial_devices
@@ -28,7 +28,6 @@ class Experiment:
         self.Setup()
         self.Baseline()
         self.Converge()
-        self.EndToEnd_Ping()  # <<< ADD THIS
         # self.ScaleUP() # self.ScaleDown()
         self.Closing()
 
@@ -115,7 +114,7 @@ class Experiment:
         self.ns.set_title("DAfI - Scalable Mesh Network")
         self.ns.set_network_info(version="Latest", commit="main", real=False)
         self.ns.web()
-        self.ns.speed = 100
+        self.ns.speed = 1000
 
     def Baseline(self):
         self.start_baseline = datetime.now()
@@ -148,42 +147,43 @@ class Experiment:
         success = phase_leader.run()
         if not success:
             raise RuntimeError("$ Leader Election Phase failed.")
+        self.EndToEnd_Ping()  # <<< ADD THIS
 
-        self.safe_comm_window(extra_wait=10)
+        # self.safe_comm_window(extra_wait=10)
 
-        # 🛡️ Inject keepalive traffic before Step 8 begins
-        self.inject_keepalive_traffic(interval=5, duration=3)
+        # # 🛡️ Inject keepalive traffic before Step 8 begins
+        # self.inject_keepalive_traffic(interval=5, duration=3)
 
         phase_topology = TopologyConvergencePhase(self.ns)
-        # success = phase_topology.run()
-        # if not success:
-        #     raise RuntimeError("$ Topology Convergence Phase failed.")
+        success = phase_topology.run()
+        if not success:
+            raise RuntimeError("$ Topology Convergence Phase failed.")
 
-    def safe_comm_window(self, extra_wait=10):
-        print("\n🛡️ Entering Safe Communication Window...\n")
-
-        # 🌟 Advance simulation to let RPL stabilize
-        print(f"⏳ Waiting {extra_wait} simulated seconds...")
-        self.ns.go(extra_wait)
-        time.sleep(2)  # real wall time sleep
-
-        # 📦 Optional small CoAP refresh: wake up nodes
-        for nid in self.ns.nodes().keys():
-            try:
-                self.ns.node_cmd(nid, "coap start")
-                self.ns.node_cmd(nid, "coap resource logs")
-                print(f"• Node {nid}: CoAP service restarted")
-            except Exception as e:
-                print(f"⚠️ Node {nid}: CoAP restart failed: {e}")
-
-        print("\n✅ Safe Communication Window ready — you can start ping/CoAP tests now!\n")
+    # def safe_comm_window(self, extra_wait=10):
+    #     print("\n🛡️ Entering Safe Communication Window...\n")
+    #
+    #     # 🌟 Advance simulation to let RPL stabilize
+    #     print(f"⏳ Waiting {extra_wait} simulated seconds...")
+    #     self.ns.go(extra_wait)
+    #     time.sleep(2)  # real wall time sleep
+    #
+    #     # 📦 Optional small CoAP refresh: wake up nodes
+    #     for nid in self.ns.nodes().keys():
+    #         try:
+    #             self.ns.node_cmd(nid, "coap start")
+    #             self.ns.node_cmd(nid, "coap resource logs")
+    #             print(f"• Node {nid}: CoAP service restarted")
+    #         except Exception as e:
+    #             print(f"⚠️ Node {nid}: CoAP restart failed: {e}")
+    #
+    #     print("\n✅ Safe Communication Window ready — you can start ping/CoAP tests now!\n")
 
     def ScaleUP(self):pass
 
     def ScaleDown(self): pass
 
     def Closing(self):
-        self.ns.go()
+        # self.ns.go()
         self.ns.close()
         print("\n\n\n!===End:",self.initial_devices,":",self.run_index)
 
