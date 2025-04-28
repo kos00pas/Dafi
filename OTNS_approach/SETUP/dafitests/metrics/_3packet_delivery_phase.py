@@ -18,97 +18,52 @@ class PacketDeliveryPhase:
         return success, results
 
     def _analyze_ipv6_forwarding_efficiency(self, results):
-        print("\n📊 Calculating IPv6 Packet Forwarding Efficiency...")
-
-        total_transmissions = 0
-        successful_deliveries = 0
-
+        print("\n🛰️ Analyzing IPv6 Forwarding Efficiency — Node Pairs:\n")
         for (src, dst), delivered in results.items():
-            if delivered:
-                try:
-                    # 🌐 Trace route from source to destination
-                    hops = self._count_hops(src, dst)
-                    total_transmissions += hops
-                    successful_deliveries += 1
-                    print(f"• {src} ➔ {dst}: {hops} hops")
-                except Exception as e:
-                    print(f"⚠️ Failed to count hops {src} ➔ {dst}: {e}")
+            status = "✅ Delivered" if delivered else "❌ Failed"
+            print(f"• {src} ➔ {dst}: {status}")
 
-        if total_transmissions == 0:
-            print("⚠️ No transmissions counted — cannot compute efficiency.")
-            return
-
-        ipv6_forwarding_efficiency = (successful_deliveries / total_transmissions) * 100
-
-        print("\n🚀 IPv6 Packet Forwarding Efficiency Results:")
-        print(f"• Total Successful Deliveries: {successful_deliveries}")
-        print(f"• Total Transmissions (Sum of all hops): {total_transmissions}")
-        print(f"• IPv6 Packet Forwarding Efficiency: {ipv6_forwarding_efficiency:.2f}%\n")
-
-    def _count_hops(self, src, dst):
-        """
-        Proper BFS traversal to find minimum hops from src to dst.
-        """
-        if src == dst:
-            return 0
-
-        visited = set()
-        queue = [(src, 0)]  # (node_id, hop_count)
-
-        while queue:
-            current_node, hops = queue.pop(0)
-            visited.add(current_node)
-
+            # Fetch and print the routing table of the source node
             try:
-                neighbors = self._get_neighbors(current_node)
+                routing_table = self.ns.node_cmd(src, "router table")
+                print(f"  📜 Routing Table for Node {src}:")
+                for entry in routing_table:
+                    print(f"    {entry}")
+
+                # Get RLOC16 of the destination node
+                dst_rloc16 = self.ns.node_cmd(dst, "rloc16")[0].strip()
+                print(f"  🎯 Searching for destination RLOC16 {dst_rloc16} in routing table...")
+
+                found = False
+                for entry in routing_table:
+                    if dst_rloc16.lower() in entry.lower():
+                        found = True
+                        print(f"    ✅ Found destination RLOC16 {dst_rloc16} in routing table entry!")
+                        break
+
+                if not found:
+                    print(f"    ❌ Destination RLOC16 {dst_rloc16} NOT found in routing table.")
+
+                    # Fetch and search neighbor table of the source node
+                    try:
+                        neighbor_table = self.ns.node_cmd(src, "neighbor table")
+                        print(f"  👥 Neighbor Table for Source Node {src}:")
+                        dst_rloc16_found_in_neighbors = False
+                        for neighbor_entry in neighbor_table:
+                            print(f"    {neighbor_entry}")
+                            if dst_rloc16.lower() in neighbor_entry.lower():
+                                dst_rloc16_found_in_neighbors = True
+                        if dst_rloc16_found_in_neighbors:
+                            print(f"    ✅ Destination RLOC16 {dst_rloc16} found in source's neighbor table!{src}->{dst}")
+                        else:
+                            print(f"    ❌ Destination RLOC16-second-time {dst_rloc16} NOT found in source's neighbor table.")
+                    except Exception as e:
+                        print(f"⚠️ Failed to retrieve neighbor table for Source Node {src}: {e}")
+
             except Exception as e:
-                print(f"⚠️ Could not get neighbors for node {current_node}: {e}")
-                continue
+                print(f"⚠️ Failed to retrieve routing table or RLOC16 for Node {src} ➔ {dst}: {e}")
 
-            for neighbor in neighbors:
-                if neighbor == dst:
-                    return hops + 1
-                if neighbor not in visited:
-                    queue.append((neighbor, hops + 1))
-                    visited.add(neighbor)
-
-        raise ValueError(f"No path found from {src} to {dst}")
-
-
-    def _get_neighbors(self, node_id):
-        """
-        Return a list of neighbor node IDs from neighbor table of node_id.
-        """
-        output = self.ns.node_cmd(node_id, "neighbor table")
-        neighbor_ids = []
-
-        for line in output:
-            fields = line.strip().split()
-            if fields and fields[0] in ['R', 'C', 'E', 'L']:  # valid roles
-                try:
-                    neighbor_rloc16_hex = fields[1]
-                    neighbor_ids.append(self._rloc16_to_node_id(neighbor_rloc16_hex))
-                except Exception as e:
-                    print(f"⚠️ Could not map neighbor: {e}")
-                    continue
-
-        return neighbor_ids
-
-    def _rloc16_to_node_id(self, rloc16_hex):
-        """
-        Simple mapping from RLOC16 to node id.
-        Assumes RLOC16 = 0x<node_id>000 or similar (common in OTNS)
-        """
-        # Rough method, depends on your OTNS numbering!
-        for nid, info in self.ns.nodes().items():
-            try:
-                rlocs = self.ns.node_cmd(nid, "ipaddr")
-                for rloc in rlocs:
-                    if rloc.startswith("fd") and f":{rloc16_hex.lower()}" in rloc.lower():
-                        return nid
-            except:
-                continue
-        raise ValueError(f"Could not map RLOC16 {rloc16_hex} to node id")
+        print("\n✅ Finished listing analyzed node pairs and their routing tables and neighbor tables if needed.\n")
 
     def _setup_coap_servers(self):
         print("\n⚙️ Setting up CoAP servers on all nodes...")
@@ -131,27 +86,21 @@ class PacketDeliveryPhase:
 
         pairs = []
 
-        # Step A: Leader-Router pairs (ALL)
         for l in leader:
             for r in routers:
                 pairs.append((l, r))
         count_LR = len(pairs)
 
-        # Step B: Leader-Child pairs (ALL)
         for l in leader:
             for c in children:
                 pairs.append((l, c))
-        count_LC = len(pairs) - count_LR  # delta after adding LC
+        count_LC = len(pairs) - count_LR
 
-        # Define limits
         MAX_PAIRS = 100
         initial_target = int(len(nodes) * (len(nodes) - 1) * 0.3)
         budget = min(initial_target, MAX_PAIRS)
-
-        # Remaining slots to reach budget
         remaining_budget = max(0, budget - len(pairs))
 
-        # Step C: Fill remaining slots (if any) with 75% R-R and 25% R-C
         rr_candidates = [(r1, r2) for r1 in routers for r2 in routers if r1 != r2]
         rc_candidates = [(r, c) for r in routers for c in children]
 
@@ -164,7 +113,6 @@ class PacketDeliveryPhase:
         pairs += rr_candidates[:rr_target]
         pairs += rc_candidates[:rc_target]
 
-        # 🛡️ Safety: if somehow over, trim to max
         if len(pairs) > MAX_PAIRS:
             pairs = random.sample(pairs, MAX_PAIRS)
 
@@ -174,20 +122,12 @@ class PacketDeliveryPhase:
         results = {}
         for src, dst in pairs:
             try:
-                # 🛰️ Get the destination's MLEID address
                 dst_mleid = self.ns.node_cmd(dst, "ipaddr mleid")[0]
-
-                # 🌐 Build a simple payload
                 payload = f"echo-{src}-to-{dst}"
-
-                # 🚀 Send a CoAP PUT to /test-resource
                 self.ns.node_cmd(src, f'coap put {dst_mleid} test-resource con {payload}')
-                self.ns.go(2)  # allow some simulated time to process
-
-                # 🧹 (Optional) Could later parse coaps, but here we assume 'Done' = success
+                self.ns.go(2)
                 results[(src, dst)] = True
                 print(f"CoAP {src} ➔ {dst}: ✅ Delivered")
-
             except Exception as e:
                 print(f"⚠️ CoAP failed {src} ➔ {dst}: {e}")
                 results[(src, dst)] = False
@@ -201,7 +141,7 @@ class PacketDeliveryPhase:
 
         pdr = (delivered / sent) * 100
         plr = (lost / sent) * 100
-        forwarding_success_rate = (delivered / sent) * 100  # Explicit for Step 18
+        forwarding_success_rate = (delivered / sent) * 100
 
         print("\n📊 Packet Delivery Statistics:")
         print(f"• Packets Sent: {sent}")
@@ -215,4 +155,3 @@ class PacketDeliveryPhase:
             print(f"⚠️ WARNING: PDR too low: {pdr:.2f}% (threshold 95%)")
             return False
         return True
-
