@@ -48,8 +48,8 @@ class LowpanCompressionPhase:
             try:
                 with open("lowpan_packets.txt", "r") as f:
                     lines = f.readlines()
-                    for line in lines:
-                        print(line.strip())
+                    # for line in lines:
+                    #     print(line.strip())
             except Exception as e:
                 print(f"⚠️ Could not read lowpan_packets.txt: {e}")
 
@@ -58,14 +58,12 @@ class LowpanCompressionPhase:
             try:
                 with open("lowpan_udp_coap_packets.txt", "r") as f:
                     lines = f.readlines()
-                    for line in lines:
-                        print(line.strip())
+                    # for line in lines:
+                    #     print(line.strip())
             except Exception as e:
                 print(f"⚠️ Could not read lowpan_udp_coap_packets.txt: {e}")
 
-        # Step 3: Open lowpan.pcap and print the first packet
-        # self._dump_all_packets_to_txt()
-        # self._print_first_packet()
+
 
     def _start_coap_communication(self, coap_pairs):
         print("\n⚡ Starting strong CoAP communication between node pairs...\n")
@@ -182,13 +180,14 @@ class LowpanCompressionPhase:
 
         mac_overhead = 15  # Approximate MAC header overhead
         packet_counter = 0
+        results = []
 
         with open("lowpan_packets.txt", "w") as f:
             for idx, pkt in enumerate(packets):
                 if not pkt.haslayer(Dot15d4Data):
                     continue  # Only analyze Data frames
 
-                frame_size = len(pkt)  # Full frame size in bytes
+                frame_size = len(pkt)
                 payload = bytes(pkt.payload.payload)
                 payload_size = len(payload)
 
@@ -202,25 +201,25 @@ class LowpanCompressionPhase:
                     iphc_summary = "N/A"
 
                 packet_counter += 1
-                # Build the line
-                line = (f"• Packet {packet_counter}: Frame={frame_size}B, "
-                        f"CompHeader={compressed_hdr_size}B, "
-                        f"Payload={payload_size}B, IPHC={iphc_summary}")
+                result_line = (f"• Packet {packet_counter}: Frame={frame_size}B, "
+                               f"CompHeader={compressed_hdr_size}B, "
+                               f"Payload={payload_size}B, IPHC={iphc_summary}")
 
-                # Build payload hex dump
                 payload_hex = " ".join(f"{b:02x}" for b in payload)
 
-                # Write to file
-                f.write(line + "\n")
+                f.write(result_line + "\n")
                 f.write(f"Payload Hex: {payload_hex}\n\n")
 
-                # Optional print to console (shorter)
-                print(line)
+                results.append(result_line)
 
         if packet_counter == 0:
             print("❌ No 6LoWPAN IPHC packets detected!")
         else:
-            print(f"\n✅ Successfully parsed {packet_counter} packets using Scapy!")
+            print("\n===== 6LoWPAN General Packet Summary =====\n")
+            # for line in results:
+            #     print(line)
+            print(f"\n✅ Successfully parsed {packet_counter} packets!\n")
+            print("===== End of 6LoWPAN Summary =====\n")
 
     def _analyze_lowpan_udp(self):
         print("\n🔍 Deep Analysis: Extracting UDP/CoAP packets from lowpan.pcap...\n")
@@ -229,6 +228,7 @@ class LowpanCompressionPhase:
 
         packet_counter = 0
         coap_packet_counter = 0
+        coap_results = []
 
         with open("lowpan_udp_coap_packets.txt", "w") as f:
             for idx, pkt in enumerate(packets):
@@ -236,37 +236,40 @@ class LowpanCompressionPhase:
                     continue  # Only analyze Data frames
 
                 payload = bytes(pkt.payload.payload)
-                if len(payload) < 10:  # Minimal size for lowpan+UDP headers
+                if len(payload) < 10:
                     continue
 
-                # Skip first 2 bytes (IPHC compressed Dispatch and Encoding)
                 udp_start = 2
-
                 if len(payload) < udp_start + 8:
-                    continue  # Not enough bytes for UDP header
+                    continue
 
                 try:
-                    source_port = int.from_bytes(payload[udp_start:udp_start+2], byteorder='big')
-                    dest_port = int.from_bytes(payload[udp_start+2:udp_start+4], byteorder='big')
-                    udp_length = int.from_bytes(payload[udp_start+4:udp_start+6], byteorder='big')
+                    source_port = int.from_bytes(payload[udp_start:udp_start + 2], byteorder='big')
+                    dest_port = int.from_bytes(payload[udp_start + 2:udp_start + 4], byteorder='big')
+                    udp_length = int.from_bytes(payload[udp_start + 4:udp_start + 6], byteorder='big')
 
-                    # Check if destination port == 5683 (CoAP)
                     if dest_port == 5683:
-                        coap_payload = payload[udp_start+8:]
-
-                        f.write(f"• CoAP Packet {coap_packet_counter+1}:\n")
-                        f.write(f"   Source Port: {source_port}\n")
-                        f.write(f"   Destination Port: {dest_port}\n")
-                        f.write(f"   UDP Length: {udp_length}\n")
-                        f.write(f"   CoAP Payload (hex): {' '.join(f'{b:02x}' for b in coap_payload)}\n\n")
-
+                        coap_payload = payload[udp_start + 8:]
                         coap_packet_counter += 1
+
+                        coap_line = (f"• CoAP Packet {coap_packet_counter}: SrcPort={source_port}, "
+                                     f"DstPort={dest_port}, UDP Length={udp_length}, "
+                                     f"Payload (hex): {' '.join(f'{b:02x}' for b in coap_payload)}")
+
+                        f.write(coap_line + "\n\n")
+                        coap_results.append(coap_line)
 
                     packet_counter += 1
 
                 except Exception as e:
-                    print(f"⚠️ Parsing error at packet {idx+1}: {e}")
+                    print(f"⚠️ Parsing error at packet {idx + 1}: {e}")
                     continue
 
-        print(f"\n✅ Total packets checked: {packet_counter}")
-        print(f"✅ Total CoAP packets (port 5683) found: {coap_packet_counter}")
+        if coap_packet_counter == 0:
+            print("❌ No CoAP packets (port 5683) detected!")
+        else:
+            print("\n===== CoAP Packet Summary =====\n")
+            # for line in coap_results:
+            #     print(line)
+            print(f"\n✅ Successfully extracted {coap_packet_counter} CoAP packets!\n")
+            print("===== End of CoAP Summary =====\n")
