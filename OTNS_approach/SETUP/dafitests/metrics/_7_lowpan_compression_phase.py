@@ -26,46 +26,70 @@ class LowpanCompressionPhase:
 
     def run(self, coap_pairs):
         print("\n🚞 Step 19: Analyzing 6LoWPAN Header Compression from PCAP...\n")
-        self.role_pair_compression = {}  # <-- ADD HERE
 
-        # Step 1: Start CoAP communication between pairs
+        # Step 0: Start full communication once to learn node roles
         self._start_coap_communication(coap_pairs)
+
+        # Step 1: Now safe to split coap_pairs into role-pair batches
+        self.role_pair_compression = {}
         role_batches = self.split_coap_pairs_by_role_pairs(coap_pairs)
 
-        # Step 2: Wait a bit to ensure packets are flushed and recorded
-        print("\n⏳ Waiting a few seconds to allow PCAP to flush...\n")
-        self.ns.go(10)
-        time.sleep(3)
+        # Step 2: For each role-pair batch, run separately
+        for role_pair, pairs in role_batches.items():
+            if not pairs:
+                continue  # Skip empty batches
 
-        shutil.copyfile("current.pcap", "lowpan.pcap")
-        print("✅ Copied current.pcap → lowpan.pcap")
+            src_role, dst_role = role_pair
+            print(f"\n🔵 Starting Experiment: {src_role.upper()} ➔ {dst_role.upper()} with {len(pairs)} pairs\n")
 
-        self._analyze_pcap_with_scapy()
-        # self._analyze_lowpan_udp()
-        self._print_summary()
+            # Start only for this batch
+            self._start_coap_communication(pairs)
+
+            print("\n⏳ Waiting a few seconds to allow PCAP to flush...\n")
+            self.ns.go(10)
+            time.sleep(2)
+
+            # Save specific PCAP
+            pcap_filename = f"lowpan_{src_role}_to_{dst_role}.pcap"
+            shutil.copyfile("current.pcap", pcap_filename)
+            print(f"✅ Copied current.pcap → {pcap_filename}")
+
+            # Analyze that PCAP
+            self.pcap_file = pcap_filename
+            self._analyze_pcap_with_scapy()
+
+            self._print_summary()
+
+            print(f"\n✅ Finished Experiment: {src_role.upper()} ➔ {dst_role.upper()}\n")
+            print("=" * 60)
 
     def _print_summary(self):
-            print("\n📋 Final Summary Report:")
+        print("\n📋 Final Summary Report:")
 
-            # Read and print lowpan_packets.txt
-            print("\n📝 6LoWPAN General Packet Analysis (Frame, Compression, Payload):\n")
-            try:
-                with open("lowpan_packets.txt", "r") as f:
-                    lines = f.readlines()
-                    # for line in lines:
-                    #     print(line.strip())
-            except Exception as e:
-                print(f"⚠️ Could not read lowpan_packets.txt: {e}")
+        # General file-based results
+        print("\n📝 6LoWPAN General Packet Analysis (Frame, Compression, Payload):\n")
+        try:
+            with open("lowpan_packets.txt", "r") as f:
+                lines = f.readlines()
+                # for line in lines:
+                #     print(line.strip())  # <-- Keep commented if too much output
+        except Exception as e:
+            print(f"⚠️ Could not read lowpan_packets.txt: {e}")
 
-            # Read and print lowpan_udp_coap_packets.txt
-            print("\n📝 CoAP-specific UDP Packets (Destination Port 5683):\n")
-            try:
-                with open("lowpan_udp_coap_packets.txt", "r") as f:
-                    lines = f.readlines()
-                    # for line in lines:
-                    #     print(line.strip())
-            except Exception as e:
-                print(f"⚠️ Could not read lowpan_udp_coap_packets.txt: {e}")
+        print("\n📝 Compression Analysis by Role-Pairs:\n")
+
+        if not hasattr(self, "role_pair_compression") or not self.role_pair_compression:
+            print("⚠️ No role-pair compression data collected.\n")
+        else:
+            print(f"{'SOURCE ➔ DESTINATION':<25} | {'#PACKETS':<10} | {'AVG COMPRESSION RATIO':<20}")
+            print("-" * 65)
+            for role_pair, ratios in sorted(self.role_pair_compression.items()):
+                src_role, dst_role = role_pair
+                num_packets = len(ratios)
+                avg_compression = sum(ratios) / num_packets if num_packets > 0 else 0
+                print(f"{src_role.upper()} ➔ {dst_role.upper():<15} | {num_packets:<10} | {avg_compression:.2f}")
+            print("-" * 65)
+            print("✅ End of Compression Summary.\n")
 
     def _start_coap_communication(self, coap_pairs):
         print("\n⚡ Starting strong CoAP communication between node pairs...\n")
@@ -175,7 +199,7 @@ class LowpanCompressionPhase:
                 try:
                     payload_str = ''.join(chr(b) for b in payload if 32 <= b <= 126)
 
-                    print(f"🔎 Packet {packet_counter}: Payload string candidate = {payload_str}")
+                    # print(f"🔎 Packet {packet_counter}: Payload string candidate = {payload_str}")
 
                     if "coap-" in payload_str:
                         parts = payload_str.split("-")
