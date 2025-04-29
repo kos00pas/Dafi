@@ -77,7 +77,6 @@ class RPLStabilityPhase:
         self.result_file.write(f"\tDone: {duration:.9f}s\n--------------------------------------------\n")
         self.result_file.write("")
         self.result_file.flush()
-
     from datetime import datetime
 
     def _13_dio_dao_decay_time(self, check_interval=5, max_wait=300):
@@ -122,6 +121,7 @@ class RPLStabilityPhase:
                 self.result_file.write(f"\tDone: {duration:.9f}s")
                 self.result_file.write("")
                 self.result_file.flush()
+                exit()
                 return
 
             print(f"@ {waited:>3}s | Active DIO/DAO detected on nodes: {delta}")
