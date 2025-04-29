@@ -92,6 +92,13 @@ class Experiment:
         if not success:
             raise RuntimeError("$ RPL Stability Phase failed.")
 
+        # 📡5  Step 14-16: Multicast Propagation Delay (MPD) Measurement
+        phase_mcast = MulticastDelayPhase(self.ns,self.result_file)  # from _5multicast_delay_phase.py
+        success = phase_mcast.run()
+        if not success:
+            raise RuntimeError("$ Multicast Delay Phase failed.")
+
+
         phase_packet_delivery = PDR_ipv6(self.ns,self.result_file)
         success, coap_results, role_batches = phase_packet_delivery.run()
         if not success:
@@ -101,11 +108,6 @@ class Experiment:
         print(role_batches)
         phase_lowpan.run( role_batches)
 
-        # # 📡5  Step 14-16: Multicast Propagation Delay (MPD) Measurement
-        # phase_mcast = MulticastDelayPhase(self.ns,self.result_file)  # from _5multicast_delay_phase.py
-        # success = phase_mcast.run()
-        # if not success:
-        #     raise RuntimeError("$ Multicast Delay Phase failed.")
 
     def ScaleUP(self):pass
 

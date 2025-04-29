@@ -1,15 +1,18 @@
 # metrics/_5multicast_delay_phase.py
+from datetime import datetime
 
 from OTNS_approach.SETUP.dafitests.otns.cli.OTNS import now
 import time
 
 class MulticastDelayPhase:
-    def __init__(self, ns):
+    def __init__(self, ns ,result_file):
         self.ns = ns
+        self.result_file = result_file
         self.send_timestamp = None
         self.reception_times = {}  # {node_id: timestamp}
 
     def run(self):
+
         print("\n🚀 Starting Multicast Delay Phase (Steps 14-16)...\n")
         self._14_multicast_trigger()
         self._15_multicast_reception_logging()
@@ -18,77 +21,102 @@ class MulticastDelayPhase:
         return True
 
     def _14_multicast_trigger(self):
+        self.result_file.write("\n========= [ 5.  Multicast Propagation Delay (MPD) ] =========\n")
+        self.result_file.write("Step 14 Multicast Trigger\n")
+        self.result_file.flush()
         print("\n📍 Step 14: Multicast Trigger (Moderate Flooding)\n")
+
+        from OTNS_approach.SETUP.dafitests.otns.cli.OTNS import now  # use simulation clock
+        start_time = datetime.now()
 
         nodes = list(self.ns.nodes().keys())
         if not nodes:
             raise RuntimeError("No nodes available for multicast trigger.")
 
-        multicast_address = "ff03::1"
-        payload = "mcast-trigger"
-        self.send_timestamp = time.time()  # Mark start time
+        multicast_address = "ff02::1"
+        self.send_timestamp = now()
+        print(f"🕐 Recorded simulation send timestamp: {self.send_timestamp}s")
 
-        # Start CoAP listeners
+        # Step 1: Start CoAP and multicast-test resource
+        print("⚙️ Starting CoAP server and multicast-test resource on all nodes...")
         for nid in nodes:
             self.ns.node_cmd(nid, "coap start")
             self.ns.node_cmd(nid, "coap resource multicast-test")
-        self.ns.go(1)
 
-        print("⏳ Sending multicast flooding (5 times)...")
+        # Step 2: Allow MLR registration to settle
+        print("⏳ Waiting 3s simulation time for MLR to settle...")
+        self.ns.go(3)
+        time.sleep(2)
+
+        # ✅ Step 3: Clear logs so we only track multicast CoAP for this flood
+        self.ns.coap_recv_logs.clear()
+
+        # Step 4: Multicast Flooding
+        print("\n🚀 Sending multicast flooding (5 times)...")
         for repeat in range(5):
             for nid in nodes:
                 role = self.ns.node_cmd(nid, "state")[0].strip()
                 if role in ["leader", "router"]:
+                    payload = f"mcast-trigger-{repeat}"
                     self.ns.node_cmd(nid, f'coap post {multicast_address} multicast-test con {payload}')
-                    print(f"🚀 Multicast sent by Node {nid} at {time.time():.6f}s (repeat {repeat})")
+                    print(f"📡 Multicast sent by Node {nid} at simulation t={now()}s (repeat {repeat})")
             self.ns.go(2)
             time.sleep(0.5)
 
+        # Step 5: After flooding, scan captured logs for CoAP receptions
+        for logline in self.ns.coap_recv_logs:
+            if "Node<" in logline and "coap=recv" in logline and "multicast-test" in logline:
+                try:
+                    start = logline.index("Node<") + len("Node<")
+                    end = logline.index(">", start)
+                    nid = int(logline[start:end])
+                    if nid not in self.reception_times:
+                        self.reception_times[nid] = now()
+                        print(f"✅ Node {nid} received multicast at simulation time {self.reception_times[nid]:.6f}s")
+                except Exception:
+                    continue
+
         print("\n✅ Step 14: Multicast flooding completed.\n")
+        end_time = datetime.now()
+        duration = (end_time - start_time).total_seconds()
 
-    def _15_multicast_reception_logging(self, timeout=30):
-        print("\n📍 Step 15: Reception Logging\n")
+        self.result_file.write(f"\tDone: {duration:.6f}s\n--------------------------------------------\n")
+        self.result_file.write("")
+        self.result_file.flush()
 
-        nodes = list(self.ns.nodes().keys())
-        start_time = time.time()
-        waited = 0
+    def _15_multicast_reception_logging(self):
+        print("\n📍 Step 15: Multicast Reception Logging (Inlined in Step 14)\n")
+        self.result_file.write("Step 15 Multicast Reception Logging\n")
+        self.result_file.flush()
 
-        print("⏳ Monitoring CoAP receptions...")
-
-        while waited <= timeout:
-            logs = self.ns.coaps()
-
-            for msg in logs:
-                src = msg.get("src")
-                dst = msg.get("dst")
-                uri = msg.get("uri")
-                payload = msg.get("payload", "")
-
-                if uri == "/multicast-test" and "mcast-trigger" in payload:
-                    if dst not in self.reception_times:
-                        self.reception_times[dst] = time.time()
-                        print(f"✅ Node {dst} received multicast at {self.reception_times[dst]:.6f}s")
-
-            if waited >= timeout:
-                break
-
-            self.ns.go(1)
-            time.sleep(0.5)
-            waited = time.time() - start_time
+        start_time = datetime.now()
 
         if not self.reception_times:
-            print("⚠️ No multicast receptions detected among nodes.")
+            print("⚠️ Step 15: No multicast receptions recorded during Step 14.")
         else:
-            print("\n✅ Step 15: Some nodes received multicast!\n")
+            print(f"✅ Step 15: {len(self.reception_times)} node(s) recorded multicast reception during Step 14.")
+
+        duration = (datetime.now() - start_time).total_seconds()
+        self.result_file.write(f"\tDone: {duration:.6f}s\n--------------------------------------------\n")
+        self.result_file.write("")
+        self.result_file.flush()
+
 
     def _16_compute_mpd(self):
+        self.result_file.write("Step 16 Compute MPD\n")
+        self.result_file.flush()
         print("\n📍 Step 16: Compute MPD\n")
+        start_time = datetime.now()
 
         if self.send_timestamp is None:
             raise RuntimeError("No multicast send timestamp recorded.")
 
         if not self.reception_times:
             print("⚠️ Step 16: No nodes received multicast. Cannot compute MPD.")
+            duration = (datetime.now() - start_time).total_seconds()
+            self.result_file.write(f"\tDone: {duration:.6f}s")
+            self.result_file.write("")
+            self.result_file.flush()
             return
 
         delays = {}
@@ -110,3 +138,8 @@ class MulticastDelayPhase:
         print(f"• Average Delay = {avg_delay:.6f} seconds")
 
         print("\n✅ Step 16: MPD computed successfully!\n")
+        duration = (datetime.now() - start_time).total_seconds()
+        self.result_file.write(f"\tDone: {duration:.6f}s\n--------------------------------------------\n")
+        self.result_file.write("")
+        self.result_file.flush()
+

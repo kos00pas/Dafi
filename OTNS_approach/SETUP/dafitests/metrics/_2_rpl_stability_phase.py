@@ -121,7 +121,6 @@ class RPLStabilityPhase:
                 self.result_file.write(f"\tDone: {duration:.9f}s")
                 self.result_file.write("")
                 self.result_file.flush()
-                exit()
                 return
 
             print(f"@ {waited:>3}s | Active DIO/DAO detected on nodes: {delta}")

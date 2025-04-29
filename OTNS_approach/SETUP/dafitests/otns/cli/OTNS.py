@@ -60,6 +60,7 @@ class OTNS(object):
         logging.info("otns found: %s", self._otns_path)
         self._launch_otns()
         self._closed = False
+        self.coap_recv_logs = [] # PASHIOURT
 
     def _launch_otns(self) -> None:
         logging.info("launching otns: %s %s", self._otns_path, ' '.join(self._otns_args))
@@ -184,6 +185,9 @@ class OTNS(object):
             # 🪪 Print all received lines, tagging OTNS_ logs separately
             if line.startswith(("info\t", "debug\t", "warn\t", "error\t")):
                 print(f"[{now()}] [OTNS_ LOG] {line}", flush=True)
+                if "coap=recv" in line and "multicast-test" in line:
+                    self.coap_recv_logs.append(line)
+
                 continue
 
             print(f"[{now()}] [_do_command] Received: {line}", flush=True)
