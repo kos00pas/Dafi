@@ -35,7 +35,7 @@ class LowpanCompressionPhase:
         shutil.copyfile("current.pcap", "lowpan.pcap")
         print("✅ Copied current.pcap → lowpan.pcap")
 
-        self._analyze_pcap()
+        self._analyze_pcap_with_scapy()
 
         # Step 3: Open lowpan.pcap and print the first packet
         # self._dump_all_packets_to_txt()
@@ -111,34 +111,28 @@ class LowpanCompressionPhase:
         finally:
             capture.close()
 
-    def _analyze_pcap(self):
-        print("\n🔍 Advanced Analysis: Parsing Real 6LoWPAN IPHC Headers...\n")
+    def _analyze_pcap_with_scapy(self):
+        print("\n🔍 Advanced Analysis: Parsing 802.15.4 + 6LoWPAN IPHC using Scapy...\n")
 
-        capture = pyshark.FileCapture(self.pcap_file, use_json=True)
+        from scapy.all import rdpcap
+        from scapy.layers.dot15d4 import Dot15d4Data
 
-        packet_data = []
-        mac_overhead = 15  # Typical MAC header overhead (still used for backup estimation)
-
-        def parse_iphc_header(raw_bytes):
-            """Parse the first two bytes of 6LoWPAN IPHC header."""
-            if len(raw_bytes) < 2:
-                print("⚠️ Not enough bytes for IPHC parsing.")
+        def parse_lowpan_iphc(packet_bytes):
+            """Very basic 6LoWPAN IPHC parsing."""
+            if len(packet_bytes) < 2:
                 return None
 
-            first_byte = raw_bytes[0]
-            second_byte = raw_bytes[1]
+            first_byte = packet_bytes[0]
+            second_byte = packet_bytes[1]
 
             dispatch = (first_byte & 0b11100000) >> 5
             if dispatch != 0b011:
-                print(f"⚠️ Dispatch value not IPHC (got {bin(dispatch)})")
-                return None
+                return None  # Not IPHC
 
-            # First Byte
             tf = (first_byte & 0b00011000) >> 3
             nh = (first_byte & 0b00000100) >> 2
             hlim = (first_byte & 0b00000011)
 
-            # Second Byte
             cid = (second_byte & 0b10000000) >> 7
             sac = (second_byte & 0b01000000) >> 6
             sam = (second_byte & 0b00110000) >> 4
@@ -158,86 +152,33 @@ class LowpanCompressionPhase:
                 "dam": dam,
             }
 
-        for packet in capture:
-            try:
-                if 'udp' not in packet:
-                    continue  # Only care about UDP packets
+        packets = rdpcap(self.pcap_file)
 
-                frame_size = int(packet.length)  # Full IEEE 802.15.4 frame size
+        mac_overhead = 15  # Approximate MAC header overhead
+        packet_counter = 0
 
-                udp_layer = packet['udp']
-                payload_size = int(udp_layer.length) - 8  # Subtract UDP header
+        for idx, pkt in enumerate(packets):
+            if not pkt.haslayer(Dot15d4Data):
+                continue  # Only analyze Data frames
 
-                compressed_hdr_size = None
-                iphc_fields = None
+            frame_size = len(pkt)  # Full frame size in bytes
+            payload = bytes(pkt.payload.payload)
+            payload_size = len(payload)
 
-                # Try parsing the lowpan header if available
-                if hasattr(packet, 'lowpan'):
-                    try:
-                        raw_bytes = bytes.fromhex(packet.lowpan.get_raw_packet().hex())
-                        iphc_fields = parse_iphc_header(raw_bytes)
-                        compressed_hdr_size = len(raw_bytes)
-                    except Exception as e:
-                        print(f"⚠️ Failed lowpan raw parsing: {e}")
-                if compressed_hdr_size is None:
-                    # fallback to estimation
-                    compressed_hdr_size = frame_size - payload_size - mac_overhead
+            iphc_info = parse_lowpan_iphc(payload)
 
-                packet_data.append({
-                    "frame_size": frame_size,
-                    "compressed_hdr_size": compressed_hdr_size,
-                    "payload_size": payload_size,
-                    "iphc_fields": iphc_fields,
-                })
-
-            except Exception as e:
-                print(f"⚠️ Packet skipped due to error: {e}")
-                continue
-
-        capture.close()
-
-        if not packet_data:
-            print("❌ No UDP packets found.")
-            return
-
-        # Print all packet information
-        print("\n📋 Captured UDP Packets Summary:")
-        for idx, pkt in enumerate(packet_data):
-            iphc_info = pkt['iphc_fields']
             if iphc_info:
+                compressed_hdr_size = 2  # At least 2 bytes (Dispatch + Encoding) + possible inline fields
                 iphc_summary = f"TF={iphc_info['tf']} NH={iphc_info['nh']} HLIM={iphc_info['hlim']} SAM={iphc_info['sam']} DAM={iphc_info['dam']}"
             else:
+                compressed_hdr_size = frame_size - mac_overhead - payload_size
                 iphc_summary = "N/A"
 
-            print(f"• Packet {idx + 1}: Frame={pkt['frame_size']}B, "
-                  f"CompHeader={pkt['compressed_hdr_size']}B, "
-                  f"Payload={pkt['payload_size']}B, "
-                  f"IPHC={iphc_summary}")
+            packet_counter += 1
+            print(
+                f"• Packet {packet_counter}: Frame={frame_size}B, CompHeader={compressed_hdr_size}B, Payload={payload_size}B, IPHC={iphc_summary}")
 
-        # Optional: average compression
-        avg_compression_ratio = sum(pkt['compressed_hdr_size'] for pkt in packet_data) / (len(packet_data) * 48)
-        print(f"\n📊 Average Compression Ratio: {avg_compression_ratio:.2f}")
-
-    def tshark_extract_lowpan_fields(pcap_file):
-        tshark_cmd = [
-            "tshark",
-            "-r", pcap_file,
-            "-Y", "lowpan",  # filter only 6LoWPAN packets
-            "-T", "fields",
-            "-e", "lowpan.iphc.tf",
-            "-e", "lowpan.iphc.nh",
-            "-e", "lowpan.iphc.hlim",
-            "-e", "lowpan.iphc.sam",
-            "-e", "lowpan.iphc.dam"
-        ]
-
-        try:
-            output = subprocess.check_output(tshark_cmd, stderr=subprocess.STDOUT)
-            decoded_output = output.decode('utf-8')
-            print("✅ TShark output:")
-            print(decoded_output)
-            return decoded_output
-
-        except subprocess.CalledProcessError as e:
-            print("❌ Error calling TShark:", e.output.decode('utf-8'))
-            return None
+        if packet_counter == 0:
+            print("❌ No 6LoWPAN IPHC packets detected!")
+        else:
+            print(f"\n✅ Successfully parsed {packet_counter} packets using Scapy!")
