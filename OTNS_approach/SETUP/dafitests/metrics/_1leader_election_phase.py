@@ -1,4 +1,6 @@
 # metrics/_1leader_election_phase.py
+from datetime import datetime
+
 
 class LeaderElectionPhase:
     def __init__(self, ns , result_file):
@@ -35,33 +37,39 @@ class LeaderElectionPhase:
                 detached.append((node_id, state))
         return states, detached
 
+    from datetime import datetime
+
     def _1_wait_for_non_detached_nodes(self, max_wait=1200, interval=1):
         # Write Step Title (only once at the start)
         self.result_file.write("\n========= [ 1. Leader Election Phase ] =========\n")
         self.result_file.write("Step 1: Attach Status Check\n")
         self.result_file.flush()
 
+        start_time = datetime.now()  # <=== Start timing
         waited = 0
-        final_state_line = ""  # Temporary capture of the final state
 
         while waited <= max_wait:
             self.ns.go(interval)
             states, detached_nodes = self._get_node_states()
 
-
             if not detached_nodes:
                 print("! Step 1")
-                # ADDITION: After printing success, write into result.txt
-                self.result_file.write("\t Done \n")
-                self.result_file.write("--------------------------------------------\n")
+                end_time = datetime.now()  # <=== End timing
+                duration = (end_time - start_time).total_seconds()
+
+                self.result_file.write(f"\tDone: {duration:.6f}s\n--------------------------------------------\n")
+                self.result_file.write("")
                 self.result_file.flush()
                 return
 
             waited += interval
 
-        # If failure (after max_wait), write a failure line
+        # If failure (after max_wait)
+        end_time = datetime.now()
+        duration = (end_time - start_time).total_seconds()
         fail_msg = f"Result: FAIL — Detached nodes after {max_wait}s: {detached_nodes}\n"
         self.result_file.write(fail_msg)
+        self.result_file.write(f"\tTime Elapsed: {duration:.2f}s\n")
         self.result_file.write("--------------------------------------------\n")
         self.result_file.flush()
         raise AssertionError(fail_msg)
@@ -73,6 +81,7 @@ class LeaderElectionPhase:
 
         waited = 0
         final_leader_line = ""  # Capture the final successful leader detection
+        start_time = datetime.now()  # <=== Start timing
 
         while waited <= max_wait:
             self.ns.go(interval)
@@ -82,9 +91,11 @@ class LeaderElectionPhase:
 
             if len(leader_nodes) == 1:
                 print(f"! Step 2  : Leader = {leader_nodes[0]}")
-                
-                self.result_file.write("\t Done \n")
-                self.result_file.write("--------------------------------------------\n")
+
+                end_time = datetime.now()  # <=== End timing
+                duration = (end_time - start_time).total_seconds()
+
+                self.result_file.write(f"\tDone: {duration:.6f}s\n--------------------------------------------\n")
                 self.result_file.flush()
                 return
 
@@ -101,6 +112,7 @@ class LeaderElectionPhase:
         # Write Step Title (only once at the start)
         self.result_file.write("\nStep 3: Valid Roles Across Nodes\n")
         self.result_file.flush()
+        start_time = datetime.now()  # <=== Start timing
 
         waited = 0
         final_valid_roles_line = ""  # Capture the final successful valid state
@@ -117,9 +129,11 @@ class LeaderElectionPhase:
 
             if not invalid_nodes:
                 print("! Step 3")
-                
-                self.result_file.write("\t Done \n")
-                self.result_file.write("--------------------------------------------\n")
+
+                end_time = datetime.now()  # <=== End timing
+                duration = (end_time - start_time).total_seconds()
+
+                self.result_file.write(f"\tDone: {duration:.6f}s\n--------------------------------------------\n")
                 self.result_file.flush()
                 return
 
@@ -136,6 +150,7 @@ class LeaderElectionPhase:
         # Write Step Title (only once at the start)
         self.result_file.write("\nStep 4: RLOC16 Stability\n")
         self.result_file.flush()
+        start_time = datetime.now()  # <=== Start timing
 
         waited = 0
         final_rloc16_line = ""  # Capture the final stability line
@@ -158,9 +173,11 @@ class LeaderElectionPhase:
 
             if not changed:
                 print("! Step 4")
-                
-                self.result_file.write("\t Done \n")
-                self.result_file.write("--------------------------------------------\n")
+
+                end_time = datetime.now()  # <=== End timing
+                duration = (end_time - start_time).total_seconds()
+
+                self.result_file.write(f"\tDone: {duration:.6f}s\n--------------------------------------------\n")
                 self.result_file.flush()
                 return
 
@@ -175,6 +192,7 @@ class LeaderElectionPhase:
 
     def _5_ipv6_address_stability(self, delay=5, max_wait=1200, interval=1):
         # Write Step Title (only once at the start)
+        start_time = datetime.now()  # <=== Start timing
         self.result_file.write("\nStep 5: IPv6 Address Stability\n")
         self.result_file.flush()
 
@@ -201,9 +219,11 @@ class LeaderElectionPhase:
 
             if not changed:
                 print("! Step 5")
-                
-                self.result_file.write("\t Done \n")
-                self.result_file.write("--------------------------------------------\n")
+
+                end_time = datetime.now()  # <=== End timing
+                duration = (end_time - start_time).total_seconds()
+
+                self.result_file.write(f"\tDone: {duration:.6f}s\n--------------------------------------------\n")
                 self.result_file.flush()
                 return
 
@@ -218,6 +238,7 @@ class LeaderElectionPhase:
 
     def _6_state_stability(self, delay=5, max_wait=1200, interval=1):
         # Write Step Title (only once at the start)
+        start_time = datetime.now()  # <=== Start timing
         self.result_file.write("\nStep 6: State Stability\n")
         self.result_file.flush()
 
@@ -244,9 +265,11 @@ class LeaderElectionPhase:
 
             if not changed:
                 print("! Step 6")
-                
-                self.result_file.write("\t Done \n")
-                self.result_file.write("--------------------------------------------\n")
+
+                end_time = datetime.now()  # <=== End timing
+                duration = (end_time - start_time).total_seconds()
+
+                self.result_file.write(f"\tDone: {duration:.6f}s\n--------------------------------------------\n")
                 self.result_file.flush()
                 return
 
@@ -263,6 +286,7 @@ class LeaderElectionPhase:
         # Write Step Title (only once at the start)
         self.result_file.write("\nStep 7: Routing Message Silence\n")
         self.result_file.flush()
+        start_time = datetime.now()  # <=== Start timing
 
         waited = 0
 
@@ -296,8 +320,10 @@ class LeaderElectionPhase:
 
             if not changed:
                 print("! Step 7")
-                self.result_file.write("\t Done \n")
-                self.result_file.write("--------------------------------------------\n")
+                end_time = datetime.now()  # <=== End timing
+                duration = (end_time - start_time).total_seconds()
+
+                self.result_file.write(f"\tDone: {duration:.9f}s\n--------------------------------------------\n")
                 self.result_file.flush()
                 return
 
