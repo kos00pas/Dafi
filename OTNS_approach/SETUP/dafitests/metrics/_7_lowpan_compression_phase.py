@@ -30,7 +30,7 @@ class LowpanCompressionPhase:
 
         # Step 1: Start CoAP communication between pairs
         self._start_coap_communication(coap_pairs)
-
+        role_batches = self.split_coap_pairs_by_role_pairs(coap_pairs)
 
         # Step 2: Wait a bit to ensure packets are flushed and recorded
         print("\n⏳ Waiting a few seconds to allow PCAP to flush...\n")
@@ -326,6 +326,34 @@ class LowpanCompressionPhase:
         if iphc_info['nh'] == 1:
             stats['udp_header_compressed'] += 1
 
+    def split_coap_pairs_by_role_pairs(self, coap_pairs):
+        """
+        Splits the original coap_pairs into 7 groups based on (src_role ➔ dst_role).
+        """
+
+        # Mapping from (src_role, dst_role) -> list of (src_id, dst_id)
+        role_pair_batches = {
+            ('leader', 'router'): [],
+            ('leader', 'child'): [],
+            ('router', 'router'): [],
+            ('router', 'child'): [],
+            ('router', 'leader'): [],
+            ('child', 'router'): [],
+            ('child', 'leader'): [],
+        }
+
+        for src, dst in coap_pairs:
+            src_role = self.node_roles.get(src, "unknown")
+            dst_role = self.node_roles.get(dst, "unknown")
+            role_pair = (src_role, dst_role)
+
+            if role_pair in role_pair_batches:
+                role_pair_batches[role_pair].append((src, dst))
+            else:
+                print(f"⚠️ Unknown role pair ({src_role} ➔ {dst_role}), skipping src={src} dst={dst}")
+
+        return role_pair_batches
+
     # def _dump_all_packets_to_txt(self):
     #     print("\n🔍 Dumping all packets from lowpan.pcap to lowpan_packets.txt...\n")
     #
@@ -357,3 +385,5 @@ class LowpanCompressionPhase:
     #         print("❌ No packets found in PCAP.")
     #     finally:
     #         capture.close()
+
+
