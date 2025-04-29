@@ -4,6 +4,9 @@ import shutil
 import subprocess
 from scapy.all import rdpcap
 from scapy.layers.dot15d4 import Dot15d4Data
+from scapy.config import conf
+conf.dot15d4_protocol = "sixlowpan"  # <-- ADD THIS
+
 """Compression Ratio = compressed / uncompressed = ~0.28
 This matches real-world OpenThread/6LoWPAN expectations:
 
