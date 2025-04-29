@@ -118,10 +118,7 @@ C -> L
                          ```
                          Compression Ratio = Compressed Header Size / 48
                          ```
-                   - Additionally, inspect:
-                     - CID (Context ID) usage (if visible from 6LoWPAN fields)
-                     - Address elision (e.g., if link-local addresses are compressed)
-                     - Port compression (e.g., if ports are elided or compressed)
+
 
             3. Analyze Compression Behavior by Topology
                    - Use the same node pairs generated in Step 17 (e.g., L➔R, L➔C, R➔R, R➔C).

@@ -81,32 +81,31 @@ class Experiment:
             raise RuntimeError("$ Leader Election Phase failed.")
 
         # 🛠️ 4 Step 8-11: Topology and Neighbor Table Convergence
-        phase_topology = TopologyConvergencePhase(self.ns)  # from _4topology_convergence_phase.py
+        phase_topology = TopologyConvergencePhase(self.ns , self.result_file)  # from _4topology_convergence_phase.py
         success = phase_topology.run()
         if not success:
             raise RuntimeError("$ Topology Convergence Phase failed.")
 
         # 🌳 2 Step 12-13: RPL Route Stability and DIO/DAO Decay
-        phase_rpl = RPLStabilityPhase(self.ns)  # from _2_rpl_stability_phase.py
+        phase_rpl = RPLStabilityPhase(self.ns,self.result_file)  # from _2_rpl_stability_phase.py
         success = phase_rpl.run()
         if not success:
             raise RuntimeError("$ RPL Stability Phase failed.")
 
-        phase_packet_delivery = PDR_ipv6(self.ns)
+        phase_packet_delivery = PDR_ipv6(self.ns,self.result_file)
         success, coap_results, role_batches = phase_packet_delivery.run()
         if not success:
             raise RuntimeError("$ Packet Delivery Phase failed.")
 
-        phase_lowpan = LowpanCompressionPhase(self.ns)
+        phase_lowpan = LowpanCompressionPhase(self.ns,self.result_file)
         print(role_batches)
         phase_lowpan.run( role_batches)
 
         # # 📡5  Step 14-16: Multicast Propagation Delay (MPD) Measurement
-        # phase_mcast = MulticastDelayPhase(self.ns)  # from _5multicast_delay_phase.py
+        # phase_mcast = MulticastDelayPhase(self.ns,self.result_file)  # from _5multicast_delay_phase.py
         # success = phase_mcast.run()
         # if not success:
         #     raise RuntimeError("$ Multicast Delay Phase failed.")
-        #
 
     def ScaleUP(self):pass
 

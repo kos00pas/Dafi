@@ -1,3 +1,5 @@
+from datetime import datetime
+
 import pyshark
 import time
 import shutil
@@ -19,9 +21,9 @@ Traffic Class, Flow Label compression active"""
 import pyshark
 import statistics
 class LowpanCompressionPhase:
-    def __init__(self, ns, pcap_file="./lowpan.pcap"):
+    def __init__(self, ns, result_file):
         self.ns = ns
-        self.pcap_file = pcap_file
+        self.result_file = result_file
         self.global_role_pair_compression = {}  # <-- only here!
         self.role_pair_compression = {}
 
@@ -29,7 +31,10 @@ class LowpanCompressionPhase:
 
     def run(self, role_batches):
 
-
+        self.result_file.write("========= [ 7. 6LoWPAN Compression Efficiency Phase ] =========\n")
+        self.result_file.write("Step 19: 6LoWPAN Compression Efficiency \n")
+        self.result_file.flush()
+        start_time = datetime.now()  # <=== Start timing
 
         # Initialize lists for metrics
         compressed_header_sizes = []
@@ -108,7 +113,12 @@ class LowpanCompressionPhase:
                 # print('---')
 
         cap.close()
+        end_time = datetime.now()  # <=== End timing
+        duration = (end_time - start_time).total_seconds()
 
+        self.result_file.write(f"\tDone: {duration:.6f}s\n--------------------------------------------\n")
+        self.result_file.write("")
+        self.result_file.flush()
         # Summary
         if compressed_header_sizes:
             print("\n=== Summary (Mean Values) ===")

@@ -1,16 +1,24 @@
 import random
 import time
+from datetime import datetime
+
 from scapy.all import rdpcap, Raw ,sniff
 from pyshark import FileCapture
 
 from scapy.layers.dot15d4 import Dot15d4Data
 
 class PDR_ipv6:
-    def __init__(self, ns):
+    def __init__(self, ns,result_file):
         self.ns = ns
+        self.result_file = result_file
         print("Step 17 !")
 
     def run(self):
+        self.result_file.write("\n========= [ 3&6. Packet Delivery & Communication & IPv6 Packet Forwarding Efficiency  ] =========\n")
+        self.result_file.write("Step 17: Packet Delivery\n")
+        self.result_file.flush()
+        start_time = datetime.now()
+
         print("\nStep 17 Starting Packet Delivery Phase (Step 17)...\n")
         self._setup_coap_servers()
         pairs = self._select_node_pairs()
@@ -21,9 +29,12 @@ class PDR_ipv6:
         success = self._analyze_results(results)
         print("\n✅ Packet Delivery Phase completed successfully!\n")
         print("\nStep 17 END\n")
+        end_time = datetime.now()
+        duration = (end_time - start_time).total_seconds()
+        self.result_file.write(f"\tDone: {duration:.9f}s\n--------------------------------------------\n")
 
         self.st18_analyze_ipv6_forwarding_efficiency(results)
-        print("\nStart 19 END\n")
+        print("\nStart 18 END\n")
         return success, results, role_batches
 
 
@@ -53,6 +64,10 @@ class PDR_ipv6:
 
     def st18_analyze_ipv6_forwarding_efficiency(self, results):
         print("\n🛰️ Step 18 Analyzing IPv6 Forwarding Efficiency — Node Pairs:\n")
+        self.result_file.write("Step 18:  IPv6 Forwarding Efficiency\n")
+        self.result_file.flush()
+        start_time = datetime.now()
+
         MAX_HOPS = 25
         hop_results = {}
         role_results = {}
@@ -151,6 +166,11 @@ class PDR_ipv6:
                 print(f"• {src} ({src_role}) ➔ {dst} ({dst_role}): Not reachable within {MAX_HOPS} hops")
 
         print("\n✅ Finished listing analyzed node pairs with multi-hop forwarding analysis if needed.\n")
+        end_time = datetime.now()
+        duration = (end_time - start_time).total_seconds()
+        self.result_file.write(f"\tDone: {duration:.6f}s\n")
+        self.result_file.write("")
+        self.result_file.flush()
 
     # def _analyze_ipv6_forwarding_efficiency(self, results):
     #     print("\n🛰️ Analyzing IPv6 Forwarding Efficiency — Node Pairs:\n")

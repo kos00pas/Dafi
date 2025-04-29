@@ -1,21 +1,21 @@
 # metrics/_4topology_convergence_phase.py
+from datetime import datetime
+
 max_wait=1200
 import time
 from random import choices
 from string import ascii_letters, digits
 
 class TopologyConvergencePhase:
-    def __init__(self, ns):
+    def __init__(self, ns,result_file):
         self.ns = ns
+        self.result_file = result_file
         self.steps = [
             ("Step 8: Neighbor Table Stability", self._8_neighbor_table_stability),
             ("Step 9: Router Table Stability", self._9_router_table_stability),
             ("Step 10: Prefix & Route Propagation", self._10_prefix_route_stability),
             ("Step 11: End-to-End ping",self._11_end_to_end_ping)
         ]
-
-
-    import time
 
 
     def _11_coap_reachability(self, interval=2):
@@ -107,6 +107,8 @@ class TopologyConvergencePhase:
             waited += interval
 
         raise AssertionError(f"^Step 11_b FAILED: CoAP failures → {failed}")
+
+
     def run(self):
         for name, func in self.steps:
             print(f"# {name}")
@@ -117,24 +119,13 @@ class TopologyConvergencePhase:
                 return False
         return True
 
-    def _7b_transition_prepare(self):
-        print("\n🔧 Step 7b: Preparing node roles for stable routing...\n")
-        for nid in self.ns.nodes().keys():
-            try:
-                self.ns.node_cmd(nid, "mode rdn")
-                self.ns.node_cmd(nid, "routerupgradethreshold 99")
-                self.ns.node_cmd(nid, "routerselectionjitter 1")
-                print(f"• Node {nid}: router mode forced + upgrade threshold set")
-            except Exception as e:
-                print(f"⚠️ Node {nid} setup failed: {e}")
-
-        # Wait to let roles transition before Step 8 starts
-        print("⏳ Waiting for nodes to settle as routers...")
-        self.ns.go(10)
-        time.sleep(1)
-        print("✅ Step 7b complete: Role transitions should be stabilized.\n")
 
     def _8_neighbor_table_stability(self, delay=5, interval=2):
+        self.result_file.write("\n========= [ 8.Topology Convergence Phase ] =========\n")
+        self.result_file.write("Step 8  Neighbor Table is stable\n")
+        self.result_file.flush()
+
+        start_time = datetime.now()  # <=== Start timing
         waited = 0
         TOLERANCE_LQI = 5
         TOLERANCE_RSSI = 5
@@ -208,7 +199,13 @@ class TopologyConvergencePhase:
             changed = compare_neighbors(first, second)
             print(f"@ {waited:>2}s | Changes: {changed}")
             if not changed:
-                print("! Step 8 ✅ Neighbor Table is stable.")
+                print("! Step 8  Neighbor Table is stable.")
+                end_time = datetime.now()  # <=== End timing
+                duration = (end_time - start_time).total_seconds()
+
+                self.result_file.write(f"\tDone: {duration:.9f}s\n--------------------------------------------\n")
+                self.result_file.write("")
+                self.result_file.flush()
                 return
             waited += interval
 
@@ -216,6 +213,9 @@ class TopologyConvergencePhase:
 
     def _9_router_table_stability(self, delay=5,  interval=2):
         waited = 0
+        self.result_file.write("Step 9: Router Table Stability\n")
+        self.result_file.flush()
+        start_time = datetime.now()  # <=== Start timing
 
         def clean_router_table(raw_table):
             cleaned = []
@@ -250,6 +250,12 @@ class TopologyConvergencePhase:
             print(f"@ {waited:>2}s | Changed: {changed}")
             if not changed:
                 print("! Step 9")
+                end_time = datetime.now()  # <=== End timing
+                duration = (end_time - start_time).total_seconds()
+
+                self.result_file.write(f"\tDone: {duration:.9f}s\n--------------------------------------------\n")
+                self.result_file.write("")
+                self.result_file.flush()
                 return
             waited += interval
 
@@ -257,6 +263,9 @@ class TopologyConvergencePhase:
 
     def _10_prefix_route_stability(self, delay=5, interval=2):
         waited = 0
+        self.result_file.write("Step 10 Prefix Route Stability\n")
+        self.result_file.flush()
+        start_time = datetime.now()  # <=== Start timing
         def capture():
             return {
                 nid: self.ns.node_cmd(nid, "netdata show")
@@ -274,85 +283,31 @@ class TopologyConvergencePhase:
             print(f"@ {waited:>2}s | Changed: {changed}")
             if not changed:
                 print("! Step 10")
+                end_time = datetime.now()  # <=== End timing
+                duration = (end_time - start_time).total_seconds()
+
+                self.result_file.write(f"\tDone: {duration:.9f}s\n--------------------------------------------\n")
+                self.result_file.flush()
                 return
             waited += interval
         raise AssertionError(f"^Step 10 FAILED: Prefix/Route tables changed → {changed}")
 
+    def _get_node_states(self):
+        states = {}
+        detached = []
+        for node_id in self.ns.nodes().keys():
+            state = self.ns.node_cmd(node_id, "state")[0].strip()
+            states[node_id] = state
+            if state in ["detached", "disabled"]:
+                detached.append((node_id, state))
+        return states, detached
 
-
-    def _10b_topology_troubleshoot(self):
-        print("\n🔍 Step 10_b: Running automatic topology diagnostics...\n")
-
-        def get_state(nid):
-            return self.ns.node_cmd(nid, "state")[0].strip()
-
-        def get_neighbors(nid):
-            try:
-                return self.ns.node_cmd(nid, "neighbor table")
-            except Exception:
-                return []
-
-        def get_router_table(nid):
-            try:
-                return self.ns.node_cmd(nid, "router table")
-            except Exception:
-                return []
-
-        def get_netdata(nid):
-            try:
-                return self.ns.node_cmd(nid, "netdata show")
-            except Exception:
-                return []
-
-        failed_nodes = []
-        leader_id = None
-
-        print("📦 Checking node states...")
-        for nid in self.ns.nodes().keys():
-            state = get_state(nid)
-            print(f"• Node {nid}: {state}")
-            if state == "leader":
-                leader_id = nid
-            if state == "detached":
-                failed_nodes.append(nid)
-
-        if leader_id is None:
-            raise RuntimeError("❌ No leader found in the network!")
-
-        print(f"\n🧭 Leader is node {leader_id}\n")
-
-        print("🧱 Checking router table of the leader...")
-        router_table = get_router_table(leader_id)
-        for line in router_table:
-            print(f"  {line}")
-        if len(router_table) < 5:
-            print("⚠️ Router table seems short — some routes may be missing.")
-
-        print("\n🔍 Checking neighbor tables...")
-        for nid in self.ns.nodes().keys():
-            neighbors = get_neighbors(nid)
-            print(f"\n• Node {nid} neighbors:")
-            for line in neighbors:
-                print(f"   {line}")
-            if len(neighbors) == 0:
-                print("⚠️ Node has no visible neighbors.")
-
-        print("\n🌐 Verifying netdata on the leader...")
-        netdata = get_netdata(leader_id)
-        for line in netdata:
-            print(f"  {line}")
-        if not any("prefix" in line.lower() for line in netdata):
-            print("⚠️ No prefix registered in netdata!")
-
-        if failed_nodes:
-            raise AssertionError(f"^Step 10_b FAILED: Detached nodes → {failed_nodes}")
-        else:
-            print(
-                "\n✅ Step 10_b: Topology health check passed — all nodes are attached and reachable at routing level.")
 
     def _11_end_to_end_ping(self, interval=2, datasize=4, count=1):
         print("\n🚀 Step: End-to-End Ping and CoAP Test...\n")
-
+        self.result_file.write("Step 11: End to end Ping&CoAP\n")
+        self.result_file.flush()
+        start_time = datetime.now()  # <=== Start timing
         nodes = list(self.ns.nodes().keys())
         pending_pings = []
 
@@ -421,13 +376,9 @@ class TopologyConvergencePhase:
             raise AssertionError(f"End-to-End Ping FAILED: {failed_pings}")
         else:
             print("\n✅ All nodes reachable by ping!")
+            end_time = datetime.now()  # <=== End timing
+            duration = (end_time - start_time).total_seconds()
 
-    def _get_node_states(self):
-        states = {}
-        detached = []
-        for node_id in self.ns.nodes().keys():
-            state = self.ns.node_cmd(node_id, "state")[0].strip()
-            states[node_id] = state
-            if state in ["detached", "disabled"]:
-                detached.append((node_id, state))
-        return states, detached
+            self.result_file.write(f"\tDone: {duration:.6f}")
+            self.result_file.flush()
+

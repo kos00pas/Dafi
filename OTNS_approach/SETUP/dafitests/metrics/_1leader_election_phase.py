@@ -76,7 +76,7 @@ class LeaderElectionPhase:
 
     def _2_single_leader_verification(self, max_wait=1200, interval=1):
         # Write Step Title (only once at the start)
-        self.result_file.write("\nStep 2: Single Leader Verification\n")
+        self.result_file.write("Step 2: Single Leader Verification\n")
         self.result_file.flush()
 
         waited = 0
@@ -110,7 +110,7 @@ class LeaderElectionPhase:
 
     def _3_valid_roles(self, max_wait=1200, interval=1):
         # Write Step Title (only once at the start)
-        self.result_file.write("\nStep 3: Valid Roles Across Nodes\n")
+        self.result_file.write("Step 3: Valid Roles Across Nodes\n")
         self.result_file.flush()
         start_time = datetime.now()  # <=== Start timing
 
@@ -148,7 +148,7 @@ class LeaderElectionPhase:
 
     def _4_rloc16_stability(self, delay=5, max_wait=1200, interval=1):
         # Write Step Title (only once at the start)
-        self.result_file.write("\nStep 4: RLOC16 Stability\n")
+        self.result_file.write("Step 4: RLOC16 Stability\n")
         self.result_file.flush()
         start_time = datetime.now()  # <=== Start timing
 
@@ -193,7 +193,7 @@ class LeaderElectionPhase:
     def _5_ipv6_address_stability(self, delay=5, max_wait=1200, interval=1):
         # Write Step Title (only once at the start)
         start_time = datetime.now()  # <=== Start timing
-        self.result_file.write("\nStep 5: IPv6 Address Stability\n")
+        self.result_file.write("Step 5: IPv6 Address Stability\n")
         self.result_file.flush()
 
         waited = 0
@@ -239,7 +239,7 @@ class LeaderElectionPhase:
     def _6_state_stability(self, delay=5, max_wait=1200, interval=1):
         # Write Step Title (only once at the start)
         start_time = datetime.now()  # <=== Start timing
-        self.result_file.write("\nStep 6: State Stability\n")
+        self.result_file.write("Step 6: State Stability\n")
         self.result_file.flush()
 
         waited = 0
@@ -284,7 +284,7 @@ class LeaderElectionPhase:
 
     def _7_routing_message_silence(self, delay=5, max_wait=1200, interval=1):
         # Write Step Title (only once at the start)
-        self.result_file.write("\nStep 7: Routing Message Silence\n")
+        self.result_file.write("Step 7: Routing Message Silence\n")
         self.result_file.flush()
         start_time = datetime.now()  # <=== Start timing
 
@@ -323,7 +323,7 @@ class LeaderElectionPhase:
                 end_time = datetime.now()  # <=== End timing
                 duration = (end_time - start_time).total_seconds()
 
-                self.result_file.write(f"\tDone: {duration:.9f}s\n--------------------------------------------\n")
+                self.result_file.write(f"\tDone: {duration:.9f}s")
                 self.result_file.flush()
                 return
 
