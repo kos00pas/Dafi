@@ -90,15 +90,18 @@ class Experiment:
         # if not success:
         #     raise RuntimeError("$ RPL Stability Phase failed.")
 
-        # 📦 3&6 Step 17&18&19: Packet Delivery Ratio (CoAP) Analysis
-        phase_packet_delivery = PDR_ipv6(self.ns)  # from _36packet_delivery_phase.py
-        success, coap_results = phase_packet_delivery.run()
+        phase_packet_delivery = PDR_ipv6(self.ns)
+        success, coap_results, role_batches = phase_packet_delivery.run()
         if not success:
             raise RuntimeError("$ Packet Delivery Phase failed.")
 
-        # 🛰️ 7 Step 19: 6LoWPAN Header Compression Efficiency
-        phase_lowpan = LowpanCompressionPhase(self.ns)  # from _7_lowpan_compression_phase.py
-        phase_lowpan.run(coap_results)
+        phase_lowpan = LowpanCompressionPhase(self.ns)
+
+        for role_pair, pairs in role_batches.items():
+            if not pairs:
+                continue
+            print(f"🔵 Running compression experiment for role-pair: {role_pair}")
+            phase_lowpan.run(coap_results)
 
         # # 📡5  Step 14-16: Multicast Propagation Delay (MPD) Measurement
         # phase_mcast = MulticastDelayPhase(self.ns)  # from _5multicast_delay_phase.py

@@ -21,40 +21,37 @@ class LowpanCompressionPhase:
     def __init__(self, ns, pcap_file="./lowpan.pcap"):
         self.ns = ns
         self.pcap_file = pcap_file
+        self.global_role_pair_compression = {}  # <-- only here!
+        self.role_pair_compression = {}
 
         print("Step 19! Starting 6LoWPAN Compression Efficiency Phase...")
 
     def run(self, coap_pairs):
-        print("\n🚞 Step 19: Analyzing 6LoWPAN Header Compression from PCAP...\n")
 
-        # Step 0: Start full communication once to learn node roles
+        print("\n🚞 Step 19: Analyzing 6LoWPAN Header Compression from PCAP...\n")
+        print(coap_pairs) ;
+        # Only one big communication at start
         self._start_coap_communication(coap_pairs)
 
-        # Step 1: Now safe to split coap_pairs into role-pair batches
-        self.role_pair_compression = {}
         role_batches = self.split_coap_pairs_by_role_pairs(coap_pairs)
 
-        # Step 2: For each role-pair batch, run separately
         for role_pair, pairs in role_batches.items():
             if not pairs:
-                continue  # Skip empty batches
+                continue  # Skip empty
+
+            # print(role_pair,pairs) ; continue
 
             src_role, dst_role = role_pair
-            print(f"\n🔵 Starting Experiment: {src_role.upper()} ➔ {dst_role.upper()} with {len(pairs)} pairs\n")
-
-            # Start only for this batch
-            self._start_coap_communication(pairs)
-
+            print(f"\n🔵 Analyzing Experiment: {src_role.upper()} ➔ {dst_role.upper()} with {len(pairs)} pairs\n")
+            # Analyze
             print("\n⏳ Waiting a few seconds to allow PCAP to flush...\n")
             self.ns.go(10)
             time.sleep(2)
 
-            # Save specific PCAP
             pcap_filename = f"lowpan_{src_role}_to_{dst_role}.pcap"
             shutil.copyfile("current.pcap", pcap_filename)
             print(f"✅ Copied current.pcap → {pcap_filename}")
 
-            # Analyze that PCAP
             self.pcap_file = pcap_filename
             self._analyze_pcap_with_scapy()
 
@@ -62,6 +59,25 @@ class LowpanCompressionPhase:
 
             print(f"\n✅ Finished Experiment: {src_role.upper()} ➔ {dst_role.upper()}\n")
             print("=" * 60)
+        exit()
+        self._print_final_summary()
+
+    def _print_final_summary(self):
+        print("\n📋 📊 FINAL COMPRESSION SUMMARY ACROSS ALL ROLE-PAIRS 📊 📋\n")
+
+        if not self.global_role_pair_compression:
+            print("⚠️ No global compression data collected.\n")
+            return
+
+        print(f"{'SOURCE ➔ DESTINATION':<25} | {'#PACKETS':<10} | {'AVG COMPRESSION RATIO':<20}")
+        print("-" * 65)
+        for role_pair, ratios in sorted(self.global_role_pair_compression.items()):
+            src_role, dst_role = role_pair
+            num_packets = len(ratios)
+            avg_compression = sum(ratios) / num_packets if num_packets > 0 else 0
+            print(f"{src_role.upper()} ➔ {dst_role.upper():<15} | {num_packets:<10} | {avg_compression:.2f}")
+        print("-" * 65)
+        print("✅ Final compression analysis completed.\n")
 
     def _print_summary(self):
         print("\n📋 Final Summary Report:")
@@ -127,6 +143,8 @@ class LowpanCompressionPhase:
                 payload = f"coap-{src}-to-{dst}"
 
                 cmd = f'coap put {dst_mleid} test-resource con {payload}'
+                print(f"Sending CoAP payload: coap-{src}-to-{dst}")
+
                 res = self.ns.node_cmd(src, cmd)
                 print(f"✅ CoAP put from Node {src} ➔ Node {dst}")
 
@@ -145,6 +163,8 @@ class LowpanCompressionPhase:
         self.ns.go(wait_time)
 
     def _analyze_pcap_with_scapy(self):
+        # self.role_pair_compression = {}
+
         print("\n🔍 Advanced Analysis: Parsing 802.15.4 + 6LoWPAN IPHC using Scapy...\n")
 
         packets = rdpcap(self.pcap_file)
@@ -166,7 +186,12 @@ class LowpanCompressionPhase:
                     continue
 
                 frame_size = len(pkt)
-                payload = bytes(pkt.payload.payload)
+                full_bytes = bytes(pkt.payload.payload)
+                skip_header_bytes = 20  # Assume at least 20 bytes of headers to skip
+                if len(full_bytes) <= skip_header_bytes:
+                    continue
+
+                payload = full_bytes[skip_header_bytes:]
                 payload_size = len(payload)
 
                 iphc_info = self._parse_iphc_fields(payload)
@@ -245,6 +270,12 @@ class LowpanCompressionPhase:
                           f"{len(ratios)} packets, "
                           f"Avg Compression Ratio = {avg_role_ratio:.2f}")
                 print("\n===== End of Role-Pair Summary =====\n")
+
+        if self.role_pair_compression:
+            for role_pair, ratios in self.role_pair_compression.items():
+                if role_pair not in self.global_role_pair_compression:
+                    self.global_role_pair_compression[role_pair] = []
+                self.global_role_pair_compression[role_pair].extend(ratios)
 
     def _analyze_lowpan_udp(self):
         print("\n🔍 Deep Analysis: Extracting UDP/CoAP packets from lowpan.pcap...\n")

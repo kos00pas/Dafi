@@ -11,11 +11,39 @@ class PDR_ipv6:
         self._setup_coap_servers()
         pairs = self._select_node_pairs()
         results = self._send_coap_messages(pairs)
+
+        role_batches = self._split_pairs_by_role(pairs)
+
         success = self._analyze_results(results)
         print("\n✅ Packet Delivery Phase completed successfully!\n")
         print("\nStep 17 END\n")
+
         self._analyze_ipv6_forwarding_efficiency(results)
-        return success, results
+
+        return success, results, role_batches
+
+    def _split_pairs_by_role(self, pairs):
+        role_pair_batches = {
+            ('leader', 'router'): [],
+            ('leader', 'child'): [],
+            ('router', 'router'): [],
+            ('router', 'child'): [],
+            ('router', 'leader'): [],
+            ('child', 'router'): [],
+            ('child', 'leader'): [],
+        }
+
+        for src, dst in pairs:
+            src_role = self.ns.node_cmd(src, "state")[0].strip()
+            dst_role = self.ns.node_cmd(dst, "state")[0].strip()
+            role_pair = (src_role, dst_role)
+
+            if role_pair in role_pair_batches:
+                role_pair_batches[role_pair].append((src, dst))  # <-- Keep (node_id, node_id) tuples
+            else:
+                print(f"⚠️ Unknown role-pair ({src_role} ➔ {dst_role}) for nodes {src} ➔ {dst}")
+
+        return role_pair_batches
 
     def _analyze_ipv6_forwarding_efficiency(self, results):
         print("\n🛰️ Step 18 Analyzing IPv6 Forwarding Efficiency — Node Pairs:\n")
