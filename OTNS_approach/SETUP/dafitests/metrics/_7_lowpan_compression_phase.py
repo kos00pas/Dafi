@@ -175,9 +175,9 @@ class LowpanCompressionPhase:
                     udp_start = 2  # after minimal IPHC header
                     if len(payload) >= udp_start + 8:
                         coap_payload = payload[udp_start + 8:]  # after UDP header
-                        payload_str = ''.join(chr(b) for b in coap_payload if 32 <= b <= 126)
+                        payload_str = ''.join(chr(b) for b in payload if 32 <= b <= 126)
 
-                        if payload_str.startswith("coap-"):
+                        if "coap-" in payload_str:
                             parts = payload_str.split("-")
                             src_id = int(parts[1])
                             dst_id = int(parts[3])
