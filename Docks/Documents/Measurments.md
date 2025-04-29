@@ -94,28 +94,39 @@
 # 7- 6LoWPAN Compression Efficiency,
 ```text 
     🚞 Step 19 (needs Steps 1–11)
-        This step reuses the CoAP traffic and delivery traces generated during Step 17. It extends the analysis by inspecting packet size and 6LoWPAN header compression using PCAP captures to assess protocol efficiency on constrained links.
-        
-            1. Capture 6LoWPAN Packet Sizes  
-             - Use OTNS with packet logging or Wireshark with IEEE 802.15.4 + 6LoWPAN support.
-              - For each CoAP packet, extract:
-                -  Frame size
-                -  Compressed IPv6/UDP header size
-                -  Payload length
-        
-            2. Compare Raw vs. Compressed Headers  
-               - Reference uncompressed size: `IPv6 (40 bytes) + UDP (8 bytes) = 48 bytes`
-               - Compute: `Compression Ratio = Compressed Header Size / 48`
-               - Look for:
-                 - CID (Context ID) usage
-                 - Address elision (e.g., link-local or shared prefix)
-                 - Port compression (well-known ports)
-        
-            3. Analyze Compression Behavior by Topology  
-               - Use node pairs from Step 17:
-               - Compare:
-                 - Average header size per role pair
-                 - Compression consistency
-                 - Impact of routing path length on header efficiency
+        This step reuses the CoAP traffic and delivery traces generated during Step 17.  
+        It extends the analysis by inspecting packet size and 6LoWPAN header compression using PCAP captures to assess protocol efficiency on constrained links.
+            1. Capture 6LoWPAN Packet Sizes
+                   - Use OTNS with packet logging (capturing to `current.pcap`, then copying it as `lowpan.pcap`).
+                   - After Step 17 CoAP communication, copy `current.pcap` ➔ `lowpan.pcap`.
+                   - For each packet inside `lowpan.pcap`:
+                       - Check if it is a UDP packet with destination port 5683 (manual CoAP detection).
+                       - If yes, extract:
+                         - Frame size (full IEEE 802.15.4 packet size)
+                         - Compressed IPv6/UDP header size (from 6LoWPAN layer)
+                         - Payload length (from UDP layer)
+                
+            2. Compare Raw vs. Compressed Headers
+                   - Reference uncompressed size is `IPv6 (40 bytes) + UDP (8 bytes) = 48 bytes`.
+                   - Compute Compression Ratio:
+                         ```
+                         Compression Ratio = Compressed Header Size / 48
+                         ```
+                   - Additionally, inspect:
+                     - CID (Context ID) usage (if visible from 6LoWPAN fields)
+                     - Address elision (e.g., if link-local addresses are compressed)
+                     - Port compression (e.g., if ports are elided or compressed)
+
+            3. Analyze Compression Behavior by Topology
+                   - Use the same node pairs generated in Step 17 (e.g., L➔R, L➔C, R➔R, R➔C).
+                   - Group the compression results according to role-pairs:
+                     - Leader → Router
+                     - Leader → Child
+                     - Router → Router
+                     - Router → Child
+                   - Compare:
+                     - Average compressed header size per role pair.
+                     - Compression ratio consistency across pairs.
+                     - Impact of routing hop count (if known) on compression efficiency.
 ```
 
