@@ -41,7 +41,7 @@ class LowpanCompressionPhase:
         print("✅ Copied current.pcap → lowpan.pcap")
 
         self._analyze_pcap_with_scapy()
-        self._analyze_lowpan_udp()
+        # self._analyze_lowpan_udp()
         self._print_summary()
 
     def _print_summary(self):
@@ -127,6 +127,7 @@ class LowpanCompressionPhase:
 
         mac_overhead = 15
         packet_counter = 0
+        coap_detected_counter = 0
         compression_ratios = []
         stats = {
             "cid_used": 0,
@@ -147,7 +148,7 @@ class LowpanCompressionPhase:
                 iphc_info = self._parse_iphc_fields(payload)
 
                 if iphc_info:
-                    compressed_hdr_size = 2  # Minimal IPHC header size (Dispatch + Encoding byte)
+                    compressed_hdr_size = 2
                     iphc_summary = f"TF={iphc_info['tf']} NH={iphc_info['nh']} HLIM={iphc_info['hlim']} SAM={iphc_info['sam']} DAM={iphc_info['dam']}"
                     self._update_compression_statistics(stats, iphc_info)
                 else:
@@ -172,29 +173,31 @@ class LowpanCompressionPhase:
 
                 # ===== NEW: try to parse CoAP payload to map src ➔ dst roles =====
                 try:
-                    udp_start = 2  # after minimal IPHC header
-                    if len(payload) >= udp_start + 8:
-                        coap_payload = payload[udp_start + 8:]  # after UDP header
-                        payload_str = ''.join(chr(b) for b in payload if 32 <= b <= 126)
+                    payload_str = ''.join(chr(b) for b in payload if 32 <= b <= 126)
 
-                        if "coap-" in payload_str:
-                            parts = payload_str.split("-")
-                            src_id = int(parts[1])
-                            dst_id = int(parts[3])
+                    print(f"🔎 Packet {packet_counter}: Payload string candidate = {payload_str}")
 
-                            src_role = self.node_roles.get(src_id, "unknown")
-                            dst_role = self.node_roles.get(dst_id, "unknown")
-                            role_pair = (src_role, dst_role)
+                    if "coap-" in payload_str:
+                        parts = payload_str.split("-")
+                        src_id = int(parts[1])
+                        dst_id = int(parts[3])
 
-                            if role_pair not in self.role_pair_compression:
-                                self.role_pair_compression[role_pair] = []
+                        src_role = self.node_roles.get(src_id, "unknown")
+                        dst_role = self.node_roles.get(dst_id, "unknown")
+                        role_pair = (src_role, dst_role)
 
-                            self.role_pair_compression[role_pair].append(compression_ratio)
+                        if role_pair not in self.role_pair_compression:
+                            self.role_pair_compression[role_pair] = []
+
+                        self.role_pair_compression[role_pair].append(compression_ratio)
+                        coap_detected_counter += 1
+
+                        print(f"✅ Detected CoAP Packet: src={src_id}({src_role}) ➔ dst={dst_id}({dst_role}) "
+                              f"CompressionRatio={compression_ratio:.2f}")
 
                 except Exception as e:
-                    print("skip packet if parsing CoAP payload fails")
+                    print(f"⚠️ Skip packet {packet_counter} if parsing CoAP payload fails")
                     pass
-                # ================================================================
 
         if packet_counter == 0:
             print("❌ No 6LoWPAN IPHC packets detected!")
@@ -207,9 +210,9 @@ class LowpanCompressionPhase:
             print(f"✅ Source Address Elided: {stats['source_address_elided']} packets")
             print(f"✅ Destination Address Elided: {stats['dest_address_elided']} packets")
             print(f"✅ UDP Header Compressed: {stats['udp_header_compressed']} packets")
+            print(f"✅ CoAP Packets Detected: {coap_detected_counter}")
             print("===== End of 6LoWPAN Summary =====\n")
 
-            # ===== NEW: print per-role-pair compression stats =====
             if self.role_pair_compression:
                 print("\n===== Compression by Role-Pair =====\n")
                 for role_pair, ratios in self.role_pair_compression.items():
