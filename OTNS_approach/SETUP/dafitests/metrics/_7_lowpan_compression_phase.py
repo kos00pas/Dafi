@@ -141,87 +141,64 @@ class LowpanCompressionPhase:
     def _analyze_pcap_with_scapy(self):
         print("\n🔍 Advanced Analysis: Parsing 802.15.4 + 6LoWPAN IPHC using Scapy...\n")
 
-        from scapy.all import rdpcap
-        from scapy.layers.dot15d4 import Dot15d4Data
-
-        def parse_lowpan_iphc(packet_bytes):
-            """Very basic 6LoWPAN IPHC parsing."""
-            if len(packet_bytes) < 2:
-                return None
-
-            first_byte = packet_bytes[0]
-            second_byte = packet_bytes[1]
-
-            dispatch = (first_byte & 0b11100000) >> 5
-            if dispatch != 0b011:
-                return None  # Not IPHC
-
-            tf = (first_byte & 0b00011000) >> 3
-            nh = (first_byte & 0b00000100) >> 2
-            hlim = (first_byte & 0b00000011)
-
-            cid = (second_byte & 0b10000000) >> 7
-            sac = (second_byte & 0b01000000) >> 6
-            sam = (second_byte & 0b00110000) >> 4
-            m = (second_byte & 0b00001000) >> 3
-            dac = (second_byte & 0b00000100) >> 2
-            dam = (second_byte & 0b00000011)
-
-            return {
-                "tf": tf,
-                "nh": nh,
-                "hlim": hlim,
-                "cid": cid,
-                "sac": sac,
-                "sam": sam,
-                "m": m,
-                "dac": dac,
-                "dam": dam,
-            }
-
         packets = rdpcap(self.pcap_file)
 
-        mac_overhead = 15  # Approximate MAC header overhead
+        mac_overhead = 15
         packet_counter = 0
-        results = []
+        compression_ratios = []
+        stats = {
+            "cid_used": 0,
+            "source_address_elided": 0,
+            "dest_address_elided": 0,
+            "udp_header_compressed": 0,
+        }
 
         with open("lowpan_packets.txt", "w") as f:
             for idx, pkt in enumerate(packets):
                 if not pkt.haslayer(Dot15d4Data):
-                    continue  # Only analyze Data frames
+                    continue
 
                 frame_size = len(pkt)
                 payload = bytes(pkt.payload.payload)
                 payload_size = len(payload)
 
-                iphc_info = parse_lowpan_iphc(payload)
+                iphc_info = self._parse_iphc_fields(payload)
 
                 if iphc_info:
-                    compressed_hdr_size = 2  # Minimal IPHC header size
+                    compressed_hdr_size = 2  # Minimal IPHC header size (Dispatch + Encoding byte)
                     iphc_summary = f"TF={iphc_info['tf']} NH={iphc_info['nh']} HLIM={iphc_info['hlim']} SAM={iphc_info['sam']} DAM={iphc_info['dam']}"
+                    self._update_compression_statistics(stats, iphc_info)
                 else:
-                    compressed_hdr_size = frame_size - mac_overhead - payload_size
+                    compressed_hdr_size = max(0, frame_size - mac_overhead - payload_size)
                     iphc_summary = "N/A"
 
+                compression_ratio = self._calculate_compression_ratio(compressed_hdr_size)
+                compression_ratios.append(compression_ratio)
+
                 packet_counter += 1
+
                 result_line = (f"• Packet {packet_counter}: Frame={frame_size}B, "
                                f"CompHeader={compressed_hdr_size}B, "
-                               f"Payload={payload_size}B, IPHC={iphc_summary}")
+                               f"Payload={payload_size}B, "
+                               f"CompressionRatio={compression_ratio:.2f}, "
+                               f"IPHC={iphc_summary}")
 
                 payload_hex = " ".join(f"{b:02x}" for b in payload)
 
                 f.write(result_line + "\n")
                 f.write(f"Payload Hex: {payload_hex}\n\n")
 
-                results.append(result_line)
-
         if packet_counter == 0:
             print("❌ No 6LoWPAN IPHC packets detected!")
         else:
+            avg_ratio = sum(compression_ratios) / len(compression_ratios)
             print("\n===== 6LoWPAN General Packet Summary =====\n")
-            # for line in results:
-            #     print(line)
-            print(f"\n✅ Successfully parsed {packet_counter} packets!\n")
+            print(f"✅ Successfully parsed {packet_counter} packets!")
+            print(f"✅ Average Compression Ratio: {avg_ratio:.2f}")
+            print(f"✅ CID usage: {stats['cid_used']} packets")
+            print(f"✅ Source Address Elided: {stats['source_address_elided']} packets")
+            print(f"✅ Destination Address Elided: {stats['dest_address_elided']} packets")
+            print(f"✅ UDP Header Compressed: {stats['udp_header_compressed']} packets")
             print("===== End of 6LoWPAN Summary =====\n")
 
     def _analyze_lowpan_udp(self):
@@ -276,3 +253,54 @@ class LowpanCompressionPhase:
             #     print(line)
             print(f"\n✅ Successfully extracted {coap_packet_counter} CoAP packets!\n")
             print("===== End of CoAP Summary =====\n")
+
+    # ---------------------------------------------------------
+    def _parse_iphc_fields(self, packet_bytes):
+        """Parse 6LoWPAN IPHC header fields."""
+        if len(packet_bytes) < 2:
+            return None
+
+        first_byte = packet_bytes[0]
+        second_byte = packet_bytes[1]
+
+        dispatch = (first_byte & 0b11100000) >> 5
+        if dispatch != 0b011:
+            return None  # Not IPHC
+
+        tf = (first_byte & 0b00011000) >> 3
+        nh = (first_byte & 0b00000100) >> 2
+        hlim = (first_byte & 0b00000011)
+
+        cid = (second_byte & 0b10000000) >> 7
+        sac = (second_byte & 0b01000000) >> 6
+        sam = (second_byte & 0b00110000) >> 4
+        m = (second_byte & 0b00001000) >> 3
+        dac = (second_byte & 0b00000100) >> 2
+        dam = (second_byte & 0b00000011)
+
+        return {
+            "tf": tf,
+            "nh": nh,
+            "hlim": hlim,
+            "cid": cid,
+            "sac": sac,
+            "sam": sam,
+            "m": m,
+            "dac": dac,
+            "dam": dam,
+        }
+    def _calculate_compression_ratio(self, compressed_hdr_size):
+        """Calculate compression ratio based on standard uncompressed IPv6+UDP header (48 bytes)."""
+        uncompressed_size = 48.0  # IPv6 (40B) + UDP (8B)
+        return compressed_hdr_size / uncompressed_size
+
+    def _update_compression_statistics(self, stats, iphc_info):
+        """Update statistics based on parsed IPHC fields."""
+        if iphc_info['cid'] == 1:
+            stats['cid_used'] += 1
+        if iphc_info['sam'] == 3:
+            stats['source_address_elided'] += 1
+        if iphc_info['dam'] == 3:
+            stats['dest_address_elided'] += 1
+        if iphc_info['nh'] == 1:
+            stats['udp_header_compressed'] += 1
