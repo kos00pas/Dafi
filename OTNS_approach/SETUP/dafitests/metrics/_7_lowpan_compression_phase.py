@@ -2,7 +2,8 @@ import pyshark
 import time
 import shutil
 import subprocess
-
+from scapy.all import rdpcap
+from scapy.layers.dot15d4 import Dot15d4Data
 """Compression Ratio = compressed / uncompressed = ~0.28
 This matches real-world OpenThread/6LoWPAN expectations:
 
@@ -36,6 +37,31 @@ class LowpanCompressionPhase:
         print("✅ Copied current.pcap → lowpan.pcap")
 
         self._analyze_pcap_with_scapy()
+        self._analyze_lowpan_udp()
+        self._print_summary()
+
+    def _print_summary(self):
+            print("\n📋 Final Summary Report:")
+
+            # Read and print lowpan_packets.txt
+            print("\n📝 6LoWPAN General Packet Analysis (Frame, Compression, Payload):\n")
+            try:
+                with open("lowpan_packets.txt", "r") as f:
+                    lines = f.readlines()
+                    for line in lines:
+                        print(line.strip())
+            except Exception as e:
+                print(f"⚠️ Could not read lowpan_packets.txt: {e}")
+
+            # Read and print lowpan_udp_coap_packets.txt
+            print("\n📝 CoAP-specific UDP Packets (Destination Port 5683):\n")
+            try:
+                with open("lowpan_udp_coap_packets.txt", "r") as f:
+                    lines = f.readlines()
+                    for line in lines:
+                        print(line.strip())
+            except Exception as e:
+                print(f"⚠️ Could not read lowpan_udp_coap_packets.txt: {e}")
 
         # Step 3: Open lowpan.pcap and print the first packet
         # self._dump_all_packets_to_txt()
@@ -110,7 +136,6 @@ class LowpanCompressionPhase:
             print("❌ No packets found in PCAP.")
         finally:
             capture.close()
-
 
     def _analyze_pcap_with_scapy(self):
         print("\n🔍 Advanced Analysis: Parsing 802.15.4 + 6LoWPAN IPHC using Scapy...\n")
@@ -197,3 +222,51 @@ class LowpanCompressionPhase:
         else:
             print(f"\n✅ Successfully parsed {packet_counter} packets using Scapy!")
 
+    def _analyze_lowpan_udp(self):
+        print("\n🔍 Deep Analysis: Extracting UDP/CoAP packets from lowpan.pcap...\n")
+
+        packets = rdpcap(self.pcap_file)
+
+        packet_counter = 0
+        coap_packet_counter = 0
+
+        with open("lowpan_udp_coap_packets.txt", "w") as f:
+            for idx, pkt in enumerate(packets):
+                if not pkt.haslayer(Dot15d4Data):
+                    continue  # Only analyze Data frames
+
+                payload = bytes(pkt.payload.payload)
+                if len(payload) < 10:  # Minimal size for lowpan+UDP headers
+                    continue
+
+                # Skip first 2 bytes (IPHC compressed Dispatch and Encoding)
+                udp_start = 2
+
+                if len(payload) < udp_start + 8:
+                    continue  # Not enough bytes for UDP header
+
+                try:
+                    source_port = int.from_bytes(payload[udp_start:udp_start+2], byteorder='big')
+                    dest_port = int.from_bytes(payload[udp_start+2:udp_start+4], byteorder='big')
+                    udp_length = int.from_bytes(payload[udp_start+4:udp_start+6], byteorder='big')
+
+                    # Check if destination port == 5683 (CoAP)
+                    if dest_port == 5683:
+                        coap_payload = payload[udp_start+8:]
+
+                        f.write(f"• CoAP Packet {coap_packet_counter+1}:\n")
+                        f.write(f"   Source Port: {source_port}\n")
+                        f.write(f"   Destination Port: {dest_port}\n")
+                        f.write(f"   UDP Length: {udp_length}\n")
+                        f.write(f"   CoAP Payload (hex): {' '.join(f'{b:02x}' for b in coap_payload)}\n\n")
+
+                        coap_packet_counter += 1
+
+                    packet_counter += 1
+
+                except Exception as e:
+                    print(f"⚠️ Parsing error at packet {idx+1}: {e}")
+                    continue
+
+        print(f"\n✅ Total packets checked: {packet_counter}")
+        print(f"✅ Total CoAP packets (port 5683) found: {coap_packet_counter}")
