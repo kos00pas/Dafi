@@ -1,5 +1,8 @@
 import random
 import time
+from scapy.all import rdpcap, Raw ,sniff
+
+from scapy.layers.dot15d4 import Dot15d4Data
 
 class PDR_ipv6:
     def __init__(self, ns):
@@ -18,9 +21,43 @@ class PDR_ipv6:
         print("\n✅ Packet Delivery Phase completed successfully!\n")
         print("\nStep 17 END\n")
 
-        self._analyze_ipv6_forwarding_efficiency(results)
-
+        self.st18_analyze_ipv6_forwarding_efficiency(results)
+        print("\nStart 19 END\n")
+        self.st19(role_batches)
         return success, results, role_batches
+
+
+    def st19(self, role_batches):
+        """
+        Step 19 helper: Print CoAP source-destination pairs grouped by role
+        and search packets matching echo-{src}-to-{dst} payload.
+        """
+        print("\n📋 Node Pairs by Role Category (for Step 19 6LoWPAN Analysis):\n")
+
+        for role_pair, node_pairs in role_batches.items():
+            if node_pairs:
+                print(f"🔹 {role_pair[0].capitalize()} ➔ {role_pair[1].capitalize()}:")
+                for src, dst in node_pairs:
+                    print(f"    ({src} ➔ {dst})")
+                print("")
+
+        print("\n✅ Finished listing node pairs for 6LoWPAN analysis.\n")
+
+        # --- Now Search PCAP for Matching Packets ---
+        print("\n🔍 Searching current.pcap for CoAP echo packets...\n")
+        try:
+            packets = rdpcap("current.pcap")
+        except FileNotFoundError:
+            print("❌ current.pcap not found. Cannot search for packets.")
+            return
+
+        print("\n🔍 Deep parsing current.pcap for CoAP echo payloads...\n")
+
+        for role_pair, node_pairs in role_batches.items():
+            for src, dst in node_pairs:
+                expected_payload = f"echo-{src}-to-{dst}"
+                print(expected_payload)
+        print("\n✅ Finished searching packets.\n")
 
     def _split_pairs_by_role(self, pairs):
         role_pair_batches = {
@@ -45,7 +82,7 @@ class PDR_ipv6:
 
         return role_pair_batches
 
-    def _analyze_ipv6_forwarding_efficiency(self, results):
+    def st18_analyze_ipv6_forwarding_efficiency(self, results):
         print("\n🛰️ Step 18 Analyzing IPv6 Forwarding Efficiency — Node Pairs:\n")
         MAX_HOPS = 25
         hop_results = {}

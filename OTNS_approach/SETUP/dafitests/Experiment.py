@@ -95,13 +95,9 @@ class Experiment:
         if not success:
             raise RuntimeError("$ Packet Delivery Phase failed.")
 
-        phase_lowpan = LowpanCompressionPhase(self.ns)
-
-        for role_pair, pairs in role_batches.items():
-            if not pairs:
-                continue
-            print(f"🔵 Running compression experiment for role-pair: {role_pair}")
-            phase_lowpan.run(coap_results)
+        # phase_lowpan = LowpanCompressionPhase(self.ns)
+        # print(role_batches)
+        # phase_lowpan.run( role_batches)
 
         # # 📡5  Step 14-16: Multicast Propagation Delay (MPD) Measurement
         # phase_mcast = MulticastDelayPhase(self.ns)  # from _5multicast_delay_phase.py
