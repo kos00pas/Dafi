@@ -111,6 +111,7 @@ class LowpanCompressionPhase:
         finally:
             capture.close()
 
+
     def _analyze_pcap_with_scapy(self):
         print("\n🔍 Advanced Analysis: Parsing 802.15.4 + 6LoWPAN IPHC using Scapy...\n")
 
@@ -157,28 +158,42 @@ class LowpanCompressionPhase:
         mac_overhead = 15  # Approximate MAC header overhead
         packet_counter = 0
 
-        for idx, pkt in enumerate(packets):
-            if not pkt.haslayer(Dot15d4Data):
-                continue  # Only analyze Data frames
+        with open("lowpan_packets.txt", "w") as f:
+            for idx, pkt in enumerate(packets):
+                if not pkt.haslayer(Dot15d4Data):
+                    continue  # Only analyze Data frames
 
-            frame_size = len(pkt)  # Full frame size in bytes
-            payload = bytes(pkt.payload.payload)
-            payload_size = len(payload)
+                frame_size = len(pkt)  # Full frame size in bytes
+                payload = bytes(pkt.payload.payload)
+                payload_size = len(payload)
 
-            iphc_info = parse_lowpan_iphc(payload)
+                iphc_info = parse_lowpan_iphc(payload)
 
-            if iphc_info:
-                compressed_hdr_size = 2  # At least 2 bytes (Dispatch + Encoding) + possible inline fields
-                iphc_summary = f"TF={iphc_info['tf']} NH={iphc_info['nh']} HLIM={iphc_info['hlim']} SAM={iphc_info['sam']} DAM={iphc_info['dam']}"
-            else:
-                compressed_hdr_size = frame_size - mac_overhead - payload_size
-                iphc_summary = "N/A"
+                if iphc_info:
+                    compressed_hdr_size = 2  # Minimal IPHC header size
+                    iphc_summary = f"TF={iphc_info['tf']} NH={iphc_info['nh']} HLIM={iphc_info['hlim']} SAM={iphc_info['sam']} DAM={iphc_info['dam']}"
+                else:
+                    compressed_hdr_size = frame_size - mac_overhead - payload_size
+                    iphc_summary = "N/A"
 
-            packet_counter += 1
-            print(
-                f"• Packet {packet_counter}: Frame={frame_size}B, CompHeader={compressed_hdr_size}B, Payload={payload_size}B, IPHC={iphc_summary}")
+                packet_counter += 1
+                # Build the line
+                line = (f"• Packet {packet_counter}: Frame={frame_size}B, "
+                        f"CompHeader={compressed_hdr_size}B, "
+                        f"Payload={payload_size}B, IPHC={iphc_summary}")
+
+                # Build payload hex dump
+                payload_hex = " ".join(f"{b:02x}" for b in payload)
+
+                # Write to file
+                f.write(line + "\n")
+                f.write(f"Payload Hex: {payload_hex}\n\n")
+
+                # Optional print to console (shorter)
+                print(line)
 
         if packet_counter == 0:
             print("❌ No 6LoWPAN IPHC packets detected!")
         else:
             print(f"\n✅ Successfully parsed {packet_counter} packets using Scapy!")
+
