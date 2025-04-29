@@ -116,20 +116,28 @@ class LowpanCompressionPhase:
         end_time = datetime.now()  # <=== End timing
         duration = (end_time - start_time).total_seconds()
 
+
+        # Summary
+        if compressed_header_sizes:
+            avg_header = statistics.mean(compressed_header_sizes)
+            avg_efficiency = statistics.mean(compression_efficiencies) * 100
+            avg_ratio = statistics.mean(compression_ratios) * 100
+
+            print("\n=== Summary (Mean Values) ===")
+            print(f"Average Compressed Header Size: {avg_header:.2f} bytes")
+            print(f"Average Compression Efficiency: {avg_efficiency:.2f}%")
+            print(f"Average Compression Ratio: {avg_ratio:.2f}%")
+
+            self.result_file.write("\n\tSummary (Mean Values) ===\n")
+            self.result_file.write(f"\t\tAverage Compressed Header Size: {avg_header:.2f} bytes\n")
+            self.result_file.write(f"\t\tAverage Compression Efficiency: {avg_efficiency:.2f}%\n")
+            self.result_file.write(f"\t\tAverage Compression Ratio: {avg_ratio:.2f}%\n\n")
+        else:
+            print("No valid packets found to calculate averages.")
+            self.result_file.write("No valid packets found to calculate averages.\n\n")
         self.result_file.write(f"\tDone: {duration:.6f}s\n--------------------------------------------\n")
         self.result_file.write("")
         self.result_file.flush()
-        # Summary
-        if compressed_header_sizes:
-            print("\n=== Summary (Mean Values) ===")
-            print(f"Average Compressed Header Size: {statistics.mean(compressed_header_sizes):.2f} bytes")
-            print(f"Average Compression Efficiency: {statistics.mean(compression_efficiencies) * 100:.2f}%")
-            print(f"Average Compression Ratio: {statistics.mean(compression_ratios) * 100:.2f}%")
-        else:
-            print("No valid packets found to calculate averages.")
-
-
-
     # def run(self, role_batches):
     #     print(f"🔵 LowpanCompressionPhase: Running for {sum(len(v) for v in role_batches.values())} node pairs.")
     #     # 🧹 FLASH current.pcap
