@@ -16,7 +16,8 @@ CID (Context IDs) used
 
 Traffic Class, Flow Label compression active"""
 
-
+import pyshark
+import statistics
 class LowpanCompressionPhase:
     def __init__(self, ns, pcap_file="./lowpan.pcap"):
         self.ns = ns
@@ -27,60 +28,153 @@ class LowpanCompressionPhase:
         print("Step 19! Starting 6LoWPAN Compression Efficiency Phase...")
 
     def run(self, role_batches):
-        print(f"🔵 LowpanCompressionPhase: Running for {sum(len(v) for v in role_batches.values())} node pairs.")
-        # 🧹 FLASH current.pcap
-        try:
-            open("current.pcap", "wb").close()
-            print("🧹 Flashed current.pcap — now clean and empty.")
-        except Exception as e:
-            print(f"⚠️ Failed to flash current.pcap: {e}")
-        time.sleep(4)
-        for role_pair, node_pairs in role_batches.items():
-            if not node_pairs:
-                continue
-            src_role, dst_role = role_pair
-            print(f"\n🔵 Role {src_role.upper()} ➔ {dst_role.upper()} : {len(node_pairs)} pairs")
 
-            for src, dst in node_pairs:
-                send_time = time.time()
-                print(f"• Sending from Node {src} ({src_role}) ➔ Node {dst} ({dst_role}) at {send_time:.6f}s")
 
-                packet = self.find_packet_for_pair("current.pcap", src, dst)
 
-                if packet:
-                    print(f"🔎 Packet Length: {len(packet)} bytes")
-                    # (you could also inspect more fields here)
+        # Initialize lists for metrics
+        compressed_header_sizes = []
+        compression_efficiencies = []
+        compression_ratios = []
 
-        print("\n✅ Finished listing all node pairs and timestamps.\n")
+        cap = pyshark.FileCapture('./current.pcap', use_json=True, include_raw=True)
 
-    def find_packet_for_pair(self, pcap_file, src, dst):
-        packets = rdpcap(pcap_file)
+        for packet in cap:
+            if '6LOWPAN' in packet and 'IPV6' in packet and 'UDP' in packet:
 
-        for idx, pkt in enumerate(packets):
-            if not pkt.haslayer(Dot15d4Data):
-                continue  # Only check 802.15.4 packets
+                ipv6_header_size = 40
+                udp_header_size = 8
+                original_header_size = ipv6_header_size + udp_header_size
 
-            try:
-                payload = bytes(pkt.payload.payload)
+                try:
+                    udp_length = int(packet.udp.length)
+                    udp_payload_size = udp_length - udp_header_size
+                    total_frame_length = int(packet.length)
 
-                if len(payload) < 10:
+                    # Step 1: Get raw packet
+                    raw_bytes = bytes.fromhex(packet.get_raw_packet().hex())
+
+                    # Step 2: Estimate MAC header end
+                    mac_end_offset = 21  # Typical for non-secured 802.15.4
+
+                    # Step 3: Estimate UDP payload size (end of compressed header)
+                    compressed_header_size = total_frame_length - mac_end_offset - udp_payload_size
+                    compressed_header_size = max(compressed_header_size, 0)
+
+                except Exception as e:
+                    print(f"Error parsing raw bytes: {e}")
                     continue
 
-                payload_str = ''.join(chr(b) for b in payload if 32 <= b <= 126)
+                # Step 4: Efficiency calculation
+                if original_header_size > 0:
+                    compression_efficiency = (original_header_size - compressed_header_size) / original_header_size
+                    compression_ratio = compressed_header_size / original_header_size
+                else:
+                    compression_efficiency = 0
+                    compression_ratio = 0
 
-                if f"coap-{src}-to-{dst}" in payload_str:
-                    print(f"✅ Found matching packet {idx} for {src} ➔ {dst}")
-                    return pkt  # 🧠 Return the full packet
+                compressed_header_sizes.append(compressed_header_size)
+                compression_efficiencies.append(compression_efficiency)
+                compression_ratios.append(compression_ratio)
 
-            except Exception as e:
-                print(f"⚠️ Error parsing packet {idx}: {e}")
-                continue
+                # Print per-packet info
+                # print(f"Packet number: {packet.number}")
+                # print(f"Total frame length: {total_frame_length} bytes")
+                # print(f"UDP payload size: {udp_payload_size} bytes")
+                # print(f"Compressed header size: {compressed_header_size} bytes")
+                # print(f"Compression Efficiency: {compression_efficiency * 100:.2f}%")
+                # print(f"Compression Ratio: {compression_ratio * 100:.2f}%")
 
-        print(f"❌ No matching packet found for {src} ➔ {dst}")
-        return None
+                # 6LoWPAN header field insights
+                try:
+                    cid = packet['6LOWPAN'].context_identifier_extension
+                    # print(f"CID (Context Identifier Extension): {cid}")
+                except AttributeError: pass
+                    # print("CID: Not present")
+
+                try:
+                    src_mode = packet['6LOWPAN'].source_address_mode
+                    dst_mode = packet['6LOWPAN'].destination_address_mode
+                    # print(f"Source Address Compression Mode: {src_mode}")
+                    # print(f"Destination Address Compression Mode: {dst_mode}")
+                except AttributeError: pass
+                    # print("Address compression modes: Not available")
+
+                try:
+                    port_mode = packet['6LOWPAN'].udp_ports
+                    # print(f"UDP Port Compression Mode: {port_mode}")
+                except AttributeError: pass
+                    # print("UDP Port Compression: Not available")
+
+                # print('---')
+
+        cap.close()
+
+        # Summary
+        if compressed_header_sizes:
+            print("\n=== Summary (Mean Values) ===")
+            print(f"Average Compressed Header Size: {statistics.mean(compressed_header_sizes):.2f} bytes")
+            print(f"Average Compression Efficiency: {statistics.mean(compression_efficiencies) * 100:.2f}%")
+            print(f"Average Compression Ratio: {statistics.mean(compression_ratios) * 100:.2f}%")
+        else:
+            print("No valid packets found to calculate averages.")
 
 
 
+    # def run(self, role_batches):
+    #     print(f"🔵 LowpanCompressionPhase: Running for {sum(len(v) for v in role_batches.values())} node pairs.")
+    #     # 🧹 FLASH current.pcap
+    #     try:
+    #         open("current.pcap", "wb").close()
+    #         print("🧹 Flashed current.pcap — now clean and empty.")
+    #     except Exception as e:
+    #         print(f"⚠️ Failed to flash current.pcap: {e}")
+    #     time.sleep(4)
+    #     for role_pair, node_pairs in role_batches.items():
+    #         if not node_pairs:
+    #             continue
+    #         src_role, dst_role = role_pair
+    #         print(f"\n🔵 Role {src_role.upper()} ➔ {dst_role.upper()} : {len(node_pairs)} pairs")
+    #
+    #         for src, dst in node_pairs:
+    #             send_time = time.time()
+    #             print(f"• Sending from Node {src} ({src_role}) ➔ Node {dst} ({dst_role}) at {send_time:.6f}s")
+    #
+    #             packet = self.find_packet_for_pair("current.pcap", src, dst)
+    #
+    #             if packet:
+    #                 print(f"🔎 Packet Length: {len(packet)} bytes")
+    #                 # (you could also inspect more fields here)
+    #
+    #     print("\n✅ Finished listing all node pairs and timestamps.\n")
+    #
+    # def find_packet_for_pair(self, pcap_file, src, dst):
+    #     packets = rdpcap(pcap_file)
+    #
+    #     for idx, pkt in enumerate(packets):
+    #         if not pkt.haslayer(Dot15d4Data):
+    #             continue  # Only check 802.15.4 packets
+    #
+    #         try:
+    #             payload = bytes(pkt.payload.payload)
+    #
+    #             if len(payload) < 10:
+    #                 continue
+    #
+    #             payload_str = ''.join(chr(b) for b in payload if 32 <= b <= 126)
+    #
+    #             if f"coap-{src}-to-{dst}" in payload_str:
+    #                 print(f"✅ Found matching packet {idx} for {src} ➔ {dst}")
+    #                 return pkt  # 🧠 Return the full packet
+    #
+    #         except Exception as e:
+    #             print(f"⚠️ Error parsing packet {idx}: {e}")
+    #             continue
+    #
+    #     print(f"❌ No matching packet found for {src} ➔ {dst}")
+    #     return None
+    #
+    #
+    #
 
 
     #     print("\n🚞 Step 19: Analyzing 6LoWPAN Header Compression from PCAP...\n")

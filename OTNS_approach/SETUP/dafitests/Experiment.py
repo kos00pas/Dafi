@@ -28,6 +28,8 @@ class Experiment:
         self.initial_devices = initial_devices
         self.spacing = spacing
         self.log_file = log_file
+        self.result_file = open(os.path.join(str(self.initial_devices), str(self.run_index), "result.txt"), "w")
+
         # -----------------------------------
         self.Setup()
         self.Baseline()
@@ -73,7 +75,7 @@ class Experiment:
         self.ns.go(0.1)
 
         # 🥇 1 Step 1-7: Leader Election and Initial Stability Checks
-        phase_leader = LeaderElectionPhase(self.ns)  # from _1leader_election_phase.py
+        phase_leader = LeaderElectionPhase(self.ns,self.result_file)  # from _1leader_election_phase.py
         success = phase_leader.run()
         if not success:
             raise RuntimeError("$ Leader Election Phase failed.")
@@ -84,20 +86,20 @@ class Experiment:
         if not success:
             raise RuntimeError("$ Topology Convergence Phase failed.")
 
-        # # 🌳 2 Step 12-13: RPL Route Stability and DIO/DAO Decay
-        # phase_rpl = RPLStabilityPhase(self.ns)  # from _2_rpl_stability_phase.py
-        # success = phase_rpl.run()
-        # if not success:
-        #     raise RuntimeError("$ RPL Stability Phase failed.")
+        # 🌳 2 Step 12-13: RPL Route Stability and DIO/DAO Decay
+        phase_rpl = RPLStabilityPhase(self.ns)  # from _2_rpl_stability_phase.py
+        success = phase_rpl.run()
+        if not success:
+            raise RuntimeError("$ RPL Stability Phase failed.")
 
         phase_packet_delivery = PDR_ipv6(self.ns)
         success, coap_results, role_batches = phase_packet_delivery.run()
         if not success:
             raise RuntimeError("$ Packet Delivery Phase failed.")
 
-        # phase_lowpan = LowpanCompressionPhase(self.ns)
-        # print(role_batches)
-        # phase_lowpan.run( role_batches)
+        phase_lowpan = LowpanCompressionPhase(self.ns)
+        print(role_batches)
+        phase_lowpan.run( role_batches)
 
         # # 📡5  Step 14-16: Multicast Propagation Delay (MPD) Measurement
         # phase_mcast = MulticastDelayPhase(self.ns)  # from _5multicast_delay_phase.py
@@ -114,6 +116,7 @@ class Experiment:
         # self.ns.go()
         self.ns.close()
         print("\n\n\n!===End:",self.initial_devices,":",self.run_index)
+        self.result_file.close()
 
     # def inject_keepalive_traffic(self, interval=5, duration=60):
     #     """

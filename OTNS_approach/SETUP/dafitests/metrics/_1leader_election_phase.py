@@ -1,8 +1,9 @@
 # metrics/_1leader_election_phase.py
 
 class LeaderElectionPhase:
-    def __init__(self, ns):
+    def __init__(self, ns , result_file):
         self.ns = ns
+        self.result_file=result_file
         self.steps = [
             ("Step 1: Attach Status", self._1_wait_for_non_detached_nodes),
             ("Step 2: Single Leader", self._2_single_leader_verification),
@@ -35,16 +36,38 @@ class LeaderElectionPhase:
         return states, detached
 
     def _1_wait_for_non_detached_nodes(self, max_wait=1200, interval=1):
+        # Write Step Title (only once at the start)
+        self.result_file.write("\n========= [ 1. Leader Election Phase ] =========\n")
+        self.result_file.write("Step 1: Attach Status Check\n")
+        self.result_file.flush()
+
         waited = 0
+        final_state_line = ""  # Temporary capture of the final state
+
         while waited <= max_wait:
             self.ns.go(interval)
             states, detached_nodes = self._get_node_states()
-            print(f"@ {waited:>2}s | " + " ".join(f"{nid}:{state}" for nid, state in states.items()))
+
+            line = f"@ {waited:>2}s | " + " ".join(f"{nid}:{state}" for nid, state in states.items())
+            print(line)  # Your original print stays here
+
             if not detached_nodes:
+                final_state_line = line
                 print("! Step 1")
+                # ADDITION: After printing success, write into result.txt
+                self.result_file.write("\t" + final_state_line + "\n")
+                self.result_file.write("--------------------------------------------\n")
+                self.result_file.flush()
                 return
+
             waited += interval
-        raise AssertionError(f"^Step 1 FAILED: Detached nodes after {max_wait}s → {detached_nodes}")
+
+        # If failure (after max_wait), write a failure line
+        fail_msg = f"Result: FAIL — Detached nodes after {max_wait}s: {detached_nodes}\n"
+        self.result_file.write(fail_msg)
+        self.result_file.write("--------------------------------------------\n")
+        self.result_file.flush()
+        raise AssertionError(fail_msg)
 
     def _2_single_leader_verification(self, max_wait=1200, interval=1):
         waited = 0
