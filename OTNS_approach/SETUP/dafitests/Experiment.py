@@ -93,10 +93,10 @@ class Experiment:
             raise RuntimeError("$ RPL Stability Phase failed.")
 
         # 📡5  Step 14-16: Multicast Propagation Delay (MPD) Measurement
-        phase_mcast = MulticastDelayPhase(self.ns,self.result_file)  # from _5multicast_delay_phase.py
-        success = phase_mcast.run()
-        if not success:
-            raise RuntimeError("$ Multicast Delay Phase failed.")
+        # phase_mcast = MulticastDelayPhase(self.ns,self.result_file)  # from _5multicast_delay_phase.py
+        # success = phase_mcast.run()
+        # if not success:
+        #     raise RuntimeError("$ Multicast Delay Phase failed.")
 
 
         phase_packet_delivery = PDR_ipv6(self.ns,self.result_file)

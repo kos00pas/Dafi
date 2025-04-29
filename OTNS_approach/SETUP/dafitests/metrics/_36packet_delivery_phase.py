@@ -74,7 +74,7 @@ class PDR_ipv6:
 
         for (src, dst), delivered in results.items():
             status = "✅ Delivered" if delivered else "❌ Failed"
-            print(f"• {src} ➔ {dst}: {status}")
+            print(f" {src} ➔ {dst}: {status}")
 
             queue = [(src, 0)]  # (node_id, hops)
             dst_rloc16 = self.ns.node_cmd(dst, "rloc16")[0].strip()
@@ -158,118 +158,39 @@ class PDR_ipv6:
             role_results[(src, dst)] = (src_role, dst_role)
 
         print("\n📋 Hop Counts for Each Pair:")
+        from collections import defaultdict, Counter
+
+        # Group hop counts by role-pair
+        role_hop_stats = defaultdict(list)
         for (src, dst), hops in hop_results.items():
             src_role, dst_role = role_results.get((src, dst), ("unknown", "unknown"))
-            if hops is not None:
-                print(f"• {src} ({src_role}) ➔ {dst} ({dst_role}): Reached in {hops} hop(s)")
-            else:
-                print(f"• {src} ({src_role}) ➔ {dst} ({dst_role}): Not reachable within {MAX_HOPS} hops")
-
-        print("\n✅ Finished listing analyzed node pairs with multi-hop forwarding analysis if needed.\n")
-        end_time = datetime.now()
-        duration = (end_time - start_time).total_seconds()
-        self.result_file.write(f"\tDone: {duration:.6f}s\n")
-        self.result_file.write("")
-        self.result_file.flush()
-
-    # def _analyze_ipv6_forwarding_efficiency(self, results):
-    #     print("\n🛰️ Analyzing IPv6 Forwarding Efficiency — Node Pairs:\n")
-    #     MAX_HOPS = 15
-    #     hop_results = {}
-    #
-    #     for (src, dst), delivered in results.items():
-    #         status = "✅ Delivered" if delivered else "❌ Failed"
-    #         print(f"• {src} ➔ {dst}: {status}")
-    #
-    #         queue = [(src, 0)]  # (node_id, hops)
-    #         dst_rloc16 = self.ns.node_cmd(dst, "rloc16")[0].strip()
-    #         dst_router_rloc16 = f"{int(dst_rloc16, 16) & 0xFC00:04x}"
-    #         success = False
-    #         final_hops = -1
-    #
-    #         while queue:
-    #             current_src, hops = queue.pop(0)
-    #             if hops >= MAX_HOPS:
-    #                 continue
-    #
-    #             try:
-    #                 routing_table = self.ns.node_cmd(current_src, "router table")
-    #                 print(f"  📜 Routing Table for Node {current_src}:")
-    #                 for entry in routing_table:
-    #                     print(f"    {entry}")
-    #
-    #                 print(
-    #                     f"  🎯 Searching for destination RLOC16 {dst_rloc16} in routing table of Node {current_src}...")
-    #
-    #                 found = False
-    #                 for entry in routing_table:
-    #                     if dst_rloc16.lower() in entry.lower():
-    #                         found = True
-    #                         print(f"    ✅ Found destination RLOC16 {dst_rloc16} in routing table entry!")
-    #                         success = True
-    #                         final_hops = hops
-    #                         break
-    #
-    #                 if found:
-    #                     break
-    #
-    #                 for entry in routing_table:
-    #                     if dst_router_rloc16 in entry.lower():
-    #                         print(f"    ✅ Found parent router RLOC16 {dst_router_rloc16} in routing table entry!")
-    #                         success = True
-    #                         final_hops = hops
-    #                         break
-    #
-    #                 if success:
-    #                     break
-    #
-    #                 neighbor_table = self.ns.node_cmd(current_src, "neighbor table")
-    #                 print(f"  👥 Neighbor Table for Source Node {current_src}:")
-    #                 for neighbor_entry in neighbor_table:
-    #                     print(f"    {neighbor_entry}")
-    #                     parts = neighbor_entry.split()
-    #                     if len(parts) > 1:
-    #                         neighbor_rloc16 = parts[1].lower()
-    #                         next_hop_node_id = None
-    #                         for node_id, node in self.ns.nodes().items():
-    #                             try:
-    #                                 node_rloc16 = self.ns.node_cmd(node_id, "rloc16")[0].strip().lower()
-    #                                 if node_rloc16 == neighbor_rloc16:
-    #                                     next_hop_node_id = node_id
-    #                                     break
-    #                             except:
-    #                                 continue
-    #
-    #                         if next_hop_node_id is not None:
-    #                             queue.append((next_hop_node_id, hops + 1))
-    #
-    #             except Exception as e:
-    #                 print(f"⚠️ Failed to retrieve information for Node {current_src}: {e}")
-    #                 continue
-    #
-    #         if success:
-    #             hop_results[(src, dst)] = final_hops
-    #         else:
-    #             hop_results[(src, dst)] = None
-    #             print(f"    ❌ Failed to find destination RLOC16 {dst_rloc16} within {MAX_HOPS} hops.")
-    #
-    #     print("\n📋 Hop Counts for Each Pair:")
-    #     for (src, dst), hops in hop_results.items():
-    #         try:
-    #             src_role = self.ns.node_cmd(src, "state")[0].strip()
-    #             dst_role = self.ns.node_cmd(dst, "state")[0].strip()
-    #         except Exception:
-    #             src_role = "unknown"
-    #             dst_role = "unknown"
-    #
-    #         if hops is not None:
-    #             print(f"• {src} ({src_role}) ➔ {dst} ({dst_role}): Reached in {hops} hop(s)")
-    #         else:
-    #             print(f"• {src} ({src_role}) ➔ {dst} ({dst_role}): Not reachable within {MAX_HOPS} hops")
-    #
-    #     print("\n✅ Finished listing analyzed node pairs with multi-hop forwarding analysis if needed.\n")
+            role_pair = (src_role, dst_role)
+            role_hop_stats[role_pair].append(hops)
 
 
+        # Output for each role pair
+        for role_pair, hop_list in role_hop_stats.items():
+            total = len(hop_list)
+            valid_hops = [h for h in hop_list if h is not None]
+            unreachable = total - len(valid_hops)
+            hop_counter = Counter(valid_hops)
+
+            print(f"{role_pair[0]} ➔ {role_pair[1]}:")
+            self.result_file.write(f"\t{role_pair[0]} ➔ {role_pair[1]}:\n")
+
+            print(f"\t\t{total} pair(s) total")
+            self.result_file.write(f"\t\t{total} pair(s) total\n")
+
+            for hop, count in sorted(hop_counter.items()):
+                print(f"\t\t{count} with {hop} hop(s)")
+                self.result_file.write(f"\t\t{count} with {hop} hop(s)\n")
+
+            if unreachable:
+                print(f"\t\t{unreachable} unreachable")
+                self.result_file.write(f"\t\t{unreachable} unreachable\n")
+
+            print()
+            self.result_file.write("\n")
 
     def _setup_coap_servers(self):
         print("\n⚙️ Setting up CoAP servers on all nodes...")
@@ -277,24 +198,11 @@ class PDR_ipv6:
             try:
                 self.ns.node_cmd(nid, "coap start")
                 self.ns.node_cmd(nid, "coap resource logs")
-                print(f"• Node {nid}: CoAP server ready")
+                print(f" Node {nid}: CoAP server ready")
             except Exception as e:
                 print(f"⚠️ Node {nid}: Failed to start CoAP: {e}")
         self.ns.go(5)
 
-    # def _select_node_pairs(self):
-    #     import random
-    #
-    #     nodes = list(self.ns.nodes().keys())
-    #     if len(nodes) < 2:
-    #         return []
-    #
-    #     all_possible_pairs = [(src, dst) for src in nodes for dst in nodes if src != dst]
-    #
-    #     MAX_PAIRS = 100
-    #     selected_pairs = random.sample(all_possible_pairs, min(MAX_PAIRS, len(all_possible_pairs)))
-    #
-    #     return selected_pairs
 
     def _select_node_pairs(self):
         nodes = list(self.ns.nodes().keys())
@@ -364,13 +272,19 @@ class PDR_ipv6:
         forwarding_success_rate = (delivered / sent) * 100
 
         print("\n📊 Packet Delivery Statistics:")
-        print(f"• Packets Sent: {sent}")
-        print(f"• Packets Delivered: {delivered}")
-        print(f"• Packets Lost: {lost}")
-        print(f"• Packet Delivery Ratio (PDR): {pdr:.2f}%")
-        print(f"• Packet Loss Rate (PLR): {plr:.2f}%")
+        print(f" Packets Sent: {sent}")
+        print(f" Packets Delivered: {delivered}")
+        print(f" Packets Lost: {lost}")
+        print(f" Packet Delivery Ratio (PDR): {pdr:.2f}%")
+        print(f" Packet Loss Rate (PLR): {plr:.2f}%")
         print(f"🚀 Forwarding Success Rate: {forwarding_success_rate:.2f}%")
-
+        self.result_file.write("\n\t Packet Delivery Statistics:\n")
+        self.result_file.write(f"\t Packets Sent: {sent}\n")
+        self.result_file.write(f"\t Packets Delivered: {delivered}\n")
+        self.result_file.write(f"\t Packets Lost: {lost}\n")
+        self.result_file.write(f"\t Packet Delivery Ratio (PDR): {pdr:.2f}%\n")
+        self.result_file.write(f"\t Packet Loss Rate (PLR): {plr:.2f}%\n")
+        self.result_file.write(f"\t Forwarding Success Rate: {forwarding_success_rate:.2f}%\n\n")
         if pdr < 95:
             print(f"⚠️ WARNING: PDR too low: {pdr:.2f}% (threshold 95%)")
             return False
