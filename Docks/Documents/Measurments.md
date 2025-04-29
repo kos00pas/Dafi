@@ -63,7 +63,13 @@
 	📍 Step 16: Compute MPD( need 15)
               § Calculate the propagation delay per node (receive_time - send_time) and report the maximum value as the Multicast Propagation Delay (MPD), representing the time required for the message to reach all nodes.
 ```
-
+L -> R
+L -> C
+R -> R
+R -> C
+R -> L
+C -> R
+C -> L
 
 # 3&6- Packet Delivery & Communication & IPv6 Packet Forwarding Efficiency  
 ```text  
