@@ -26,6 +26,7 @@ class LowpanCompressionPhase:
 
     def run(self, coap_pairs):
         print("\n🚞 Step 19: Analyzing 6LoWPAN Header Compression from PCAP...\n")
+        self.role_pair_compression = {}  # <-- ADD HERE
 
         # Step 1: Start CoAP communication between pairs
         self._start_coap_communication(coap_pairs)
@@ -66,12 +67,22 @@ class LowpanCompressionPhase:
             except Exception as e:
                 print(f"⚠️ Could not read lowpan_udp_coap_packets.txt: {e}")
 
-
-
     def _start_coap_communication(self, coap_pairs):
         print("\n⚡ Starting strong CoAP communication between node pairs...\n")
 
-        # Start CoAP servers on all nodes
+        # --- Step 1: Map Node ID ➔ Role
+        self.node_roles = {}
+        for node_id in self.ns.nodes().keys():
+            try:
+                role = self.ns.node_cmd(node_id, "state")[0].strip()
+                self.node_roles[node_id] = role
+                print(f"• Node {node_id}: Role = {role}")
+            except Exception as e:
+                print(f"⚠️ Failed to get role for Node {node_id}: {e}")
+
+        self.coap_role_pairs = []
+
+        # --- Step 2: Start CoAP servers
         for nid in self.ns.nodes().keys():
             try:
                 self.ns.node_cmd(nid, "coap start")
@@ -82,6 +93,7 @@ class LowpanCompressionPhase:
 
         self.ns.go(5)  # let servers stabilize
 
+        # --- Step 3: Send CoAP messages and build role pairs
         for src, dst in coap_pairs:
             if src == dst:
                 continue
@@ -90,53 +102,23 @@ class LowpanCompressionPhase:
                 dst_mleid = self.ns.node_cmd(dst, "ipaddr mleid")[0]
                 payload = f"coap-{src}-to-{dst}"
 
-                # Safe CoAP PUT
                 cmd = f'coap put {dst_mleid} test-resource con {payload}'
                 res = self.ns.node_cmd(src, cmd)
                 print(f"✅ CoAP put from Node {src} ➔ Node {dst}")
 
+                src_role = self.node_roles.get(src, "unknown")
+                dst_role = self.node_roles.get(dst, "unknown")
+                self.coap_role_pairs.append((src, dst, src_role, dst_role))
+
             except Exception as e:
                 print(f"⚠️ CoAP send error {src} ➔ {dst}: {e}")
-
             self.ns.go(0.5)  # short simulation pause
 
-        # Final wait after sending
+        # --- Final wait after sending
         total_pairs = len(coap_pairs)
         wait_time = max(10, total_pairs * 0.2)
         print(f"\n⏳ Waiting {wait_time:.1f} simulated seconds to flush CoAP traffic...")
         self.ns.go(wait_time)
-
-    def _dump_all_packets_to_txt(self):
-        print("\n🔍 Dumping all packets from lowpan.pcap to lowpan_packets.txt...\n")
-
-        capture = pyshark.FileCapture(self.pcap_file)
-
-        try:
-            with open("lowpan_packets.txt", "w") as f:
-                for idx, packet in enumerate(capture):
-                    f.write(f"--- Packet {idx + 1} ---\n")
-                    f.write(str(packet))
-                    f.write("\n\n")
-            print("✅ All packets dumped to lowpan_packets.txt successfully!")
-        except Exception as e:
-            print(f"⚠️ Failed to dump packets: {e}")
-        finally:
-            capture.close()
-
-    def _print_first_packet(self):
-
-
-        print("\n🔍 Opening PCAP and printing first packet (no filter)...\n")
-        capture = pyshark.FileCapture(self.pcap_file)  # NO display_filter here!
-
-        try:
-            packet = next(iter(capture))
-            print("📦 Full Packet Content:")
-            print(packet)
-        except StopIteration:
-            print("❌ No packets found in PCAP.")
-        finally:
-            capture.close()
 
     def _analyze_pcap_with_scapy(self):
         print("\n🔍 Advanced Analysis: Parsing 802.15.4 + 6LoWPAN IPHC using Scapy...\n")
@@ -188,6 +170,32 @@ class LowpanCompressionPhase:
                 f.write(result_line + "\n")
                 f.write(f"Payload Hex: {payload_hex}\n\n")
 
+                # ===== NEW: try to parse CoAP payload to map src ➔ dst roles =====
+                try:
+                    udp_start = 2  # after minimal IPHC header
+                    if len(payload) >= udp_start + 8:
+                        coap_payload = payload[udp_start + 8:]  # after UDP header
+                        payload_str = ''.join(chr(b) for b in coap_payload if 32 <= b <= 126)
+
+                        if payload_str.startswith("coap-"):
+                            parts = payload_str.split("-")
+                            src_id = int(parts[1])
+                            dst_id = int(parts[3])
+
+                            src_role = self.node_roles.get(src_id, "unknown")
+                            dst_role = self.node_roles.get(dst_id, "unknown")
+                            role_pair = (src_role, dst_role)
+
+                            if role_pair not in self.role_pair_compression:
+                                self.role_pair_compression[role_pair] = []
+
+                            self.role_pair_compression[role_pair].append(compression_ratio)
+
+                except Exception as e:
+                    print("skip packet if parsing CoAP payload fails")
+                    pass
+                # ================================================================
+
         if packet_counter == 0:
             print("❌ No 6LoWPAN IPHC packets detected!")
         else:
@@ -200,6 +208,16 @@ class LowpanCompressionPhase:
             print(f"✅ Destination Address Elided: {stats['dest_address_elided']} packets")
             print(f"✅ UDP Header Compressed: {stats['udp_header_compressed']} packets")
             print("===== End of 6LoWPAN Summary =====\n")
+
+            # ===== NEW: print per-role-pair compression stats =====
+            if self.role_pair_compression:
+                print("\n===== Compression by Role-Pair =====\n")
+                for role_pair, ratios in self.role_pair_compression.items():
+                    avg_role_ratio = sum(ratios) / len(ratios)
+                    print(f"{role_pair[0]} ➔ {role_pair[1]}: "
+                          f"{len(ratios)} packets, "
+                          f"Avg Compression Ratio = {avg_role_ratio:.2f}")
+                print("\n===== End of Role-Pair Summary =====\n")
 
     def _analyze_lowpan_udp(self):
         print("\n🔍 Deep Analysis: Extracting UDP/CoAP packets from lowpan.pcap...\n")
@@ -304,3 +322,35 @@ class LowpanCompressionPhase:
             stats['dest_address_elided'] += 1
         if iphc_info['nh'] == 1:
             stats['udp_header_compressed'] += 1
+
+    # def _dump_all_packets_to_txt(self):
+    #     print("\n🔍 Dumping all packets from lowpan.pcap to lowpan_packets.txt...\n")
+    #
+    #     capture = pyshark.FileCapture(self.pcap_file)
+    #
+    #     try:
+    #         with open("lowpan_packets.txt", "w") as f:
+    #             for idx, packet in enumerate(capture):
+    #                 f.write(f"--- Packet {idx + 1} ---\n")
+    #                 f.write(str(packet))
+    #                 f.write("\n\n")
+    #         print("✅ All packets dumped to lowpan_packets.txt successfully!")
+    #     except Exception as e:
+    #         print(f"⚠️ Failed to dump packets: {e}")
+    #     finally:
+    #         capture.close()
+
+    # def _print_first_packet(self):
+    #
+    #
+    #     print("\n🔍 Opening PCAP and printing first packet (no filter)...\n")
+    #     capture = pyshark.FileCapture(self.pcap_file)  # NO display_filter here!
+    #
+    #     try:
+    #         packet = next(iter(capture))
+    #         print("📦 Full Packet Content:")
+    #         print(packet)
+    #     except StopIteration:
+    #         print("❌ No packets found in PCAP.")
+    #     finally:
+    #         capture.close()
