@@ -17,3 +17,4 @@ Repeat:
        -  Remove node(s) / RoleChange
             → WaitForConvergence() & MC
             → MR
+
