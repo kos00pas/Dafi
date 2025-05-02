@@ -190,3 +190,6 @@ This advanced setup will allow for a richer and more realistic analysis of inter
 
 Finally, a long-term goal of this research is to evaluate the suitability of OpenThread in industrial IoT (IIoT) and critical infrastructure (CNI/CPS/OT) environments. By validating OpenThread’s performance and flexibility in emulated control system topologies, this work aims to inform future deployment strategies for secure, scalable, and standards-compliant wireless industrial networks.
 
+# References 
+[1] OpenThread Documentation - https://openthread.io  
+[2] OTNS Simulator - https://github.com/openthread/ot-ns
